@@ -1,0 +1,545 @@
+Command: /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.elf /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.elf -m '/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python' '/home/student/esp-idf/tools/idf.py'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.1-dev-2938-g12f36a021f 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Mar 27 2026 12:48:01[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v3.1[0m
+[0;32mI (33) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=09290h ( 37520) map[0m
+[0;32mI (101) esp_image: segment 1: paddr=000192b8 vaddr=3ffb0000 size=02c0ch ( 11276) load[0m
+[0;32mI (106) esp_image: segment 2: paddr=0001becc vaddr=40080000 size=0414ch ( 16716) load[0m
+[0;32mI (113) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1095ch ( 67932) map[0m
+[0;32mI (137) esp_image: segment 4: paddr=00030984 vaddr=4008414c size=06bfch ( 27644) load[0m
+[0;32mI (149) esp_image: segment 5: paddr=00037588 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (155) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (155) boot: Disabling RNG early entropy source...[0m
+[0;32mI (167) cpu_start: Multicore app[0m
+[0;32mI (175) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (175) cpu_start: Pro cpu start user code[0m
+[0;32mI (176) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (177) app_init: Application information:[0m
+[0;32mI (181) app_init: Project name:     DisplayAudi[0m
+[0;32mI (185) app_init: App version:      1[0m
+[0;32mI (189) app_init: Compile time:     Mar 27 2026 12:48:30[0m
+[0;32mI (194) app_init: ELF file SHA256:  25831df59...[0m
+[0;32mI (198) app_init: ESP-IDF:          v6.1-dev-2938-g12f36a021f[0m
+[0;32mI (204) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (207) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (211) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (216) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (222) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (227) heap_init: At 3FFB36C0 len 0002C940 (178 KiB): DRAM[0m
+[0;32mI (232) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (237) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (243) heap_init: At 4008AD48 len 000152B8 (84 KiB): IRAM[0m
+[0;33mW (249) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (261) spi_flash: detected chip: generic[0m
+[0;32mI (265) spi_flash: flash io: dio[0m
+[0;33mW (268) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (281) main_task: Started on CPU0[0m
+[0;32mI (291) main_task: Calling app_main()[0m
+[0;32mI (431) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[0;32mI (431) KWP: TpStart je prosao[0m
+[0;33mW (441) Physical: Primljeno na can-u[0m
+[0;32mI (441) Physical: Primljeno nesto od ECU [0m
+[0;32mI (441) TP2.0: DOBAR je ID od ECU[0m
+[1;31mE (461) DEBUG: USpesno izvrsena inicijalizacija KWP protokola[0m
+[0;33mW (481) Physical: Primljeno na can-u[0m
+[0;32mI (481) CAN: Nepoznat ID[0m
+[0;33mW (491) TP2.0: Uspesno primljena prva povratna od ECU-setujem chptr-idle[0m
+[0;33mW (491) TP2.0: Odradjen connect[0m
+[0;33mW (511) Physical: Primljeno na can-u[0m
+[0;32mI (511) CAN: Nepoznat ID[0m
+[0;33mW (541) Physical: Primljeno na can-u[0m
+[0;32mI (541) CAN: Nepoznat ID[0m
+[0;33mW (571) Physical: Primljeno na can-u[0m
+[0;32mI (571) CAN: Nepoznat ID[0m
+[0;33mW (601) Physical: Primljeno na can-u[0m
+[0;32mI (601) CAN: Nepoznat ID[0m
+[0;33mW (631) Physical: Primljeno na can-u[0m
+[0;32mI (631) CAN: Nepoznat ID[0m
+[0;33mW (661) Physical: Primljeno na can-u[0m
+[0;32mI (661) CAN: Nepoznat ID[0m
+[1;31mE (691) DEBUG: USpesno izvrsena inicijalizacija DATA funkcije[0m
+[0;33mW (691) Physical: Primljeno na can-u[0m
+[0;32mI (691) CAN: Nepoznat ID[0m
+[0;33mW (721) Physical: Primljeno na can-u[0m
+[0;32mI (721) CAN: Nepoznat ID[0m
+[0;33mW (751) Physical: Primljeno na can-u[0m
+[0;32mI (751) CAN: Nepoznat ID[0m
+[0;33mW (781) Physical: Primljeno na can-u[0m
+[0;32mI (781) CAN: Nepoznat ID[0m
+[0;32mI (811) main_task: Returned from app_main()[0m
+[0;33mW (811) Physical: Primljeno na can-u[0m
+[0;32mI (811) CAN: Nepoznat ID[0m
+[0;33mW (841) Physical: Primljeno na can-u[0m
+[0;32mI (841) CAN: Nepoznat ID[0m
+[0;33mW (871) Physical: Primljeno na can-u[0m
+[0;32mI (871) CAN: Nepoznat ID[0m
+[0;33mW (891) Physical: Primljeno na can-u[0m
+[0;32mI (891) CAN: Nepoznat ID[0m
+[0;33mW (901) Physical: Primljeno na can-u[0m
+[0;32mI (901) CAN: Nepoznat ID[0m
+[0;33mW (931) Physical: Primljeno na can-u[0m
+[0;32mI (931) CAN: Nepoznat ID[0m
+[0;33mW (961) Physical: Primljeno na can-u[0m
+[0;32mI (961) CAN: Nepoznat ID[0m
+[0;33mW (991) Physical: Primljeno na can-u[0m
+[0;32mI (991) CAN: Nepoznat ID[0m
+[0;33mW (1021) Physical: Primljeno na can-u[0m
+[0;32mI (1021) CAN: Nepoznat ID[0m
+[0;33mW (1051) Physical: Primljeno na can-u[0m
+[0;32mI (1051) CAN: Nepoznat ID[0m
+[0;33mW (1081) Physical: Primljeno na can-u[0m
+[0;32mI (1081) CAN: Nepoznat ID[0m
+[0;33mW (1111) Physical: Primljeno na can-u[0m
+[0;32mI (1111) CAN: Nepoznat ID[0m
+[0;33mW (1141) Physical: Primljeno na can-u[0m
+[0;32mI (1141) CAN: Nepoznat ID[0m
+[0;33mW (1171) Physical: Primljeno na can-u[0m
+[0;32mI (1171) CAN: Nepoznat ID[0m
+[0;33mW (1201) Physical: Primljeno na can-u[0m
+[0;32mI (1201) CAN: Nepoznat ID[0m
+[0;33mW (1231) Physical: Primljeno na can-u[0m
+[0;32mI (1231) CAN: Nepoznat ID[0m
+[0;33mW (1261) Physical: Primljeno na can-u[0m
+[0;32mI (1261) CAN: Nepoznat ID[0m
+[0;33mW (1291) Physical: Primljeno na can-u[0m
+[0;32mI (1291) CAN: Nepoznat ID[0m
+[0;33mW (1321) Physical: Primljeno na can-u[0m
+[0;32mI (1321) CAN: Nepoznat ID[0m
+[0;33mW (1351) Physical: Primljeno na can-u[0m
+[0;32mI (1351) CAN: Nepoznat ID[0m
+[0;33mW (1381) Physical: Primljeno na can-u[0m
+[0;32mI (1381) CAN: Nepoznat ID[0m
+[0;33mW (1411) Physical: Primljeno na can-u[0m
+[0;32mI (1411) CAN: Nepoznat ID[0m
+[0;33mW (1441) Physical: Primljeno na can-u[0m
+[0;32mI (1441) CAN: Nepoznat ID[0m
+[0;33mW (1471) Physical: Primljeno na can-u[0m
+[0;32mI (1471) CAN: Nepoznat ID[0m
+[0;33mW (1501) Physical: Primljeno na can-u[0m
+[0;32mI (1501) CAN: Nepoznat ID[0m
+[0;33mW (1531) Physical: Primljeno na can-u[0m
+[0;32mI (1531) CAN: Nepoznat ID[0m
+[0;32mI (1561) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (1561) KWP: NE USPEM da posaljem session[0m
+[0;33mW (1561) Physical: Primljeno na can-u[0m
+[0;32mI (1561) CAN: Nepoznat ID[0m
+[0;33mW (1591) Physical: Primljeno na can-u[0m
+[0;32mI (1591) CAN: Nepoznat ID[0m
+[0;33mW (1621) Physical: Primljeno na can-u[0m
+[0;32mI (1621) CAN: Nepoznat ID[0m
+[0;32mI (1641) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (1641) KWP: NE USPEM da posaljem session[0m
+[0;33mW (1651) Physical: Primljeno na can-u[0m
+[0;32mI (1651) CAN: Nepoznat ID[0m
+[0;33mW (1681) Physical: Primljeno na can-u[0m
+[0;32mI (1681) CAN: Nepoznat ID[0m
+[0;33mW (1711) Physical: Primljeno na can-u[0m
+[0;32mI (1711) CAN: Nepoznat ID[0m
+[0;32mI (1721) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (1721) KWP: NE USPEM da posaljem session[0m
+[0;33mW (1741) Physical: Primljeno na can-u[0m
+[0;32mI (1741) CAN: Nepoznat ID[0m
+[0;33mW (1771) Physical: Primljeno na can-u[0m
+[0;32mI (1771) CAN: Nepoznat ID[0m
+[0;32mI (1801) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (1801) KWP: NE USPEM da posaljem session[0m
+[0;33mW (1801) Physical: Primljeno na can-u[0m
+[0;32mI (1801) CAN: Nepoznat ID[0m
+[0;33mW (1831) Physical: Primljeno na can-u[0m
+[0;32mI (1831) CAN: Nepoznat ID[0m
+[0;33mW (1861) Physical: Primljeno na can-u[0m
+[0;32mI (1861) CAN: Nepoznat ID[0m
+[0;32mI (1881) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (1881) KWP: NE USPEM da posaljem session[0m
+[0;33mW (1891) Physical: Primljeno na can-u[0m
+[0;32mI (1891) CAN: Nepoznat ID[0m
+[0;33mW (1901) Physical: Primljeno na can-u[0m
+[0;32mI (1901) CAN: Nepoznat ID[0m
+[0;33mW (1921) Physical: Primljeno na can-u[0m
+[0;32mI (1921) CAN: Nepoznat ID[0m
+[0;33mW (1951) Physical: Primljeno na can-u[0m
+[0;32mI (1951) CAN: Nepoznat ID[0m
+[0;32mI (1961) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (1961) KWP: NE USPEM da posaljem session[0m
+[0;33mW (1981) Physical: Primljeno na can-u[0m
+[0;32mI (1981) CAN: Nepoznat ID[0m
+[0;33mW (2011) Physical: Primljeno na can-u[0m
+[0;32mI (2011) CAN: Nepoznat ID[0m
+[0;32mI (2041) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (2041) KWP: NE USPEM da posaljem session[0m
+[0;33mW (2041) Physical: Primljeno na can-u[0m
+[0;32mI (2041) CAN: Nepoznat ID[0m
+[0;33mW (2071) Physical: Primljeno na can-u[0m
+[0;32mI (2071) CAN: Nepoznat ID[0m
+[0;33mW (2101) Physical: Primljeno na can-u[0m
+[0;32mI (2101) CAN: Nepoznat ID[0m
+[0;32mI (2121) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (2121) KWP: NE USPEM da posaljem session[0m
+[0;33mW (2131) Physical: Primljeno na can-u[0m
+[0;32mI (2131) CAN: Nepoznat ID[0m
+[0;33mW (2161) Physical: Primljeno na can-u[0m
+[0;32mI (2161) CAN: Nepoznat ID[0m
+[0;33mW (2191) Physical: Primljeno na can-u[0m
+[0;32mI (2191) CAN: Nepoznat ID[0m
+[0;32mI (2201) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (2201) KWP: NE USPEM da posaljem session[0m
+[0;33mW (2221) Physical: Primljeno na can-u[0m
+[0;32mI (2221) CAN: Nepoznat ID[0m
+[0;33mW (2251) Physical: Primljeno na can-u[0m
+[0;32mI (2251) CAN: Nepoznat ID[0m
+[0;32mI (2281) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (2281) KWP: NE USPEM da posaljem session[0m
+[0;33mW (2281) Physical: Primljeno na can-u[0m
+[0;32mI (2281) CAN: Nepoznat ID[0m
+[0;33mW (2311) Physical: Primljeno na can-u[0m
+[0;32mI (2311) CAN: Nepoznat ID[0m
+[0;33mW (2341) Physical: Primljeno na can-u[0m
+[0;32mI (2341) CAN: Nepoznat ID[0m
+[0;32mI (2361) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (2361) KWP: NE USPEM da posaljem session[0m
+[0;33mW (2371) Physical: Primljeno na can-u[0m
+[0;32mI (2371) CAN: Nepoznat ID[0m
+[0;33mW (2401) Physical: Primljeno na can-u[0m
+[0;32mI (2401) CAN: Nepoznat ID[0m
+[0;33mW (2441) Physical: Primljeno na can-u[0m
+[0;32mI (2441) CAN: Nepoznat ID[0m
+[0;32mI (2441) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (2441) KWP: NE USPEM da posaljem session[0m
+[0;33mW (2461) Physical: Primljeno na can-u[0m
+[0;32mI (2461) CAN: Nepoznat ID[0m
+[0;33mW (2491) Physical: Primljeno na can-u[0m
+[0;32mI (2491) CAN: Nepoznat ID[0m
+[0;32mI (2521) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (2521) KWP: NE USPEM da posaljem session[0m
+[0;33mW (2521) Physical: Primljeno na can-u[0m
+[0;32mI (2521) CAN: Nepoznat ID[0m
+[0;33mW (2551) Physical: Primljeno na can-u[0m
+[0;32mI (2551) CAN: Nepoznat ID[0m
+[0;33mW (2581) Physical: Primljeno na can-u[0m
+[0;32mI (2581) CAN: Nepoznat ID[0m
+[0;32mI (2601) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (2601) KWP: NE USPEM da posaljem session[0m
+[0;33mW (2611) Physical: Primljeno na can-u[0m
+[0;32mI (2611) CAN: Nepoznat ID[0m
+[0;33mW (2641) Physical: Primljeno na can-u[0m
+[0;32mI (2641) CAN: Nepoznat ID[0m
+[0;33mW (2671) Physical: Primljeno na can-u[0m
+[0;32mI (2671) CAN: Nepoznat ID[0m
+[0;32mI (2681) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (2681) KWP: NE USPEM da posaljem session[0m
+[0;33mW (2701) Physical: Primljeno na can-u[0m
+[0;32mI (2701) CAN: Nepoznat ID[0m
+[0;33mW (2731) Physical: Primljeno na can-u[0m
+[0;32mI (2731) CAN: Nepoznat ID[0m
+[0;32mI (2761) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (2761) KWP: NE USPEM da posaljem session[0m
+[0;33mW (2771) Physical: Primljeno na can-u[0m
+[0;32mI (2771) CAN: Nepoznat ID[0m
+[0;33mW (2791) Physical: Primljeno na can-u[0m
+[0;32mI (2791) CAN: Nepoznat ID[0m
+[0;33mW (2821) Physical: Primljeno na can-u[0m
+[0;32mI (2821) CAN: Nepoznat ID[0m
+[0;32mI (2841) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (2841) KWP: NE USPEM da posaljem session[0m
+[0;33mW (2851) Physical: Primljeno na can-u[0m
+[0;32mI (2851) CAN: Nepoznat ID[0m
+[0;33mW (2881) Physical: Primljeno na can-u[0m
+[0;32mI (2881) CAN: Nepoznat ID[0m
+[0;33mW (2891) Physical: Primljeno na can-u[0m
+[0;32mI (2891) CAN: Nepoznat ID[0m
+[0;33mW (2911) Physical: Primljeno na can-u[0m
+[0;32mI (2911) CAN: Nepoznat ID[0m
+[0;32mI (2921) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (2921) KWP: NE USPEM da posaljem session[0m
+[0;33mW (2941) Physical: Primljeno na can-u[0m
+[0;32mI (2941) CAN: Nepoznat ID[0m
+[0;33mW (2971) Physical: Primljeno na can-u[0m
+[0;32mI (2971) CAN: Nepoznat ID[0m
+[0;32mI (3001) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (3001) KWP: NE USPEM da posaljem session[0m
+[0;33mW (3001) Physical: Primljeno na can-u[0m
+[0;32mI (3001) CAN: Nepoznat ID[0m
+[0;33mW (3031) Physical: Primljeno na can-u[0m
+[0;32mI (3031) CAN: Nepoznat ID[0m
+[0;33mW (3061) Physical: Primljeno na can-u[0m
+[0;32mI (3061) CAN: Nepoznat ID[0m
+[0;32mI (3081) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (3081) KWP: NE USPEM da posaljem session[0m
+[0;33mW (3091) Physical: Primljeno na can-u[0m
+[0;32mI (3091) CAN: Nepoznat ID[0m
+[0;33mW (3121) Physical: Primljeno na can-u[0m
+[0;32mI (3121) CAN: Nepoznat ID[0m
+[0;33mW (3151) Physical: Primljeno na can-u[0m
+[0;32mI (3151) CAN: Nepoznat ID[0m
+[0;32mI (3161) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (3161) KWP: NE USPEM da posaljem session[0m
+[0;33mW (3181) Physical: Primljeno na can-u[0m
+[0;32mI (3181) CAN: Nepoznat ID[0m
+[0;33mW (3211) Physical: Primljeno na can-u[0m
+[0;32mI (3211) CAN: Nepoznat ID[0m
+[0;32mI (3241) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (3241) KWP: NE USPEM da posaljem session[0m
+[1;31mE (3241) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;33mW (3241) Physical: Primljeno na can-u[0m
+[0;32mI (3241) CAN: Nepoznat ID[0m
+[0;33mW (3271) Physical: Primljeno na can-u[0m
+[0;32mI (3271) CAN: Nepoznat ID[0m
+[0;33mW (3301) Physical: Primljeno na can-u[0m
+[0;32mI (3301) CAN: Nepoznat ID[0m
+[0;32mI (3321) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (3321) KWP: NE USPEM da posaljem session[0m
+[0;33mW (3331) Physical: Primljeno na can-u[0m
+[0;32mI (3331) CAN: Nepoznat ID[0m
+[0;33mW (3361) Physical: Primljeno na can-u[0m
+[0;32mI (3361) CAN: Nepoznat ID[0m
+[0;33mW (3391) Physical: Primljeno na can-u[0m
+[0;32mI (3391) CAN: Nepoznat ID[0m
+[0;32mI (3401) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (3401) KWP: NE USPEM da posaljem session[0m
+[0;33mW (3421) Physical: Primljeno na can-u[0m
+[0;32mI (3421) CAN: Nepoznat ID[0m
+[0;33mW (3451) Physical: Primljeno na can-u[0m
+[0;32mI (3451) CAN: Nepoznat ID[0m
+[0;32mI (3481) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (3481) KWP: NE USPEM da posaljem session[0m
+[0;33mW (3481) Physical: Primljeno na can-u[0m
+[0;32mI (3481) CAN: Nepoznat ID[0m
+[0;33mW (3511) Physical: Primljeno na can-u[0m
+[0;32mI (3511) CAN: Nepoznat ID[0m
+[0;33mW (3541) Physical: Primljeno na can-u[0m
+[0;32mI (3541) CAN: Nepoznat ID[0m
+[0;32mI (3561) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (3561) KWP: NE USPEM da posaljem session[0m
+[0;33mW (3571) Physical: Primljeno na can-u[0m
+[0;32mI (3571) CAN: Nepoznat ID[0m
+[0;33mW (3601) Physical: Primljeno na can-u[0m
+[0;32mI (3601) CAN: Nepoznat ID[0m
+[0;33mW (3631) Physical: Primljeno na can-u[0m
+[0;32mI (3631) CAN: Nepoznat ID[0m
+[0;32mI (3641) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (3641) KWP: NE USPEM da posaljem session[0m
+[0;33mW (3661) Physical: Primljeno na can-u[0m
+[0;32mI (3661) CAN: Nepoznat ID[0m
+[0;33mW (3691) Physical: Primljeno na can-u[0m
+[0;32mI (3691) CAN: Nepoznat ID[0m
+[0;32mI (3721) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (3721) KWP: NE USPEM da posaljem session[0m
+[0;33mW (3721) Physical: Primljeno na can-u[0m
+[0;32mI (3721) CAN: Nepoznat ID[0m
+[0;33mW (3751) Physical: Primljeno na can-u[0m
+[0;32mI (3751) CAN: Nepoznat ID[0m
+[0;33mW (3781) Physical: Primljeno na can-u[0m
+[0;32mI (3781) CAN: Nepoznat ID[0m
+[0;32mI (3801) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (3801) KWP: NE USPEM da posaljem session[0m
+[0;33mW (3811) Physical: Primljeno na can-u[0m
+[0;32mI (3811) CAN: Nepoznat ID[0m
+[0;33mW (3841) Physical: Primljeno na can-u[0m
+[0;32mI (3841) CAN: Nepoznat ID[0m
+[0;33mW (3871) Physical: Primljeno na can-u[0m
+[0;32mI (3871) CAN: Nepoznat ID[0m
+[0;32mI (3881) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (3881) KWP: NE USPEM da posaljem session[0m
+[0;33mW (3891) Physical: Primljeno na can-u[0m
+[0;32mI (3891) CAN: Nepoznat ID[0m
+[0;33mW (3901) Physical: Primljeno na can-u[0m
+[0;32mI (3901) CAN: Nepoznat ID[0m
+[0;33mW (3931) Physical: Primljeno na can-u[0m
+[0;32mI (3931) CAN: Nepoznat ID[0m
+[0;32mI (3961) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (3961) KWP: NE USPEM da posaljem session[0m
+[0;33mW (3961) Physical: Primljeno na can-u[0m
+[0;32mI (3961) CAN: Nepoznat ID[0m
+[0;33mW (3991) Physical: Primljeno na can-u[0m
+[0;32mI (3991) CAN: Nepoznat ID[0m
+[0;33mW (4021) Physical: Primljeno na can-u[0m
+[0;32mI (4021) CAN: Nepoznat ID[0m
+[0;32mI (4041) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (4041) KWP: NE USPEM da posaljem session[0m
+[0;33mW (4051) Physical: Primljeno na can-u[0m
+[0;32mI (4051) CAN: Nepoznat ID[0m
+[0;33mW (4091) Physical: Primljeno na can-u[0m
+[0;32mI (4091) CAN: Nepoznat ID[0m
+[0;33mW (4111) Physical: Primljeno na can-u[0m
+[0;32mI (4111) CAN: Nepoznat ID[0m
+[0;32mI (4121) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (4121) KWP: NE USPEM da posaljem session[0m
+[0;33mW (4141) Physical: Primljeno na can-u[0m
+[0;32mI (4141) CAN: Nepoznat ID[0m
+[0;33mW (4171) Physical: Primljeno na can-u[0m
+[0;32mI (4171) CAN: Nepoznat ID[0m
+[0;32mI (4201) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (4201) KWP: NE USPEM da posaljem session[0m
+[0;33mW (4201) Physical: Primljeno na can-u[0m
+[0;32mI (4201) CAN: Nepoznat ID[0m
+[0;33mW (4231) Physical: Primljeno na can-u[0m
+[0;32mI (4231) CAN: Nepoznat ID[0m
+[0;33mW (4261) Physical: Primljeno na can-u[0m
+[0;32mI (4261) CAN: Nepoznat ID[0m
+[0;32mI (4281) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (4281) KWP: NE USPEM da posaljem session[0m
+[0;33mW (4291) Physical: Primljeno na can-u[0m
+[0;32mI (4291) CAN: Nepoznat ID[0m
+[0;33mW (4321) Physical: Primljeno na can-u[0m
+[0;32mI (4321) CAN: Nepoznat ID[0m
+[0;33mW (4351) Physical: Primljeno na can-u[0m
+[0;32mI (4351) CAN: Nepoznat ID[0m
+[0;32mI (4361) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (4361) KWP: NE USPEM da posaljem session[0m
+[0;33mW (4381) Physical: Primljeno na can-u[0m
+[0;32mI (4381) CAN: Nepoznat ID[0m
+[0;33mW (4411) Physical: Primljeno na can-u[0m
+[0;32mI (4411) CAN: Nepoznat ID[0m
+[0;32mI (4441) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (4441) KWP: NE USPEM da posaljem session[0m
+[0;33mW (4451) Physical: Primljeno na can-u[0m
+[0;32mI (4451) CAN: Nepoznat ID[0m
+[0;33mW (4471) Physical: Primljeno na can-u[0m
+[0;32mI (4471) CAN: Nepoznat ID[0m
+[0;33mW (4501) Physical: Primljeno na can-u[0m
+[0;32mI (4501) CAN: Nepoznat ID[0m
+[0;32mI (4521) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (4521) KWP: NE USPEM da posaljem session[0m
+[0;33mW (4531) Physical: Primljeno na can-u[0m
+[0;32mI (4531) CAN: Nepoznat ID[0m
+[0;33mW (4561) Physical: Primljeno na can-u[0m
+[0;32mI (4561) CAN: Nepoznat ID[0m
+[0;33mW (4591) Physical: Primljeno na can-u[0m
+[0;32mI (4591) CAN: Nepoznat ID[0m
+[0;32mI (4601) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (4601) KWP: NE USPEM da posaljem session[0m
+[0;33mW (4631) Physical: Primljeno na can-u[0m
+[0;32mI (4631) CAN: Nepoznat ID[0m
+[0;33mW (4651) Physical: Primljeno na can-u[0m
+[0;32mI (4651) CAN: Nepoznat ID[0m
+[0;32mI (4681) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (4681) KWP: NE USPEM da posaljem session[0m
+[0;33mW (4681) Physical: Primljeno na can-u[0m
+[0;32mI (4681) CAN: Nepoznat ID[0m
+[0;33mW (4711) Physical: Primljeno na can-u[0m
+[0;32mI (4711) CAN: Nepoznat ID[0m
+[0;33mW (4741) Physical: Primljeno na can-u[0m
+[0;32mI (4741) CAN: Nepoznat ID[0m
+[0;32mI (4761) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (4761) KWP: NE USPEM da posaljem session[0m
+[0;33mW (4771) Physical: Primljeno na can-u[0m
+[0;32mI (4771) CAN: Nepoznat ID[0m
+[0;33mW (4801) Physical: Primljeno na can-u[0m
+[0;32mI (4811) CAN: Nepoznat ID[0m
+[0;33mW (4831) Physical: Primljeno na can-u[0m
+[0;32mI (4831) CAN: Nepoznat ID[0m
+[0;32mI (4841) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (4841) KWP: NE USPEM da posaljem session[0m
+[0;33mW (4861) Physical: Primljeno na can-u[0m
+[0;32mI (4861) CAN: Nepoznat ID[0m
+[0;33mW (4891) Physical: Primljeno na can-u[0m
+[0;32mI (4891) CAN: Nepoznat ID[0m
+[0;33mW (4901) Physical: Primljeno na can-u[0m
+[0;32mI (4901) CAN: Nepoznat ID[0m
+[0;32mI (4921) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (4921) KWP: NE USPEM da posaljem session[0m
+[0;33mW (4921) Physical: Primljeno na can-u[0m
+[0;32mI (4921) CAN: Nepoznat ID[0m
+[0;33mW (4951) Physical: Primljeno na can-u[0m
+[0;32mI (4951) CAN: Nepoznat ID[0m
+[0;33mW (4991) Physical: Primljeno na can-u[0m
+[0;32mI (4991) CAN: Nepoznat ID[0m
+[0;32mI (5001) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (5001) KWP: NE USPEM da posaljem session[0m
+[0;33mW (5011) Physical: Primljeno na can-u[0m
+[0;32mI (5011) CAN: Nepoznat ID[0m
+[0;33mW (5041) Physical: Primljeno na can-u[0m
+[0;32mI (5041) CAN: Nepoznat ID[0m
+[0;33mW (5071) Physical: Primljeno na can-u[0m
+[0;32mI (5071) CAN: Nepoznat ID[0m
+[0;32mI (5081) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (5081) KWP: NE USPEM da posaljem session[0m
+[0;33mW (5101) Physical: Primljeno na can-u[0m
+[0;32mI (5101) CAN: Nepoznat ID[0m
+[0;33mW (5131) Physical: Primljeno na can-u[0m
+[0;32mI (5131) CAN: Nepoznat ID[0m
+[0;32mI (5161) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (5161) KWP: NE USPEM da posaljem session[0m
+[0;33mW (5161) Physical: Primljeno na can-u[0m
+[0;32mI (5161) CAN: Nepoznat ID[0m
+[0;33mW (5191) Physical: Primljeno na can-u[0m
+[0;32mI (5191) CAN: Nepoznat ID[0m
+[0;33mW (5221) Physical: Primljeno na can-u[0m
+[0;32mI (5221) CAN: Nepoznat ID[0m
+[0;32mI (5241) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (5241) KWP: NE USPEM da posaljem session[0m
+[0;33mW (5251) Physical: Primljeno na can-u[0m
+[0;32mI (5251) CAN: Nepoznat ID[0m
+[0;33mW (5281) Physical: Primljeno na can-u[0m
+[0;32mI (5281) CAN: Nepoznat ID[0m
+[0;33mW (5311) Physical: Primljeno na can-u[0m
+[0;32mI (5311) CAN: Nepoznat ID[0m
+[0;32mI (5321) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (5321) KWP: NE USPEM da posaljem session[0m
+[0;33mW (5341) Physical: Primljeno na can-u[0m
+[0;32mI (5341) CAN: Nepoznat ID[0m
+[0;33mW (5371) Physical: Primljeno na can-u[0m
+[0;32mI (5371) CAN: Nepoznat ID[0m
+[0;32mI (5401) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (5401) KWP: NE USPEM da posaljem session[0m
+[0;33mW (5401) Physical: Primljeno na can-u[0m
+[0;32mI (5401) CAN: Nepoznat ID[0m
+[0;33mW (5431) Physical: Primljeno na can-u[0m
+[0;32mI (5431) CAN: Nepoznat ID[0m
+[0;33mW (5461) Physical: Primljeno na can-u[0m
+[0;32mI (5461) CAN: Nepoznat ID[0m
+[0;32mI (5481) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (5481) KWP: NE USPEM da posaljem session[0m
+[0;33mW (5491) Physical: Primljeno na can-u[0m
+[0;32mI (5491) CAN: Nepoznat ID[0m
+[0;33mW (5521) Physical: Primljeno na can-u[0m
+[0;32mI (5521) CAN: Nepoznat ID[0m
+[0;33mW (5551) Physical: Primljeno na can-u[0m
+[0;32mI (5551) CAN: Nepoznat ID[0m
+[0;32mI (5561) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (5561) KWP: NE USPEM da posaljem session[0m
+[0;33mW (5581) Physical: Primljeno na can-u[0m
+[0;32mI (5581) CAN: Nepoznat ID[0m
+[0;33mW (5611) Physical: Primljeno na can-u[0m
+[0;32mI (5611) CAN: Nepoznat ID[0m
+[0;32mI (5641) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (5641) KWP: NE USPEM da posaljem session[0m
+[0;33mW (5641) Physical: Primljeno na can-u[0m
+[0;32mI (5641) CAN: Nepoznat ID[0m
+[0;33mW (5671) Physical: Primljeno na can-u[0m
+[0;32mI (5671) CAN: Nepoznat ID[0m
+[0;33mW (5701) Physical: Primljeno na can-u[0m
+[0;32mI (5701) CAN: Nepoznat ID[0m
+[0;32mI (5721) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (5721) KWP: NE USPEM da posaljem session[0m
+[0;33mW (5731) Physical: Primljeno na can-u[0m
+[0;32mI (5731) CAN: Nepoznat ID[0m
+[0;33mW (5761) Physical: Primljeno na can-u[0m
+[0;32mI (5761) CAN: Nepoznat ID[0m
+[0;33mW (5791) Physical: Primljeno na can-u[0m
+[0;32mI (5791) CAN: Nepoznat ID[0m
+[0;32mI (5801) KWP-AUTOMAT: Poslat handshake[0m
+[1;31mE (5801) KWP: NE USPEM da posaljem session[0m
+[0;33mW (5821) Physical: Primljeno na can-u[0m
+[0;32mI (5821) CAN: Nepoznat ID[0m

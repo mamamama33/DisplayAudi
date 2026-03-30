@@ -1,0 +1,3411 @@
+I (2131) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2131) KWP: NE USPEM da posaljem session
+I (2211) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2211) KWP: NE USPEM da posaljem session
+I (2291) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2291) KWP: NE USPEM da posaljem session
+I (2371) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2371) KWP: NE USPEM da posaljem session
+I (2451) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2451) KWP: NE USPEM da posaljem session
+I (2531) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2531) KWP: NE USPEM da posaljem session
+I (2611) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2611) KWP: NE USPEM da posaljem session
+I (2691) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2691) KWP: NE USPEM da posaljem session
+I (2771) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2771) KWP: NE USPEM da posaljem session
+I (2851) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2851) KWP: NE USPEM da posaljem session
+I (2931) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2931) KWP: NE USPEM da posaljem session
+I (3011) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3011) KWP: NE USPEM da posaljem session
+I (3091) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3091) KWP: NE USPEM da posaljem session
+I (3171) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3171) KWP: NE USPEM da posaljem session
+E (3241) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU
+I (3251) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3251) KWP: NE USPEM da posaljem session
+I (3331) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3331) KWP: NE USPEM da posaljem session
+I (3411) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3411) KWP: NE USPEM da posaljem session
+I (3491) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3491) KWP: NE USPEM da posaljem session
+
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py monitor
+Executing action: monitor
+Serial port /dev/ttyUSB0:
+Connecting.....
+Detecting chip type... ESP32
+Running idf_monitor in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi
+Executing "/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.elf /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.elf -m '/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python' '/home/student/esp-idf/tools/idf.py'"...
+--- esp-idf-monitor 1.9.0 on /dev/ttyUSB0 115200
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+--- 0x40080400: _invalid_pc_placeholder at /home/student/esp-idf/components/xtensa/xtensa_vectors.S:2259
+entry 0x40080644
+--- 0x40080644: call_start_cpu0 at /home/student/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+I (27) boot: ESP-IDF v6.1-dev-2938-g12f36a021f 2nd stage bootloader
+I (27) boot: compile time Mar 27 2026 12:48:01
+I (28) boot64) boot:  1 phy_init         RF64) boot:  1 phy_init         RF 16268) load
+I (113) esp_image: segmenoot: Loaded app from partition a
+pp_init: App version:      1
+I IDF:          v6.1-dev-2938-g12f20 (6 KiB): DRAM
+I (227) heap_ieneric
+I (265) spi_flash: flashin_task: Started on CPU0
+I (291) main_task: Calling app_main()
+CAN TX [ID: 0x200] [LEN: 7] DATA: 01 C0 00 10 00 03 01 E (431) Physical: Uspesno izvrsena funkcija twai_transmit
+I (431) TP: USPESNO POSLAT CONNECT NA CAN 
+I E (461) DEBUG: USpesno izvrsena inicijalizacija KWP protokola
+ prva povratna od ECU-setujem chptr-idle
+W (491) TP2.0: Prva poruka od ECU je dobra
+E (691) DEBUG: USpesno izvrsena inicijalizacija DATA funkcije
+I (811) main_task: Returned from app_main()
+I (1571) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1571) KWP: NE USPEM da posaljem session
+I (1651) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1651) KWP: NE USPEM da posaljem session
+I (1731) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1731) KWP: NE USPEM da posaljem session
+I (1811) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1811) KWP: NE USPEM da posaljem session
+I (1891) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1891) KWP: NE USPEM da posaljem session
+I (1971) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1971) KWP: NE USPEM da posaljem session
+I (2051) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2051) KWP: NE USPEM da posaljem session
+I (2131) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2131) KWP: NE USPEM da posaljem session
+I (2211) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2211) KWP: NE USPEM da posaljem session
+I (2291) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2291) KWP: NE USPEM da posaljem session
+I (2371) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2371) KWP: NE USPEM da posaljem session
+I (2451) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2451) KWP: NE USPEM da posaljem session
+I (2531) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2531) KWP: NE USPEM da posaljem session
+I (2611) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2611) KWP: NE USPEM da posaljem session
+I (2691) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2691) KWP: NE USPEM da posaljem session
+I (2771) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2771) KWP: NE USPEM da posaljem session
+I (2851) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2851) KWP: NE USPEM da posaljem session
+I (2931) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2931) KWP: NE USPEM da posaljem session
+I (3011) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3011) KWP: NE USPEM da posaljem session
+
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py build
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/15] Building C object esp-idf/Physi..._idf_PhysicalCan.dir/PhysicalCan.c.obj
+In file included from /home/student/Desktop/ProjekatDisplej/DisplayAudi/components/PhysicalCan/PhysicalCan.c:1:
+/home/student/esp-idf/components/driver/twai/include/driver/twai.h:17:2: warning: #warning "The legacy TWAI driver is deprecated, please use esp_twai.h" [-Wcpp]
+   17 | #warning "The legacy TWAI driver is deprecated, please use esp_twai.h"
+      |  ^~~~~~~
+[1/1] cd /home/student/Desktop/Projeka...ayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[3/13] Building C object esp-idf/TP2.0..._TP2.0Protocol.dir/TP2.0Protocol.c.obj
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c: In function 'Tp_Cyclic':
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c:43:13: warning: unused variable 'chId' [-Wunused-variable]
+   43 |     uint8_t chId = 0;
+      |             ^~~~
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c: At top level:
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c:446:13: warning: 'VwTp_sendTpParams' defined but not used [-Wunused-function]
+  446 | static void VwTp_sendTpParams(Tp_ChannelType * const chPtr, uint8_t response)
+      |             ^~~~~~~~~~~~~~~~~
+[4/13] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+In file included from /home/student/Desktop/ProjekatDisplej/DisplayAudi/main/main.c:10:
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/Display/Display.h:6:13: warning: 'Dis_CreateStrings' declared 'static' but never defined [-Wunused-function]
+    6 | static void Dis_CreateStrings(uint8_t *);
+      |             ^~~~~~~~~~~~~~~~~
+[5/13] Building C object esp-idf/KwpPr..._idf_KwpProtocol.dir/KwpProtocol.c.obj
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/KwpProtocol/KwpProtocol.c:48:13: warning: 'KwpHandShake' defined but not used [-Wunused-function]
+   48 | static void KwpHandShake(uint8_t SessionId ){
+      |             ^~~~~~~~~~~~
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/KwpProtocol/KwpProtocol.c:35:23: warning: 'ecuId' defined but not used [-Wunused-variable]
+   35 | static uint8_t        ecuId = 1;
+      |                       ^~~~~
+[10/13] Generating esp-idf/esp_system/ld/sections.ld
+info: Default value for MBEDTLS_ARIA_C in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+info: Default value for MBEDTLS_THREADING_C in sdkconfig is n but it is y according to Kconfig.
+Using default value from sdkconfig (n).
+info: Default value for MBEDTLS_SHA3_C in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+[12/13] Generating binary image from built executable
+esptool v5.2.0
+Creating ESP32 image...
+Merged 3 ELF sections.
+Successfully created ESP32 image.
+Generated /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.bin
+[13/13] cd /home/student/Desktop/Proje...plej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x27790 bytes. Smallest app partition is 0x100000 bytes. 0xd8870 bytes (85%) free.
+
+Project build complete. To flash, run:
+ idf.py flash
+or
+ idf.py -p PORT flash
+or
+ python -m esptool --chip esp32 -b 460800 --before default-reset --after hard-reset write-flash --flash-mode dio --flash-size 2MB --flash-freq 40m 0x1000 build/bootloader/bootloader.bin 0x8000 build/partition_table/partition-table.bin 0x10000 build/DisplayAudi.bin
+or from the "/home/student/Desktop/ProjekatDisplej/DisplayAudi/build" directory
+ python -m esptool --chip esp32 -b 460800 --before default-reset --after hard-reset write-flash "@flash_args"
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py flash
+Adding "flash"'s dependency "all" to list of commands with default set of options.
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/4] cd /home/student/Desktop/Projeka...plej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x27790 bytes. Smallest app partition is 0x100000 bytes. 0xd8870 bytes (85%) free.
+[1/1] cd /home/student/Desktop/Projeka...ayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+Executing action: flash
+Serial port /dev/ttyUSB0:
+Connecting....
+Detecting chip type... ESP32
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja flash"...
+[1/5] cd /home/student/Desktop/ProjekatDisplej/DisplayAudi/build && /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/partition_table/partition-table.bin /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x27790 bytes. Smallest app partition is 0x100000 bytes. 0xd8870 bytes (85%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cd /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader && /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[2/3] Running utility command for flash
+esptool --chip esp32 -p /dev/ttyUSB0 -b 460800 --before=default-reset --after=hard-reset write-flash --flash-mode dio --flash-freq 40m --flash-size 2MB 0x1000 bootloader/bootloader.bin 0x8000 partition_table/partition-table.bin 0x10000 DisplayAudi.bin
+esptool v5.2.0
+Connected to ESP32 on /dev/ttyUSB0:
+Chip type:          ESP32-D0WD-V3 (revision v3.1)
+Features:           Wi-Fi, BT, Dual Core + LP Core, 240MHz, Vref calibration in eFuse, Coding Scheme None
+Crystal frequency:  40MHz
+MAC:                44:1d:64:f5:51:c8
+
+Stub flasher running.
+Changing baud rate to 460800...
+Changed.
+
+Configuring flash size...
+SHA digest in image updated.
+Flash will be erased from 0x00001000 to 0x00007fff...
+Compressed 26128 bytes to 16595...
+Writing at 0x000074fe [============================> ]  98.7% 16384/16595 bytes.Wrote 26128 bytes (16595 compressed) at 0x00001000 in 1.0 seconds (216.6 kbit/s).
+Hash of data verified.
+Flash will be erased from 0x00008000 to 0x00008fff...
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (311.4 kbit/s).
+Hash of data verified.
+Flash will be erased from 0x00010000 to 0x00037fff...
+Compressed 161680 bytes to 93647...
+Writing at 0x0001bc96 [====>                         ]  17.5% 16384/93647 bytes.Writing at 0x00021cb9 [=========>                    ]  35.0% 32768/93647 bytes.Writing at 0x00027628 [==============>               ]  52.5% 49152/93647 bytes.Writing at 0x0002ce99 [===================>          ]  70.0% 65536/93647 bytes.Writing at 0x00033000 [=========================>    ]  87.5% 81920/93647 bytes.Wrote 161680 bytes (93647 compressed) at 0x00010000 in 3.6 seconds (363.2 kbit/s).
+Hash of data verified.
+
+Hard resetting via RTS pin...
+Done
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py monitor
+Executing action: monitor
+Serial port /dev/ttyUSB0:
+Connecting....
+Detecting chip type... ESP32
+Running idf_monitor in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi
+Executing "/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.elf /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.elf -m '/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python' '/home/student/esp-idf/tools/idf.py'"...
+--- esp-idf-monitor 1.9.0 on /dev/ttyUSB0 115200
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+--- 0x40080400: _invalid_pc_placeholder at /home/student/esp-idf/components/xtensa/xtensa_vectors.S:2259
+en       : DIO
+I (40) boot.esp32: 37840) map
+00c vaddr=40080000 size=0400ch (=00028h (    40) load
+I (155) bI (167) cpu_start: Multicore appname:     DisplayAudi
+I (186) aeap_init: At 3FFAE6E0 len 000019: IRAM
+W (249) spi_flash: Detec261) spi_flash: detected chip: g
+
+
+
+
+
+
+ted f/c data frame, id 201, seq no salje
+W (461) TP2.0: Mozda ovde prodje 2.puty i tu se sjebe!!! jer ne sme da prodje!!!!
+CAN TX [ID: 0x200] [LEN: 7] DATA: 01 C0 00 10 00 03 01 E (591) Physical: Uspesno izvrsena funkcija twai_transmit
+I (591) TP: USPESNO POSLAT CONNECT NA CAN 
+I (591) KWP: TpStart je prosao
+I (811) main_task: Returned from app_main()
+I (1721) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1721) KWP: NE USPEM da posaljem session
+I (1801) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1801) KWP: NE USPEM da posaljem session
+I (1881) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1881) KWP: NE USPEM da posaljem session
+I (1961) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1961) KWP: NE USPEM da posaljem session
+I (2041) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2041) KWP: NE USPEM da posaljem session
+I (2121) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2121) KWP: NE USPEM da posaljem session
+I (2201) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2201) KWP: NE USPEM da posaljem session
+I (2281) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2281) KWP: NE USPEM da posaljem session
+I (2361) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2361) KWP: NE USPEM da posaljem session
+I (2441) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2441) KWP: NE USPEM da posaljem session
+I (2521) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2521) KWP: NE USPEM da posaljem session
+I (2601) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2601) KWP: NE USPEM da posaljem session
+I (2681) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2681) KWP: NE USPEM da posaljem session
+I (2761) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2761) KWP: NE USPEM da posaljem session
+I (2841) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2841) KWP: NE USPEM da posaljem session
+I (2921) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2921) KWP: NE USPEM da posaljem session
+I (3001) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3001) KWP: NE USPEM da posaljem session
+I (3081) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3081) KWP: NE USPEM da posaljem session
+I (3161) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3161) KWP: NE USPEM da posaljem session
+I (3241) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3241) KWP: NE USPEM da posaljem session
+E (3241) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU
+I (3321) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3321) KWP: NE USPEM da posaljem session
+I (3401) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3401) KWP: NE USPEM da posaljem session
+I (3481) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3481) KWP: NE USPEM da posaljem session
+I (3561) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3561) KWP: NE USPEM da posaljem session
+I (3641) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3641) KWP: NE USPEM da posaljem session
+I (3721) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3721) KWP: NE USPEM da posaljem session
+I (3801) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3801) KWP: NE USPEM da posaljem session
+I (3881) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3881) KWP: NE USPEM da posaljem session
+I (3961) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3961) KWP: NE USPEM da posaljem session
+
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ ^C
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py build
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/15] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+In file included from /home/student/Desktop/ProjekatDisplej/DisplayAudi/main/main.c:10:
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/Display/Display.h:6:13: warning: 'Dis_CreateStrings' declared 'static' but never defined [-Wunused-function]
+    6 | static void Dis_CreateStrings(uint8_t *);
+      |             ^~~~~~~~~~~~~~~~~
+[1/1] cd /home/student/Desktop/Projeka...ayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[3/13] Building C object esp-idf/Physi..._idf_PhysicalCan.dir/PhysicalCan.c.obj
+In file included from /home/student/Desktop/ProjekatDisplej/DisplayAudi/components/PhysicalCan/PhysicalCan.c:1:
+/home/student/esp-idf/components/driver/twai/include/driver/twai.h:17:2: warning: #warning "The legacy TWAI driver is deprecated, please use esp_twai.h" [-Wcpp]
+   17 | #warning "The legacy TWAI driver is deprecated, please use esp_twai.h"
+      |  ^~~~~~~
+[4/13] Building C object esp-idf/KwpPr..._idf_KwpProtocol.dir/KwpProtocol.c.obj
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/KwpProtocol/KwpProtocol.c:48:13: warning: 'KwpHandShake' defined but not used [-Wunused-function]
+   48 | static void KwpHandShake(uint8_t SessionId ){
+      |             ^~~~~~~~~~~~
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/KwpProtocol/KwpProtocol.c:35:23: warning: 'ecuId' defined but not used [-Wunused-variable]
+   35 | static uint8_t        ecuId = 1;
+      |                       ^~~~~
+[6/13] Building C object esp-idf/TP2.0..._TP2.0Protocol.dir/TP2.0Protocol.c.obj
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c: In function 'Tp_Cyclic':
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c:43:13: warning: unused variable 'chId' [-Wunused-variable]
+   43 |     uint8_t chId = 0;
+      |             ^~~~
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c: At top level:
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c:446:13: warning: 'VwTp_sendTpParams' defined but not used [-Wunused-function]
+  446 | static void VwTp_sendTpParams(Tp_ChannelType * const chPtr, uint8_t response)
+      |             ^~~~~~~~~~~~~~~~~
+[10/13] Generating esp-idf/esp_system/ld/sections.ld
+info: Default value for MBEDTLS_ARIA_C in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+info: Default value for MBEDTLS_THREADING_C in sdkconfig is n but it is y according to Kconfig.
+Using default value from sdkconfig (n).
+info: Default value for MBEDTLS_SHA3_C in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+[12/13] Generating binary image from built executable
+esptool v5.2.0
+Creating ESP32 image...
+Merged 3 ELF sections.
+Successfully created ESP32 image.
+Generated /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.bin
+[13/13] cd /home/student/Desktop/Proje...plej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x27770 bytes. Smallest app partition is 0x100000 bytes. 0xd8890 bytes (85%) free.
+
+Project build complete. To flash, run:
+ idf.py flash
+or
+ idf.py -p PORT flash
+or
+ python -m esptool --chip esp32 -b 460800 --before default-reset --after hard-reset write-flash --flash-mode dio --flash-size 2MB --flash-freq 40m 0x1000 build/bootloader/bootloader.bin 0x8000 build/partition_table/partition-table.bin 0x10000 build/DisplayAudi.bin
+or from the "/home/student/Desktop/ProjekatDisplej/DisplayAudi/build" directory
+ python -m esptool --chip esp32 -b 460800 --before default-reset --after hard-reset write-flash "@flash_args"
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py flash
+Adding "flash"'s dependency "all" to list of commands with default set of options.
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/4] cd /home/student/Desktop/Projeka...plej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x27770 bytes. Smallest app partition is 0x100000 bytes. 0xd8890 bytes (85%) free.
+[1/1] cd /home/student/Desktop/Projeka...ayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+Executing action: flash
+Serial port /dev/ttyUSB0:
+Connecting....
+Detecting chip type... ESP32
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja flash"...
+[1/5] cd /home/student/Desktop/ProjekatDisplej/DisplayAudi/build && /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/partition_table/partition-table.bin /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x27770 bytes. Smallest app partition is 0x100000 bytes. 0xd8890 bytes (85%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cd /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader && /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[2/3] Running utility command for flash
+esptool --chip esp32 -p /dev/ttyUSB0 -b 460800 --before=default-reset --after=hard-reset write-flash --flash-mode dio --flash-freq 40m --flash-size 2MB 0x1000 bootloader/bootloader.bin 0x8000 partition_table/partition-table.bin 0x10000 DisplayAudi.bin
+esptool v5.2.0
+Connected to ESP32 on /dev/ttyUSB0:
+Chip type:          ESP32-D0WD-V3 (revision v3.1)
+Features:           Wi-Fi, BT, Dual Core + LP Core, 240MHz, Vref calibration in eFuse, Coding Scheme None
+Crystal frequency:  40MHz
+MAC:                44:1d:64:f5:51:c8
+
+Stub flasher running.
+Changing baud rate to 460800...
+Changed.
+
+Configuring flash size...
+SHA digest in image updated.
+Flash will be erased from 0x00001000 to 0x00007fff...
+Compressed 26128 bytes to 16595...
+Writing at 0x000074fe [============================> ]  98.7% 16384/16595 bytes.Wrote 26128 bytes (16595 compressed) at 0x00001000 in 0.9 seconds (222.3 kbit/s).
+Hash of data verified.
+Flash will be erased from 0x00008000 to 0x00008fff...
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (302.0 kbit/s).
+Hash of data verified.
+Flash will be erased from 0x00010000 to 0x00037fff...
+Compressed 161648 bytes to 93631...
+Writing at 0x00010000 [                              ]   0.0% 0/93631 bytes... 
+Writing at 0x0001bcec [====>                         ]  17.5% 16384/93631 bytes.Writing at 0x00021cbc [=========>                    ]  35.0% 32768/93631 bytes.Writing at 0x00027615 [==============>               ]  52.5% 49152/93631 bytes.Writing at 0x0002ce94 [===================>          ]  70.0% 65536/93631 bytes.Writing at 0x00032ff6 [=========================>    ]  87.5% 81920/93631 bytes.Wrote 161648 bytes (93631 compressed) at 0x00010000 in 3.7 seconds (351.9 kbit/s).
+Hash of data verified.
+
+Hard resetting via RTS pin...
+Done
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ 
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py monitor
+Executing action: monitor
+Serial port /dev/ttyUSB0:
+Connecting.....
+Detecting chip type... ESP32
+Running idf_monitor in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi
+Executing "/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.elf /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.elf -m '/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python' '/home/student/esp-idf/tools/idf.py'"...
+--- esp-idf-monitor 1.9.0 on /dev/ttyUSB0 115200
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+--- 0x40080400: _invalid_pc_placeholder at /home/student/esp-idf/components/xtensa/xtensa_vectors.S:2259
+entry 0x40080644
+--- 0x40080644: call_start_cpu0 at /home/student/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+I (27) boot: ESP-IDF v6.1-dev-2938-g12f36a021f 2nd stage bootloader
+I (27) boot: compile time Mar 27 2026 12:48:01
+I (28) boot: Multicore bootloader
+I (30) boot: chip revision: v3.1
+I (33) boot.esp32: SPI Speed      : 40MHz
+I (37) boot.esp32: SPI Mode       : DIO
+I (40) boot.esp32: SPI Flash Size : 2MB
+I (44) boot: Enabling RNG early entropy s0 nvs              WiFi data    020 vaddr=3f400020 size=093d0h (sp_image: segment 2: paddr=0001cap
+ddr=00037720 vaddr=50000000 sizeion:
+I (181) app_init: Project  chip rev:     v0.0
+I (208) efur dynamic allocation:
+I (222) ht 4008AD48 len 000152B8 (84 KiB)) main_task: Calling app_main()
+
+
+
+
+
+(431) Physical: Primljeno nesto ptr-idle
+W (491) TP2.0: Prva poruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+I (811) main_task: Returned from app_main()
+I (1561) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1561) KWP: NE USPEM da posaljem session
+I (1641) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1641) KWP: NE USPEM da posaljem session
+I (1721) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1721) KWP: NE USPEM da posaljem session
+I (1801) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1801) KWP: NE USPEM da posaljem session
+I (1881) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1881) KWP: NE USPEM da posaljem session
+I (1961) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1961) KWP: NE USPEM da posaljem session
+I (2041) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2041) KWP: NE USPEM da posaljem session
+I (2121) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2121) KWP: NE USPEM da posaljem session
+I (2201) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2201) KWP: NE USPEM da posaljem session
+I (2281) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2281) KWP: NE USPEM da posaljem session
+I (2361) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2361) KWP: NE USPEM da posaljem session
+I (2441) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2441) KWP: NE USPEM da posaljem session
+I (2521) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2521) KWP: NE USPEM da posaljem session
+I (2601) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2601) KWP: NE USPEM da posaljem session
+I (2681) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2681) KWP: NE USPEM da posaljem session
+I (2761) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2761) KWP: NE USPEM da posaljem session
+I (2841) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2841) KWP: NE USPEM da posaljem session
+I (2921) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2921) KWP: NE USPEM da posaljem session
+I (3001) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3001) KWP: NE USPEM da posaljem session
+I (3081) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3081) KWP: NE USPEM da posaljem session
+I (3161) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3161) KWP: NE USPEM da posaljem session
+I (3241) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3241) KWP: NE USPEM da posaljem session
+E (3241) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU
+I (3321) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3321) KWP: NE USPEM da posaljem session
+I (3401) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3401) KWP: NE USPEM da posaljem session
+I (3481) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3481) KWP: NE USPEM da posaljem session
+I (3561) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3561) KWP: NE USPEM da posaljem session
+I (3641) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3641) KWP: NE USPEM da posaljem session
+I (3721) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3721) KWP: NE USPEM da posaljem session
+I (3801) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3801) KWP: NE USPEM da posaljem session
+I (3881) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3881) KWP: NE USPEM da posaljem session
+I (3961) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3961) KWP: NE USPEM da posaljem session
+I (4041) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4041) KWP: NE USPEM da posaljem session
+I (4121) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4121) KWP: NE USPEM da posaljem session
+I (4201) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4201) KWP: NE USPEM da posaljem session
+I (4281) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4281) KWP: NE USPEM da posaljem session
+I (4361) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4361) KWP: NE USPEM da posaljem session
+I (4441) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4441) KWP: NE USPEM da posaljem session
+I (4521) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4521) KWP: NE USPEM da posaljem session
+I (4601) KWP-AUTOMAT: Poslat handshake
+^X
+^Xstudent@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py build
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/15] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+In file included from /home/student/Desktop/ProjekatDisplej/DisplayAudi/main/main.c:10:
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/Display/Display.h:6:13: warning: 'Dis_CreateStrings' declared 'static' but never defined [-Wunused-function]
+    6 | static void Dis_CreateStrings(uint8_t *);
+      |             ^~~~~~~~~~~~~~~~~
+[2/15] Building C object esp-idf/Physi..._idf_PhysicalCan.dir/PhysicalCan.c.obj
+In file included from /home/student/Desktop/ProjekatDisplej/DisplayAudi/components/PhysicalCan/PhysicalCan.c:1:
+/home/student/esp-idf/components/driver/twai/include/driver/twai.h:17:2: warning: #warning "The legacy TWAI driver is deprecated, please use esp_twai.h" [-Wcpp]
+   17 | #warning "The legacy TWAI driver is deprecated, please use esp_twai.h"
+      |  ^~~~~~~
+[1/1] cd /home/student/Desktop/Projeka...ayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[4/13] Building C object esp-idf/KwpPr..._idf_KwpProtocol.dir/KwpProtocol.c.obj
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/KwpProtocol/KwpProtocol.c:48:13: warning: 'KwpHandShake' defined but not used [-Wunused-function]
+   48 | static void KwpHandShake(uint8_t SessionId ){
+      |             ^~~~~~~~~~~~
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/KwpProtocol/KwpProtocol.c:35:23: warning: 'ecuId' defined but not used [-Wunused-variable]
+   35 | static uint8_t        ecuId = 1;
+      |                       ^~~~~
+[6/13] Building C object esp-idf/TP2.0..._TP2.0Protocol.dir/TP2.0Protocol.c.obj
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c: In function 'Tp_Cyclic':
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c:43:13: warning: unused variable 'chId' [-Wunused-variable]
+   43 |     uint8_t chId = 0;
+      |             ^~~~
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c: At top level:
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c:446:13: warning: 'VwTp_sendTpParams' defined but not used [-Wunused-function]
+  446 | static void VwTp_sendTpParams(Tp_ChannelType * const chPtr, uint8_t response)
+      |             ^~~~~~~~~~~~~~~~~
+[10/13] Generating esp-idf/esp_system/ld/sections.ld
+info: Default value for MBEDTLS_ARIA_C in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+info: Default value for MBEDTLS_THREADING_C in sdkconfig is n but it is y according to Kconfig.
+Using default value from sdkconfig (n).
+info: Default value for MBEDTLS_SHA3_C in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+[12/13] Generating binary image from built executable
+esptool v5.2.0
+Creating ESP32 image...
+Merged 3 ELF sections.
+Successfully created ESP32 image.
+Generated /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.bin
+[13/13] cd /home/student/Desktop/Proje...plej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x27790 bytes. Smallest app partition is 0x100000 bytes. 0xd8870 bytes (85%) free.
+
+Project build complete. To flash, run:
+ idf.py flash
+or
+ idf.py -p PORT flash
+or
+ python -m esptool --chip esp32 -b 460800 --before default-reset --after hard-reset write-flash --flash-mode dio --flash-size 2MB --flash-freq 40m 0x1000 build/bootloader/bootloader.bin 0x8000 build/partition_table/partition-table.bin 0x10000 build/DisplayAudi.bin
+or from the "/home/student/Desktop/ProjekatDisplej/DisplayAudi/build" directory
+ python -m esptool --chip esp32 -b 460800 --before default-reset --after hard-reset write-flash "@flash_args"
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py flash
+Adding "flash"'s dependency "all" to list of commands with default set of options.
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/4] cd /home/student/Desktop/Projeka...plej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x27790 bytes. Smallest app partition is 0x100000 bytes. 0xd8870 bytes (85%) free.
+[1/1] cd /home/student/Desktop/Projeka...ayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+Executing action: flash
+Serial port /dev/ttyUSB0:
+Connecting....
+Detecting chip type... ESP32
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja flash"...
+[1/5] cd /home/student/Desktop/ProjekatDisplej/DisplayAudi/build && /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/partition_table/partition-table.bin /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x27790 bytes. Smallest app partition is 0x100000 bytes. 0xd8870 bytes (85%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cd /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader && /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[2/3] Running utility command for flash
+esptool --chip esp32 -p /dev/ttyUSB0 -b 460800 --before=default-reset --after=hard-reset write-flash --flash-mode dio --flash-freq 40m --flash-size 2MB 0x1000 bootloader/bootloader.bin 0x8000 partition_table/partition-table.bin 0x10000 DisplayAudi.bin
+esptool v5.2.0
+Connected to ESP32 on /dev/ttyUSB0:
+Chip type:          ESP32-D0WD-V3 (revision v3.1)
+Features:           Wi-Fi, BT, Dual Core + LP Core, 240MHz, Vref calibration in eFuse, Coding Scheme None
+Crystal frequency:  40MHz
+MAC:                44:1d:64:f5:51:c8
+
+Stub flasher running.
+Changing baud rate to 460800...
+Changed.
+
+Configuring flash size...
+SHA digest in image updated.
+Flash will be erased from 0x00001000 to 0x00007fff...
+Compressed 26128 bytes to 16595...
+Writing at 0x000074fe [============================> ]  98.7% 16384/16595 bytes.Wrote 26128 bytes (16595 compressed) at 0x00001000 in 1.0 seconds (216.8 kbit/s).
+Hash of data verified.
+Flash will be erased from 0x00008000 to 0x00008fff...
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (282.5 kbit/s).
+Hash of data verified.
+Flash will be erased from 0x00010000 to 0x00037fff...
+Compressed 161680 bytes to 93654...
+Writing at 0x0001bc78 [====>                         ]  17.5% 16384/93654 bytes.Writing at 0x00021cb7 [=========>                    ]  35.0% 32768/93654 bytes.Writing at 0x00027619 [==============>               ]  52.5% 49152/93654 bytes.Writing at 0x0002ce95 [===================>          ]  70.0% 65536/93654 bytes.Writing at 0x00032ff5 [=========================>    ]  87.5% 81920/93654 bytes.Wrote 161680 bytes (93654 compressed) at 0x00010000 in 3.7 seconds (350.9 kbit/s).
+Hash of data verified.
+
+Hard resetting via RTS pin...
+Done
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py monitor
+Executing action: monitor
+Serial port /dev/ttyUSB0:
+Connecting....
+Detecting chip type... ESP32
+Running idf_monitor in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi
+Executing "/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.elf /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.elf -m '/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python' '/home/student/esp-idf/tools/idf.py'"...
+--- esp-idf-monitor 1.9.0 on /dev/ttyUSB0 115200
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+--- 0x40080400: _invalid_pc_placeholder at /home/student/esp-idf/components/xtensa/xtensa_vectors.S:2259
+entry 0x40080644
+--- 0x40080644: call_start_cpu0 at /home/student/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+I (27) boot: ESP-IDF v6.1-dev-2938-g12f36a021f 2nd stage bootloader
+I (27) boot: compile time Mar 27 2026 12:48:01
+I (28) boot: Multicore bootloader
+I (30) boot: chip revision: v3.1
+I (33) boot.esp32: SPI Speed      : 40    01 02 00009000 00006000
+I ( 37840) map
+00c vaddr=40080000 size=0400ch (I (137) esp_image: segment 4: pa=00028h (    40) load
+I (155) bname:     DisplayAudi
+I (186) ase_init: Max chip rev:     v3.99eap_init: At 3FFAE6E0 len 000019: IRAM
+W (249) spi_flash: Detec
+
+
+
+
+
+
+PESNO POSLAT CONNECT NA CAN 
+I (441) Physical: Primljeno nesto ptr-idle
+W (491) TP2.0: Prva poruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+I (811) main_task: Returned from app_main()
+I (1561) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 1I (1561) KWP: Uspem da posaljem session
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 E (1591) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 E (1651) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 10 89 E (1741) Physicai_transmit
+: 10 00 02 10 89 E (1831) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 10 89 E (1891) Physical: Uspesno izvrsena funkcija twai_transmit
+ai_transmit
+: 10 00 02 10 89 E (2011) Physical: Uspesno izvrsena funkcija twai_transmit
+al: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 10 89 E (2161) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 E (2221) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 E (2281) Physical: Uspesno izvrsena funkcija tw: 10 00 02 10 89 E (2371) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 10 89 E (2461) Physical: Uspesno izvrsena funkcija twai_transmit
+al: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 E (2611) Physical: Uspesno izvrsena funkcija twai_transmit
+I (2691) KWP-AUTOMAT: Poslat zah: 10 00 02 1A 9B E (2731) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 1A 9B E (2791) Physical: Uspesno izvrsena funkcija twai_transmit
+ai_transmit
+: 10 00 02 1A 9B E (2911) Physical: Uspesno izvrsena funkcija twai_transmit
+al: Uspesno izvrsena funkcija twai_transmit
+ai_transmit
+al: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 1A 9B E (3121) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 1A 9B E (3181) Physical: Uspesno izvrsena funkcija twer: Ne mogu da TRAZIM zahtev od ai_transmit
+: 10 00 02 1A 9B E (3301) Physical: Uspesno izvrsena funkcija twai_transmit
+ai_transmit
+: 10 00 02 1A 9B E (3421) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 1A 9B E (3481) Physical: Uspesno izvrsena funkcija twai_transmit
+al: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 1A 9B E (3631) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 1A 9B E (3721) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 1A 9B E (3811) Physic740] [LEN: 5] DATA: 10 00 02 1A Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 04 31 B8 00 00 E (3931) Physical: Uspesno izvrsena funkcija twai_transmit
+Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 04 31 B8 00 00 E (4081) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 7] DATA: 10 00 04 31 B8 00 00 E (4141) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 04 31 B8 00 00 E (4231) Physical: Uspesno izvrsena funkcija twai_transmit
+ija twai_transmit
+: 10 00 04 31 B8 00 00 E (4321) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 04 31 B8 00 00 E (4381) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 7] DATA: 10 00 04 31 B8 00 00 E (4471) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 04 31 B8 00 00 E (4561) ija twai_transmit
+: 10 00 04 31 B8 00 00 E (4651) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 7] DATA: 10 00 04 31 B8 00 00 E (4711) Physical: Uspesno izvrsena funkc: 10 00 04 31 B8 00 00 E (4801) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 04 31 B8 00 00 E (4891) Physical: Uspesno izvrsena funkcija twai_transmit
+Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 7] DATAAZIM DID
+: 10 00 04 31 B8 00 00 E (5101)  KWP: Poslat POSLEDNJI zahtev
+: 10 00 02 21 3E E (5161) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (5221) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (5281) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (5341) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (5431) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (5521) Physicai_transmit
+: 10 00 02 21 3E E (5611) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (5671) Physical: Uspesno izvrsena funkcija twai_transmit
+ai_transmit
+: 10 00 02 21 3E E (5791) Physical: Uspesno izvrsena funkcija twai_transmit
+al: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (5941) Physical: Uspesno izvrsena funkcija twai_transmit
+er: Ne mogu da DOBIJEM PODATKE Oai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (6061) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (6121) Physic: 10 00 02 21 3E E (6151) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (6241) PhysicPoslat POSLEDNJI zahtev
+: 10 00 02 21 3E E (6301) Physical: Uspesno izvrsena funkcija twai_transmit
+
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py monitor
+Executing action: monitor
+No serial ports found. Connect a device, or use '-p PORT' option to set a specific port.
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py monitor
+Executing action: monitor
+Serial port /dev/ttyUSB0:
+Connecting..........
+Detecting chip type... ESP32
+Running idf_monitor in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi
+Executing "/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.elf /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.elf -m '/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python' '/home/student/esp-idf/tools/idf.py'"...
+--- esp-idf-monitor 1.9.0 on /dev/ttyUSB0 115200
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+--- 0x40080400: _invalid_pc_placeholder at /home/student/esp-idf/components/xtensa/xtensa_vectors.S:2259
+entry 0x40080644
+--- 0x40080644: call_start_cpu0 at /home/student/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+I (27) boot: ESP-IDF v6.1-dev-2938-g12f36a021f 2nd stage bootloader
+I (27) boot: compile time Mar 27 2026 12:48:01
+I (28) boot: Multicore bootloader
+I (30) boot: chip revision: v3.1
+I (33) boot.esp32: SPI Speed      : 40    01 02 00009000 00006000
+I ( 37840) map
+00c vaddr=40080000 size=0400ch (I (137) esp_image: segment 4: pa=00028h (    40) load
+I (155) bpp_init: App version:      1
+I 20 (6 KiB): DRAM
+I (227) heap_ieneric
+I (265) spi_flash: flashin_task: Started on CPU0
+I (291) main_task: Calling app_main()
+CAN TX [ID: 0x200] [LEN: 7] DATA: 01 C0 00 10 00 03 01 E (431) Physical: Uspesno izvrsena funkcija twai_transmit
+I (431) TP: USPESNO POSLAT CONNECT NA CAN 
+I (441) Physical: Primljeno nesto od ECU 
+I (441) TP2.0: DOBAR jeruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+ruka od ECU je dobra
+I (811) main_task: Returned from app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+ app_main()
+I (1561) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 1I (156al: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 10 89 E (1651) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 10 89 E (1741) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 10 89 E (1801) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 10 89 E (1861) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 E (1951) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 10 89 E (2041) Physicfai_transmit
+ai_transmit
+: 10 00 02 10 89 E (2131) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 E (2191) Physical: Uspesno izvrsena funkcija tw: 10 00 02 10 89 E (2281) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 10 89 E (2371) Physical: Uspesno izvrsena funkcija twai_transmit
+al: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 E (2521) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 10 89 E (2611) Physicai_transmit
+D: 0x740] [LEN: 5] DATA: 10 00 02 10 89 E (2701) Physical: Uspesal: Uspesno izvrsena funkcija tw: 10 00 02 1A 9B E (2791) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 1A 9B E (2881) Physical: Uspesno izvrsena funkcija twai_transmit
+al: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 1A 9B E (3031) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 1A 9B E (3121) Physicpai_transmit
+: 10 00 02 1A 9B E (3211) Physical: Uspesno izvrsena funkcija twai_transmit
+E (3241) DataAnalisal: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 1A 9B E (3331) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 1A 9B E (3391) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 1A 9B E (3481) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 1A 9B E (3571) PhysicUai_transmit
+: 10 00 02 1A 9B E (3661) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 1A 9B E (3721) Physical: Uspesno izvrsena funkcija twai_transmit
+ai_transmit
+I (3821) KWP-automat: Poslatu koi_transmit
+vrsena funkcija twai_transmit
+: 10 00 04 31 B8 00 00 E (3901) Physical: Uspesno izvrsena funkcija twai_transmit
+Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 7] DATA: 10 00 04 31 B8 00 00 E (4051) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 04 31 B8 00 00 E (4141) ija twai_transmit
+: 10 00 04 31 B8 00 00 E (4231) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 04 31 B8 00 00 E (4291) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 04 31 B8 00 00 E (4351) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 7] DATA: 10 00 04 31 B8 00 00 E (4441) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 04 31 B8 00 00 E (4531) ija twai_transmit
+: 10 00 04 31 B8 00 00 E (4621) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 7] DATA: 10 00 04 31 B8 00 00 E (4681) Physical: Uspesno izvrsena funkc: 10 00 04 31 B8 00 00 E (4771) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 04 31 B8 00 00 E (4861) Physical: Uspesno izvrsena funkcija twai_transmit
+Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 7] DATA: 10 00 04 31 B8 00 00 E (5011) : 10 00 04 31 B8 00 00 E (5071) Physical: Uspesno izvrsena funkcija twai_transmit
+I (5111) KWP:: 10 00 04 31 B8 00 00 E (5131) Physical: Uspesno izvrsena funkcai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (5191) Physical: Uspesno izvrsena funkcija twai_transmit
+ai_transmit
+: 10 00 02 21 3E E (5311) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (5371) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (5461) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (5551) Physicai_transmit
+: 10 00 02 21 3E E (5641) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (5701) Physical: Uspesno izvrsena funkcija twai_transmit
+ai_transmit
+: 10 00 02 21 3E E (5821) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (5881) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (5971) Physicc E (6031) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (6091) Physic: 10 00 02 21 3E E (6151) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (6211) PhysicPoslat POSLEDNJI zahtev
+Poslat POSLEDNJI zahtev
+: 10 00 02 21 3E E (6271) Physical: Uspesno izvrsena funkcija twai_transmit
+ai_transmit
+: 10 00 02 21 3E E (6391) Physical: Uspesno izvrsena funkcija twai_transmit
+al: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (6541) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (6631) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (6721) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (6781) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (6871) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (6961) Physicai_transmit
+: 10 00 02 21 3E E (7051) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (7111) Physical: Uspesno izvrsena funkcija twai_transmit
+ai_transmit
+: 10 00 02 21 3E E (7231) Physical: Uspesno izvrsena funkcija twai_transmit
+al: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (7381) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (7471) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (7561) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (7621) Physical: Uspesno izvrsena funkcija tw: 10 00 02 21 3E E (7711) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (7801) Physical: Uspesno izvrsena funkcija twai_transmit
+al: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (7951) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (8041) Physicai_transmit
+: 10 00 02 21 3E E (8131) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (8191) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (8251) Physical: Uspesno izvrsena funkcija twai_transmit
+ai_transmit
+: 10 00 02 21 3E E (8371) Physical: Uspesno izvrsena funkcija twai_transmit
+al: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (8521) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (8611) Physicai_transmit
+: 10 00 02 21 3E E (8701) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATAECU
+: 10 00 02 21 3E E (8821) Physical: Uspesno izvrsena funkcija twai_transmit
+al: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (8971) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (9061) Physicfai_transmit
+: 10 00 02 21 3E E (9151) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (9211) Physical: Uspesno izvrsena funkcija twai_transmit
+ai_transmit
+: 10 00 02 21 3E E (9331) Physical: Uspesno izvrsena funkcija twai_transmit
+al: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (9481) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (9571) Physical: Uspesno izvrsena funkcija twai_transmit
+t KOJI DID HOCU I OVDE JE KRAJ
+al: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (9691) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (9781) Physical: Uspesno izvrsena funkcija twai_transmit
+al: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (9931) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (10021) Physiwai_transmit
+: 10 00 02 21 3E E (10111) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (10171) Physical: Uspesno izvrsena funkcija twai_transmit
+wai_transmit
+: 10 00 02 21 3E E (10291) Physical: Uspesno izvrsena funkcija twai_transmit
+cal: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (10441) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (10501) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (10591) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (10681) Physical: Uspesno izvrsena funkcija twai_transmit
+OCU I OVDE JE KRAJ
+Ovo je INDIKcal: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (10831) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (10921) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (11011) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (11071) Physical: Uspesno izvrsena funkcija t: 10 00 02 21 3E E (11161) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (11251) Physical: Uspesno izvrsena funkcija twai_transmit
+cal: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATAd ECU
+: 10 00 02 21 3E E (11461) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (11521) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (11611) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (11701) Physical: Uspesno izvrsena funkcija twai_transmit
+: 10 00 02 21 3E E (11761) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (11851) Physical: Uspesno izvrsena funkcija tEDNJI zahtev
+: 10 00 02 21 3E E (11941) Physiwai_transmit
+: 10 00 02 21 3E E (12031) Physical: Uspesno izvrsena funkcija twai_transmit
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 21 3E E (12091) Physical: Uspesno izvrsena funkcija twai_transmit
+wai_transmit
+: 10 00 02 21 3E E (12211) Physical: Uspesno izvrsena funkcija twai_transmit
+cal: Uspesno izvrsena funkcija twai_transmit
+
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py build
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/11] Building C object esp-idf/Physi..._idf_PhysicalCan.dir/PhysicalCan.c.obj
+In file included from /home/student/Desktop/ProjekatDisplej/DisplayAudi/components/PhysicalCan/PhysicalCan.c:1:
+/home/student/esp-idf/components/driver/twai/include/driver/twai.h:17:2: warning: #warning "The legacy TWAI driver is deprecated, please use esp_twai.h" [-Wcpp]
+   17 | #warning "The legacy TWAI driver is deprecated, please use esp_twai.h"
+      |  ^~~~~~~
+[1/1] cd /home/student/Desktop/Projeka...ayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[3/9] Building C object esp-idf/TP2.0P..._TP2.0Protocol.dir/TP2.0Protocol.c.obj
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c: In function 'Tp_Cyclic':
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c:43:13: warning: unused variable 'chId' [-Wunused-variable]
+   43 |     uint8_t chId = 0;
+      |             ^~~~
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c: At top level:
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c:448:13: warning: 'VwTp_sendTpParams' defined but not used [-Wunused-function]
+  448 | static void VwTp_sendTpParams(Tp_ChannelType * const chPtr, uint8_t response)
+      |             ^~~~~~~~~~~~~~~~~
+[6/9] Generating esp-idf/esp_system/ld/sections.ld
+info: Default value for MBEDTLS_ARIA_C in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+info: Default value for MBEDTLS_THREADING_C in sdkconfig is n but it is y according to Kconfig.
+Using default value from sdkconfig (n).
+info: Default value for MBEDTLS_SHA3_C in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+[8/9] Generating binary image from built executable
+esptool v5.2.0
+Creating ESP32 image...
+Merged 3 ELF sections.
+Successfully created ESP32 image.
+Generated /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.bin
+[9/9] cd /home/student/Desktop/Projeka...plej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x276e0 bytes. Smallest app partition is 0x100000 bytes. 0xd8920 bytes (85%) free.
+
+Project build complete. To flash, run:
+ idf.py flash
+or
+ idf.py -p PORT flash
+or
+ python -m esptool --chip esp32 -b 460800 --before default-reset --after hard-reset write-flash --flash-mode dio --flash-size 2MB --flash-freq 40m 0x1000 build/bootloader/bootloader.bin 0x8000 build/partition_table/partition-table.bin 0x10000 build/DisplayAudi.bin
+or from the "/home/student/Desktop/ProjekatDisplej/DisplayAudi/build" directory
+ python -m esptool --chip esp32 -b 460800 --before default-reset --after hard-reset write-flash "@flash_args"
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py flash
+Adding "flash"'s dependency "all" to list of commands with default set of options.
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/4] cd /home/student/Desktop/Projeka...plej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x276e0 bytes. Smallest app partition is 0x100000 bytes. 0xd8920 bytes (85%) free.
+[1/1] cd /home/student/Desktop/Projeka...ayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+Executing action: flash
+Serial port /dev/ttyUSB0:
+Connecting.......
+Detecting chip type... ESP32
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja flash"...
+[1/5] cd /home/student/Desktop/ProjekatDisplej/DisplayAudi/build && /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/partition_table/partition-table.bin /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x276e0 bytes. Smallest app partition is 0x100000 bytes. 0xd8920 bytes (85%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cd /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader && /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[2/3] Running utility command for flash
+esptool --chip esp32 -p /dev/ttyUSB0 -b 460800 --before=default-reset --after=hard-reset write-flash --flash-mode dio --flash-freq 40m --flash-size 2MB 0x1000 bootloader/bootloader.bin 0x8000 partition_table/partition-table.bin 0x10000 DisplayAudi.bin
+esptool v5.2.0
+Connected to ESP32 on /dev/ttyUSB0:
+Chip type:          ESP32-D0WD-V3 (revision v3.1)
+Features:           Wi-Fi, BT, Dual Core + LP Core, 240MHz, Vref calibration in eFuse, Coding Scheme None
+Crystal frequency:  40MHz
+MAC:                44:1d:64:f5:51:c8
+
+Stub flasher running.
+Changing baud rate to 460800...
+Changed.
+
+Configuring flash size...
+SHA digest in image updated.
+Flash will be erased from 0x00001000 to 0x00007fff...
+Compressed 26128 bytes to 16595...
+Writing at 0x000074fe [============================> ]  98.7% 16384/16595 bytes.Wrote 26128 bytes (16595 compressed) at 0x00001000 in 0.9 seconds (224.3 kbit/s).
+Hash of data verified.
+Flash will be erased from 0x00008000 to 0x00008fff...
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (274.8 kbit/s).
+Hash of data verified.
+Flash will be erased from 0x00010000 to 0x00037fff...
+Compressed 161504 bytes to 93513...
+Writing at 0x0001bd30 [====>                         ]  17.5% 16384/93513 bytes.Writing at 0x00021cb8 [=========>                    ]  35.0% 32768/93513 bytes.Writing at 0x00027627 [==============>               ]  52.6% 49152/93513 bytes.Writing at 0x0002ce90 [====================>         ]  70.1% 65536/93513 bytes.Writing at 0x00033002 [=========================>    ]  87.6% 81920/93513 bytes.Wrote 161504 bytes (93513 compressed) at 0x00010000 in 3.6 seconds (357.0 kbit/s).
+Hash of data verified.
+
+Hard resetting via RTS pin...
+Done
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py monitor
+Executing action: monitor
+Serial port /dev/ttyUSB0:
+Connecting.....
+Detecting chip type... ESP32
+Running idf_monitor in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi
+Executing "/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.elf /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.elf -m '/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python' '/home/student/esp-idf/tools/idf.py'"...
+--- esp-idf-monitor 1.9.0 on /dev/ttyUSB0 115200
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (S       : DIO
+I (40) boot.esp32:64) boot:  1 phy_init         RF 16508) load
+I (113) esp_image:oot: Loaded app from partition a
+pp_init: App version:      1
+I 20 (6 KiB): DRAM
+I (227) heap_i io: dio
+W (268) spi_flash: Detin_task: Started on CPU0
+I (291) main_task: Calling app_main()
+
+
+
+
+o od ECU 
+I (441) TP2.0: DOBAR je ID od ECU
+je ID od ECU
+ prva povratna od ECU-setujem chptr-idle
+W (491) TP2.0: Prva poruka od ECU je dobra
+I (811) main_task: Returned from app_main()
+I (1561) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 1I (1561) KWP: Uspem da posaljem session
+I (2691) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (2691) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 1I (2691) KWP: Poslat zahtev za ECU
+E (3241) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU
+I (3821) KWP-automat: Poslatu koju rutinu hocu-dijagnostika
+Ovo je INDIKATOR 1I (5041) DataAnaliser: MOGU I USPEO SAM DA TRAZIM DID
+I (5111) KWP: Poslat KOJI DID HOCU I OVDE JE KRAJ
+Ovo je INDIKATOR 1E (5111) KWP: Poslat POSLEDNJI zahtev
+I (6001) DataAnaliser: Ne mogu da DOBIJEM PODATKE OD ECU
+E (6121) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU
+I (6241) KWP: Poslat KOJI DID HOCU I OVDE JE KRAJ
+Ovo je INDIKATOR 1E (6241) KWP: Poslat POSLEDNJI zahtev
+I (7371) KWP: Poslat KOJI DID HOCU I OVDE JE KRAJ
+Ovo je INDIKATOR 1E (7371) KWP: Poslat POSLEDNJI zahtev
+I (8501) KWP: Poslat KOJI DID HOCU I OVDE JE KRAJ
+Ovo je INDIKATOR 1E (8501) KWP: Poslat POSLEDNJI zahtev
+E (8761) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU
+I (9631) KWP: Poslat KOJI DID HOCU I OVDE JE KRAJ
+Ovo je INDIKATOR 1E (9631) KWP: Poslat POSLEDNJI zahtev
+I (10761) KWP: Poslat KOJI DID HOCU I OVDE JE KRAJ
+Ovo je INDIKATOR 1E (10761) KWP: Poslat POSLEDNJI zahtev
+--- Error: Unknown menu character Ctrl+Z
+E (11401) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU
+I (11891) KWP: Poslat KOJI DID HOCU I OVDE JE KRAJ
+Ovo je INDIKATOR 1E (11891) KWP: Poslat POSLEDNJI zahtev
+I (13021) KWP: Poslat KOJI DID HOCU I OVDE JE KRAJ
+Ovo je INDIKATOR 1E (13021) KWP: Poslat POSLEDNJI zahtev
+
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ ^C
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ ^C
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py build
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/1] cd /home/student/Desktop/Projeka...ayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[2/7] Building C object esp-idf/TP2.0P..._TP2.0Protocol.dir/TP2.0Protocol.c.obj
+FAILED: esp-idf/TP2.0Protocol/CMakeFiles/__idf_TP2.0Protocol.dir/TP2.0Protocol.c.obj 
+/home/student/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc -DESP_PLATFORM -DIDF_VER=\"v6.1-dev-2938-g12f36a021f\" -DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE -DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ -D_GLIBCXX_HAVE_POSIX_SEMAPHORE -D_GLIBCXX_USE_POSIX_SEMAPHORE -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -I/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/config -I/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol -I/home/student/esp-idf/components/esp_libc/platform_include -I/home/student/esp-idf/components/freertos/config/include -I/home/student/esp-idf/components/freertos/config/include/freertos -I/home/student/esp-idf/components/freertos/config/xtensa/include -I/home/student/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/student/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/student/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -I/home/student/esp-idf/components/freertos/esp_additions/include -I/home/student/esp-idf/components/esp_hw_support/include -I/home/student/esp-idf/components/esp_hw_support/include/soc -I/home/student/esp-idf/components/esp_hw_support/ldo/include -I/home/student/esp-idf/components/esp_hw_support/debug_probe/include -I/home/student/esp-idf/components/esp_hw_support/etm/include -I/home/student/esp-idf/components/esp_hw_support/mspi/mspi_timing_tuning/include -I/home/student/esp-idf/components/esp_hw_support/mspi/mspi_timing_tuning/tuning_scheme_impl/include -I/home/student/esp-idf/components/esp_hw_support/mspi/mspi_intr/include -I/home/student/esp-idf/components/esp_hw_support/power_supply/include -I/home/student/esp-idf/components/esp_hw_support/modem/include -I/home/student/esp-idf/components/esp_hw_support/port/esp32/. -I/home/student/esp-idf/components/esp_hw_support/port/esp32/include -I/home/student/esp-idf/components/heap/include -I/home/student/esp-idf/components/heap/tlsf -I/home/student/esp-idf/components/log/include -I/home/student/esp-idf/components/soc/include -I/home/student/esp-idf/components/soc/esp32 -I/home/student/esp-idf/components/soc/esp32/include -I/home/student/esp-idf/components/soc/esp32/register -I/home/student/esp-idf/components/hal/platform_port/include -I/home/student/esp-idf/components/hal/esp32/include -I/home/student/esp-idf/components/hal/include -I/home/student/esp-idf/components/esp_rom/include -I/home/student/esp-idf/components/esp_rom/esp32/include -I/home/student/esp-idf/components/esp_rom/esp32/include/esp32 -I/home/student/esp-idf/components/esp_rom/esp32 -I/home/student/esp-idf/components/esp_common/include -I/home/student/esp-idf/components/esp_system/include -I/home/student/esp-idf/components/esp_system/port/soc -I/home/student/esp-idf/components/esp_system/port/include/private -I/home/student/esp-idf/components/esp_stdio/include -I/home/student/esp-idf/components/xtensa/esp32/include -I/home/student/esp-idf/components/xtensa/include -I/home/student/esp-idf/components/xtensa/deprecated_include -I/home/student/esp-idf/components/esp_hal_gpio/include -I/home/student/esp-idf/components/esp_hal_gpio/esp32/include -I/home/student/esp-idf/components/esp_hal_usb/include -I/home/student/esp-idf/components/esp_hal_pmu/include -I/home/student/esp-idf/components/esp_hal_pmu/esp32/include -I/home/student/esp-idf/components/esp_hal_ana_conv/include -I/home/student/esp-idf/components/esp_hal_ana_conv/esp32/include -I/home/student/esp-idf/components/esp_hal_dma/include -I/home/student/esp-idf/components/esp_hal_i2s/include -I/home/student/esp-idf/components/esp_hal_i2s/esp32/include -I/home/student/esp-idf/components/lwip/include -I/home/student/esp-idf/components/lwip/include/apps -I/home/student/esp-idf/components/lwip/lwip/src/include -I/home/student/esp-idf/components/lwip/port/include -I/home/student/esp-idf/components/lwip/port/freertos/include -I/home/student/esp-idf/components/lwip/port/esp32xx/include -I/home/student/esp-idf/components/lwip/port/esp32xx/include/arch -I/home/student/esp-idf/components/lwip/port/esp32xx/include/sys -I/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/KwpProtocol -I/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/PhysicalCan @"/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/toolchain/cflags" -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-error=extra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -Og -fno-shrink-wrap -fmacro-prefix-map=/home/student/Desktop/ProjekatDisplej/DisplayAudi=. -fmacro-prefix-map=/home/student/esp-idf=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -std=gnu23 -Wno-old-style-declaration -fzero-init-padding-bits=all -fno-malloc-dce -MD -MT esp-idf/TP2.0Protocol/CMakeFiles/__idf_TP2.0Protocol.dir/TP2.0Protocol.c.obj -MF esp-idf/TP2.0Protocol/CMakeFiles/__idf_TP2.0Protocol.dir/TP2.0Protocol.c.obj.d -o esp-idf/TP2.0Protocol/CMakeFiles/__idf_TP2.0Protocol.dir/TP2.0Protocol.c.obj -c /home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c: In function 'Tp_Cyclic':
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c:43:13: warning: unused variable 'chId' [-Wunused-variable]
+   43 |     uint8_t chId = 0;
+      |             ^~~~
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c: In function 'VwTp_HandleConnect':
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c:175:22: error: 'chPtr' redeclared as different kind of symbol
+  175 |     Tp_ChannelType * chPtr= NULL;
+      |                      ^~~~~
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c:173:49: note: previous definition of 'chPtr' with type 'Tp_ChannelType *'
+  173 | static void VwTp_HandleConnect(Tp_ChannelType * chPtr,uint8_t * dataPtr)
+      |                                ~~~~~~~~~~~~~~~~~^~~~~
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c: At top level:
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c:450:13: warning: 'VwTp_sendTpParams' defined but not used [-Wunused-function]
+  450 | static void VwTp_sendTpParams(Tp_ChannelType * const chPtr, uint8_t response)
+      |             ^~~~~~~~~~~~~~~~~
+ninja: build stopped: subcommand failed.
+ninja failed with exit code 1, output of the command is in the /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/log/idf_py_stderr_output_30968 and /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/log/idf_py_stdout_output_30968
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py build
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/1] cd /home/student/Desktop/Projeka...ayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[2/7] Building C object esp-idf/TP2.0P..._TP2.0Protocol.dir/TP2.0Protocol.c.obj
+FAILED: esp-idf/TP2.0Protocol/CMakeFiles/__idf_TP2.0Protocol.dir/TP2.0Protocol.c.obj 
+/home/student/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc -DESP_PLATFORM -DIDF_VER=\"v6.1-dev-2938-g12f36a021f\" -DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE -DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ -D_GLIBCXX_HAVE_POSIX_SEMAPHORE -D_GLIBCXX_USE_POSIX_SEMAPHORE -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -I/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/config -I/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol -I/home/student/esp-idf/components/esp_libc/platform_include -I/home/student/esp-idf/components/freertos/config/include -I/home/student/esp-idf/components/freertos/config/include/freertos -I/home/student/esp-idf/components/freertos/config/xtensa/include -I/home/student/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/student/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/student/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -I/home/student/esp-idf/components/freertos/esp_additions/include -I/home/student/esp-idf/components/esp_hw_support/include -I/home/student/esp-idf/components/esp_hw_support/include/soc -I/home/student/esp-idf/components/esp_hw_support/ldo/include -I/home/student/esp-idf/components/esp_hw_support/debug_probe/include -I/home/student/esp-idf/components/esp_hw_support/etm/include -I/home/student/esp-idf/components/esp_hw_support/mspi/mspi_timing_tuning/include -I/home/student/esp-idf/components/esp_hw_support/mspi/mspi_timing_tuning/tuning_scheme_impl/include -I/home/student/esp-idf/components/esp_hw_support/mspi/mspi_intr/include -I/home/student/esp-idf/components/esp_hw_support/power_supply/include -I/home/student/esp-idf/components/esp_hw_support/modem/include -I/home/student/esp-idf/components/esp_hw_support/port/esp32/. -I/home/student/esp-idf/components/esp_hw_support/port/esp32/include -I/home/student/esp-idf/components/heap/include -I/home/student/esp-idf/components/heap/tlsf -I/home/student/esp-idf/components/log/include -I/home/student/esp-idf/components/soc/include -I/home/student/esp-idf/components/soc/esp32 -I/home/student/esp-idf/components/soc/esp32/include -I/home/student/esp-idf/components/soc/esp32/register -I/home/student/esp-idf/components/hal/platform_port/include -I/home/student/esp-idf/components/hal/esp32/include -I/home/student/esp-idf/components/hal/include -I/home/student/esp-idf/components/esp_rom/include -I/home/student/esp-idf/components/esp_rom/esp32/include -I/home/student/esp-idf/components/esp_rom/esp32/include/esp32 -I/home/student/esp-idf/components/esp_rom/esp32 -I/home/student/esp-idf/components/esp_common/include -I/home/student/esp-idf/components/esp_system/include -I/home/student/esp-idf/components/esp_system/port/soc -I/home/student/esp-idf/components/esp_system/port/include/private -I/home/student/esp-idf/components/esp_stdio/include -I/home/student/esp-idf/components/xtensa/esp32/include -I/home/student/esp-idf/components/xtensa/include -I/home/student/esp-idf/components/xtensa/deprecated_include -I/home/student/esp-idf/components/esp_hal_gpio/include -I/home/student/esp-idf/components/esp_hal_gpio/esp32/include -I/home/student/esp-idf/components/esp_hal_usb/include -I/home/student/esp-idf/components/esp_hal_pmu/include -I/home/student/esp-idf/components/esp_hal_pmu/esp32/include -I/home/student/esp-idf/components/esp_hal_ana_conv/include -I/home/student/esp-idf/components/esp_hal_ana_conv/esp32/include -I/home/student/esp-idf/components/esp_hal_dma/include -I/home/student/esp-idf/components/esp_hal_i2s/include -I/home/student/esp-idf/components/esp_hal_i2s/esp32/include -I/home/student/esp-idf/components/lwip/include -I/home/student/esp-idf/components/lwip/include/apps -I/home/student/esp-idf/components/lwip/lwip/src/include -I/home/student/esp-idf/components/lwip/port/include -I/home/student/esp-idf/components/lwip/port/freertos/include -I/home/student/esp-idf/components/lwip/port/esp32xx/include -I/home/student/esp-idf/components/lwip/port/esp32xx/include/arch -I/home/student/esp-idf/components/lwip/port/esp32xx/include/sys -I/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/KwpProtocol -I/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/PhysicalCan @"/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/toolchain/cflags" -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-error=extra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -Og -fno-shrink-wrap -fmacro-prefix-map=/home/student/Desktop/ProjekatDisplej/DisplayAudi=. -fmacro-prefix-map=/home/student/esp-idf=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -std=gnu23 -Wno-old-style-declaration -fzero-init-padding-bits=all -fno-malloc-dce -MD -MT esp-idf/TP2.0Protocol/CMakeFiles/__idf_TP2.0Protocol.dir/TP2.0Protocol.c.obj -MF esp-idf/TP2.0Protocol/CMakeFiles/__idf_TP2.0Protocol.dir/TP2.0Protocol.c.obj.d -o esp-idf/TP2.0Protocol/CMakeFiles/__idf_TP2.0Protocol.dir/TP2.0Protocol.c.obj -c /home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c: In function 'Tp_Cyclic':
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c:43:13: warning: unused variable 'chId' [-Wunused-variable]
+   43 |     uint8_t chId = 0;
+      |             ^~~~
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c: In function 'VwTp_HandleConnect':
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c:175:22: error: 'chPtr' redeclared as different kind of symbol
+  175 |     Tp_ChannelType * chPtr= NULL;
+      |                      ^~~~~
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c:173:49: note: previous definition of 'chPtr' with type 'Tp_ChannelType *'
+  173 | static void VwTp_HandleConnect(Tp_ChannelType * chPtr,uint8_t * dataPtr)
+      |                                ~~~~~~~~~~~~~~~~~^~~~~
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c: At top level:
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c:450:13: warning: 'VwTp_sendTpParams' defined but not used [-Wunused-function]
+  450 | static void VwTp_sendTpParams(Tp_ChannelType * const chPtr, uint8_t response)
+      |             ^~~~~~~~~~~~~~~~~
+ninja: build stopped: subcommand failed.
+ninja failed with exit code 1, output of the command is in the /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/log/idf_py_stderr_output_30982 and /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/log/idf_py_stdout_output_30982
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py build
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/1] cd /home/student/Desktop/Projeka...ayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[2/7] Building C object esp-idf/TP2.0P..._TP2.0Protocol.dir/TP2.0Protocol.c.obj
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c: In function 'Tp_Cyclic':
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c:43:13: warning: unused variable 'chId' [-Wunused-variable]
+   43 |     uint8_t chId = 0;
+      |             ^~~~
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c: At top level:
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c:449:13: warning: 'VwTp_sendTpParams' defined but not used [-Wunused-function]
+  449 | static void VwTp_sendTpParams(Tp_ChannelType * const chPtr, uint8_t response)
+      |             ^~~~~~~~~~~~~~~~~
+[4/7] Generating esp-idf/esp_system/ld/sections.ld
+info: Default value for MBEDTLS_ARIA_C in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+info: Default value for MBEDTLS_THREADING_C in sdkconfig is n but it is y according to Kconfig.
+Using default value from sdkconfig (n).
+info: Default value for MBEDTLS_SHA3_C in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+[6/7] Generating binary image from built executable
+esptool v5.2.0
+Creating ESP32 image...
+Merged 3 ELF sections.
+Successfully created ESP32 image.
+Generated /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.bin
+[7/7] cd /home/student/Desktop/Projeka...plej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x276d0 bytes. Smallest app partition is 0x100000 bytes. 0xd8930 bytes (85%) free.
+
+Project build complete. To flash, run:
+ idf.py flash
+or
+ idf.py -p PORT flash
+or
+ python -m esptool --chip esp32 -b 460800 --before default-reset --after hard-reset write-flash --flash-mode dio --flash-size 2MB --flash-freq 40m 0x1000 build/bootloader/bootloader.bin 0x8000 build/partition_table/partition-table.bin 0x10000 build/DisplayAudi.bin
+or from the "/home/student/Desktop/ProjekatDisplej/DisplayAudi/build" directory
+ python -m esptool --chip esp32 -b 460800 --before default-reset --after hard-reset write-flash "@flash_args"
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py flash
+Adding "flash"'s dependency "all" to list of commands with default set of options.
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/4] cd /home/student/Desktop/Projeka...plej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x276d0 bytes. Smallest app partition is 0x100000 bytes. 0xd8930 bytes (85%) free.
+[1/1] cd /home/student/Desktop/Projeka...ayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+Executing action: flash
+Serial port /dev/ttyUSB0:
+Connecting.......................
+/dev/ttyUSB0 failed to connect: Failed to connect to Espressif device: Wrong boot mode detected (0x13)! The chip needs to be in download mode.
+For troubleshooting steps visit: https://docs.espressif.com/projects/esptool/en/latest/troubleshooting.html
+No serial ports found. Connect a device, or use '-p PORT' option to set a specific port.
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py flash
+Adding "flash"'s dependency "all" to list of commands with default set of options.
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/4] cd /home/student/Desktop/Projeka...plej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x276d0 bytes. Smallest app partition is 0x100000 bytes. 0xd8930 bytes (85%) free.
+[1/1] cd /home/student/Desktop/Projeka...ayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+Executing action: flash
+No serial ports found. Connect a device, or use '-p PORT' option to set a specific port.
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py flash
+Adding "flash"'s dependency "all" to list of commands with default set of options.
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/4] cd /home/student/Desktop/Projeka...plej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x276d0 bytes. Smallest app partition is 0x100000 bytes. 0xd8930 bytes (85%) free.
+[1/1] cd /home/student/Desktop/Projeka...ayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+Executing action: flash
+Serial port /dev/ttyUSB0:
+Connecting.........
+Detecting chip type... ESP32
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja flash"...
+[1/5] cd /home/student/Desktop/ProjekatDisplej/DisplayAudi/build && /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/partition_table/partition-table.bin /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x276d0 bytes. Smallest app partition is 0x100000 bytes. 0xd8930 bytes (85%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cd /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader && /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[2/3] Running utility command for flash
+esptool --chip esp32 -p /dev/ttyUSB0 -b 460800 --before=default-reset --after=hard-reset write-flash --flash-mode dio --flash-freq 40m --flash-size 2MB 0x1000 bootloader/bootloader.bin 0x8000 partition_table/partition-table.bin 0x10000 DisplayAudi.bin
+esptool v5.2.0
+Connected to ESP32 on /dev/ttyUSB0:
+Chip type:          ESP32-D0WD-V3 (revision v3.1)
+Features:           Wi-Fi, BT, Dual Core + LP Core, 240MHz, Vref calibration in eFuse, Coding Scheme None
+Crystal frequency:  40MHz
+MAC:                44:1d:64:f5:51:c8
+
+Stub flasher running.
+Changing baud rate to 460800...
+Changed.
+
+Configuring flash size...
+SHA digest in image updated.
+Flash will be erased from 0x00001000 to 0x00007fff...
+Compressed 26128 bytes to 16595...
+Writing at 0x000074fe [============================> ]  98.7% 16384/16595 bytes.Wrote 26128 bytes (16595 compressed) at 0x00001000 in 0.9 seconds (230.5 kbit/s).
+Hash of data verified.
+Flash will be erased from 0x00008000 to 0x00008fff...
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (314.2 kbit/s).
+Hash of data verified.
+Flash will be erased from 0x00010000 to 0x00037fff...
+Compressed 161488 bytes to 93529...
+Writing at 0x0001bd12 [====>                         ]  17.5% 16384/93529 bytes.Writing at 0x00021cb9 [=========>                    ]  35.0% 32768/93529 bytes.Writing at 0x00027617 [==============>               ]  52.6% 49152/93529 bytes.Writing at 0x0002ce6f [====================>         ]  70.1% 65536/93529 bytes.Writing at 0x00032fdd [=========================>    ]  87.6% 81920/93529 bytes.Wrote 161488 bytes (93529 compressed) at 0x00010000 in 3.7 seconds (353.4 kbit/s).
+Hash of data verified.
+
+Hard resetting via RTS pin...
+Done
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py monitor
+Executing action: monitor
+Serial port /dev/ttyUSB0:
+Connecting.......
+Detecting chip type... ESP32
+Running idf_monitor in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi
+Executing "/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.elf /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.elf -m '/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python' '/home/student/esp-idf/tools/idf.py'"...
+--- esp-idf-monitor 1.9.0 on /dev/ttyUSB0 115200
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+--- 0x40080400: _invalid_pc_placeholder at /home/student/esp-idf/components/xtensa/xtensa_vectors.S:2259
+entry 0x40080644
+--- 0x40080644: call_start_cpu0 at /home/student/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+I (27) boot: ESP-IDF v6.1-dev-2938-g12f36a021f 2nd stage bootloader
+I (27) boot: compile time Mar 27 2026 12:48:01
+I (28) boot       : DIO
+I (40) boot.esp32:64) boot:  1 phy_init         RF 16508) load
+I (113) esp_image:oot: Loaded app from partition a
+pp_init: App version:      1
+I IDF:    20 (6 KiB): DRAM
+I (227) heap_ieneric
+I (265) spi_flash: flashin_task: Started on CPU0
+I (291) main_task: Calling app_main()
+I (431) TP: USPESNO POSLAT CONNECT NA CAN 
+I (431) KWP: TpStart je prosao
+I (431) Physical: Primljeno nesto od ECU 
+I (431) TP2.0: DOBAR je ID od ECU
+W (481) TP2.0: Uspesno primljena prva povratna od ECU-setujem chptr-idle
+W (481) TP2.0: Prva poruka od ECU je dobra
+I (811) main_task: Returned from app_main()
+I (1561) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (1561) KWP: NE USPEM da posaljem session
+I (1641) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (1641) KWP: NE USPEM da posaljem session
+I (1721) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (1721) KWP: NE USPEM da posaljem session
+I (1801) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (1801) KWP: NE USPEM da posaljem session
+I (1881) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (1881) KWP: NE USPEM da posaljem session
+I (1961) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (1961) KWP: NE USPEM da posaljem session
+I (2041) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (2041) KWP: NE USPEM da posaljem session
+I (2121) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (2121) KWP: NE USPEM da posaljem session
+I (2201) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (2201) KWP: NE USPEM da posaljem session
+I (2281) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (2281) KWP: NE USPEM da posaljem session
+I (2361) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (2361) KWP: NE USPEM da posaljem session
+I (2441) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (2441) KWP: NE USPEM da posaljem session
+I (2521) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (2521) KWP: NE USPEM da posaljem session
+I (2601) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (2601) KWP: NE USPEM da posaljem session
+I (2681) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (2681) KWP: NE USPEM da posaljem session
+I (2761) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (2761) KWP: NE USPEM da posaljem session
+I (2841) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (2841) KWP: NE USPEM da posaljem session
+I (2921) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (2921) KWP: NE USPEM da posaljem session
+I (3001) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (3001) KWP: NE USPEM da posaljem session
+I (3081) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (3081) KWP: NE USPEM da posaljem session
+I (3161) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (3161) KWP: NE USPEM da posaljem session
+I (3241) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (3241) KWP: NE USPEM da posaljem session
+E (3241) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU
+I (3321) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (3321) KWP: NE USPEM da posaljem session
+I (3401) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (3401) KWP: NE USPEM da posaljem session
+I (3481) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (3481) KWP: NE USPEM da posaljem session
+I (3561) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (3561) KWP: NE USPEM da posaljem session
+I (3641) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (3641) KWP: NE USPEM da posaljem session
+I (3721) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (3721) KWP: NE USPEM da posaljem session
+I (3801) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (3801) KWP: NE USPEM da posaljem session
+I (3881) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (3881) KWP: NE USPEM da posaljem session
+I (3961) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (3961) KWP: NE USPEM da posaljem session
+I (4041) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (4041) KWP: NE USPEM da posaljem session
+I (4121) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (4121) KWP: NE USPEM da posaljem session
+I (4201) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (4201) KWP: NE USPEM da posaljem session
+I (4281) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (4281) KWP: NE USPEM da posaljem session
+I (4361) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (4361) KWP: NE USPEM da posaljem session
+I (4441) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (4441) KWP: NE USPEM da posaljem session
+I (4521) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (4521) KWP: NE USPEM da posaljem session
+I (4601) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (4601) KWP: NE USPEM da posaljem session
+I (4681) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (4681) KWP: NE USPEM da posaljem session
+I (4761) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (4761) KWP: NE USPEM da posaljem session
+I (4841) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (4841) KWP: NE USPEM da posaljem session
+I (4921) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (4921) KWP: NE USPEM da posaljem session
+I (5001) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (5001) KWP: NE USPEM da posaljem session
+I (5081) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (5081) KWP: NE USPEM da posaljem session
+I (5161) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (5161) KWP: NE USPEM da posaljem session
+I (5241) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (5241) KWP: NE USPEM da posaljem session
+I (5321) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (5321) KWP: NE USPEM da posaljem session
+I (5401) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (5401) KWP: NE USPEM da posaljem session
+I (5481) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (5481) KWP: NE USPEM da posaljem session
+
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ ^C
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py build
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/1] cd /home/student/Desktop/Projeka...ayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[2/7] Building C object esp-idf/TP2.0P..._TP2.0Protocol.dir/TP2.0Protocol.c.obj
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c: In function 'Tp_Cyclic':
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c:43:13: warning: unused variable 'chId' [-Wunused-variable]
+   43 |     uint8_t chId = 0;
+      |             ^~~~
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c: At top level:
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c:449:13: warning: 'VwTp_sendTpParams' defined but not used [-Wunused-function]
+  449 | static void VwTp_sendTpParams(Tp_ChannelType * const chPtr, uint8_t response)
+      |             ^~~~~~~~~~~~~~~~~
+[4/7] Generating esp-idf/esp_system/ld/sections.ld
+info: Default value for MBEDTLS_ARIA_C in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+info: Default value for MBEDTLS_THREADING_C in sdkconfig is n but it is y according to Kconfig.
+Using default value from sdkconfig (n).
+info: Default value for MBEDTLS_SHA3_C in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+[6/7] Generating binary image from built executable
+esptool v5.2.0
+Creating ESP32 image...
+Merged 3 ELF sections.
+Successfully created ESP32 image.
+Generated /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.bin
+[7/7] cd /home/student/Desktop/Projeka...plej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x276d0 bytes. Smallest app partition is 0x100000 bytes. 0xd8930 bytes (85%) free.
+
+Project build complete. To flash, run:
+ idf.py flash
+or
+ idf.py -p PORT flash
+or
+ python -m esptool --chip esp32 -b 460800 --before default-reset --after hard-reset write-flash --flash-mode dio --flash-size 2MB --flash-freq 40m 0x1000 build/bootloader/bootloader.bin 0x8000 build/partition_table/partition-table.bin 0x10000 build/DisplayAudi.bin
+or from the "/home/student/Desktop/ProjekatDisplej/DisplayAudi/build" directory
+ python -m esptool --chip esp32 -b 460800 --before default-reset --after hard-reset write-flash "@flash_args"
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py flash
+Adding "flash"'s dependency "all" to list of commands with default set of options.
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/4] cd /home/student/Desktop/Projeka...plej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x276d0 bytes. Smallest app partition is 0x100000 bytes. 0xd8930 bytes (85%) free.
+[1/1] cd /home/student/Desktop/Projeka...ayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+Executing action: flash
+Serial port /dev/ttyUSB0:
+Connecting.......
+Detecting chip type... ESP32
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja flash"...
+[1/5] cd /home/student/Desktop/ProjekatDisplej/DisplayAudi/build && /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/partition_table/partition-table.bin /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x276d0 bytes. Smallest app partition is 0x100000 bytes. 0xd8930 bytes (85%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cd /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader && /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[2/3] Running utility command for flash
+esptool --chip esp32 -p /dev/ttyUSB0 -b 460800 --before=default-reset --after=hard-reset write-flash --flash-mode dio --flash-freq 40m --flash-size 2MB 0x1000 bootloader/bootloader.bin 0x8000 partition_table/partition-table.bin 0x10000 DisplayAudi.bin
+esptool v5.2.0
+Connected to ESP32 on /dev/ttyUSB0:
+Chip type:          ESP32-D0WD-V3 (revision v3.1)
+Features:           Wi-Fi, BT, Dual Core + LP Core, 240MHz, Vref calibration in eFuse, Coding Scheme None
+Crystal frequency:  40MHz
+MAC:                44:1d:64:f5:51:c8
+
+Stub flasher running.
+Changing baud rate to 460800...
+Changed.
+
+Configuring flash size...
+SHA digest in image updated.
+Flash will be erased from 0x00001000 to 0x00007fff...
+Compressed 26128 bytes to 16595...
+Writing at 0x000074fe [============================> ]  98.7% 16384/16595 bytes.Wrote 26128 bytes (16595 compressed) at 0x00001000 in 0.9 seconds (223.4 kbit/s).
+Hash of data verified.
+Flash will be erased from 0x00008000 to 0x00008fff...
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (430.7 kbit/s).
+Hash of data verified.
+Flash will be erased from 0x00010000 to 0x00037fff...
+Compressed 161488 bytes to 93521...
+Writing at 0x0001bd12 [====>                         ]  17.5% 16384/93521 bytes.Writing at 0x00021cae [=========>                    ]  35.0% 32768/93521 bytes.Writing at 0x00027603 [==============>               ]  52.6% 49152/93521 bytes.Writing at 0x0002ce6e [====================>         ]  70.1% 65536/93521 bytes.Writing at 0x00032feb [=========================>    ]  87.6% 81920/93521 bytes.Wrote 161488 bytes (93521 compressed) at 0x00010000 in 3.5 seconds (367.7 kbit/s).
+Hash of data verified.
+
+Hard resetting via RTS pin...
+Done
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py monitor
+Executing action: monitor
+Serial port /dev/ttyUSB0:
+Connecting....
+Detecting chip type... ESP32
+Running idf_monitor in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi
+Executing "/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.elf /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.elf -m '/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python' '/home/student/esp-idf/tools/idf.py'"...
+--- esp-idf-monitor 1.9.0 on /dev/ttyUSB0 115200
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+--- 0x40080400: _invalid_pc_placeholder at /home/student/esp-idf/components/xtensa/xtensa_vectors.S:2259
+entry 0x40080644
+--- 0x40080644: call_start_cpu0 at /home/student/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+I (27) boot: ESP-IDF v6.1-dev-2938-g12f36a021f 2nd stage bootloader
+I (27) boot: compile time Mar 27 2026 12:48:01
+I (28) boot: Multicore bootloader
+I (30) boot: chip revision: v3.1
+I (33) boot.esp32: SPI Speed      : 40MHz
+I (37) boot.esp32: SPI Mode       : DIO
+I (40) boot.esp32: SPI Flash Size : 2MB
+I (44) boot: Enabling RNG early entropy source...
+I (49) boot: Partition Table:
+I (51) boot: ## Label  64) boot:  1 phy_init         RF 16508) load
+I (113) esp_image:oot: Loaded app from partition a
+pp_init: App version:      1
+I 
+20 (6 KiB): DRAM
+I (227) heap_init: At 3FFB36C0 len 0002C940 (1B): D/IRAM
+I (243) heap_init: A io: dio
+W (268) spi_flash: Detin_task: Started on CPU0
+I (291) main_task: Calling app_main()
+
+
+
+
+povratna od ECU-setujem chptr-idle
+W (441) TP2.0: Prva poruka od ECU je dobra
+I (811) main_task: Returned from app_main()
+I (1561) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (1561) KWP: NE USPEM da posaljem session
+I (1641) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (1641) KWP: NE USPEM da posaljem session
+I (1721) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (1721) KWP: NE USPEM da posaljem session
+I (1801) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (1801) KWP: NE USPEM da posaljem session
+I (1881) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (1881) KWP: NE USPEM da posaljem session
+I (1961) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (1961) KWP: NE USPEM da posaljem session
+I (2041) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (2041) KWP: NE USPEM da posaljem session
+I (2121) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (2121) KWP: NE USPEM da posaljem session
+I (2201) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (2201) KWP: NE USPEM da posaljem session
+I (2281) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (2281) KWP: NE USPEM da posaljem session
+I (2361) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (2361) KWP: NE USPEM da posaljem session
+I (2441) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (2441) KWP: NE USPEM da posaljem session
+I (2521) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (2521) KWP: NE USPEM da posaljem session
+I (2601) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (2601) KWP: NE USPEM da posaljem session
+I (2681) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (2681) KWP: NE USPEM da posaljem session
+I (2761) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (2761) KWP: NE USPEM da posaljem session
+I (2841) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (2841) KWP: NE USPEM da posaljem session
+I (2921) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (2921) KWP: NE USPEM da posaljem session
+I (3001) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (3001) KWP: NE USPEM da posaljem session
+I (3081) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (3081) KWP: NE USPEM da posaljem session
+I (3161) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (3161) KWP: NE USPEM da posaljem session
+I (3241) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (3241) KWP: NE USPEM da posaljem session
+E (3241) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU
+I (3321) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (3321) KWP: NE USPEM da posaljem session
+I (3401) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (3401) KWP: NE USPEM da posaljem session
+I (3481) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (3481) KWP: NE USPEM da posaljem session
+I (3561) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 2E (3561) KWP: NE USPEM da posaljem session
+
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ ^C
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py build
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/15] Building C object esp-idf/DataAnaliser/C...Files/__idf_DataAnaliser.dir/DataAnaliser.c.obj
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/DataAnaliser/DataAnaliser.c:10:27: warning: 'callback' defined but not used [-Wunused-variable]
+   10 | static Diag_CallbackType *callback;
+      |                           ^~~~~~~~
+[1/1] cd /home/student/Desktop/ProjekatDisplej/...lej/DisplayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[3/13] Building C object esp-idf/PhysicalCan/CMakeFiles/__idf_PhysicalCan.dir/PhysicalCan.c.obj
+In file included from /home/student/Desktop/ProjekatDisplej/DisplayAudi/components/PhysicalCan/PhysicalCan.c:1:
+/home/student/esp-idf/components/driver/twai/include/driver/twai.h:17:2: warning: #warning "The legacy TWAI driver is deprecated, please use esp_twai.h" [-Wcpp]
+   17 | #warning "The legacy TWAI driver is deprecated, please use esp_twai.h"
+      |  ^~~~~~~
+[4/13] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+In file included from /home/student/Desktop/ProjekatDisplej/DisplayAudi/main/main.c:10:
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/Display/Display.h:6:13: warning: 'Dis_CreateStrings' declared 'static' but never defined [-Wunused-function]
+    6 | static void Dis_CreateStrings(uint8_t *);
+      |             ^~~~~~~~~~~~~~~~~
+[5/13] Building C object esp-idf/TP2.0Protocol/...les/__idf_TP2.0Protocol.dir/TP2.0Protocol.c.obj
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c: In function 'Tp_Cyclic':
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c:43:13: warning: unused variable 'chId' [-Wunused-variable]
+   43 |     uint8_t chId = 0;
+      |             ^~~~
+[10/13] Generating esp-idf/esp_system/ld/sections.ld
+info: Default value for MBEDTLS_ARIA_C in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+info: Default value for MBEDTLS_THREADING_C in sdkconfig is n but it is y according to Kconfig.
+Using default value from sdkconfig (n).
+info: Default value for MBEDTLS_SHA3_C in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+[12/13] Generating binary image from built executable
+esptool v5.2.0
+Creating ESP32 image...
+Merged 3 ELF sections.
+Successfully created ESP32 image.
+Generated /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.bin
+[13/13] cd /home/student/Desktop/ProjekatDisple...ojekatDisplej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x27810 bytes. Smallest app partition is 0x100000 bytes. 0xd87f0 bytes (85%) free.
+
+Project build complete. To flash, run:
+ idf.py flash
+or
+ idf.py -p PORT flash
+or
+ python -m esptool --chip esp32 -b 460800 --before default-reset --after hard-reset write-flash --flash-mode dio --flash-size 2MB --flash-freq 40m 0x1000 build/bootloader/bootloader.bin 0x8000 build/partition_table/partition-table.bin 0x10000 build/DisplayAudi.bin
+or from the "/home/student/Desktop/ProjekatDisplej/DisplayAudi/build" directory
+ python -m esptool --chip esp32 -b 460800 --before default-reset --after hard-reset write-flash "@flash_args"
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py build
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/4] cd /home/student/Desktop/ProjekatDisplej/...ojekatDisplej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x27810 bytes. Smallest app partition is 0x100000 bytes. 0xd87f0 bytes (85%) free.
+[1/1] cd /home/student/Desktop/ProjekatDisplej/...lej/DisplayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+
+Project build complete. To flash, run:
+ idf.py flash
+or
+ idf.py -p PORT flash
+or
+ python -m esptool --chip esp32 -b 460800 --before default-reset --after hard-reset write-flash --flash-mode dio --flash-size 2MB --flash-freq 40m 0x1000 build/bootloader/bootloader.bin 0x8000 build/partition_table/partition-table.bin 0x10000 build/DisplayAudi.bin
+or from the "/home/student/Desktop/ProjekatDisplej/DisplayAudi/build" directory
+ python -m esptool --chip esp32 -b 460800 --before default-reset --after hard-reset write-flash "@flash_args"
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py flash
+Adding "flash"'s dependency "all" to list of commands with default set of options.
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/4] cd /home/student/Desktop/ProjekatDisplej/...ojekatDisplej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x27810 bytes. Smallest app partition is 0x100000 bytes. 0xd87f0 bytes (85%) free.
+[1/1] cd /home/student/Desktop/ProjekatDisplej/...lej/DisplayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+Executing action: flash
+Serial port /dev/ttyUSB0:
+Connecting......
+Detecting chip type... ESP32
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja flash"...
+[1/5] cd /home/student/Desktop/ProjekatDisplej/DisplayAudi/build && /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/partition_table/partition-table.bin /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x27810 bytes. Smallest app partition is 0x100000 bytes. 0xd87f0 bytes (85%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cd /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader && /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[2/3] Running utility command for flash
+esptool --chip esp32 -p /dev/ttyUSB0 -b 460800 --before=default-reset --after=hard-reset write-flash --flash-mode dio --flash-freq 40m --flash-size 2MB 0x1000 bootloader/bootloader.bin 0x8000 partition_table/partition-table.bin 0x10000 DisplayAudi.bin
+esptool v5.2.0
+Connected to ESP32 on /dev/ttyUSB0:
+Chip type:          ESP32-D0WD-V3 (revision v3.1)
+Features:           Wi-Fi, BT, Dual Core + LP Core, 240MHz, Vref calibration in eFuse, Coding Scheme None
+Crystal frequency:  40MHz
+MAC:                44:1d:64:f5:51:c8
+
+Stub flasher running.
+Changing baud rate to 460800...
+Changed.
+
+Configuring flash size...
+SHA digest in image updated.
+Flash will be erased from 0x00001000 to 0x00007fff...
+Wrote 26128 bytes (16595 compressed) at 0x00001000 in 1.0 seconds (217.2 kbit/s).
+Hash of data verified.
+Flash will be erased from 0x00008000 to 0x00008fff...
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (276.6 kbit/s).
+Hash of data verified.
+Flash will be erased from 0x00010000 to 0x00037fff...
+Wrote 161808 bytes (93766 compressed) at 0x00010000 in 3.8 seconds (342.7 kbit/s).
+Hash of data verified.
+
+Hard resetting via RTS pin...
+Done
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py monitor
+Executing action: monitor
+Serial port /dev/ttyUSB0:
+Connecting....
+Detecting chip type... ESP32
+Running idf_monitor in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi
+Executing "/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.elf /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.elf -m '/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python' '/home/student/esp-idf/tools/idf.py'"...
+--- esp-idf-monitor 1.9.0 on /dev/ttyUSB0 115200
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+--- 0x40080400: _invalid_pc_placeholder at /home/student/esp-idf/components/xtensa/xtensa_vectors.S:2259
+entry 0x40080644
+--- 0x40080644: call_start_cpu0 at /home/student/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+I (27) boot: ESP-IDF v6.1-dev-2938-g12f36a021f 2nd stage bootloader
+I (27) boot: compile time Mar 27 2026 12:48:01
+I (28) boot: Multicore bootloader
+I (30) boot: chip revision: v3.1
+I (33) boot.esp32: SPI Speed      : 40MHz
+I (37) boot.esp32: SPI Mode       : DIO
+I (40) boot.esp32: SPI Flash Size : 2MB
+I (44) boot: Enabling RNG early entropy source...
+I (49) boot: Partition Table:
+I (51) boot: ## Label            Usage          Type ST Offset   Length
+I (57) boot:  001000
+I (71) boot:  2 factory 020 vaddr=3f400020 size=093d0h (sp_image: segment 2: paddr=0001cap
+ddr=000377c4 vaddr=50000000 sizeare used as console UART I/O pinion:
+I (181) app_init: Project  chip rev:     v0.0
+I (208) efut 4008AD48 len 000152B8 (84 KiB)ected size(4096k) larger than th) main_task: Calling app_main()
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+o
+I (551) Physical: Primljeno n61) TP2.0: Prva poruka od ECU je dobra
+ dobra
+CAN TX [ID: 0x740] [LEN: 6] DATA: A0 0F 8F FF 4F FF CAN TX [ID: 0x740] [LEN: 6] DATA: A0 0F 8F FTX [ID: 0x740] [LEN: 6] DATA: A0 0F 8F FF 4F FF CAN TX [ID: 0x740] [LEN: 6] DATA: A0 0F 8F FF 4FI (811) main_task: Returned from app_main()
+ app_main()
+: A0 0F 8F FF 4F FF CAN TX [ID: 0x740] [LEN: 6] DATA: A0 0F 8F F0] [LEN: 6] DATA: A0 0F 8F FF 4F0] [LEN: 6] DATA: A0 0F 8F FF 4F0] [LEN: 6] DATA: A0 0F 8F FF 4F0] [LEN: 6] DATA: A0 0F 8F FF 4F FF CAN TX [ID: 0x740] [LEN: 6] DATA: A0 0F 8F FF 4F FF CAN TX [ID: 0x740] [LEN: 6] DATA: A0 0F 8F FF 4F FF CAN TX [ID: 0x740] [CAN TX [ID: 0x740] [LEN: 6] DATA: A0 0F 8F FF 4F FF CAN TX [ID: 0x740] [LEN: 6] DATA: A0 0F 8F F 6] DATA: A0 0F 8F FF 4F FF CAN TX [ID: 0x740] [LEN: 6] DATA: A0ID: 0x740] [LEN: 6] DATA: A0 0F ID: 0x740] [LEN: 6] DATA: A0 0F ID: 0x740] [LEN: 6] DATA: A0 0F ID: 0x740] [LEN: 6] DATA: A0 0F LEN: 6] DATA: A0 0F 8F FF 4F FF CAN TX [ID: 0x740] [LEN: 6] DATATX [ID: 0x740] [LEN: 6] DATA: A0TX [ID: 0x740] [LEN: 6] DATA: A0TX [ID: 0x740] [LEN: 6] DATA: A0TX [ID: 0x740] [LEN: 6] DATA: A0TX [ID: 0x740] [LEN: 6] DATA: A00] [LEN: 6] DATA: A0 0F 8F FF 4F FF CAN TX [ID: 0x740] [LEN: 6] CAN TX [ID: 0x740] [LEN: 6] DATACAN TX [ID: 0x740] [LEN: 6] DATACAN TX [ID: 0x740] [LEN: 6] DATACAN TX [ID: 0x740] [LEN: 6] DATA0x740] [LEN: 6] DATA: A0 0F 8F F handshake
+Ovo je INDIKATOR 1I (1681) KWP: Uspem da posaljem se0 89 CAN TX [ID: 0x740] [LEN: 5]0 89 CAN TX [ID: 0x740] [LEN: 5]0 89 CAN TX [ID: 0x740] [LEN: 5]0 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 0EN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10] [LEN: 5] DATA: 10 00 02 10 89 ] [LEN: 5] DATA: 10 00 02 10 89 ] [LEN: 5] DATA: 10 00 02 10 89 ] [LEN: 5] DATA: 10 00 02 10 89 : 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 I (2811) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (2811) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (2811) KWP: Poslat zahtev za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 I (2891) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (2891) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (2901) KWP: Poslat zahtev za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89ALO JE FUNKCCIJU!!] [LEN: 5] DATA: 10 00 02 10 89 I (2981) KWP-AUTOMAT: Poslat zahtev za ECUID
+Ovo je INDIKATOR 0E (2991) KWP: Poslat zahteATOR 0E (3081) KWP: Poslat zahtev za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (3161) KWP-v za ECU
+v za ECU
+v za ECU
+UNKCCIJU!!
+Ovo je INDIKATOR 0E (3251) KWP: Poslat zahtev za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (3351) KWP: Poslat zahte9 CAN TX [ID: 0x740] [LEN: 5] DAATOR 0E (3441) KWP: Poslat zahtev za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (3611) KWP-v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x7
+E (3791) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (3801) KWP: Poslat zahtev za ECU
+TA: 10 00 02 10 89 I (3881) KWP-v za ECU
+v za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (4061) KWP-v za ECU
+v za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (4331) KWP-v za ECU
+v za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (4511) KWP-v za ECU
+v za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (4691) KWP-v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (4781) KWP-v za ECU
+v za ECU
+v za ECU
+ALO JE FUNKCCIJU!! [LEN: 5] DATAAUTOMAT: Poslat zahtev za ECUID
+Ovo je INDIKATOR 0E (4881) KWP: Poslat zahte9 CAN TX [ID: 0x740] [LEN: 5] DAATOR 0E (4971) KWP: Poslat zahtev za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (5141) KWP-v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+ALO JE FUNKCCIJU!! I (5411) KWP-AUTOMAT: Poslat zahtev za ECUID
+Ovo je INDIKATOR 0E (5421) KWP: Poslat zahtev za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x7
+E (5501) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (5511) KWP: Poslat zahtev za ECU
+TA: 10 00 02 10 89 I (5591) KWP-v za ECU
+v za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (5771) KWP-v za ECU
+v za ECU
+v za ECU
+v za ECU
+E (5881) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU
+
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py monitor
+Executing action: monitor
+Serial port /dev/ttyUSB0:
+Connecting....
+Detecting chip type... ESP32
+Running idf_monitor in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi
+Executing "/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.elf /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.elf -m '/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python' '/home/student/esp-idf/tools/idf.py'"...
+--- esp-idf-monitor 1.9.0 on /dev/ttyUSB0 115200
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+--- 0x40080400: _invalid_pc_placeholder at /home/student/esp-idf/components/xtensa/xtensa_vectors.S:2259
+entry 0x40080644
+--- 0x40080644: call_start_cpu0 at /home/student/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+I (27) boot: ESP-IDF v6.1-dev-29 SPI Flash Size : 2MB
+I (44) bosp_image: segment 0: paddr=00010 segment 3: paddr=00020020 vaddr=400d0020 size=10a58h ( 68184) mare used as console UART I/O pinion:
+I (181) app_init: Project  chip rev:     v0.0
+I (208) efut 4008AD48 len 000152B8 (84 KiB)ected size(4096k) larger than th) main_task: Calling app_main()
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+o
+I (551) Physical: Primljeno n61) TP2.0: Prva poruka od ECU je dobra
+ dobra
+CAN TX [ID: 0x740] [LEN: 6] DATA: A0 0F 8F FF 4F FF CAN TX [ID: 0x740] [LEN: 6] DATA: A0 0F 8F FTX [ID: 0x740] [LEN: 6] DATA: A0 0F 8F FF 4F FF CAN TX [ID: 0x740] [LEN: 6] DATA: A0 0F 8F FF 4FI (811) main_task: Returned from app_main()
+ app_main()
+: A0 0F 8F FF 4F FF CAN TX [ID: 0x740] [LEN: 6] DATA: A0 0F 8F F0] [LEN: 6] DATA: A0 0F 8F FF 4F0] [LEN: 6] DATA: A0 0F 8F FF 4F0] [LEN: 6] DATA: A0 0F 8F FF 4F0] [LEN: 6] DATA: A0 0F 8F FF 4F FF CAN TX [ID: 0x740] [LEN: 6] DATA: A0 0F 8F FF 4F FF CAN TX [ID: 0x740] [LEN: 6] DATA: A0 0F 8F FF 4F FF CAN TX [ID: 0x740] [CAN TX [ID: 0x740] [LEN: 6] DATA: A0 0F 8F FF 4F FF CAN TX [ID: 0x740] [LEN: 6] DATA: A0 0F 8F F 6] DATA: A0 0F 8F FF 4F FF CAN TX [ID: 0x740] [LEN: 6] DATA: A0ID: 0x740] [LEN: 6] DATA: A0 0F ID: 0x740] [LEN: 6] DATA: A0 0F ID: 0x740] [LEN: 6] DATA: A0 0F ID: 0x740] [LEN: 6] DATA: A0 0F 8F FF 4F FF CAN TX [ID: 0x740] [LEN: 6] DATA: A0 0F 8F FF 4F FF CAN TX [ID: 0x740] [LEN: 6] DATAF 4F FF CAN TX [ID: 0x740] [LEN: 6] DATA: A0 0F 8F FF 4F FF CAN TX [ID: 0x740] [LEN: 6] DATA: A00] [LEN: 6] DATA: A0 0F 8F FF 4F FF CAN TX [ID: 0x740] [LEN: 6] CAN TX [ID: 0x740] [LEN: 6] DATACAN TX [ID: 0x740] [LEN: 6] DATACAN TX [ID: 0x740] [LEN: 6] DATACAN TX [ID: 0x740] [LEN: 6] DATA0x740] [LEN: 6] DATA: A0 0F 8F FF 4F FF CAN TX [ID: 0x740] [LEN: handshake
+Ovo je INDIKATOR 1I (1681) KWP: Uspem da posaljem se0 89 CAN TX [ID: 0x740] [LEN: 5]0 89 CAN TX [ID: 0x740] [LEN: 5]0 89 CAN TX [ID: 0x740] [LEN: 5]0 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 0EN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10] [LEN: 5] DATA: 10 00 02 10 89 ] [LEN: 5] DATA: 10 00 02 10 89 ] [LEN: 5] DATA: 10 00 02 10 89 ] [LEN: 5] DATA: 10 00 02 10 89 : 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID:10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 0 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [ TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 I (2811) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (2811) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (2811) KWP: Poslat zahtev za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 8ALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (2901) KWP: Poslat zahtev za ECU
+v za ECU
+TA: 10 00 02 10 89 I (2981) KWP-v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+ALO JE FUNKCCIJU!! [LEN: 5] DATAAUTOMAT: Poslat zahtev za ECUID
+Ovo je INDIKATOR 0E (3171) KWP: Poslat zahte Poslat zahtev za ECUID
+E (3251UNKCCIJU!!
+Ovo je INDIKATOR 0E (3251) KWP: Poslat zahtev za ECU
+ATOR 0E (3351) KWP: Poslat zahtev za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (3431) KWP-v za ECU
+v za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (3701) KWP-v za ECU
+v za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (3801) KWP: Poslat zahte9 CAN TX [ID: 0x740] [LEN: 5] DAATOR 0E (3891) KWP: Poslat zahtev za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (4061) KWP-v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+ALO JE FUNKCCIJU!! [LEN: 5] DATAAUTOMAT: Poslat zahtev za ECUID
+Ovo je INDIKATOR 0E (4251) KWP: Poslat zahte9 CAN TX [ID: 0x740] [LEN: 5] DAATOR 0E (4341) KWP: Poslat zahtev za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (4511) KWP-v za ECU
+v za ECU
+v za ECU
+4v za ECU
+v za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (4701) KWP: Poslat zahte9 CAN TX [ID: 0x740] [LEN: 5] DAATOR 0E (4791) KWP: Poslat zahtev za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (4961) KWP-v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+ALO JE FUNKCCIJU!! [LEN: 5] DATAAUTOMAT: Poslat zahtev za ECUID
+Ovo je INDIKATOR 0E (5151) KWP: Poslat zahte9 CAN TX [ID: 0x740] [LEN: 5] DAATOR 0E (5241) KWP: Poslat zahtev za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (5411) KWP-v za ECU
+v za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (5861) KWP-v za ECU
+E (5881) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (6041) KWP-v za ECU
+v za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (6411) KWP: Poslat zahte9 CAN TX [ID: 0x740] [LEN: 5] DAATOR 0E (6501) KWP: Poslat zahtev za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (6671) KWP-v za ECU
+v za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (6851) KWP-v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+ALO JE FUNKCCIJU!! [LEN: 5] DATAAUTOMAT: Poslat zahtev za ECUID
+Ovo je INDIKATOR 0E (7041) KWP: Poslat zahte9 CAN TX [ID: 0x740] [LEN: 5] DAATOR 0E (7131) KWP: Poslat zahtev za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (7301) KWP-v za ECU
+v za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+ALO JE FUNKCCIJU!! [LEN: 5] DATAAUTOMAT: Poslat zahtev za ECUID
+Ovo je INDIKATOR 0E (7491) KWP: Poslat zahte9 CAN TX [ID: 0x740] [LEN: 5] DAATOR 0E (7581) KWP: Poslat zahtev za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (7751) KWP-v za ECU
+v za ECU
+v za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (7931) KWP-v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (8121) KWP: Poslat zahte9 CAN TX [ID: 0x740] [LEN: 5] DAATOR 0E (8211) KWP: Poslat zahtev za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (8381) KWP-v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (8471) KWP-TA: 10 00 02 10 89 I (8471) KWP-v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATA: 10 00 02 10 89 E (8521) DataAnP: Poslat zahtev za ECU
+P: Poslat zahtev za ECU
+P: Poslat zahtev za ECU
+P: Poslat zahtev za ECU
+TA: 10 00 02 10 89 I (8651) KWP-v za ECU
+v za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (8831) KWP-v za ECU
+v za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (9011) KWP-v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (9281) KWP-v za ECU
+v za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (9551) KWP-v za ECU
+v za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+TA: 10 00 02 10 89 I (9731) KWP-v za ECU
+v za ECU
+v za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAv za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+v za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (10101) KWP: Poslat za9 CAN TX [ID: 0x740] [LEN: 5] DAIKATOR 0E (10191) KWP: Poslat zahtev za ECU
+htev za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAhtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+TA: 10 00 02 10 89 I (10361) KWPhtev za ECU
+htev za ECU
+htev za ECU
+2htev za ECU
+htev za ECU
+htev za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATA-AUTOMAT: Poslat zahtev za ECUIDZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (10551) KWP: Poslat za9 CAN TX [ID: 0x740] [LEN: 5] DAIKATOR 0E (10641) KWP: Poslat zahtev za ECU
+htev za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAhtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+TA: 10 00 02 10 89 I (10811) KWPhtev za ECU
+htev za ECU
+htev za ECU
+TA: 10 00 02 10 89 I (10901) KWPhtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAhtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+TA: 10 00 02 10 89 I (11081) KWP-AUTOMAT: Poslat zahtev za ECUIDZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (11091) KWP: Poslat za9 E (11161) DataAnaliser: Ne mogE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (11171) KWP: Poslat zahtev za ECU
+TA: 10 00 02 10 89 I (11261) KWPhtev za ECU
+htev za ECU
+htev za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAhtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+TA: 10 00 02 10 89 I (11531) KWPhtev za ECU
+htev za ECU
+htev za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAhtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+TA: 10 00 02 10 89 I (11711) KWPhtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAhtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+TA: 10 00 02 10 89 I (11891) KWPhtev za ECU
+htev za ECU
+htev za ECU
+TA: 10 00 02 10 89 I (11981) KWPhtev za ECU
+htev za ECU
+htev za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAhtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+TA: 10 00 02 10 89 I (12161) KWPhtev za ECU
+htev za ECU
+htev za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (12261) KWP: Poslat zahtev za ECU
+TA: 10 00 02 10 89 I (12341) KWPhtev za ECU
+htev za ECU
+htev za ECU
+TA: 10 00 02 10 89 I (12431) KWPhtev za ECU
+htev za ECU
+htev za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAhtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+TA: 10 00 02 10 89 I (12611) KWPhtev za ECU
+htev za ECU
+htev za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAhtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+ZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (12801) KWP: Poslat za9 CAN TX [ID: 0x740] [LEN: 5] DAIKATOR 0E (12891) KWP: Poslat zahtev za ECU
+htev za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (12981) KWP: Poslat za9 CAN TX [ID: 0x740] [LEN: 5] DAIKATOR 0E (13071) KWP: Poslat zahtev za ECU
+htev za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAhtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+TA: 10 00 02 10 89 I (13241) KWPhtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATA-AUTOMAT: Poslat zahtev za ECUIDZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (13431) KWP: Poslat za9 CAN TX [ID: 0x740] [LEN: 5] DAIKATOR 0E (13521) KWP: Poslat zahtev za ECU
+htev za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAhtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+TA: 10 00 02 10 89 I (13691) KWPhtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+E (13801) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU
+ ECU
+CAN TX [ID: 0x740] [LEN: 5] DATA-AUTOMAT: Poslat zahtev za ECUIDZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (13881) KWP: Poslat za9 CAN TX [ID: 0x740] [LEN: 5] DAIKATOR 0E (13971) KWP: Poslat zahtev za ECU
+htev za ECU
+CAN TX [ID: 0x740] [LEN: 5] DATAhtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+TA: 10 00 02 10 89 I (14141) KWP-AUTOMAT: Poslat zahtev za ECUIDZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (14151) KWP: Poslat zaIKATOR 0E (14241) KWP: Poslat zahtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py build
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/11] Building C object esp-idf/PhysicalCan/CMakeFiles/__idf_PhysicalCan.dir/PhysicalCan.c.obj
+In file included from /home/student/Desktop/ProjekatDisplej/DisplayAudi/components/PhysicalCan/PhysicalCan.c:1:
+/home/student/esp-idf/components/driver/twai/include/driver/twai.h:17:2: warning: #warning "The legacy TWAI driver is deprecated, please use esp_twai.h" [-Wcpp]
+   17 | #warning "The legacy TWAI driver is deprecated, please use esp_twai.h"
+      |  ^~~~~~~
+[2/11] Building C object esp-idf/KwpProtocol/CMakeFiles/__idf_KwpProtocol.dir/KwpProtocol.c.obj
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/KwpProtocol/KwpProtocol.c:48:13: warning: 'KwpHandShake' defined but not used [-Wunused-function]
+   48 | static void KwpHandShake(uint8_t SessionId ){
+      |             ^~~~~~~~~~~~
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/KwpProtocol/KwpProtocol.c:35:23: warning: 'ecuId' defined but not used [-Wunused-variable]
+   35 | static uint8_t        ecuId = 1;
+      |                       ^~~~~
+[1/1] cd /home/student/Desktop/ProjekatDisplej/...lej/DisplayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[6/9] Generating esp-idf/esp_system/ld/sections.ld
+info: Default value for MBEDTLS_ARIA_C in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+info: Default value for MBEDTLS_THREADING_C in sdkconfig is n but it is y according to Kconfig.
+Using default value from sdkconfig (n).
+info: Default value for MBEDTLS_SHA3_C in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+[8/9] Generating binary image from built executable
+esptool v5.2.0
+Creating ESP32 image...
+Merged 3 ELF sections.
+Successfully created ESP32 image.
+Generated /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.bin
+[9/9] cd /home/student/Desktop/ProjekatDisplej/...ojekatDisplej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x277c0 bytes. Smallest app partition is 0x100000 bytes. 0xd8840 bytes (85%) free.
+
+Project build complete. To flash, run:
+ idf.py flash
+or
+ idf.py -p PORT flash
+or
+ python -m esptool --chip esp32 -b 460800 --before default-reset --after hard-reset write-flash --flash-mode dio --flash-size 2MB --flash-freq 40m 0x1000 build/bootloader/bootloader.bin 0x8000 build/partition_table/partition-table.bin 0x10000 build/DisplayAudi.bin
+or from the "/home/student/Desktop/ProjekatDisplej/DisplayAudi/build" directory
+ python -m esptool --chip esp32 -b 460800 --before default-reset --after hard-reset write-flash "@flash_args"
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py flash
+Adding "flash"'s dependency "all" to list of commands with default set of options.
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/4] cd /home/student/Desktop/ProjekatDisplej/...ojekatDisplej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x277c0 bytes. Smallest app partition is 0x100000 bytes. 0xd8840 bytes (85%) free.
+[1/1] cd /home/student/Desktop/ProjekatDisplej/...lej/DisplayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+Executing action: flash
+Serial port /dev/ttyUSB0:
+Connecting.......
+Detecting chip type... ESP32
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja flash"...
+[1/5] cd /home/student/Desktop/ProjekatDisplej/DisplayAudi/build && /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/partition_table/partition-table.bin /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x277c0 bytes. Smallest app partition is 0x100000 bytes. 0xd8840 bytes (85%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cd /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader && /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[2/3] Running utility command for flash
+esptool --chip esp32 -p /dev/ttyUSB0 -b 460800 --before=default-reset --after=hard-reset write-flash --flash-mode dio --flash-freq 40m --flash-size 2MB 0x1000 bootloader/bootloader.bin 0x8000 partition_table/partition-table.bin 0x10000 DisplayAudi.bin
+esptool v5.2.0
+Connected to ESP32 on /dev/ttyUSB0:
+Chip type:          ESP32-D0WD-V3 (revision v3.1)
+Features:           Wi-Fi, BT, Dual Core + LP Core, 240MHz, Vref calibration in eFuse, Coding Scheme None
+Crystal frequency:  40MHz
+MAC:                44:1d:64:f5:51:c8
+
+Stub flasher running.
+Changing baud rate to 460800...
+Changed.
+
+Configuring flash size...
+SHA digest in image updated.
+Flash will be erased from 0x00001000 to 0x00007fff...
+Wrote 26128 bytes (16595 compressed) at 0x00001000 in 1.0 seconds (202.8 kbit/s).
+Hash of data verified.
+Flash will be erased from 0x00008000 to 0x00008fff...
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (274.6 kbit/s).
+Hash of data verified.
+Flash will be erased from 0x00010000 to 0x00037fff...
+Wrote 161728 bytes (93698 compressed) at 0x00010000 in 3.6 seconds (359.7 kbit/s).
+Hash of data verified.
+
+Hard resetting via RTS pin...
+Done
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py monitor
+Executing action: monitor
+Serial port /dev/ttyUSB0:
+Connecting....
+Detecting chip type... ESP32
+Running idf_monitor in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi
+Executing "/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.elf /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.elf -m '/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python' '/home/student/esp-idf/tools/idf.py'"...
+--- esp-idf-monitor 1.9.0 on /dev/ttyUSB0 115200
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+--- 0x40080400: _invalid_pc_placeholder at /home/student/esp-idf/components/xtensa/xtensa_vectors.S:2259
+entry 0x40080644
+--- 0x40080644: call_start_cpu0 at /home/student/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+I (27) boot: ESP-IDF v6.1-dev-2938-g12f36a021f 2nd stage bootloader
+I (27) boot: compile time Mar 27 2026 12:48:01
+I (28) boot: Multicore bootloader
+I (30) boot: chip revision: v3.1
+I (33) boot.esp32: SPI Speed      : 40MHz
+I (37) boot.esp32: SPI Mode       : DIO
+I (40) boot.esp32: SPI Flash Size : 2MB
+I (44) boot: Enabling RNG early entropy source...
+I (49) boot: Partition Table:
+I (51) boot: ## Label            Usage          Type STsp_image: segment 0: paddr=00010=400d0020 size=10a30h ( 68144) mI (175) cpu_start: GPIO 3 and 1 36a021f
+I (204) efuse_init: Minnit: At 3FFB36C0 len 0002C940 (1 io: dio
+W (268) spi_flash: Detin_task: Started on CPU0
+I (291) main_task: Calling app_main()
+E (341) INIT: Sme samo 1
+I (551) TP: USPESNO POSLAT CONNECT NA CAN 
+I (551) KWP: TpStart je prosao
+I (551) Physical: Primljeno nesto od ECU 
+I (551) TP2.0: DOBAR je ID od ECU
+W (551) TP2.0: Uspesno primljena prva povratna od ECU-setujem chptr-idle
+1W (561) TP2.0: Prva poruka od ECU je dobra
+I (811) main_task: Returned from app_main()
+I (1681) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 1I (1681) KWP: Uspem da posaljem session
+I (2811) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (2811) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (2811) KWP: NIJE Poslat zahtev za ECU
+I (2891) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (2891) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (2891) KWP: NIJE Poslat zahtev za ECU
+I (2971) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (2971) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (2971) KWP: NIJE Poslat zahtev za ECU
+I (3051) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (3051) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (3051) KWP: NIJE Poslat zahtev za ECU
+I (3131) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (3131) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (3131) KWP: NIJE Poslat zahtev za ECU
+I (3211) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (3211) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (3211) KWP: NIJE Poslat zahtev za ECU
+E (3241) DataAnaliser: Ne mogu d NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+I (3371) KWP-AUTOMAT: Poslat zahADECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (3371) KWP:
+Ovo je INDIKATOR 0E (3451) KWP: NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+I (3931) KWP-AUTOMAT: Poslat zahADECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (3931) KWP: NIJE Poslat zahtev za ECU
+I (4011) KWP-AUTOMAT: Poslat zahADECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (4011) KWP: NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+I (4171) KWP-AUTOMAT: Poslat zahADECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (4171) KWP: NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ADECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (4331) KWP:
+Ovo je INDIKATOR 0E (4411) KWP: NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+I (4891) KWP-AUTOMAT: Poslat zahADECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (4891) KWP: NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+I (5051) KWP-AUTOMAT: Poslat zahADECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (5051) KWP: NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+I (5211) KWP-AUTOMAT: Poslat zahADECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (5211) KWP:  NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ADECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (5371) KWP: NIJE Poslat zahtev za ECU
+I (5451) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (5451) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (5451) KWP: NIJE Poslat zahtev za ECU
+I (5531) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (5531) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (5531) KWP: NIJE Poslat zahtev za ECU
+I (5611) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (5611) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (5611) KWP: NIJE Poslat zahtev za ECU
+I (5691) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (5691) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (5691) KWP: NIJE Poslat zahtev za ECU
+I (5771) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (5771) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (5771) KWP: NIJE Poslat zahtev za ECU
+I (5851) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (5851) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (5851) KWP: NIJE Poslat zahtev za ECU
+E (5881) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU
+I (5931) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (5931) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (5931) KWP: NIJE Poslat zahtev za ECU
+I (6011) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (6011) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (6011) KWP: NIJE Poslat zahtev za ECU
+I (6091) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (6091) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (6091) KWP: NIJE Poslat zahtev za ECU
+I (6171) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (6171) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (6171) KWP: NIJE Poslat zahtev za ECU
+I (6251) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (6251) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (6251) KWP: NIJE Poslat zahtev za ECU
+I (6331) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (6331) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (6331) KWP: NIJE Poslat zahtev za ECU
+I (6411) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (6411) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (6411) KWP: NIJE Poslat zahtev za ECU
+I (6491) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (6491) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (6491) KWP: NIJE Poslat zahtev za ECU
+I (6571) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (6571) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (6571) KWP: NIJE Poslat zahtev za ECU
+I (6651) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (6651) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (6651) KWP: NIJE Poslat zahtev za ECU
+I (6731) KWP-AUTOMAT: Poslat zahtev za ECUID
+E (6731) ULAZ U READECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (6731) KWP: NIJE Poslat zahtev za ECU
+I (6811) KWP-AUTOMAT: Poslat zahADECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (6811) KWP: NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ADECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (6971) KWP:
+Ovo je INDIKATOR 0E (7051) KWP: NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+--- Error: Unknown menu character Ctrl+Z
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+I (7611) KWP-AUTOMAT: Poslat zahADECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (7611) KWP: NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+I (7771) KWP-AUTOMAT: Poslat zahADECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (7771) KWP: NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+I (7931) KWP-AUTOMAT: Poslat zahADECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (7931) KWP: NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ADECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (8091) KWP:
+Ovo je INDIKATOR 0E (8171) KWP: NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+E (8521) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU
+a TRAZIM zahtev od ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+I (8731) KWP-AUTOMAT: Poslat zahADECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (8731) KWP: NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+I (8891) KWP-AUTOMAT: Poslat zahADECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (8891) KWP: NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+I (9051) KWP-AUTOMAT: Poslat zahADECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (9051) KWP:
+Ovo je INDIKATOR 0E (9131) KWP: NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+I (9531) KWP-AUTOMAT: Poslat zahADECUID: POZVALO JE FUNKCCIJU!!
+Ovo je INDIKATOR 0E (9531) KWP: NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+ NIJE Poslat zahtev za ECU
+I (9691) KWP-AUTOMAT: Poslat zahADECUID: POZVALO JE FUNKCCIJU!!
+
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ ^C
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py build
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/11] Building C object esp-idf/KwpProtocol/CMakeFiles/__idf_KwpProtocol.dir/KwpProtocol.c.obj
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/KwpProtocol/KwpProtocol.c:48:13: warning: 'KwpHandShake' defined but not used [-Wunused-function]
+   48 | static void KwpHandShake(uint8_t SessionId ){
+      |             ^~~~~~~~~~~~
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/KwpProtocol/KwpProtocol.c:35:23: warning: 'ecuId' defined but not used [-Wunused-variable]
+   35 | static uint8_t        ecuId = 1;
+      |                       ^~~~~
+[1/1] cd /home/student/Desktop/ProjekatDisplej/...lej/DisplayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[4/9] Building C object esp-idf/TP2.0Protocol/C...les/__idf_TP2.0Protocol.dir/TP2.0Protocol.c.obj
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c: In function 'Tp_Cyclic':
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c:43:13: warning: unused variable 'chId' [-Wunused-variable]
+   43 |     uint8_t chId = 0;
+      |             ^~~~
+[6/9] Generating esp-idf/esp_system/ld/sections.ld
+info: Default value for MBEDTLS_ARIA_C in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+info: Default value for MBEDTLS_THREADING_C in sdkconfig is n but it is y according to Kconfig.
+Using default value from sdkconfig (n).
+info: Default value for MBEDTLS_SHA3_C in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+[8/9] Generating binary image from built executable
+esptool v5.2.0
+Creating ESP32 image...
+Merged 3 ELF sections.
+Successfully created ESP32 image.
+Generated /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.bin
+[9/9] cd /home/student/Desktop/ProjekatDisplej/...ojekatDisplej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x27780 bytes. Smallest app partition is 0x100000 bytes. 0xd8880 bytes (85%) free.
+
+Project build complete. To flash, run:
+ idf.py flash
+or
+ idf.py -p PORT flash
+or
+ python -m esptool --chip esp32 -b 460800 --before default-reset --after hard-reset write-flash --flash-mode dio --flash-size 2MB --flash-freq 40m 0x1000 build/bootloader/bootloader.bin 0x8000 build/partition_table/partition-table.bin 0x10000 build/DisplayAudi.bin
+or from the "/home/student/Desktop/ProjekatDisplej/DisplayAudi/build" directory
+ python -m esptool --chip esp32 -b 460800 --before default-reset --after hard-reset write-flash "@flash_args"
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py flash
+Adding "flash"'s dependency "all" to list of commands with default set of options.
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/1] cd /home/student/Desktop/ProjekatDisplej/...lej/DisplayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[2/7] Building C object esp-idf/TP2.0Protocol/C...les/__idf_TP2.0Protocol.dir/TP2.0Protocol.c.obj
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c: In function 'Tp_Cyclic':
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c:43:13: warning: unused variable 'chId' [-Wunused-variable]
+   43 |     uint8_t chId = 0;
+      |             ^~~~
+[4/7] Generating esp-idf/esp_system/ld/sections.ld
+info: Default value for MBEDTLS_ARIA_C in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+info: Default value for MBEDTLS_THREADING_C in sdkconfig is n but it is y according to Kconfig.
+Using default value from sdkconfig (n).
+info: Default value for MBEDTLS_SHA3_C in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+[6/7] Generating binary image from built executable
+esptool v5.2.0
+Creating ESP32 image...
+Merged 3 ELF sections.
+Successfully created ESP32 image.
+Generated /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.bin
+[7/7] cd /home/student/Desktop/ProjekatDisplej/...ojekatDisplej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x27780 bytes. Smallest app partition is 0x100000 bytes. 0xd8880 bytes (85%) free.
+Executing action: flash
+Serial port /dev/ttyUSB0:
+Connecting.....
+Detecting chip type... ESP32
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja flash"...
+[1/5] cd /home/student/Desktop/ProjekatDisplej/DisplayAudi/build && /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/partition_table/partition-table.bin /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x27780 bytes. Smallest app partition is 0x100000 bytes. 0xd8880 bytes (85%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cd /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader && /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[2/3] Running utility command for flash
+esptool --chip esp32 -p /dev/ttyUSB0 -b 460800 --before=default-reset --after=hard-reset write-flash --flash-mode dio --flash-freq 40m --flash-size 2MB 0x1000 bootloader/bootloader.bin 0x8000 partition_table/partition-table.bin 0x10000 DisplayAudi.bin
+esptool v5.2.0
+Connected to ESP32 on /dev/ttyUSB0:
+Chip type:          ESP32-D0WD-V3 (revision v3.1)
+Features:           Wi-Fi, BT, Dual Core + LP Core, 240MHz, Vref calibration in eFuse, Coding Scheme None
+Crystal frequency:  40MHz
+MAC:                44:1d:64:f5:51:c8
+
+Stub flasher running.
+Changing baud rate to 460800...
+Changed.
+
+Configuring flash size...
+SHA digest in image updated.
+Flash will be erased from 0x00001000 to 0x00007fff...
+Wrote 26128 bytes (16595 compressed) at 0x00001000 in 1.0 seconds (219.3 kbit/s).
+Hash of data verified.
+Flash will be erased from 0x00008000 to 0x00008fff...
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (282.3 kbit/s).
+Hash of data verified.
+Flash will be erased from 0x00010000 to 0x00037fff...
+Wrote 161664 bytes (93644 compressed) at 0x00010000 in 3.5 seconds (365.8 kbit/s).
+Hash of data verified.
+
+Hard resetting via RTS pin...
+Done
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py flash
+Adding "flash"'s dependency "all" to list of commands with default set of options.
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/4] cd /home/student/Desktop/ProjekatDisplej/...ojekatDisplej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x27780 bytes. Smallest app partition is 0x100000 bytes. 0xd8880 bytes (85%) free.
+[1/1] cd /home/student/Desktop/ProjekatDisplej/...lej/DisplayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+Executing action: flash
+Serial port /dev/ttyUSB0:
+Connecting.....
+Detecting chip type... ESP32
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja flash"...
+[1/5] cd /home/student/Desktop/ProjekatDisplej/DisplayAudi/build && /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/partition_table/partition-table.bin /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x27780 bytes. Smallest app partition is 0x100000 bytes. 0xd8880 bytes (85%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cd /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader && /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[2/3] Running utility command for flash
+esptool --chip esp32 -p /dev/ttyUSB0 -b 460800 --before=default-reset --after=hard-reset write-flash --flash-mode dio --flash-freq 40m --flash-size 2MB 0x1000 bootloader/bootloader.bin 0x8000 partition_table/partition-table.bin 0x10000 DisplayAudi.bin
+esptool v5.2.0
+Connected to ESP32 on /dev/ttyUSB0:
+Chip type:          ESP32-D0WD-V3 (revision v3.1)
+Features:           Wi-Fi, BT, Dual Core + LP Core, 240MHz, Vref calibration in eFuse, Coding Scheme None
+Crystal frequency:  40MHz
+MAC:                44:1d:64:f5:51:c8
+
+Stub flasher running.
+Changing baud rate to 460800...
+Changed.
+
+Configuring flash size...
+SHA digest in image updated.
+Flash will be erased from 0x00001000 to 0x00007fff...
+Wrote 26128 bytes (16595 compressed) at 0x00001000 in 1.0 seconds (210.8 kbit/s).
+Hash of data verified.
+Flash will be erased from 0x00008000 to 0x00008fff...
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (305.3 kbit/s).
+Hash of data verified.
+Flash will be erased from 0x00010000 to 0x00037fff...
+Wrote 161664 bytes (93644 compressed) at 0x00010000 in 3.6 seconds (357.4 kbit/s).
+Hash of data verified.
+
+Hard resetting via RTS pin...
+Done
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py monitor
+Executing action: monitor
+Serial port /dev/ttyUSB0:
+Connecting....
+Detecting chip type... ESP32
+Running idf_monitor in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi
+Executing "/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.elf /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.elf -m '/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python' '/home/student/esp-idf/tools/idf.py'"...
+--- esp-idf-monitor 1.9.0 on /dev/ttyUSB0 115200
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+--- 0x40080400: _invalid_pc_placeholder at /home/student/esp-idf/components/xtensa/xtensa_vectors.S:2259
+entry 0x40080644
+--- 0x40080644: call_start_cpu0 at /home/student/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+I (27) boot: ESP-IDF v6.1-dev-2938-g12f36a021f 2nd stage bootloader
+I (27) boot: compile time Mar 27 2026 12:48:01
+I (28) boot: Multicore bootloader
+I (30) boot: chip revision: v3.1
+I (33) boot.esp32: SPI Speed      : 40MHz
+I (37) boot.esp32: SPI Mode       : DIO
+I (40) boot.esp32: SPI Flash Size : 2MB
+I (44) boot: Enabling RNG early entropy source...
+I (49) boot: Partition    01 02 00009000 00006000
+I ( 37744) map
+fac vaddr=40080000 size=0406ch (I (137) esp_image: segment 4: pa=00028h (    40) load
+I (155) bname:     DisplayAudi
+I (186) aeap_init: At 3FFAE6E0 len 000019: IRAM
+W (249) spi_flash: Detec261) spi_flash: detected chip: g
+
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+E (341) INIT: Sme samo 1
+P2.0: DOBAR je ID od ECU
+W (551povratna od ECU-setujem chptr-idle
+1W (561) TP2.0: Prva poruka od ECU je dobra
+I (811) main_task: Returned from app_main()
+I (1681) KWP-AUTOMAT: Poslat handshake
+1Ovo je INDIKATOR 1I (1681) KWP: Uspem da posaljem session
+I (2811) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (2811) KWP: NIJE Poslat zahtev za ECU
+I (2891) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (2891) KWP: NIJE Poslat zahtev za ECU
+I (2971) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (2971) KWP: NIJE Poslat zahtev za ECU
+I (3051) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (3051) KWP: NIJE Poslat zahtev za ECU
+I (3131) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (3131) KWP: NIJE Poslat zahtev za ECU
+I (3211) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (3211) KWP: NIJE Poslat zahtev za ECU
+E (3241) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU
+I (3291) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (3291) KWP: NIJE Poslat zahtev za ECU
+I (3371) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (3371) KWP: NIJE Poslat zahtev za ECU
+I (3451) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (3451) KWP: NIJE Poslat zahtev za ECU
+I (3531) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (3531) KWP: NIJE Poslat zahtev za ECU
+I (3611) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (3611) KWP: NIJE Poslat zahtev za ECU
+I (3691) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (3691) KWP: NIJE Poslat zahtev za ECU
+I (3771) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (3771) KWP: NIJE Poslat zahtev za ECU
+I (3851) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (3851) KWP: NIJE Poslat zahtev za ECU
+I (3931) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (3931) KWP: NIJE Poslat zahtev za ECU
+I (4011) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (4011) KWP: NIJE Poslat zahtev za ECU
+I (4091) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (4091) KWP: NIJE Poslat zahtev za ECU
+I (4171) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (4171) KWP: NIJE Poslat zahtev za ECU
+I (4251) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (4251) KWP: NIJE Poslat zahtev za ECU
+I (4331) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (4331) KWP: NIJE Poslat zahtev za ECU
+I (4411) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (4411) KWP: NIJE Poslat zahtev za ECU
+I (4491) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (4491) KWP: NIJE Poslat zahtev za ECU
+I (4571) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (4571) KWP: NIJE Poslat zahtev za ECU
+I (4651) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (4651) KWP: NIJE Poslat zahtev za ECU
+I (4731) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (4731) KWP: NIJE Poslat zahtev za ECU
+I (4811) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (4811) KWP: NIJE Poslat zahtev za ECU
+I (4891) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (4891) KWP: NIJE Poslat zahtev za ECU
+I (4971) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (4971) KWP: NIJE Poslat zahtev za ECU
+I (5051) KWP-AUTOMAT: Poslat zahtev za ECUID
+2Ovo je INDIKATOR 0E (5051) KWP: NIJE Poslat zahtev za ECU
+
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ ^C
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py build
+7Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/1] cd /home/student/Desktop/ProjekatDisplej/...lej/DisplayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[2/7] Building C object esp-idf/TP2.0Protocol/C...les/__idf_TP2.0Protocol.dir/TP2.0Protocol.c.obj
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c: In function 'Tp_Cyclic':
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c:43:13: warning: unused variable 'chId' [-Wunused-variable]
+   43 |     uint8_t chId = 0;
+      |             ^~~~
+[4/7] Generating esp-idf/esp_system/ld/sections.ld
+info: Default value for MBEDTLS_ARIA_C in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+info: Default value for MBEDTLS_THREADING_C in sdkconfig is n but it is y according to Kconfig.
+Using default value from sdkconfig (n).
+info: Default value for MBEDTLS_SHA3_C in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+[6/7] Generating binary image from built executable
+esptool v5.2.0
+Creating ESP32 image...
+Merged 3 ELF sections.
+Successfully created ESP32 image.
+Generated /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.bin
+[7/7] cd /home/student/Desktop/ProjekatDisplej/...ojekatDisplej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x27770 bytes. Smallest app partition is 0x100000 bytes. 0xd8890 bytes (85%) free.
+
+Project build complete. To flash, run:
+ idf.py flash
+or
+ idf.py -p PORT flash
+or
+ python -m esptool --chip esp32 -b 460800 --before default-reset --after hard-reset write-flash --flash-mode dio --flash-size 2MB --flash-freq 40m 0x1000 build/bootloader/bootloader.bin 0x8000 build/partition_table/partition-table.bin 0x10000 build/DisplayAudi.bin
+or from the "/home/student/Desktop/ProjekatDisplej/DisplayAudi/build" directory
+ python -m esptool --chip esp32 -b 460800 --before default-reset --after hard-reset write-flash "@flash_args"
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py flash
+Adding "flash"'s dependency "all" to list of commands with default set of options.
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/4] cd /home/student/Desktop/ProjekatDisplej/...ojekatDisplej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x27770 bytes. Smallest app partition is 0x100000 bytes. 0xd8890 bytes (85%) free.
+[1/1] cd /home/student/Desktop/ProjekatDisplej/...lej/DisplayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+Executing action: flash
+Serial port /dev/ttyUSB0:
+Connecting....
+Detecting chip type... ESP32
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja flash"...
+[1/5] cd /home/student/Desktop/ProjekatDisplej/DisplayAudi/build && /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/partition_table/partition-table.bin /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x27770 bytes. Smallest app partition is 0x100000 bytes. 0xd8890 bytes (85%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cd /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader && /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[2/3] Running utility command for flash
+esptool --chip esp32 -p /dev/ttyUSB0 -b 460800 --before=default-reset --after=hard-reset write-flash --flash-mode dio --flash-freq 40m --flash-size 2MB 0x1000 bootloader/bootloader.bin 0x8000 partition_table/partition-table.bin 0x10000 DisplayAudi.bin
+esptool v5.2.0
+Connected to ESP32 on /dev/ttyUSB0:
+Chip type:          ESP32-D0WD-V3 (revision v3.1)
+Features:           Wi-Fi, BT, Dual Core + LP Core, 240MHz, Vref calibration in eFuse, Coding Scheme None
+Crystal frequency:  40MHz
+MAC:                44:1d:64:f5:51:c8
+
+Stub flasher running.
+Changing baud rate to 460800...
+Changed.
+
+Configuring flash size...
+SHA digest in image updated.
+Flash will be erased from 0x00001000 to 0x00007fff...
+Wrote 26128 bytes (16595 compressed) at 0x00001000 in 0.9 seconds (227.3 kbit/s).
+Hash of data verified.
+Flash will be erased from 0x00008000 to 0x00008fff...
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (304.7 kbit/s).
+Hash of data verified.
+Flash will be erased from 0x00010000 to 0x00037fff...
+Wrote 161648 bytes (93643 compressed) at 0x00010000 in 3.8 seconds (343.3 kbit/s).
+Hash of data verified.
+
+Hard resetting via RTS pin...
+Done
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py monitor
+Executing action: monitor
+Serial port /dev/ttyUSB0:
+Connecting.......................
+/dev/ttyUSB0 failed to connect: Failed to connect to Espressif device: Wrong boot mode detected (0x13)! The chip needs to be in download mode.
+For troubleshooting steps visit: https://docs.espressif.com/projects/esptool/en/latest/troubleshooting.html
+No serial ports found. Connect a device, or use '-p PORT' option to set a specific port.
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py monitor
+Executing action: monitor
+No serial ports found. Connect a device, or use '-p PORT' option to set a specific port.
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py monitor
+Executing action: monitor
+Serial port /dev/ttyUSB0:
+Connecting.....
+Detecting chip type... ESP32
+Running idf_monitor in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi
+Executing "/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.elf /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.elf -m '/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python' '/home/student/esp-idf/tools/idf.py'"...
+--- esp-idf-monitor 1.9.0 on /dev/ttyUSB0 115200
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+--- 0x40080400: _invalid_pc_placeholder at /home/student/esp-idf/components/xtensa/xtensa_vectors.S:2259
+entry 0x40080644
+--- 0x40080644: call_start_cpu0 at /home/student/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+I (27) boot: ESP-IDF v6.1-dev-2938-g12f36a021f 2nd stage bootloader
+I (27) boot: compile time Mar 27 2026 12:48:01
+I (28) boot: Multicore bootloader
+I (30) boot: chip revision: v3.1
+I (33) boot.esp32: SPI Speed      : 40MHz
+I (37) boot.esp32: SPI Mode       : DIO
+I (40) boot.esp32: SPI Flash Size : 2MB
+I (44) boot: Enabling RNG early entropy source...
+I (49) boot: Partition    01 02 00009000 00006000
+I ( 37744) map
+fac vaddr=40080000 size=0406ch (I (137) esp_image: segment 4: pa=00028h (    40) load
+I (155) bname:     DisplayAudi
+I (186) aeap_init: At 3FFAE6E0 len 000019: IRAM
+W (249) spi_flash: Detec261) spi_flash: detected chip: g
+
+
+
+
+
+
+
+
+
+
+
+
+P2.0: DOBAR je ID od ECU
+W (551povratna od ECU-setujem chptr-idle
+1W (561) TP2.0: Prva poruka od ECU je dobra
+I (811) main_task: Returned from app_main()
+I (1681) KWP-AUTOMAT: Poslat handshake
+Ovo je stabhe txSTATE koje me jebbe1Ovo je INDIKATOR 1I (1681) KWP: Uspem da posaljem session
+I (2811) KWP-AUTOMAT: Poslat zahtev za ECUID
+Ovo je stabhe txSTATE koje me jebbe2Ovo je INDIKATOR 0E (2811) KWP: NIJE Poslat zahtev za ECU
+I (2891) KWP-AUTOMAT: Poslat zahtev za ECUID
+Ovo je stabhe txSTATE koje me jebbe2Ovo je INDIKATOR 0E (2891) KWP: NIJE Poslat zahtev za ECU
+I (2971) KWP-AUTOMAT: Poslat zahATE koje me jebbe2Ovo je INDIKATOR 0E (2971) KWP: NIJE Poslat zahtev za ECU
+htev za ECU
+htev za ECU
+I (3131) KWP-AUTOMAT: Poslat zahATE koje me jebbe2Ovo je INDIKATOR 0E (3131) KWP: NIJE Poslat zaOR 0E (3211) KWP: NIJE Poslat zahtev za ECU
+E (3241) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU
+ATE koje me jebbe2Ovo je INDIKATOR 0E (3291) KWP: NIJE Poslat zaOR 0E (3371) KWP: NIJE Poslat zahtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+I (3851) KWP-AUTOMAT: Poslat zahATE koje me jebbe2Ovo je INDIKATOR 0E (3851) KWP: NIJE Poslat zahtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+I (4011) KWP-AUTOMAT: Poslat zahATE koje me jebbe2Ovo je INDIKATOR 0E (4011) KWP: NIJE Poslat zahtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+I (4171) KWP-AUTOMAT: Poslat zahATE koje me jebbe2Ovo je INDIKATOR 0E (4171) KWP: NIJE Poslat zaOR 0E (4251) KWP: NIJE Poslat zahtev za ECU
+htev za ECU
+htev za ECU
+ATE koje me jebbe2Ovo je INDIKATOR 0E (4331) KWP: NIJE Poslat zaOR 0E (4411) KWP: NIJE Poslat zahtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+I (4891) KWP-AUTOMAT: Poslat zahATE koje me jebbe2Ovo je INDIKATOR 0E (4891) KWP: NIJE Poslat zahtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+I (5051) KWP-AUTOMAT: Poslat zahATE koje me jebbe2Ovo je INDIKATOR 0E (5051) KWP: NIJE Poslat zahtev za ECU
+htev za ECU
+htev za ECU
+I (5211) KWP-AUTOMAT: Poslat zahATE koje me jebbe2Ovo je INDIKATOR 0E (5211) KWP: NIJE Poslat zaOR 0E (5291) KWP: NIJE Poslat zahtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+--- Error: Unknown menu character Ctrl+C
+htev za ECU
+I (5851) KWP-AUTOMAT: Poslat zaha TRAZIM zahtev od ECU
+a TRAZIM zahtev od ECU
+I (5931) KWP-AUTOMAT: Poslat zahATE koje me jebbe2Ovo je INDIKATOR 0E (5931) KWP: NIJE Poslat zahtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+I (6091) KWP-AUTOMAT: Poslat zahATE koje me jebbe2Ovo je INDIKATOR 0E (6091) KWP: NIJE Poslat zahtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+I (6811) KWP-AUTOMAT: Poslat zahATE koje me jebbe2Ovo je INDIKATOR 0E (6811) KWP: NIJE Poslat zahtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+I (6971) KWP-AUTOMAT: Poslat zahATE koje me jebbe2Ovo je INDIKATOR 0E (6971) KWP: NIJE Poslat zahtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+I (7131) KWP-AUTOMAT: Poslat zahATE koje me jebbe2Ovo je INDIKATOR 0E (7131) KWP: NIJE Poslat zahtev za ECU
+htev za ECU
+htev za ECU
+ATE koje me jebbe2Ovo je INDIKATOR 0E (7291) KWP: NIJE Poslat zaOR 0E (7371) KWP: NIJE Poslat zahtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+--- Error: Unknown menu character Ctrl+C
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+I (8011) KWP-AUTOMAT: Poslat zahATE koje me jebbe2Ovo je INDIKATOR 0E (8011) KWP: NIJE Poslat zahtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+I (8171) KWP-AUTOMAT: Poslat zahATE koje me jebbe2Ovo je INDIKATOR 0E (8171) KWP: NIJE Poslat zahtev za ECU
+htev za ECU
+htev za ECU
+I (8331) KWP-AUTOMAT: Poslat zahATE koje me jebbe2Ovo je INDIKATOR 0E (8331) KWP: NIJE Poslat zaOR 0E (8411) KWP: NIJE Poslat zahtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+E (8521) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU
+a TRAZIM zahtev od ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+I (9051) KWP-AUTOMAT: Poslat zahATE koje me jebbe2Ovo je INDIKATOR 0E (9051) KWP: NIJE Poslat zahtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+I (9211) KWP-AUTOMAT: Poslat zahATE koje me jebbe2Ovo je INDIKATOR 0E (9211) KWP: NIJE Poslat zahtev za ECU
+htev za ECU
+htev za ECU
+I (9371) KWP-AUTOMAT: Poslat zahATE koje me jebbe2Ovo je INDIKATOR 0E (9371) KWP: NIJE Poslat zaOR 0E (9451) KWP: NIJE Poslat zahtev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+htev za ECU
+
+

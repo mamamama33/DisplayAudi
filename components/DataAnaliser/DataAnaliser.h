@@ -1,0 +1,41 @@
+#pragma once
+#include <stdint.h>
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+typedef void (Diag_CallbackType)(uint8_t *, uint8_t);
+
+#define DIAG_OK       (0u)
+#define DIAG_ERR      (1u)
+#define DIAG_PENDING  (2u)
+typedef enum{
+    DATA_IDLE,
+    DATA_REQUEST,
+    DATA_WAITNG,
+    DATA_READED,
+}DataState;
+
+typedef enum 
+{
+    ENGINEDIAG_CH_COOLANTTEMP1,
+    ENGINEDIAG_CH_DURMI1,
+    ENGINEDIAG_CH_QMI1,
+    ENGINEDIAG_CH_ENGINESPEED1,
+    ENGINEDIAG_CH_IATTEMP7,
+    ENGINEDIAG_CH_FUELTEMP,
+    ENGINEDIAG_CH_COOLANTTEMP7,
+    ENGINEDIAG_CH_OILTEMP,
+    ENGINEDIAG_CH_ENGINETEMP62,
+    ENGINEDIAG_CH_COOLERTEMP62,
+    ENGINEDIAG_CH_AMBITEMP62,
+    ENGINEDIAG_CH_IATTEMP62,
+    ENGINEDIAG_CH_EGTEMP67,
+    ENGINEDIAG_CH_EGTEMP74,
+    ENGINEDIAG_CH_LAMBDA74,
+    ENGINEDIAG_CH_MAX,
+}EngineDiag_ChannelIdType;
+
+uint8_t EngineDiag_GetChData(const EngineDiag_ChannelIdType, uint8_t *, uint32_t);
+
+void DataCyclic(void *);
+uint8_t DataInit();
+uint8_t DidHandler();

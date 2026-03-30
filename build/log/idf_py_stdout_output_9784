@@ -1,0 +1,590 @@
+Command: /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.elf /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.elf -m '/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python' '/home/student/esp-idf/tools/idf.py'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.1-dev-2938-g12f36a021f 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Mar 27 2026 12:48:01[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v3.1[0m
+[0;32mI (33) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=09220h ( 37408) map[0m
+[0;32mI (101) esp_image: segment 1: paddr=00019248 vaddr=3ffb0000 size=02c0ch ( 11276) load[0m
+[0;32mI (106) esp_image: segment 2: paddr=0001be5c vaddr=40080000 size=041bch ( 16828) load[0m
+[0;32mI (113) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=108f4h ( 67828) map[0m
+[0;32mI (137) esp_image: segment 4: paddr=0003091c vaddr=400841bc size=06b8ch ( 27532) load[0m
+[0;32mI (149) esp_image: segment 5: paddr=000374b0 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (155) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (155) boot: Disabling RNG early entropy source...[0m
+[0;32mI (167) cpu_start: Multicore app[0m
+[0;32mI (175) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (175) cpu_start: Pro cpu start user code[0m
+[0;32mI (175) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (177) app_init: Application information:[0m
+[0;32mI (181) app_init: Project name:     DisplayAudi[0m
+[0;32mI (185) app_init: App version:      1[0m
+[0;32mI (189) app_init: Compile time:     Mar 27 2026 12:48:30[0m
+[0;32mI (194) app_init: ELF file SHA256:  6476ad683...[0m
+[0;32mI (198) app_init: ESP-IDF:          v6.1-dev-2938-g12f36a021f[0m
+[0;32mI (204) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (207) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (211) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (216) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (222) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (227) heap_init: At 3FFB36C0 len 0002C940 (178 KiB): DRAM[0m
+[0;32mI (232) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (237) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (243) heap_init: At 4008AD48 len 000152B8 (84 KiB): IRAM[0m
+[0;33mW (249) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (261) spi_flash: detected chip: generic[0m
+[0;32mI (265) spi_flash: flash io: dio[0m
+[0;33mW (268) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (281) main_task: Started on CPU0[0m
+[0;32mI (291) main_task: Calling app_main()[0m
+[1;31mE (391) Physical: Uspesno izvrsena funkcija twai_transmit[0m
+[0;32mI (391) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[0;32mI (391) KWP: TpStart je prosao[0m
+[1;31mE (461) DEBUG: USpesno izvrsena inicijalizacija KWP protokola[0m
+[1;31mE (691) DEBUG: USpesno izvrsena inicijalizacija DATA funkcije[0m
+[0;32mI (811) main_task: Returned from app_main()[0m
+[0;32mI (1521) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (1521) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (1601) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (1601) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (1681) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (1681) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (1761) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (1761) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (1841) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (1841) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (1921) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (1921) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (2001) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (2001) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (2081) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (2081) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (2161) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (2161) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (2241) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (2241) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (2321) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (2321) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (2401) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (2401) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (2481) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (2481) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (2561) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (2561) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (2641) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (2641) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (2721) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (2721) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (2801) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (2801) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (2881) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (2881) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (2961) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (2961) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (3041) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (3041) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (3121) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (3121) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (3201) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (3201) KWP: NE USPEMMMM DA SETUJEM!![0m
+[1;31mE (3241) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (3281) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (3281) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (3361) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (3361) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (3441) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (3441) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (3521) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (3521) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (3601) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (3601) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (3681) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (3681) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (3761) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (3761) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (3841) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (3841) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (3921) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (3921) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (4001) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (4001) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (4081) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (4081) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (4161) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (4161) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (4241) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (4241) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (4321) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (4321) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (4401) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (4401) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (4481) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (4481) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (4561) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (4561) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (4641) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (4641) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (4721) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (4721) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (4801) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (4801) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (4881) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (4881) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (4961) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (4961) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (5041) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (5041) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (5121) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (5121) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (5201) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (5201) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (5281) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (5281) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (5361) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (5361) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (5441) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (5441) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (5521) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (5521) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (5601) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (5601) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (5681) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (5681) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (5761) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (5761) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (5841) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (5841) KWP: NE USPEMMMM DA SETUJEM!![0m
+[1;31mE (5881) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (5921) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (5921) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (6001) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (6001) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (6081) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (6081) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (6161) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (6161) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (6241) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (6241) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (6321) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (6321) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (6401) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (6401) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (6481) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (6481) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (6561) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (6561) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (6641) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (6641) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (6721) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (6721) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (6801) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (6801) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (6881) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (6881) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (6961) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (6961) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (7041) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (7041) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (7121) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (7121) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (7201) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (7201) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (7281) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (7281) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (7361) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (7361) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (7441) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (7441) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (7521) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (7521) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (7601) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (7601) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (7681) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (7681) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (7761) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (7761) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (7841) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (7841) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (7921) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (7921) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (8001) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (8001) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (8081) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (8081) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (8161) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (8161) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (8241) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (8241) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (8321) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (8321) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (8401) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (8401) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (8481) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (8481) KWP: NE USPEMMMM DA SETUJEM!![0m
+[1;31mE (8521) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (8561) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (8561) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (8641) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (8641) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (8721) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (8721) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (8801) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (8801) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (8881) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (8881) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (8961) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (8961) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (9041) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (9041) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (9121) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (9121) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (9201) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (9201) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (9281) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (9281) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (9361) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (9361) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (9441) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (9441) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (9521) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (9521) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (9601) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (9601) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (9681) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (9681) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (9761) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (9761) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (9841) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (9841) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (9921) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (9921) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (10001) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (10001) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (10081) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (10081) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (10161) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (10161) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (10241) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (10241) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (10321) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (10321) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (10401) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (10401) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (10481) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (10481) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (10561) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (10561) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (10641) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (10641) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (10721) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (10721) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (10801) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (10801) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (10881) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (10881) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (10961) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (10961) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (11041) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (11041) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (11121) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (11121) KWP: NE USPEMMMM DA SETUJEM!![0m
+[1;31mE (11161) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (11201) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (11201) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (11281) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (11281) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (11361) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (11361) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (11441) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (11441) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (11521) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (11521) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (11601) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (11601) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (11681) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (11681) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (11761) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (11761) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (11841) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (11841) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (11921) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (11921) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (12001) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (12001) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (12081) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (12081) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (12161) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (12161) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (12241) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (12241) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (12321) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (12321) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (12401) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (12401) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (12481) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (12481) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (12561) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (12561) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (12641) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (12641) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (12721) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (12721) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (12801) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (12801) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (12881) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (12881) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (12961) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (12961) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (13041) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (13041) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (13121) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (13121) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (13201) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (13201) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (13281) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (13281) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (13361) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (13361) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (13441) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (13441) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (13521) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (13521) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (13601) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (13601) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (13681) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (13681) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (13761) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (13761) KWP: NE USPEMMMM DA SETUJEM!![0m
+[1;31mE (13801) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (13841) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (13841) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (13921) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (13921) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (14001) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (14001) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (14081) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (14081) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (14161) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (14161) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (14241) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (14241) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (14321) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (14321) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (14401) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (14401) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (14481) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (14481) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (14561) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (14561) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (14641) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (14641) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (14721) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (14721) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (14801) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (14801) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (14881) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (14881) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (14961) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (14961) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (15041) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (15041) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (15121) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (15121) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (15201) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (15201) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (15281) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (15281) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (15361) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (15361) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (15441) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (15441) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (15521) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (15521) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (15601) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (15601) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (15681) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (15681) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (15761) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (15761) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (15841) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (15841) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (15921) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (15921) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (16001) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (16001) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (16081) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (16081) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (16161) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (16161) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (16241) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (16241) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (16321) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (16321) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (16401) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (16401) KWP: NE USPEMMMM DA SETUJEM!![0m
+[1;31mE (16441) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (16481) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (16481) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (16561) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (16561) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (16641) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (16641) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (16721) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (16721) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (16801) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (16801) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (16881) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (16881) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (16961) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (16961) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (17041) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (17041) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (17121) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (17121) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (17201) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (17201) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (17281) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (17281) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (17361) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (17361) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (17441) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (17441) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (17521) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (17521) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (17601) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (17601) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (17681) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (17681) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (17761) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (17761) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (17841) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (17841) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (17921) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (17921) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (18001) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (18001) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (18081) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (18081) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (18161) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (18161) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (18241) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (18241) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (18321) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (18321) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (18401) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (18401) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (18481) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (18481) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (18561) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (18561) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (18641) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (18641) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (18721) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (18721) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (18801) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (18801) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (18881) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (18881) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (18961) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (18961) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (19041) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (19041) KWP: NE USPEMMMM DA SETUJEM!![0m
+[1;31mE (19081) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (19121) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (19121) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (19201) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (19201) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (19281) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (19281) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (19361) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (19361) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (19441) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (19441) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (19521) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (19521) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (19601) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (19601) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (19681) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (19681) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (19761) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (19761) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (19841) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (19841) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (19921) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (19921) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (20001) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (20001) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (20081) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (20081) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (20161) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (20161) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (20241) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (20241) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (20321) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (20321) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (20401) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (20401) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (20481) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (20481) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (20561) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (20561) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (20641) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (20641) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (20721) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (20721) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (20801) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (20801) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (20881) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (20881) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (20961) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (20961) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (21041) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (21041) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (21121) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (21121) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (21201) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (21201) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (21281) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (21281) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (21361) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (21361) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (21441) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (21441) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (21521) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (21521) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (21601) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (21601) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (21681) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (21681) KWP: NE USPEMMMM DA SETUJEM!![0m
+[1;31mE (21721) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (21761) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (21761) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (21841) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (21841) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (21921) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (21921) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (22001) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (22001) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (22081) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (22081) KWP: NE USPEMMMM DA SETUJEM!![0m
+[0;32mI (22161) KWP-AUTOMAT: Poslat handshake[0m
+[0;33mW (22161) KWP: NE USPEMMMM DA SETUJEM!![0m

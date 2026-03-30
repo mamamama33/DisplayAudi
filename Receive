@@ -1,0 +1,9 @@
+-------------------PRIMANJE PORUKE -------
+
+
+CAN INIT -> CAN RECIVE -> KWP_Task --- > VwTp_Receive-> u VwTp_HandleRx--> PREKO  
+		      |                CALLBACK-a Kwp_Receive 
+		      | 
+		      |
+		      |
+		      |-> STALKBUTTON 

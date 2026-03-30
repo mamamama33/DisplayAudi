@@ -1,0 +1,403 @@
+Command: /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.elf /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.elf -m '/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python' '/home/student/esp-idf/tools/idf.py'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.1-dev-2938-g12f36a021f 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Mar 27 2026 12:48:01[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v3.1[0m
+[0;32mI (33) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=09450h ( 37968) map[0m
+[0;32mI (101) esp_image: segment 1: paddr=00019478 vaddr=3ffb0000 size=02c0ch ( 11276) load[0m
+[0;32mI (106) esp_image: segment 2: paddr=0001c08c vaddr=40080000 size=03f8ch ( 16268) load[0m
+[0;32mI (113) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=10a00h ( 68096) map[0m
+[0;32mI (137) esp_image: segment 4: paddr=00030a28 vaddr=40083f8c size=06dbch ( 28092) load[0m
+[0;32mI (149) esp_image: segment 5: paddr=000377ec vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (155) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (155) boot: Disabling RNG early entropy source...[0m
+[0;32mI (167) cpu_start: Multicore app[0m
+[0;32mI (175) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (176) cpu_start: Pro cpu start user code[0m
+[0;32mI (176) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (178) app_init: Application information:[0m
+[0;32mI (181) app_init: Project name:     DisplayAudi[0m
+[0;32mI (186) app_init: App version:      1[0m
+[0;32mI (189) app_init: Compile time:     Mar 27 2026 12:48:30[0m
+[0;32mI (194) app_init: ELF file SHA256:  06944eb96...[0m
+[0;32mI (198) app_init: ESP-IDF:          v6.1-dev-2938-g12f36a021f[0m
+[0;32mI (204) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (208) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (212) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (216) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (222) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (227) heap_init: At 3FFB36C0 len 0002C940 (178 KiB): DRAM[0m
+[0;32mI (232) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (238) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (243) heap_init: At 4008AD48 len 000152B8 (84 KiB): IRAM[0m
+[0;33mW (250) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (262) spi_flash: detected chip: generic[0m
+[0;32mI (265) spi_flash: flash io: dio[0m
+[0;33mW (268) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (281) main_task: Started on CPU0[0m
+[0;32mI (291) main_task: Calling app_main()[0m
+CAN TX [ID: 0x200] [LEN: 7] DATA: 01 C0 00 10 00 03 01 E (431) Physical: Uspesno izvrsena funkcija twai_transmit
+[0;32mI (431) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[0;32mI (431) KWP: TpStart je prosao[0m
+[0;32mI (431) Physical: Primljeno nesto od ECU [0m
+[0;32mI (441) TP2.0: DOBAR je ID od ECU[0m
+[1;31mE (461) DEBUG: USpesno izvrsena inicijalizacija KWP protokola[0m
+[0;33mW (491) TP2.0: Uspesno primljena prva povratna od ECU-setujem chptr-idle[0m
+[0;33mW (491) TP2.0: Prva poruka od ECU je dobra[0m
+[1;31mE (691) DEBUG: USpesno izvrsena inicijalizacija DATA funkcije[0m
+[0;32mI (811) main_task: Returned from app_main()[0m
+[0;32mI (1571) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (1571) KWP: NE USPEM da posaljem session
+[0;32mI (1651) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (1651) KWP: NE USPEM da posaljem session
+[0;32mI (1731) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (1731) KWP: NE USPEM da posaljem session
+[0;32mI (1811) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (1811) KWP: NE USPEM da posaljem session
+[0;32mI (1891) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (1891) KWP: NE USPEM da posaljem session
+[0;32mI (1971) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (1971) KWP: NE USPEM da posaljem session
+[0;32mI (2051) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (2051) KWP: NE USPEM da posaljem session
+[0;32mI (2131) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (2131) KWP: NE USPEM da posaljem session
+[0;32mI (2211) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (2211) KWP: NE USPEM da posaljem session
+[0;32mI (2291) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (2291) KWP: NE USPEM da posaljem session
+[0;32mI (2371) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (2371) KWP: NE USPEM da posaljem session
+[0;32mI (2451) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (2451) KWP: NE USPEM da posaljem session
+[0;32mI (2531) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (2531) KWP: NE USPEM da posaljem session
+[0;32mI (2611) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (2611) KWP: NE USPEM da posaljem session
+[0;32mI (2691) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (2691) KWP: NE USPEM da posaljem session
+[0;32mI (2771) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (2771) KWP: NE USPEM da posaljem session
+[0;32mI (2851) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (2851) KWP: NE USPEM da posaljem session
+[0;32mI (2931) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (2931) KWP: NE USPEM da posaljem session
+[0;32mI (3011) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (3011) KWP: NE USPEM da posaljem session
+[0;32mI (3091) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (3091) KWP: NE USPEM da posaljem session
+[0;32mI (3171) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (3171) KWP: NE USPEM da posaljem session
+[1;31mE (3241) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (3251) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (3251) KWP: NE USPEM da posaljem session
+[0;32mI (3331) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (3331) KWP: NE USPEM da posaljem session
+[0;32mI (3411) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (3411) KWP: NE USPEM da posaljem session
+[0;32mI (3491) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (3491) KWP: NE USPEM da posaljem session
+[0;32mI (3571) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (3571) KWP: NE USPEM da posaljem session
+[0;32mI (3651) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (3651) KWP: NE USPEM da posaljem session
+[0;32mI (3731) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (3731) KWP: NE USPEM da posaljem session
+[0;32mI (3811) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (3811) KWP: NE USPEM da posaljem session
+[0;32mI (3891) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (3891) KWP: NE USPEM da posaljem session
+[0;32mI (3971) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (3971) KWP: NE USPEM da posaljem session
+[0;32mI (4051) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (4051) KWP: NE USPEM da posaljem session
+[0;32mI (4131) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (4131) KWP: NE USPEM da posaljem session
+[0;32mI (4211) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (4211) KWP: NE USPEM da posaljem session
+[0;32mI (4291) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (4291) KWP: NE USPEM da posaljem session
+[0;32mI (4371) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (4371) KWP: NE USPEM da posaljem session
+[0;32mI (4451) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (4451) KWP: NE USPEM da posaljem session
+[0;32mI (4531) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (4531) KWP: NE USPEM da posaljem session
+[0;32mI (4611) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (4611) KWP: NE USPEM da posaljem session
+[0;32mI (4691) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (4691) KWP: NE USPEM da posaljem session
+[0;32mI (4771) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (4771) KWP: NE USPEM da posaljem session
+[0;32mI (4851) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (4851) KWP: NE USPEM da posaljem session
+[0;32mI (4931) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (4931) KWP: NE USPEM da posaljem session
+[0;32mI (5011) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (5011) KWP: NE USPEM da posaljem session
+[0;32mI (5091) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (5091) KWP: NE USPEM da posaljem session
+[0;32mI (5171) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (5171) KWP: NE USPEM da posaljem session
+[0;32mI (5251) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (5251) KWP: NE USPEM da posaljem session
+[0;32mI (5331) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (5331) KWP: NE USPEM da posaljem session
+[0;32mI (5411) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (5411) KWP: NE USPEM da posaljem session
+[0;32mI (5491) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (5491) KWP: NE USPEM da posaljem session
+[0;32mI (5571) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (5571) KWP: NE USPEM da posaljem session
+[0;32mI (5651) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (5651) KWP: NE USPEM da posaljem session
+[0;32mI (5731) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (5731) KWP: NE USPEM da posaljem session
+[0;32mI (5811) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (5811) KWP: NE USPEM da posaljem session
+[1;31mE (5881) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (5891) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (5891) KWP: NE USPEM da posaljem session
+[0;32mI (5971) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (5971) KWP: NE USPEM da posaljem session
+[0;32mI (6051) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (6051) KWP: NE USPEM da posaljem session
+[0;32mI (6131) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (6131) KWP: NE USPEM da posaljem session
+[0;32mI (6211) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (6211) KWP: NE USPEM da posaljem session
+[0;32mI (6291) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (6291) KWP: NE USPEM da posaljem session
+[0;32mI (6371) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (6371) KWP: NE USPEM da posaljem session
+[0;32mI (6451) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (6451) KWP: NE USPEM da posaljem session
+[0;32mI (6531) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (6531) KWP: NE USPEM da posaljem session
+[0;32mI (6611) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (6611) KWP: NE USPEM da posaljem session
+[0;32mI (6691) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (6691) KWP: NE USPEM da posaljem session
+[0;32mI (6771) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (6771) KWP: NE USPEM da posaljem session
+[0;32mI (6851) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (6851) KWP: NE USPEM da posaljem session
+[0;32mI (6931) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (6931) KWP: NE USPEM da posaljem session
+[0;32mI (7011) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (7011) KWP: NE USPEM da posaljem session
+[0;32mI (7091) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (7091) KWP: NE USPEM da posaljem session
+[0;32mI (7171) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (7171) KWP: NE USPEM da posaljem session
+[0;32mI (7251) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (7251) KWP: NE USPEM da posaljem session
+[0;32mI (7331) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (7331) KWP: NE USPEM da posaljem session
+[0;32mI (7411) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (7411) KWP: NE USPEM da posaljem session
+[0;32mI (7491) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (7491) KWP: NE USPEM da posaljem session
+[0;32mI (7571) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (7571) KWP: NE USPEM da posaljem session
+[0;32mI (7651) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (7651) KWP: NE USPEM da posaljem session
+[0;32mI (7731) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (7731) KWP: NE USPEM da posaljem session
+[0;32mI (7811) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (7811) KWP: NE USPEM da posaljem session
+[0;32mI (7891) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (7891) KWP: NE USPEM da posaljem session
+[0;32mI (7971) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (7971) KWP: NE USPEM da posaljem session
+[0;32mI (8051) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (8051) KWP: NE USPEM da posaljem session
+[0;32mI (8131) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (8131) KWP: NE USPEM da posaljem session
+[0;32mI (8211) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (8211) KWP: NE USPEM da posaljem session
+[0;32mI (8291) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (8291) KWP: NE USPEM da posaljem session
+[0;32mI (8371) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (8371) KWP: NE USPEM da posaljem session
+[0;32mI (8451) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (8451) KWP: NE USPEM da posaljem session
+[1;31mE (8521) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (8531) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (8531) KWP: NE USPEM da posaljem session
+[0;32mI (8611) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (8611) KWP: NE USPEM da posaljem session
+[0;32mI (8691) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (8691) KWP: NE USPEM da posaljem session
+[0;32mI (8771) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (8771) KWP: NE USPEM da posaljem session
+[0;32mI (8851) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (8851) KWP: NE USPEM da posaljem session
+[0;32mI (8931) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (8931) KWP: NE USPEM da posaljem session
+[0;32mI (9011) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (9011) KWP: NE USPEM da posaljem session
+[0;32mI (9091) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (9091) KWP: NE USPEM da posaljem session
+[0;32mI (9171) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (9171) KWP: NE USPEM da posaljem session
+[0;32mI (9251) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (9251) KWP: NE USPEM da posaljem session
+[0;32mI (9331) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (9331) KWP: NE USPEM da posaljem session
+[0;32mI (9411) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (9411) KWP: NE USPEM da posaljem session
+[0;32mI (9491) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (9491) KWP: NE USPEM da posaljem session
+[0;32mI (9571) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (9571) KWP: NE USPEM da posaljem session
+[0;32mI (9651) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (9651) KWP: NE USPEM da posaljem session
+[0;32mI (9731) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (9731) KWP: NE USPEM da posaljem session
+[0;32mI (9811) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (9811) KWP: NE USPEM da posaljem session
+[0;32mI (9891) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (9891) KWP: NE USPEM da posaljem session
+[0;32mI (9971) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (9971) KWP: NE USPEM da posaljem session
+[0;32mI (10051) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (10051) KWP: NE USPEM da posaljem session
+[0;32mI (10131) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (10131) KWP: NE USPEM da posaljem session
+[0;32mI (10211) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (10211) KWP: NE USPEM da posaljem session
+[0;32mI (10291) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (10291) KWP: NE USPEM da posaljem session
+[0;32mI (10371) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (10371) KWP: NE USPEM da posaljem session
+[0;32mI (10451) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (10451) KWP: NE USPEM da posaljem session
+[0;32mI (10531) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (10531) KWP: NE USPEM da posaljem session
+[0;32mI (10611) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (10611) KWP: NE USPEM da posaljem session
+[0;32mI (10691) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (10691) KWP: NE USPEM da posaljem session
+[0;32mI (10771) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (10771) KWP: NE USPEM da posaljem session
+[0;32mI (10851) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (10851) KWP: NE USPEM da posaljem session
+[0;32mI (10931) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (10931) KWP: NE USPEM da posaljem session
+[0;32mI (11011) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (11011) KWP: NE USPEM da posaljem session
+[0;32mI (11091) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (11091) KWP: NE USPEM da posaljem session
+[1;31mE (11161) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (11171) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (11171) KWP: NE USPEM da posaljem session
+[0;32mI (11251) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (11251) KWP: NE USPEM da posaljem session
+[0;32mI (11331) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (11331) KWP: NE USPEM da posaljem session
+[0;32mI (11411) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (11411) KWP: NE USPEM da posaljem session
+[0;32mI (11491) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (11491) KWP: NE USPEM da posaljem session
+[0;32mI (11571) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (11571) KWP: NE USPEM da posaljem session
+[0;32mI (11651) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (11651) KWP: NE USPEM da posaljem session
+[0;32mI (11731) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (11731) KWP: NE USPEM da posaljem session
+[0;32mI (11811) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (11811) KWP: NE USPEM da posaljem session
+[0;32mI (11891) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (11891) KWP: NE USPEM da posaljem session
+[0;32mI (11971) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (11971) KWP: NE USPEM da posaljem session
+[0;32mI (12051) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (12051) KWP: NE USPEM da posaljem session
+[0;32mI (12131) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (12131) KWP: NE USPEM da posaljem session
+[0;32mI (12211) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (12211) KWP: NE USPEM da posaljem session
+[0;32mI (12291) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (12291) KWP: NE USPEM da posaljem session
+[0;32mI (12371) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (12371) KWP: NE USPEM da posaljem session
+[0;32mI (12451) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (12451) KWP: NE USPEM da posaljem session
+[0;32mI (12531) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (12531) KWP: NE USPEM da posaljem session
+[0;32mI (12611) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (12611) KWP: NE USPEM da posaljem session
+[0;32mI (12691) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (12691) KWP: NE USPEM da posaljem session
+[0;32mI (12771) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (12771) KWP: NE USPEM da posaljem session
+[0;32mI (12851) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (12851) KWP: NE USPEM da posaljem session
+[0;32mI (12931) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (12931) KWP: NE USPEM da posaljem session
+[0;32mI (13011) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (13011) KWP: NE USPEM da posaljem session
+[0;32mI (13091) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (13091) KWP: NE USPEM da posaljem session
+[0;32mI (13171) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (13171) KWP: NE USPEM da posaljem session
+[0;32mI (13251) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (13251) KWP: NE USPEM da posaljem session
+[0;32mI (13331) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (13331) KWP: NE USPEM da posaljem session
+[0;32mI (13411) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (13411) KWP: NE USPEM da posaljem session
+[0;32mI (13491) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (13491) KWP: NE USPEM da posaljem session
+[0;32mI (13571) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (13571) KWP: NE USPEM da posaljem session
+[0;32mI (13651) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (13651) KWP: NE USPEM da posaljem session
+[0;32mI (13731) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (13731) KWP: NE USPEM da posaljem session
+[1;31mE (13801) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (13811) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (13811) KWP: NE USPEM da posaljem session
+[0;32mI (13891) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (13891) KWP: NE USPEM da posaljem session
+[0;32mI (13971) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (13971) KWP: NE USPEM da posaljem session
+[0;32mI (14051) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (14051) KWP: NE USPEM da posaljem session
+[0;32mI (14131) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (14131) KWP: NE USPEM da posaljem session
+[0;32mI (14211) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (14211) KWP: NE USPEM da posaljem session
+[0;32mI (14291) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (14291) KWP: NE USPEM da posaljem session
+[0;32mI (14371) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (14371) KWP: NE USPEM da posaljem session
+[0;32mI (14451) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (14451) KWP: NE USPEM da posaljem session
+[0;32mI (14531) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (14531) KWP: NE USPEM da posaljem session
+[0;32mI (14611) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (14611) KWP: NE USPEM da posaljem session
+[0;32mI (14691) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je INDIKATOR 2E (14691) KWP: NE USPEM da posaljem session

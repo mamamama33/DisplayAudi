@@ -1,0 +1,180 @@
+#include "driver/twai.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "esp_log.h"
+#include "TP2.0Protocol.h"
+#include "PhysicalCan.h"
+#include "KwpProtocol.h"
+
+static QueueHandle_t CanToKwpQueue;
+static QueueHandle_t StalkButtonQueue;
+
+uint8_t StalkGetter;
+
+
+#define CAN_KWP_QUEUE_LEN  10
+#define STALKBUTTON        20
+
+
+/*
+// maska za ID jeve 
+//01101011111 35F (stalk buttons) 
+//10101110101 575 (ignition) 
+// Code: 00101010101 155 
+// Mask: 11000101010 62A 
+twai_mask_filter_config_t filter1 = { 
+.id = 0x155, .mask = 0x62A, .is_ext = false, 
+}; 
+//01000000001 201 (engine diag) TO JE ZA KWP PROTOKOL 
+//01000000111 207 (dash diag) 
+//01100000000 300 (all diag) 
+//11011000001 6c1 (dash) 
+//11011000010 6c2 (navi, gw mode) 
+//11011000011 6c3 (dash, alternative mode) 
+// maska za ID jeve 200 201 300 301 
+twai_mask_filter_config_t filter2 = { 
+.id = 0x200, .mask = 0x7FC, .is_ext = false, 
+};
+*/
+
+/* Getter za rucicu */
+uint8_t GetStalkButton() {
+    
+    return StalkGetter;
+}
+
+/* CAN receive task */
+void Can_Receive(void *pvParameters)
+{
+    twai_message_t msg;
+
+    while (1)
+    {
+        if (twai_receive(&msg, portMAX_DELAY) == ESP_OK)
+        {
+            ESP_LOGW("Physical","Primljeno na can-u");
+            if (msg.identifier == STALKBUTTONRXID) {
+                xQueueSend(StalkButtonQueue, &msg, portMAX_DELAY);
+                
+            }
+            else if (msg.identifier == ENGINERXID) {
+                xQueueSend(CanToKwpQueue, &msg, portMAX_DELAY);
+            }
+            else {
+                //ESP_LOGI("CAN", "Nepoznat ID");
+            }
+        }
+
+    }
+}
+
+/* Stalk button task */
+void StalkButton(void *pvParameters)
+{
+    twai_message_t msg;
+    uint8_t buttons;
+    static uint8_t lastButtons = 0;
+
+    while (1)
+    {
+        if (xQueueReceive(StalkButtonQueue, &msg, portMAX_DELAY))
+        {
+            buttons = msg.data[1];
+            ESP_LOGW("stalk","Pritisnuto dugme");
+
+            if (lastButtons != buttons)
+            {
+                if ((lastButtons & 0x20) && !(buttons & 0x20)) {
+                    ESP_LOGI("STALK", "GORE");
+                    StalkGetter=20;
+                }
+                else if ((lastButtons & 0x10) && !(buttons & 0x10)) {
+                    ESP_LOGI("STALK", "DOLE");
+                    StalkGetter=10;
+                }
+                else if ((lastButtons & 0x40) && !(buttons & 0x40)) {
+                    ESP_LOGI("STALK", "OK/RESET");
+                    StalkGetter=30;
+                }
+
+                lastButtons = buttons;
+            }
+        }
+        vTaskDelay(pdMS_TO_TICKS(30));
+
+    }
+}
+
+/* KWP task */
+void Kwp_Task(void *pvParameters)
+{
+    twai_message_t msg;
+
+    while (1)
+    {
+        if (xQueueReceive(CanToKwpQueue, &msg, portMAX_DELAY))
+        {
+            ESP_LOGI("Physical","Primljeno nesto od ECU ");
+            VwTp_Receive(
+                msg.identifier,
+                msg.data_length_code,
+                msg.data
+            );
+        }
+        
+        vTaskDelay(pdMS_TO_TICKS(30));
+    }
+}
+
+/* CAN write */
+uint8_t CanWrite(uint16_t CanID, uint8_t len, uint8_t* Data)
+{
+    vTaskDelay(pdMS_TO_TICKS(20));
+
+    twai_message_t msg = {0};
+
+    msg.identifier = CanID;
+    msg.data_length_code = len;
+    msg.extd = 0;
+    msg.rtr = 0;
+
+    for (int i = 0; i < len; i++) {
+        msg.data[i] = Data[i];
+    }
+
+    if (twai_transmit(&msg, pdMS_TO_TICKS(5)) == ESP_OK) {
+       /* printf("CAN TX [ID: 0x%03X] [LEN: %d] DATA: ", CanID, len);
+        for(int i = 0; i < len; i++) {
+            printf("%02X ", Data[i]);
+        }
+        //ESP_LOGE("Physical","Uspesno izvrsena funkcija twai_transmit");
+        */
+        return 1;
+    }
+    vTaskDelay(pdMS_TO_TICKS(50));
+    return 0;
+}
+
+/* CAN init */
+void Can_Init()
+{
+    // Konfiguracija
+    twai_general_config_t g_config = TWAI_GENERAL_CONFIG_DEFAULT(17, 16, TWAI_MODE_NORMAL);
+    twai_timing_config_t  t_config = TWAI_TIMING_CONFIG_500KBITS();
+
+    // Filter (možeš kasnije da optimizuješ)
+    twai_filter_config_t f_config = TWAI_FILTER_CONFIG_ACCEPT_ALL();
+
+    ESP_ERROR_CHECK(twai_driver_install(&g_config, &t_config, &f_config));
+    ESP_ERROR_CHECK(twai_start());
+
+    // Queue
+    CanToKwpQueue   = xQueueCreate(CAN_KWP_QUEUE_LEN, sizeof(twai_message_t));
+    StalkButtonQueue = xQueueCreate(STALKBUTTON, sizeof(twai_message_t));
+
+    // Taskovi
+    xTaskCreatePinnedToCore(Can_Receive, "CanRx", 2048, NULL, 6, NULL, 0);
+    xTaskCreatePinnedToCore(Kwp_Task, "KwpTask", 4096, NULL, 5, NULL, 1);
+    xTaskCreatePinnedToCore(StalkButton, "StalkButton", 2048, NULL, 4, NULL, 0);
+    vTaskDelay(pdMS_TO_TICKS(50));
+}

@@ -1,0 +1,422 @@
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+--- 0x40080400: _invalid_pc_placeholder at /home/student/esp-idf/components/xtensa/xtensa_vectors.S:2259
+entry 0x40080644
+--- 0x40080644: call_start_cpu0 at /home/student/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+I (27) boot: ESP-IDF v6.1-dev-2938-g12f36a021f 2nd stage bootloader
+I (27) boot: compile time Mar 27 2026 12:48:01
+I (28) boot: Multicore bootloader
+I (30) boot: chip revision: v3.1
+I (33) boot.esp32: SPI Speed      : 40MHz
+I (37) boot.esp32: SPI Mode       : DIO
+I (40) boot.esp32: SPI Flash Size : 2MB
+I (44) boot: Enabling RNG early entropy source...
+I (49) boot: Partition Table:
+I (51) boot: ## Label            Usage          Type ST Offset   Length
+I (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+I (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+I (71) boot:  2 factory          factory app      00 00 00010000 00100000
+I (77) boot: End of partition table
+I (80) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=09450h ( 37968) map
+I (101) esp_image: segment 1: paddr=00019478 vaddr=3ffb0000 size=02c0ch ( 11276) load
+I (106) esp_image: segment 2: paddr=0001c08c vaddr=40080000 size=03f8ch ( 16268) load
+I (113) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=10a00h ( 68096) map
+I (137) esp_image: segment 4: paddr=00030a28 vaddr=40083f8c size=06dbch ( 28092) load
+I (149) esp_image: segment 5: paddr=000377ec vaddr=50000000 size=00028h (    40) load
+I (155) boot: Loaded app from partition at offset 0x10000
+I (155) boot: Disabling RNG early entropy source...
+I (167) cpu_start: Multicore app
+I (175) cpu_start: GPIO 3 and 1 are used as console UART I/O pins
+I (176) cpu_start: Pro cpu start user code
+I (176) cpu_start: cpu freq: 160000000 Hz
+I (178) app_init: Application information:
+I (181) app_init: Project name:     DisplayAudi
+I (186) app_init: App version:      1
+I (189) app_init: Compile time:     Mar 27 2026 12:48:30
+I (194) app_init: ELF file SHA256:  c2f224b8c...
+I (198) app_init: ESP-IDF:          v6.1-dev-2938-g12f36a021f
+I (204) efuse_init: Min chip rev:     v0.0
+I (208) efuse_init: Max chip rev:     v3.99 
+I (212) efuse_init: Chip rev:         v3.1
+I (216) heap_init: Initializing. RAM available for dynamic allocation:
+I (222) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM
+I (227) heap_init: At 3FFB36C0 len 0002C940 (178 KiB): DRAM
+I (232) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM
+I (238) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM
+I (243) heap_init: At 4008AD48 len 000152B8 (84 KiB): IRAM
+W (250) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig
+I (262) spi_flash: detected chip: generic
+I (265) spi_flash: flash io: dio
+W (268) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+I (281) main_task: Started on CPU0
+I (291) main_task: Calling app_main()
+CAN TX [ID: 0x200] [LEN: 7] DATA: 01 C0 00 10 00 03 01 E (431) Physical: Uspesno izvrsena funkcija twai_transmit
+I (431) TP: USPESNO POSLAT CONNECT NA CAN 
+I (431) KWP: TpStart je prosao
+I (431) Physical: Primljeno nesto od ECU 
+I (441) TP2.0: DOBAR je ID od ECU
+E (461) DEBUG: USpesno izvrsena inicijalizacija KWP protokola
+W (491) TP2.0: Uspesno primljena prva povratna od ECU-setujem chptr-idle
+W (491) TP2.0: Prva poruka od ECU je dobra
+E (691) DEBUG: USpesno izvrsena inicijalizacija DATA funkcije
+I (811) main_task: Returned from app_main()
+I (1561) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1561) KWP: NE USPEM da posaljem session
+I (1641) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1641) KWP: NE USPEM da posaljem session
+I (1721) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1721) KWP: NE USPEM da posaljem session
+I (1801) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1801) KWP: NE USPEM da posaljem session
+I (1881) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1881) KWP: NE USPEM da posaljem session
+I (1961) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1961) KWP: NE USPEM da posaljem session
+I (2041) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2041) KWP: NE USPEM da posaljem session
+I (2121) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2121) KWP: NE USPEM da posaljem session
+I (2201) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2201) KWP: NE USPEM da posaljem session
+I (2281) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2281) KWP: NE USPEM da posaljem session
+I (2361) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2361) KWP: NE USPEM da posaljem session
+I (2441) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2441) KWP: NE USPEM da posaljem session
+I (2521) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2521) KWP: NE USPEM da posaljem session
+I (2601) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2601) KWP: NE USPEM da posaljem session
+I (2681) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2681) KWP: NE USPEM da posaljem session
+I (2761) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2761) KWP: NE USPEM da posaljem session
+I (2841) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2841) KWP: NE USPEM da posaljem session
+I (2921) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2921) KWP: NE USPEM da posaljem session
+I (3001) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3001) KWP: NE USPEM da posaljem session
+I (3081) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3081) KWP: NE USPEM da posaljem session
+I (3161) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3161) KWP: NE USPEM da posaljem session
+I (3241) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3241) KWP: NE USPEM da posaljem session
+E (3241) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU
+I (3321) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3321) KWP: NE USPEM da posaljem session
+I (3401) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3401) KWP: NE USPEM da posaljem session
+I (3481) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3481) KWP: NE USPEM da posaljem session
+I (3561) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3561) KWP: NE USPEM da posaljem session
+I (3641) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3641) KWP: NE USPEM da posaljem session
+I (3721) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3721) KWP: NE USPEM da posaljem session
+I (3801) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3801) KWP: NE USPEM da posaljem session
+I (3881) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3881) KWP: NE USPEM da posaljem session
+I (3961) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3961) KWP: NE USPEM da posaljem session
+I (4041) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4041) KWP: NE USPEM da posaljem session
+I (4121) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4121) KWP: NE USPEM da posaljem session
+I (4201) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4201) KWP: NE USPEM da posaljem session
+I (4281) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4281) KWP: NE USPEM da posaljem session
+I (4361) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4361) KWP: NE USPEM da posaljem session
+I (4441) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4441) KWP: NE USPEM da posaljem session
+I (4521) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4521) KWP: NE USPEM da posaljem session
+I (4601) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4601) KWP: NE USPEM da posaljem session
+I (4681) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4681) KWP: NE USPEM da posaljem session
+I (4761) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4761) KWP: NE USPEM da posaljem session
+I (4841) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4841) KWP: NE USPEM da posaljem session
+I (4921) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4921) KWP: NE USPEM da posaljem session
+
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py build
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/1] cd /home/student/Desktop/Projeka...ayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[2/7] Building C object esp-idf/TP2.0P..._TP2.0Protocol.dir/TP2.0Protocol.c.obj
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c: In function 'Tp_Cyclic':
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c:43:13: warning: unused variable 'chId' [-Wunused-variable]
+   43 |     uint8_t chId = 0;
+      |             ^~~~
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c: At top level:
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/TP2.0Protocol/TP2.0Protocol.c:446:13: warning: 'VwTp_sendTpParams' defined but not used [-Wunused-function]
+  446 | static void VwTp_sendTpParams(Tp_ChannelType * const chPtr, uint8_t response)
+      |             ^~~~~~~~~~~~~~~~~
+[4/7] Generating esp-idf/esp_system/ld/sections.ld
+info: Default value for MBEDTLS_ARIA_C in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+info: Default value for MBEDTLS_THREADING_C in sdkconfig is n but it is y according to Kconfig.
+Using default value from sdkconfig (n).
+info: Default value for MBEDTLS_SHA3_C in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+[6/7] Generating binary image from built executable
+esptool v5.2.0
+Creating ESP32 image...
+Merged 3 ELF sections.
+Successfully created ESP32 image.
+Generated /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.bin
+[7/7] cd /home/student/Desktop/Projeka...plej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x27830 bytes. Smallest app partition is 0x100000 bytes. 0xd87d0 bytes (85%) free.
+
+Project build complete. To flash, run:
+ idf.py flash
+or
+ idf.py -p PORT flash
+or
+ python -m esptool --chip esp32 -b 460800 --before default-reset --after hard-reset write-flash --flash-mode dio --flash-size 2MB --flash-freq 40m 0x1000 build/bootloader/bootloader.bin 0x8000 build/partition_table/partition-table.bin 0x10000 build/DisplayAudi.bin
+or from the "/home/student/Desktop/ProjekatDisplej/DisplayAudi/build" directory
+ python -m esptool --chip esp32 -b 460800 --before default-reset --after hard-reset write-flash "@flash_args"
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py flash
+Adding "flash"'s dependency "all" to list of commands with default set of options.
+Executing action: all (aliases: build)
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja all"...
+[1/4] cd /home/student/Desktop/Projeka...plej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x27830 bytes. Smallest app partition is 0x100000 bytes. 0xd87d0 bytes (85%) free.
+[1/1] cd /home/student/Desktop/Projeka...ayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+Executing action: flash
+Serial port /dev/ttyUSB0:
+Connecting.....
+Detecting chip type... ESP32
+Running ninja in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi/build
+Executing "ninja flash"...
+[1/5] cd /home/student/Desktop/ProjekatDisplej/DisplayAudi/build && /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/partition_table/partition-table.bin /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x27830 bytes. Smallest app partition is 0x100000 bytes. 0xd87d0 bytes (85%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cd /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader && /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[2/3] Running utility command for flash
+esptool --chip esp32 -p /dev/ttyUSB0 -b 460800 --before=default-reset --after=hard-reset write-flash --flash-mode dio --flash-freq 40m --flash-size 2MB 0x1000 bootloader/bootloader.bin 0x8000 partition_table/partition-table.bin 0x10000 DisplayAudi.bin
+esptool v5.2.0
+Connected to ESP32 on /dev/ttyUSB0:
+Chip type:          ESP32-D0WD-V3 (revision v3.1)
+Features:           Wi-Fi, BT, Dual Core + LP Core, 240MHz, Vref calibration in eFuse, Coding Scheme None
+Crystal frequency:  40MHz
+MAC:                44:1d:64:f5:51:c8
+
+Stub flasher running.
+Changing baud rate to 460800...
+Changed.
+
+Configuring flash size...
+SHA digest in image updated.
+Flash will be erased from 0x00001000 to 0x00007fff...
+Compressed 26128 bytes to 16595...
+Writing at 0x000074fe [============================> ]  98.7% 16384/16595 bytes.Wrote 26128 bytes (16595 compressed) at 0x00001000 in 0.8 seconds (263.5 kbit/s).
+Hash of data verified.
+Flash will be erased from 0x00008000 to 0x00008fff...
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (441.2 kbit/s).
+Hash of data verified.
+Flash will be erased from 0x00010000 to 0x00037fff...
+Compressed 161840 bytes to 93705...
+Writing at 0x0001bcf3 [====>                         ]  17.5% 16384/93705 bytes.Writing at 0x00021d0e [=========>                    ]  35.0% 32768/93705 bytes.Writing at 0x0002767a [==============>               ]  52.5% 49152/93705 bytes.Writing at 0x0002cee8 [===================>          ]  69.9% 65536/93705 bytes.Writing at 0x00033064 [=========================>    ]  87.4% 81920/93705 bytes.Wrote 161840 bytes (93705 compressed) at 0x00010000 in 2.9 seconds (446.3 kbit/s).
+Hash of data verified.
+
+Hard resetting via RTS pin...
+Done
+student@linuxcourse:~/Desktop/ProjekatDisplej/DisplayAudi$ idf.py monitor
+Executing action: monitor
+Serial port /dev/ttyUSB0:
+Connecting....
+Detecting chip type... ESP32
+Running idf_monitor in directory /home/student/Desktop/ProjekatDisplej/DisplayAudi
+Executing "/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.elf /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.elf -m '/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python' '/home/student/esp-idf/tools/idf.py'"...
+--- esp-idf-monitor 1.9.0 on /dev/ttyUSB0 115200
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+--- 0x40080400: _invalid_pc_placeholder at /home/student/esp-idf/components/xtensa/xtensa_vectors.S:2259
+entry 0x40080644
+--- 0x40080644: call_start_cpu0 at /home/student/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+I (27) boot: ESP-IDF v6.1-dev-2938-g12f36a021f 2nd stage bootloader
+I (27) boot: compile time MMHz
+I (37) boot.esp32: SPI Mode       : DIO
+I (40) boot.esp32: Table:
+I (51) boot: ## Label            Usage          Type ST Offset   Length
+I (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+I (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+I (71) boot:  2 factory          factory app      00 00 00010000 00100000
+I (77) boot: End of partition table
+I (80) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=09450h ( 37968) map
+I (101) esp_image: segment 1: paddr=00019478 vaddr=3ffb0000 size=02c0ch ( 11276) load
+I (106) esp_image: segment 2: paddr=0001c08c vaddr=40080000 size=03f8ch ( 16268) load
+I (113) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=109f8h ( 68088) map
+I (137) esp_image: segment 4: paddr=00030a20 vaddr=40083f8c size=06dbch ( 28092) load
+I (149) esp_image: segment 5: paddr=000377e4 vaddr=50000000 size=00028h (    40) load
+I (155) boot: Loaded app from partition at offset 0x10000
+I (155) boot: Disabling RNG early entropy source...
+I (167) cpu_start: Multicore app
+I (175) cpu_start: GPIO 3 and 1 are used as console UART I/O pins
+I (176) cpu_start: Pro cpu start user code
+I (176) cpu_start: cpu freq: 160000000 Hz
+I (178) app_init: Application information:
+I (181) app_init: Project name:     DisplayAudi
+I (186) app_init: App version:      1
+I (189) app_init: Compile time:     Mar 27 2026 12:48:30
+I (194) app_init: ELF file SHA256:  a8d24f477...
+I (198) app_init: ESP-IDF:          v6.1-dev-2938-g12f36a021f
+I (204) efuse_init: Min chip rev:     v0.0
+I (208) efuse_init: Max chip rev:     v3.99 
+I (212) efuse_init: Chip rev:         v3.1
+I (216) heap_init: Initializing. RAM available for dynamic allocation:
+I (222) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM
+I (227) heap_init: At 3FFB36C0 len 0002C940 (178 KiB): DRAM
+I (232) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM
+I (238) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM
+I (243) heap_init: At 4008AD48 len 000152B8 (84 KiB): IRAM
+W (249) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig
+I (261) spi_flash: detected chip: generic
+I (265) spi_flash: flash io: dio
+W (268) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+I (281) main_task: Started on CPU0
+I (291) main_task: Calling app_main()
+CAN TX [ID: 0x200] [LEN: 7] DATA: 01 C0 00 10 00 03 01 E (431) Physical: Uspesno izvrsena funkcija twai_transmit
+I (431) TP: USPESNO POSLAT CONNECT NA CAN 
+I (431) KWP: TpStart je prosao
+I (431) Physical: Primljeno nesto od ECU 
+I (441) TP2.0: DOBAR je ID od ECU
+E (461) DEBUG: USpesno izvrsena inicijalizacija KWP protokola
+W (491) TP2.0: Uspesno primljena prva povratna od ECU-setujem chptr-idle
+W (491) TP2.0: Prva poruka od ECU je dobra
+E (691) DEBUG: USpesno izvrsena inicijalizacija DATA funkcije
+I (811) main_task: Returned from app_main()
+I (1561) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1561) KWP: NE USPEM da posaljem session
+I (1641) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1641) KWP: NE USPEM da posaljem session
+I (1721) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1721) KWP: NE USPEM da posaljem session
+I (1801) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1801) KWP: NE USPEM da posaljem session
+I (1881) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1881) KWP: NE USPEM da posaljem session
+I (1961) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (1961) KWP: NE USPEM da posaljem session
+I (2041) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2041) KWP: NE USPEM da posaljem session
+I (2121) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2121) KWP: NE USPEM da posaljem session
+I (2201) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2201) KWP: NE USPEM da posaljem session
+I (2281) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2281) KWP: NE USPEM da posaljem session
+I (2361) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2361) KWP: NE USPEM da posaljem session
+I (2441) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2441) KWP: NE USPEM da posaljem session
+I (2521) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2521) KWP: NE USPEM da posaljem session
+I (2601) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2601) KWP: NE USPEM da posaljem session
+I (2681) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2681) KWP: NE USPEM da posaljem session
+I (2761) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2761) KWP: NE USPEM da posaljem session
+I (2841) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2841) KWP: NE USPEM da posaljem session
+I (2921) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (2921) KWP: NE USPEM da posaljem session
+I (3001) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3001) KWP: NE USPEM da posaljem session
+I (3081) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3081) KWP: NE USPEM da posaljem session
+I (3161) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3161) KWP: NE USPEM da posaljem session
+I (3241) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3241) KWP: NE USPEM da posaljem session
+E (3241) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU
+I (3321) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3321) KWP: NE USPEM da posaljem session
+I (3401) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3401) KWP: NE USPEM da posaljem session
+I (3481) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3481) KWP: NE USPEM da posaljem session
+I (3561) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3561) KWP: NE USPEM da posaljem session
+I (3641) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3641) KWP: NE USPEM da posaljem session
+I (3721) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3721) KWP: NE USPEM da posaljem session
+I (3801) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3801) KWP: NE USPEM da posaljem session
+I (3881) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3881) KWP: NE USPEM da posaljem session
+I (3961) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (3961) KWP: NE USPEM da posaljem session
+I (4041) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4041) KWP: NE USPEM da posaljem session
+I (4121) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4121) KWP: NE USPEM da posaljem session
+I (4201) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4201) KWP: NE USPEM da posaljem session
+I (4281) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4281) KWP: NE USPEM da posaljem session
+I (4361) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4361) KWP: NE USPEM da posaljem session
+I (4441) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4441) KWP: NE USPEM da posaljem session
+I (4521) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4521) KWP: NE USPEM da posaljem session
+I (4601) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4601) KWP: NE USPEM da posaljem session
+I (4681) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4681) KWP: NE USPEM da posaljem session
+I (4761) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4761) KWP: NE USPEM da posaljem session
+I (4841) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4841) KWP: NE USPEM da posaljem session
+I (4921) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (4921) KWP: NE USPEM da posaljem session
+I (5001) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (5001) KWP: NE USPEM da posaljem session
+I (5081) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (5081) KWP: NE USPEM da posaljem session
+I (5161) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (5161) KWP: NE USPEM da posaljem session
+I (5241) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (5241) KWP: NE USPEM da posaljem session
+I (5321) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (5321) KWP: NE USPEM da posaljem session
+I (5401) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (5401) KWP: NE USPEM da posaljem session
+I (5481) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (5481) KWP: NE USPEM da posaljem session
+I (5561) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (5561) KWP: NE USPEM da posaljem session
+I (5641) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (5641) KWP: NE USPEM da posaljem session
+I (5721) KWP-AUTOMAT: Poslat handshake
+Ovo je INDIKATOR 23E (5721) KWP: NE USPEM da posaljem session
+I (5801) KWP-AUTOMAT: Poslat handshake
+

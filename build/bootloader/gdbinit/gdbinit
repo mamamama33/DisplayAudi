@@ -1,0 +1,2 @@
+source /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/gdbinit/symbols
+source /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/gdbinit/connect
