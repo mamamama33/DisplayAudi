@@ -5,6 +5,7 @@
 
 #define STALKBUTTONRXID 0X35F
 
+#define ENGINERXID2 0x300
 #define ENGINERXID 0x201
 
 uint8_t GetStalkButton();

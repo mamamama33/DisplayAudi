@@ -1,0 +1,335 @@
+Command: /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.elf /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.elf -m '/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python' '/home/student/esp-idf/tools/idf.py'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.1-dev-2938-g12f36a021f 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Mar 27 2026 12:48:01[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v3.1[0m
+[0;32mI (33) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=093e0h ( 37856) map[0m
+[0;32mI (101) esp_image: segment 1: paddr=00019408 vaddr=3ffb0000 size=02c0ch ( 11276) load[0m
+[0;32mI (106) esp_image: segment 2: paddr=0001c01c vaddr=40080000 size=03ffch ( 16380) load[0m
+[0;32mI (113) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=10a30h ( 68144) map[0m
+[0;32mI (137) esp_image: segment 4: paddr=00030a58 vaddr=40083ffc size=06d4ch ( 27980) load[0m
+[0;32mI (149) esp_image: segment 5: paddr=000377ac vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (155) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (155) boot: Disabling RNG early entropy source...[0m
+[0;32mI (167) cpu_start: Multicore app[0m
+[0;32mI (175) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (176) cpu_start: Pro cpu start user code[0m
+[0;32mI (176) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (178) app_init: Application information:[0m
+[0;32mI (181) app_init: Project name:     DisplayAudi[0m
+[0;32mI (186) app_init: App version:      1[0m
+[0;32mI (189) app_init: Compile time:     Mar 27 2026 12:48:30[0m
+[0;32mI (194) app_init: ELF file SHA256:  9475cf37d...[0m
+[0;32mI (198) app_init: ESP-IDF:          v6.1-dev-2938-g12f36a021f[0m
+[0;32mI (204) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (208) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (212) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (216) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (222) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (227) heap_init: At 3FFB36C0 len 0002C940 (178 KiB): DRAM[0m
+[0;32mI (232) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (238) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (243) heap_init: At 4008AD48 len 000152B8 (84 KiB): IRAM[0m
+[0;33mW (249) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (261) spi_flash: detected chip: generic[0m
+[0;32mI (265) spi_flash: flash io: dio[0m
+[0;33mW (268) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (281) main_task: Started on CPU0[0m
+[0;32mI (291) main_task: Calling app_main()[0m
+[0;32mI (921) Physical: Primljeno nesto od ECU [0m
+[0;32mI (921) TP2.0: NIJE dobar ID od ECU[0m
+[0;32mI (1551) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[0;32mI (1551) Physical: Primljeno nesto od ECU [0m
+[0;33mW (1551) TP2.0: Uspesno primljena prva povratna od ECU-setujem chptr-idle[0m
+[0;33mW (1551) TP2.0: Prva poruka od ECU je dobra[0m
+[0;32mI (1591) Physical: Primljeno nesto od ECU [0m
+[0;32mI (1601) KWP: TpStart je prosao[0m
+[0;32mI (1621) Physical: Primljeno nesto od ECU [0m
+[0;32mI (1661) Physical: Primljeno nesto od ECU [0m
+[0;32mI (1701) Physical: Primljeno nesto od ECU [0m
+[0;32mI (1731) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je stabhe txSTATE koje me jebbe1I (1731) KWP: Uspem da posaljem session
+[0;32mI (1741) Physical: Primljeno nesto od ECU [0m
+[0;32mI (1781) Physical: Primljeno nesto od ECU [0m
+[0;32mI (1811) main_task: Returned from app_main()[0m
+[0;32mI (1821) Physical: Primljeno nesto od ECU [0m
+[0;32mI (1861) Physical: Primljeno nesto od ECU [0m
+[0;32mI (1901) Physical: Primljeno nesto od ECU [0m
+[0;32mI (1931) Physical: Primljeno nesto od ECU [0m
+[0;32mI (1961) Physical: Primljeno nesto od ECU [0m
+[0;32mI (1961) KWP-AUTOMAT: Poslat zahtev za ECUID[0m
+Ovo je stabhe txSTATE koje me jebbe4E (1961) KWP: NIJE Poslat zahtev za ECU
+[0;32mI (2091) KWP-AUTOMAT: Poslat zahtev za ECUID[0m
+Ovo je stabhe txSTATE koje me jebbe1I (2091) KWP: Poslat zahtev za ECU
+[1;31mE (2101) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (2121) Physical: Primljeno nesto od ECU [0m
+[1;31mE (2131) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (2151) Physical: Primljeno nesto od ECU [0m
+[1;31mE (2161) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (2181) Physical: Primljeno nesto od ECU [0m
+[1;31mE (2191) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (2211) Physical: Primljeno nesto od ECU [0m
+[1;31mE (2221) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (2221) KWP-automat: Poslatu koju rutinu hocu-dijagnostika[0m
+Ovo je stabhe txSTATE koje me jebbe2I (2241) Physical: Primljeno nesto od ECU 
+[1;31mE (2251) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (2271) Physical: Primljeno nesto od ECU [0m
+[1;31mE (2281) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (2301) Physical: Primljeno nesto od ECU [0m
+[1;31mE (2311) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (2331) Physical: Primljeno nesto od ECU [0m
+[1;31mE (2341) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (2351) KWP-automat: Poslatu koju rutinu hocu-dijagnostika[0m
+Ovo je stabhe txSTATE koje me jebbe2I (2361) Physical: Primljeno nesto od ECU 
+[1;31mE (2371) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (2391) Physical: Primljeno nesto od ECU [0m
+[1;31mE (2401) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (2421) Physical: Primljeno nesto od ECU [0m
+[1;31mE (2431) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (2451) Physical: Primljeno nesto od ECU [0m
+[1;31mE (2461) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (2481) Physical: Primljeno nesto od ECU [0m
+[0;32mI (2481) KWP-automat: Poslatu koju rutinu hocu-dijagnostika[0m
+Ovo je stabhe txSTATE koje me jebbe2E (2491) TP2.0: Treba ovde posle handsgake da se to ispegla
+[0;32mI (2511) Physical: Primljeno nesto od ECU [0m
+[1;31mE (2521) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (2541) Physical: Primljeno nesto od ECU [0m
+[1;31mE (2551) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (2571) Physical: Primljeno nesto od ECU [0m
+[1;31mE (2581) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (2601) Physical: Primljeno nesto od ECU [0m
+[1;31mE (2611) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (2611) KWP-automat: Poslatu koju rutinu hocu-dijagnostika[0m
+Ovo je stabhe txSTATE koje me jebbe2I (2631) Physical: Primljeno nesto od ECU 
+[1;31mE (2641) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (2661) Physical: Primljeno nesto od ECU [0m
+[1;31mE (2671) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (2691) Physical: Primljeno nesto od ECU [0m
+[1;31mE (2701) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (2721) Physical: Primljeno nesto od ECU [0m
+[1;31mE (2741) TP2.0: Sendclose se salje jer je ECU tako rekao[0m
+[0;32mI (2801) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[0;32mI (2801) Physical: Primljeno nesto od ECU [0m
+[0;33mW (2801) TP2.0: Uspesno primljena prva povratna od ECU-setujem chptr-idle[0m
+[0;33mW (2801) TP2.0: Prva poruka od ECU je dobra[0m
+[0;32mI (2841) Physical: Primljeno nesto od ECU [0m
+[0;32mI (2851) KWP: TpStart je prosao[0m
+[0;32mI (2881) Physical: Primljeno nesto od ECU [0m
+[0;32mI (2921) Physical: Primljeno nesto od ECU [0m
+[0;32mI (2951) Physical: Primljeno nesto od ECU [0m
+[0;32mI (2981) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je stabhe txSTATE koje me jebbe1I (2981) KWP: Uspem da posaljem session
+[1;31mE (2991) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (3011) Physical: Primljeno nesto od ECU [0m
+[1;31mE (3021) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (3041) Physical: Primljeno nesto od ECU [0m
+[1;31mE (3051) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (3071) Physical: Primljeno nesto od ECU [0m
+[1;31mE (3081) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (3101) Physical: Primljeno nesto od ECU [0m
+[1;31mE (3111) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (3131) Physical: Primljeno nesto od ECU [0m
+[1;31mE (3141) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (3161) Physical: Primljeno nesto od ECU [0m
+[1;31mE (3171) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (3191) Physical: Primljeno nesto od ECU [0m
+[1;31mE (3201) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (3211) KWP-AUTOMAT: Poslat zahtev za ECUID[0m
+Ovo je stabhe txSTATE koje me jebbe2E (3211) KWP: NIJE Poslat zahtev za ECU
+[0;32mI (3221) Physical: Primljeno nesto od ECU [0m
+[1;31mE (3231) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (3251) Physical: Primljeno nesto od ECU [0m
+[1;31mE (3261) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (3281) Physical: Primljeno nesto od ECU [0m
+[1;31mE (3291) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (3311) Physical: Primljeno nesto od ECU [0m
+[1;31mE (3321) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (3341) Physical: Primljeno nesto od ECU [0m
+[0;32mI (3341) KWP-AUTOMAT: Poslat zahtev za ECUID[0m
+Ovo je stabhe txSTATE koje me jebbe2E (3341) KWP: NIJE Poslat zahtev za ECU
+[1;31mE (3351) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (3371) Physical: Primljeno nesto od ECU [0m
+[1;31mE (3381) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (3401) Physical: Primljeno nesto od ECU [0m
+[1;31mE (3411) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (3431) Physical: Primljeno nesto od ECU [0m
+[1;31mE (3441) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (3461) Physical: Primljeno nesto od ECU [0m
+[1;31mE (3471) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (3471) KWP-AUTOMAT: Poslat zahtev za ECUID[0m
+Ovo je stabhe txSTATE koje me jebbe2E (3471) KWP: NIJE Poslat zahtev za ECU
+[0;32mI (3491) Physical: Primljeno nesto od ECU [0m
+[1;31mE (3501) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (3521) Physical: Primljeno nesto od ECU [0m
+[1;31mE (3531) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (3551) Physical: Primljeno nesto od ECU [0m
+[1;31mE (3561) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (3581) Physical: Primljeno nesto od ECU [0m
+[1;31mE (3591) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (3601) KWP-AUTOMAT: Poslat zahtev za ECUID[0m
+Ovo je stabhe txSTATE koje me jebbe2E (3601) KWP: NIJE Poslat zahtev za ECU
+[0;32mI (3611) Physical: Primljeno nesto od ECU [0m
+[1;31mE (3631) TP2.0: Sendclose se salje jer je ECU tako rekao[0m
+[0;32mI (3791) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[0;32mI (3791) Physical: Primljeno nesto od ECU [0m
+[0;33mW (3791) TP2.0: Uspesno primljena prva povratna od ECU-setujem chptr-idle[0m
+[0;33mW (3791) TP2.0: Prva poruka od ECU je dobra[0m
+[0;32mI (3831) Physical: Primljeno nesto od ECU [0m
+[0;32mI (3841) KWP: TpStart je prosao[0m
+[0;32mI (3861) Physical: Primljeno nesto od ECU [0m
+[0;32mI (3901) Physical: Primljeno nesto od ECU [0m
+[0;32mI (3931) Physical: Primljeno nesto od ECU [0m
+[0;32mI (3961) Physical: Primljeno nesto od ECU [0m
+[0;32mI (3971) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je stabhe txSTATE koje me jebbe1I (3971) KWP: Uspem da posaljem session
+[1;31mE (3981) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (4001) Physical: Primljeno nesto od ECU [0m
+[1;31mE (4011) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (4031) Physical: Primljeno nesto od ECU [0m
+[1;31mE (4041) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (4061) Physical: Primljeno nesto od ECU [0m
+[1;31mE (4071) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (4091) Physical: Primljeno nesto od ECU [0m
+[1;31mE (4101) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (4121) Physical: Primljeno nesto od ECU [0m
+[1;31mE (4131) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (4151) Physical: Primljeno nesto od ECU [0m
+[1;31mE (4161) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (4181) Physical: Primljeno nesto od ECU [0m
+[1;31mE (4191) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (4201) KWP-AUTOMAT: Poslat zahtev za ECUID[0m
+Ovo je stabhe txSTATE koje me jebbe2E (4201) KWP: NIJE Poslat zahtev za ECU
+I (42                                 ECU 
+[1;31mE (4221) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (4241) Physical: Primljeno nesto od ECU [0m
+[1;31mE (4241) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4251) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (4271) Physical: Primljeno nesto od ECU [0m
+[1;31mE (4281) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (4301) Physical: Primljeno nesto od ECU [0m
+[1;31mE (4311) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (4331) Physical: Primljeno nesto od ECU [0m
+[0;32mI (4331) KWP-AUTOMAT: Poslat zahtev za ECUID[0m
+Ovo je stabhe txSTATE koje me jebbe2E (4331) KWP: NIJE Poslat zahtev za ECU
+[1;31mE (4341) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (4361) Physical: Primljeno nesto od ECU [0m
+[1;31mE (4371) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (4391) Physical: Primljeno nesto od ECU [0m
+[1;31mE (4401) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (4421) Physical: Primljeno nesto od ECU [0m
+[1;31mE (4431) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (4451) Physical: Primljeno nesto od ECU [0m
+[1;31mE (4461) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (4461) KWP-AUTOMAT: Poslat zahtev za ECUID[0m
+Ovo je stabhe txSTATE koje me jebbe2E (4461) KWP: NIJE Poslat zahtev za ECU
+[0;32mI (4481) Physical: Primljeno nesto od ECU [0m
+[1;31mE (4491) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (4511) Physical: Primljeno nesto od ECU [0m
+[1;31mE (4521) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (4541) Physical: Primljeno nesto od ECU [0m
+[1;31mE (4551) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (4571) Physical: Primljeno nesto od ECU [0m
+[1;31mE (4581) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (4591) KWP-AUTOMAT: Poslat zahtev za ECUID[0m
+Ovo je stabhe txSTATE koje me jebbe2E (4591) KWP: NIJE Poslat zahtev za ECU
+[0;32mI (4601) Physical: Primljeno nesto od ECU [0m
+[1;31mE (4621) TP2.0: Sendclose se salje jer je ECU tako rekao[0m
+[0;32mI (4781) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[0;32mI (4781) Physical: Primljeno nesto od ECU [0m
+[0;33mW (4781) TP2.0: Uspesno primljena prva povratna od ECU-setujem chptr-idle[0m
+[0;33mW (4781) TP2.0: Prva poruka od ECU je dobra[0m
+[0;32mI (4821) Physical: Primljeno nesto od ECU [0m
+[0;32mI (4831) KWP: TpStart je prosao[0m
+[0;32mI (4851) Physical: Primljeno nesto od ECU [0m
+[0;32mI (4891) Physical: Primljeno nesto od ECU [0m
+[0;32mI (4921) Physical: Primljeno nesto od ECU [0m
+[0;32mI (4951) Physical: Primljeno nesto od ECU [0m
+[0;32mI (4961) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je stabhe txSTATE koje me jebbe1I (4961) KWP: Uspem da posaljem session
+[1;31mE (4971) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (4991) Physical: Primljeno nesto od ECU [0m
+[1;31mE (5001) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (5021) Physical: Primljeno nesto od ECU [0m
+[1;31mE (5031) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (5051) Physical: Primljeno nesto od ECU [0m
+[1;31mE (5061) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (5081) Physical: Primljeno nesto od ECU [0m
+[1;31mE (5091) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (5111) Physical: Primljeno nesto od ECU [0m
+[1;31mE (5121) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (5141) Physical: Primljeno nesto od ECU [0m
+[1;31mE (5151) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (5171) Physical: Primljeno nesto od ECU [0m
+[1;31mE (5181) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (5191) KWP-AUTOMAT: Poslat zahtev za ECUID[0m
+Ovo je stabhe txSTATE koje me jebbe2E (5191) KWP: NIJE Poslat zahtev za ECU
+[0;32mI (5201) Physical: Primljeno nesto od ECU [0m
+[1;31mE (5211) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (5231) Physical: Primljeno nesto od ECU [0m
+[1;31mE (5241) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (5261) Physical: Primljeno nesto od ECU [0m
+[1;31mE (5271) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (5291) Physical: Primljeno nesto od ECU [0m
+[1;31mE (5301) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (5321) Physical: Primljeno nesto od ECU [0m
+[0;32mI (5321) KWP-AUTOMAT: Poslat zahtev za ECUID[0m
+Ovo je stabhe txSTATE koje me jebbe2E (5321) KWP: NIJE Poslat zahtev za ECU
+[1;31mE (5331) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (5351) Physical: Primljeno nesto od ECU [0m
+[1;31mE (5361) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (5381) Physical: Primljeno nesto od ECU [0m
+[1;31mE (5391) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (5411) Physical: Primljeno nesto od ECU [0m
+[1;31mE (5421) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (5441) Physical: Primljeno nesto od ECU [0m
+[1;31mE (5451) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (5451) KWP-AUTOMAT: Poslat zahtev za ECUID[0m
+Ovo je stabhe txSTATE koje me jebbe2E (5451) KWP: NIJE Poslat zahtev za ECU
+[0;32mI (5471) Physical: Primljeno nesto od ECU [0m
+[1;31mE (5481) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (5501) Physical: Primljeno nesto od ECU [0m
+[1;31mE (5511) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (5531) Physical: Primljeno nesto od ECU [0m
+[1;31mE (5541) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (5561) Physical: Primljeno nesto od ECU [0m
+[1;31mE (5571) TP2.0: Treba ovde posle handsgake da se to ispegla[0m
+[0;32mI (5581) KWP-AUTOMAT: Poslat zahtev za ECUID[0m
+Ovo je stabhe txSTATE koje me jebbe2E (5581) KWP: NIJE Poslat zahtev za ECU
+[0;32mI (5591) Physical: Primljeno nesto od ECU [0m
+[1;31mE (5611) TP2.0: Sendclose se salje jer je ECU tako rekao[0m
+[0;32mI (5771) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[0;32mI (5771) Physical: Primljeno nesto od ECU [0m
+[0;33mW (5771) TP2.0: Uspesno primljena prva povratna od ECU-setujem chptr-idle[0m
+[0;33mW (5771) TP2.0: Prva poruka od ECU je dobra[0m
+[0;32mI (5811) Physical: Primljeno nesto od ECU [0m
+[0;32mI (5821) KWP: TpStart je prosao[0m
+[0;32mI (5841) Physical: Primljeno nesto od ECU [0m
+[0;32mI (5881) Physical: Primljeno nesto od ECU [0m
+[0;32mI (5921) Physical: Primljeno nesto od ECU [0m
+[1;31mE (5941) TP2.0: Sendclose se salje jer je ECU tako rekao[0m
+[0;32mI (6011) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[0;32mI (6011) Physical: Primljeno nesto od ECU [0m
+[0;33mW (6011) TP2.0: Prva poruka od ECU je dobra[0m
+[0;32mI (6061) KWP: TpStart je prosao[0m
+[0;32mI (6191) KWP-AUTOMAT: Poslat handshake[0m
+Ovo je stabhe txSTATE koje me jebbe0E (6191) KWP: NE USPEM da posaljem session

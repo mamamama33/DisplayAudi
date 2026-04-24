@@ -21,7 +21,7 @@ static void VwTp_sendClose(Tp_ChannelType * const chPtr);
 static void VwTp_sendAck(Tp_ChannelType * const chPtr);
 static void VwTp_sendBreak(Tp_ChannelType * const chPtr);
 
-
+volatile uint8_t KwpStartSessionFlag = 0;
 
 Tp_ChannelType TpEcu={.
     
@@ -67,7 +67,6 @@ uint8_t VwTp_Send(uint8_t chId, uint8_t * buffer, uint16_t len)
     int k=0;
       //dodao  
     /*SETOOOVAO SAM OVO DA BI KWP automat radio i bez ovoga a ovo se setuje na prijemu*/
-        printf("Ovo je stabhe txSTATE koje me jebbe%d",chPtr->txState);
 
         vTaskSuspendAll(); // Critical section, interrupts enabled
         if ((chPtr->txState == VWTP_IDLE) && (sizeof(chPtr->txBuffer) >= len))
@@ -83,10 +82,11 @@ uint8_t VwTp_Send(uint8_t chId, uint8_t * buffer, uint16_t len)
             k=1;
         
         }
+        /*Ovo sluzi za cekanje ali to cekanje mi spamuje stalno */
         else if ((chPtr->txState == VWTP_CONNECT))
         {
             // Try to open channel
-            chPtr->txFlags.params = VWTP_TPPARAMS_REQUEST;
+            //chPtr->txFlags.params = VWTP_TPPARAMS_REQUEST;
             chPtr->rxState = VWTP_IDLE;
             retVal = VWTP_PENDING;
             //vTaskDelay(pdMS_TO_TICKS(20));
@@ -99,7 +99,7 @@ uint8_t VwTp_Send(uint8_t chId, uint8_t * buffer, uint16_t len)
             // Do nothing, return error
         }
         xTaskResumeAll(); // End of critical section, interrupts enabled
-        printf("Ovo je INDIKATOR %d",k);
+        
     return retVal;
 }
 
@@ -110,7 +110,7 @@ void VwTp_Receive(uint16_t canId, uint8_t dlc, uint8_t * dataPtr)
     if (canId == TpEcu.cfg.rxId) //EEE OVO JE KLJUCCCC!!!!!!!!!!!! ovde proverava od koga je poruka!!!
     {
         chPtr = &TpEcu;
-        ESP_LOGI("TP2.0","DOBAR je ID od ECU");
+        
     
     }
     else{
@@ -126,12 +126,11 @@ void VwTp_Receive(uint16_t canId, uint8_t dlc, uint8_t * dataPtr)
         if ((chPtr->rxState == VWTP_CONNECT) )
         {
             VwTp_HandleConnect(chPtr,dataPtr);
-            ESP_LOGW("TP2.0","Prva poruka od ECU je dobra");
+            //ESP_LOGW("TP2.0","Prva poruka od ECU je dobra");
         }
         else 
         {
             VwTp_HandleRx(chPtr,dlc,dataPtr);//dataPtr dobija podataka od twai-OD CAN-bus-treba da se dekoduje prvi protokol a to je vwTP2.0
-            ESP_LOGW("TP2.0","Mozda ovde prodje 2.puty i tu se sjebe!!! jer ne sme da prodje!!!!");
 
         }
     }
@@ -189,7 +188,6 @@ static void VwTp_HandleConnect(Tp_ChannelType * chPtr,uint8_t * dataPtr)
     
         ESP_LOGW("TP2.0","Uspesno primljena prva povratna od ECU-setujem chptr-idle");
     }
-    printf("%d",TpEcu.txState);
 
 }
 
@@ -198,7 +196,7 @@ static void VwTp_HandleConnect(Tp_ChannelType * chPtr,uint8_t * dataPtr)
 static void VwTp_HandleRx(Tp_ChannelType * chPtr,uint8_t dlc,uint8_t * dataPtr)
 {
     //chPtr je oznacava ID-ko salje
-    ESP_LOGE("txstate","Ovde menja");
+    //ESP_LOGE("TP2.0","HandleRx se izvrsava");
     uint8_t i = 0;
     if ((0xA3u == dataPtr[0]) || (0xA0u == dataPtr[0]))
     {
@@ -213,6 +211,7 @@ static void VwTp_HandleRx(Tp_ChannelType * chPtr,uint8_t dlc,uint8_t * dataPtr)
     {
         // Connection initialized or response to alive check
         chPtr->txState = VWTP_FINISHED; // PUSTAM CALLBACK FUNKCIJE ZA KWP 
+        KwpStartSessionFlag = 1;
     }
     else if (0x10u == (dataPtr[0] & 0xF0u))
     {
@@ -341,7 +340,9 @@ static void VwTp_HandleRx(Tp_ChannelType * chPtr,uint8_t dlc,uint8_t * dataPtr)
             chPtr->ackSeqCntTx = (dataPtr[0] & 0x0Fu);
             chPtr->txSize = 0;
             chPtr->txOffset = 0;
-            chPtr->txState = VWTP_FINISHED; // txConfirmation
+            chPtr->txState = VWTP_FINISHED; // Ovo smece sluzi da se pozove kwp_Receive iz 
+            ESP_LOGE("TP2.0","Uspevam da se dog sa ECu");
+
         }
         else 
         {
@@ -352,13 +353,16 @@ static void VwTp_HandleRx(Tp_ChannelType * chPtr,uint8_t dlc,uint8_t * dataPtr)
         }
         xTaskResumeAll(); // End of critical section, interrupts enabled
     }
+    /*istekla je sesija zato se zatvarasc*/
     else if (0xA8u == dataPtr[0])
     {
         // Connection was terminated
         if (VWTP_CONNECT != chPtr->txState)
         {
             VwTp_sendClose(chPtr);
-            ESP_LOGW("TP2.0","OVDE GA ZATVARA-358");
+            KwpStartSessionFlag = 0;
+
+            
         }
     }
     else if (0xA4u == dataPtr[0])
@@ -391,6 +395,9 @@ static void VwTp_HandleRx(Tp_ChannelType * chPtr,uint8_t dlc,uint8_t * dataPtr)
 
         VwTp_sendClose(chPtr);
     }
+
+
+
 }
 
 static void VwTp_sendAck(Tp_ChannelType * const chPtr)
@@ -401,7 +408,7 @@ static void VwTp_sendAck(Tp_ChannelType * const chPtr)
     msg[0] = 0xB0u | ackSeq; // ack, ready
     if (CAN_OK == TPSENDMESSAGE(chPtr->cfg.txId,sizeof(msg),msg))
     {
-        ESP_LOGE("TP2.0","ACK stalno salje");
+        ESP_LOGE("TP2.0","ACK je poslat to je neophodno");
         vTaskSuspendAll(); // Critical section, interrupts enabled
         chPtr->ackSeqCntRx = chPtr->seqCntRx;
         chPtr->txFlags.ack = 0u;
@@ -428,7 +435,7 @@ static void VwTp_sendClose(Tp_ChannelType * const chPtr)
     TPSENDMESSAGE(chPtr->cfg.txId,sizeof(tpClose),tpClose);
     // Reset diagnostics
     
-    ESP_LOGE("TP2.0","sendclose stalno salje");
+    ESP_LOGE("TP2.0","Sendclose se salje jer je ECU tako rekao");
     vTaskSuspendAll(); // Critical section, interrupts enabled
     chPtr->rxState = VWTP_CONNECT;
     chPtr->txState = VWTP_CONNECT;
@@ -457,7 +464,7 @@ static void VwTp_sendTpParams(Tp_ChannelType * const chPtr, uint8_t response)
         if (CAN_OK == TPSENDMESSAGE(chPtr->cfg.txId,sizeof(tpParams),tpParams))
         {
             chPtr->txFlags.params = 0;
-            ESP_LOGE("TP2.0","TpParams");
+            ESP_LOGE("TP2.0","TpParams poslat odma posle prvo ecu odgovora");
         }
     }
 }
@@ -483,6 +490,7 @@ static void VwTp_HandleCallbacks(Tp_ChannelType * const chPtr)
         if (NULL != chPtr->cfg.rxIndication)
         {
             chPtr->cfg.rxIndication(chPtr->rxBuffer,chPtr->rxSize);
+            ESP_LOGI("TP2.0","Ovo trigeruje kwpReceive");
         }
         vTaskSuspendAll(); // Critical section, interrupts enabled
         chPtr->rxSize = 0u;
@@ -499,6 +507,12 @@ static void VwTp_HandleCallbacks(Tp_ChannelType * const chPtr)
     }
 }
 
+/*Ja kad uradim handleconnect i to pozove se funkcija iz kwp-a StartSession pozove se TpSend U NJOJ SE SAMO SETUJE ----- sta se salje a onda ovde 
+se stvarno posalje 
+
+
+*/
+
 static void VwTp_HandleTx(Tp_ChannelType * const chPtr)
 {
     uint16_t tmp;
@@ -506,7 +520,7 @@ static void VwTp_HandleTx(Tp_ChannelType * const chPtr)
     uint8_t msg[8];
     if ( VWTP_WAIT == chPtr->txState )
     {
-        ESP_LOGE("TP2.0","E ovde upada nakon handshake-startsession sigurno")
+        //ESP_LOGE("TP2.0","Treba ovde posle handsgake da se to ispegla");
         if ((chPtr->txSize < 8u) || (((chPtr->txSize)-(chPtr->txOffset)) < 8u))
         {
             dlc = ((chPtr->txSize)-(chPtr->txOffset))+1u;
@@ -519,8 +533,9 @@ static void VwTp_HandleTx(Tp_ChannelType * const chPtr)
                 }
                 if (CAN_OK == TPSENDMESSAGE(chPtr->cfg.txId,dlc,msg))//CAN WRITE
                 {
+                    chPtr->txTimeout = 0;      // Resetuj tajmer za timeout
                     chPtr->txState = VWTP_ACK;
-                     ESP_LOGE("TP2.0","handletx stalno salje");
+                    ESP_LOGE("TP2.0","Mora ovde da dodje da bi odgovorio na B1 iz HandleRx-ovo je pre prijema poruke ");
                 }
             }
             else
@@ -535,6 +550,8 @@ static void VwTp_HandleTx(Tp_ChannelType * const chPtr)
         }
         else
         {
+            ESP_LOGE("TP2.0","Mora ovde da dodje da bi odgovorio na B1 ALI NE PRODJEs");
+
             dlc = 8;
             msg[0] = 0x20u | chPtr->seqCntTx; // consecutive frame
             for (tmp=0;tmp<7u;tmp++)
@@ -621,6 +638,7 @@ static void VwTp_HandleTxTimeout(Tp_ChannelType * const chPtr){
     uint8_t ackCfg = 0;
     if (VWTP_ACK == chPtr->txState)
     {
+        ESP_LOGI("TP2.0","Pa onda ovde");
         if (0x80 == (chPtr->cfg.ackTimeout & 0xC0u))
         {
             // multiplier: 10 ms
@@ -676,7 +694,7 @@ void TpInit(){
     TpEcu.txState = VWTP_CONNECT;
     TpEcu.rxState = VWTP_CONNECT;
     TpEcu.seqCntRx = 0xFu;
-    xTaskCreatePinnedToCore(Tp_Cyclic, "VwTp", 2048u, NULL, 5, &VwTpTaskHdl,1);
+    xTaskCreatePinnedToCore(Tp_Cyclic, "VwTp", 4096u, NULL, 5, &VwTpTaskHdl,1);
     vTaskDelay(pdMS_TO_TICKS(120));
 }
 

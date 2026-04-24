@@ -47,24 +47,26 @@ uint8_t GetStalkButton() {
 void Can_Receive(void *pvParameters)
 {
     twai_message_t msg;
-
     while (1)
     {
+        // Blokira se i čeka poruku - nema procesorskog vremena dok ništa ne stiže
         if (twai_receive(&msg, portMAX_DELAY) == ESP_OK)
         {
-            ESP_LOGW("Physical","Primljeno na can-u");
+            // Minimalan ispis, bez delay-a nakon toga!
+            //printf("ID: 0x%03X DATA: ", (unsigned int)msg.identifier);
+            //for(int i = 0; i < msg.data_length_code; i++) printf("%02X ", msg.data[i]);
+            //printf("\n");
+
             if (msg.identifier == STALKBUTTONRXID) {
-                xQueueSend(StalkButtonQueue, &msg, portMAX_DELAY);
-                
+                xQueueSend(StalkButtonQueue, &msg, 0);
             }
-            else if (msg.identifier == ENGINERXID) {
-                xQueueSend(CanToKwpQueue, &msg, portMAX_DELAY);
-            }
-            else {
-                //ESP_LOGI("CAN", "Nepoznat ID");
+            else if (msg.identifier == ENGINERXID || msg.identifier == ENGINERXID2) {
+                xQueueSend(CanToKwpQueue, &msg, 0);
+                //ESP_LOGE("Physical","");
+
             }
         }
-
+        // NEMA vTaskDelay ovde!
     }
 }
 
@@ -114,7 +116,7 @@ void Kwp_Task(void *pvParameters)
     {
         if (xQueueReceive(CanToKwpQueue, &msg, portMAX_DELAY))
         {
-            ESP_LOGI("Physical","Primljeno nesto od ECU ");
+            //ESP_LOGI("Physical","Primljeno nesto od ECU ");
             VwTp_Receive(
                 msg.identifier,
                 msg.data_length_code,
@@ -143,19 +145,18 @@ uint8_t CanWrite(uint16_t CanID, uint8_t len, uint8_t* Data)
     }
 
     if (twai_transmit(&msg, pdMS_TO_TICKS(5)) == ESP_OK) {
-       /* printf("CAN TX [ID: 0x%03X] [LEN: %d] DATA: ", CanID, len);
+        printf("CAN TX [ID: 0x%03X] [LEN: %d] DATA: ", CanID, len);
         for(int i = 0; i < len; i++) {
             printf("%02X ", Data[i]);
         }
         //ESP_LOGE("Physical","Uspesno izvrsena funkcija twai_transmit");
-        */
         return 1;
     }
     vTaskDelay(pdMS_TO_TICKS(50));
     return 0;
 }
 
-/* CAN init */
+// CAN init 
 void Can_Init()
 {
     // Konfiguracija
@@ -178,3 +179,43 @@ void Can_Init()
     xTaskCreatePinnedToCore(StalkButton, "StalkButton", 2048, NULL, 4, NULL, 0);
     vTaskDelay(pdMS_TO_TICKS(50));
 }
+/*
+void Can_Init()
+{
+    // 1. Generalna konfiguracija (Pinovi 17 i 16, 500kbps)
+    twai_general_config_t g_config = TWAI_GENERAL_CONFIG_DEFAULT(17, 16, TWAI_MODE_NORMAL);
+    twai_timing_config_t  t_config = TWAI_TIMING_CONFIG_500KBITS();
+
+    2. FILTER LOGIKA:
+       Želimo: 200, 201, 300, 301 (opseg 2xx i 3xx) i 35F.
+       
+       Podesićemo filter tako da proverava najbitnije bitove.
+       Code:  0x200  (Binarno: 010 0000 0000)
+       Mask:  0x400  (Binarno: 100 0000 0000) -> Ovo kaže: "Bit 10 mora biti 0" 
+                                                 (svi tvoji ID-jevi počinju sa 0 na bitu 10)
+                                                 
+       Bolja varijanta za tvoje ID-jeve (200, 201, 300, 301, 35F):
+       Svi su u rangu 0x200 do 0x3FF.
+    
+    
+    twai_filter_config_t f_config;
+    f_config.acceptance_code = (0x200 << 21); // Pomeramo za 21 bit jer je to standard za 11-bitne ID-jeve u ESP32
+    f_config.acceptance_mask = ~(0x1FF << 21); // Maska koja dozvoljava promene u donjih 9 bita, ali fiksira gornje
+    f_config.single_filter = true;
+
+    // Instalacija drajvera
+    ESP_ERROR_CHECK(twai_driver_install(&g_config, &t_config, &f_config));
+    ESP_ERROR_CHECK(twai_start());
+
+    // Redovi poruka (Queues)
+    CanToKwpQueue   = xQueueCreate(CAN_KWP_QUEUE_LEN, sizeof(twai_message_t));
+    StalkButtonQueue = xQueueCreate(STALKBUTTON, sizeof(twai_message_t));
+
+    // Taskovi
+    xTaskCreatePinnedToCore(Can_Receive, "CanRx", 2048, NULL, 6, NULL, 0);
+    xTaskCreatePinnedToCore(Kwp_Task, "KwpTask", 4096, NULL, 5, NULL, 1);
+    xTaskCreatePinnedToCore(StalkButton, "StalkButton", 2048, NULL, 4, NULL, 0);
+    
+    vTaskDelay(pdMS_TO_TICKS(50));
+}
+*/

@@ -12,10 +12,12 @@
 void app_main(void)
 {
     Can_Init();
-       
+    vTaskDelay(pdMS_TO_TICKS(1000));
     TpInit();
 
     KwpInit();
+    vTaskDelay(pdMS_TO_TICKS(300));
+
     DataInit();
     DisplayInit();
     

@@ -184,12 +184,12 @@ void DataCyclic(void *pvParameters){
                 EngineDiag_HandleDid(didbuffer,did);  
                 state=DATA_READED;     
 
-                ESP_LOGE("DataAnaliser","Uspeo sam da dobijem neke podatke od ECU");           
+                ESP_LOGI("DataAnaliser","Uspeo sam da dobijem neke podatke od ECU");           
 
                 }
                 else{
                     
-                    ESP_LOGI("DataAnaliser","Ne mogu da DOBIJEM PODATKE OD ECU");          
+                    ESP_LOGE("DataAnaliser","Ne mogu da DOBIJEM PODATKE OD ECU");          
 
                     //Cekamo da vidimo da li ce stici da se kwp izvrsi ili je stv greska
                     if(count1>20){
