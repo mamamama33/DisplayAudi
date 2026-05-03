@@ -1,7 +1,6 @@
 #include"KwpProtocol.h"
 #include "TP2.0Protocol.h"
 #include"esp_log.h"
-
 /*SID DEO*/
 //  ID |||| SID|| DID||| DATA
 
@@ -74,13 +73,12 @@ void KwpCyclic(void *pvParameters){
 
     while(1){
         if(KwpStatuses==KWP_IDLE){
-            vTaskDelay(pdMS_TO_TICKS(30));
             timeout=0;
             switch(KwpStages){
 
                 case KWP_START:
                     if(correct==KwpStart(ecuid)){
-                        vTaskDelay(pdMS_TO_TICKS(500));
+                        vTaskDelay(pdMS_TO_TICKS(30));
                         if(KwpStartSessionFlag==1){
                             KwpStages=KWP_START_HANDSHAKE;
                             ESP_LOGI("KWP","TpStart je prosao");
@@ -104,12 +102,13 @@ void KwpCyclic(void *pvParameters){
                 break;
                 case KWP_START_HANDSHAKE:
                     ESP_LOGI("KWP-AUTOMAT","Poslat Session");
-                    
-                    Kwp_StartSession(0x03);
+                    //Ako nije 89  -- stand by , onda staviti extended diagnostic -92
+                    Kwp_StartSession(0x89u);
                 break;
                 /*NEZ ZASTO saljem zahtev za ECU ID KADA GA VEC IMAM*/
                 case KWP_START_SESSION:
                     ESP_LOGI("KWP-AUTOMAT","Poslat zahtev za ECUID");
+                    /*Read ECU identification - a 0x9B je ECU Data Fingerprint */
                     Kwp_ReadEcuId(0x9Bu);
                 break;
                 case KWP_READECUID:
@@ -188,7 +187,7 @@ void KwpCyclic(void *pvParameters){
 uint8_t KwpInit(){
 
     KwpStages =KWP_START;
-    xTaskCreatePinnedToCore(KwpCyclic, "Data", 4096u, NULL, 3, &taskHandle,1);
+    xTaskCreatePinnedToCore(KwpCyclic, "Data", 4096u, NULL, 5, &taskHandle,1);
     vTaskDelay(120u / portTICK_PERIOD_MS);
     return 1;
 }
@@ -356,7 +355,11 @@ static void Kwp_StartSession(uint8_t sessionId)
 
 
     }
-    vTaskDelay(10);
+    if (xSemaphoreTake(TpSendComplete, pdMS_TO_TICKS(1000)) == pdTRUE) {
+        ESP_LOGI("KWP", "Kwp se izvrsio i dobio potvrdu od TP");
+    } else {
+        ESP_LOGE("KWP", "Kwp se nije izvrsio ili nije dobio potvrdu od TP u roku od 1000 ms");
+    }
 }
 
 static void Kwp_ReadEcuId(uint8_t idOption)
@@ -378,6 +381,11 @@ static void Kwp_ReadEcuId(uint8_t idOption)
 
 
     }
+    if (xSemaphoreTake(TpSendComplete, pdMS_TO_TICKS(1000)) == pdTRUE) {
+        ESP_LOGI("KWP", "Kwp se izvrsio i dobio potvrdu od TP");
+    } else {
+        ESP_LOGE("KWP", "Kwp se nije izvrsio ili nije dobio potvrdu od TP u roku od 1000 ms");
+    }
 }
 
 static void Kwp_StartRoutine(uint8_t rid, uint16_t rEntOpt)
@@ -394,6 +402,11 @@ static void Kwp_StartRoutine(uint8_t rid, uint16_t rEntOpt)
         KwpStatuses = KWP_PROCESSING;
         KwpStages = KWP_ROUTINE;
         ESP_LOGE("KWP","Poslata rutina koja hocu");
+    }
+    if (xSemaphoreTake(TpSendComplete, pdMS_TO_TICKS(1000)) == pdTRUE) {
+        ESP_LOGI("KWP", "Kwp se izvrsio i dobio potvrdu od TP");
+    } else {
+        ESP_LOGE("KWP", "Kwp se nije izvrsio ili nije dobio potvrdu od TP u roku od 1000 ms");
     }
 }
 
@@ -412,6 +425,11 @@ static void Kwp_ReadData(uint8_t did)
         xTaskResumeAll(); // End of critical section, interrupts enabled
         ESP_LOGE("KWP","Poslat zahtev ECU-u");
 
+    }
+    if (xSemaphoreTake(TpSendComplete, pdMS_TO_TICKS(1000)) == pdTRUE) {
+        ESP_LOGI("KWP", "Kwp se izvrsio i dobio potvrdu od TP");
+    } else {
+        ESP_LOGE("KWP", "Kwp se nije izvrsio ili nije dobio potvrdu od TP u roku od 1000 ms");
     }
 }
 

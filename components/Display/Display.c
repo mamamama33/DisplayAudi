@@ -484,6 +484,6 @@ uint8_t Dis_DecodeFrame(uint8_t *frameData)
 
 void DisplayInit(){
 
-    xTaskCreatePinnedToCore(DisCyclic,"Dis",2048u,NULL,2,&disTaskHandle,1);
+    xTaskCreatePinnedToCore(DisCyclic,"Dis",2048u,NULL,3,&disTaskHandle,1);
     vTaskDelay(pdMS_TO_TICKS(120));
 }

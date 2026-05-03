@@ -102,7 +102,6 @@ void StalkButton(void *pvParameters)
                 lastButtons = buttons;
             }
         }
-        vTaskDelay(pdMS_TO_TICKS(30));
 
     }
 }
@@ -123,16 +122,12 @@ void Kwp_Task(void *pvParameters)
                 msg.data
             );
         }
-        
-        vTaskDelay(pdMS_TO_TICKS(30));
     }
 }
 
 /* CAN write */
 uint8_t CanWrite(uint16_t CanID, uint8_t len, uint8_t* Data)
 {
-    vTaskDelay(pdMS_TO_TICKS(20));
-
     twai_message_t msg = {0};
 
     msg.identifier = CanID;
@@ -144,15 +139,14 @@ uint8_t CanWrite(uint16_t CanID, uint8_t len, uint8_t* Data)
         msg.data[i] = Data[i];
     }
 
-    if (twai_transmit(&msg, pdMS_TO_TICKS(5)) == ESP_OK) {
-        printf("CAN TX [ID: 0x%03X] [LEN: %d] DATA: ", CanID, len);
-        for(int i = 0; i < len; i++) {
-            printf("%02X ", Data[i]);
-        }
+    if (twai_transmit(&msg, pdMS_TO_TICKS(15)) == ESP_OK) {
         //ESP_LOGE("Physical","Uspesno izvrsena funkcija twai_transmit");
         return 1;
     }
-    vTaskDelay(pdMS_TO_TICKS(50));
+    printf("CAN TX [ID: 0x%03X] [LEN: %d] DATA: ", CanID, len);
+    for(int i = 0; i < len; i++) {
+            printf("%02X ", Data[i]);
+    }
     return 0;
 }
 
@@ -174,10 +168,9 @@ void Can_Init()
     StalkButtonQueue = xQueueCreate(STALKBUTTON, sizeof(twai_message_t));
 
     // Taskovi
-    xTaskCreatePinnedToCore(Can_Receive, "CanRx", 2048, NULL, 6, NULL, 0);
-    xTaskCreatePinnedToCore(Kwp_Task, "KwpTask", 4096, NULL, 5, NULL, 1);
-    xTaskCreatePinnedToCore(StalkButton, "StalkButton", 2048, NULL, 4, NULL, 0);
-    vTaskDelay(pdMS_TO_TICKS(50));
+    xTaskCreatePinnedToCore(Can_Receive, "CanRx", 2048, NULL, 7, NULL, 0);
+    xTaskCreatePinnedToCore(Kwp_Task, "KwpTask", 4096, NULL, 7, NULL, 1);
+    xTaskCreatePinnedToCore(StalkButton, "StalkButton", 2048, NULL, 6, NULL, 0);
 }
 /*
 void Can_Init()

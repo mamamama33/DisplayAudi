@@ -221,7 +221,7 @@ uint8_t DataInit(){
 
   
 
-    xTaskCreatePinnedToCore(DataCyclic, "Data", 2048u, NULL, 3, &taskHandle,1);
+    xTaskCreatePinnedToCore(DataCyclic, "Data", 2048u, NULL, 4, &taskHandle,1);
     vTaskDelay(110u / portTICK_PERIOD_MS);
 
     return 1;

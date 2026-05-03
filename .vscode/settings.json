@@ -1,4 +1,4 @@
 {
-    "idf.pythonInstallPath": "/usr/bin/python",
-    "idf.currentSetup": "/home/uros/Desktop/esp/esp-idf"
+  "C_Cpp.intelliSenseEngine": "default",
+  "idf.currentSetup": "/home/uros/Desktop/esp/esp-idf"
 }

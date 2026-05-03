@@ -7,6 +7,7 @@ static TaskHandle_t VwTpTaskHdl = NULL;
 #define correct 1u
 #define notcorrect 0u
 
+SemaphoreHandle_t TpSendComplete = NULL;
 
 /*Koristim static void kako bi zastitio da niko ne moze da ih poziva*/
 
@@ -44,7 +45,6 @@ void Tp_Cyclic(void *pvParameters)
     Tp_ChannelType * chPtr = &TpEcu;
     
     /*Ovo sam dodao kako bi mogao da prvo posaljem poruku-zahrev*/
-    //chPtr->txState =VWTP_IDLE;
 
 
     while(1)
@@ -55,7 +55,7 @@ void Tp_Cyclic(void *pvParameters)
             VwTp_HandleCallbacks(chPtr); // DA BI STALNO ODRADJIVAO CALLBACK FUNKCIJE 
             VwTp_HandleRxTimeout(chPtr);
             vTaskDelay(10u / portTICK_PERIOD_MS);
-    
+
     }
 }
 /*NJU POZIVAM IZ KWP i u njoj punim bafer koji u cyclic stalno pozivam!!!*/
@@ -536,6 +536,8 @@ static void VwTp_HandleTx(Tp_ChannelType * const chPtr)
                     chPtr->txTimeout = 0;      // Resetuj tajmer za timeout
                     chPtr->txState = VWTP_ACK;
                     ESP_LOGE("TP2.0","Mora ovde da dodje da bi odgovorio na B1 iz HandleRx-ovo je pre prijema poruke ");
+                    xSemaphoreGive(TpSendComplete);
+
                 }
             }
             else
@@ -545,6 +547,8 @@ static void VwTp_HandleTx(Tp_ChannelType * const chPtr)
                 {
                     ESP_LOGE("TP2.0","handletx stalno salje");
                     chPtr->txState = VWTP_FINISHED;
+                    xSemaphoreGive(TpSendComplete);
+
                 }
             }
         }
@@ -694,7 +698,8 @@ void TpInit(){
     TpEcu.txState = VWTP_CONNECT;
     TpEcu.rxState = VWTP_CONNECT;
     TpEcu.seqCntRx = 0xFu;
-    xTaskCreatePinnedToCore(Tp_Cyclic, "VwTp", 4096u, NULL, 5, &VwTpTaskHdl,1);
+    TpSendComplete = xSemaphoreCreateBinary();
+    xTaskCreatePinnedToCore(Tp_Cyclic, "VwTp", 4096u, NULL, 6, &VwTpTaskHdl,1);
     vTaskDelay(pdMS_TO_TICKS(120));
 }
 

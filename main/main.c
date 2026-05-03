@@ -14,12 +14,11 @@ void app_main(void)
     Can_Init();
     vTaskDelay(pdMS_TO_TICKS(1000));
     TpInit();
-
+    vTaskDelay(pdMS_TO_TICKS(100));
     KwpInit();
-    vTaskDelay(pdMS_TO_TICKS(300));
-
+    vTaskDelay(pdMS_TO_TICKS(100));
     DataInit();
+    vTaskDelay(pdMS_TO_TICKS(100));
     DisplayInit();
     
-
 }
