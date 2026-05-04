@@ -107,7 +107,7 @@ void VwTp_Receive(uint16_t canId, uint8_t dlc, uint8_t * dataPtr)
 {
     Tp_ChannelType * chPtr= NULL;
     
-    if (canId == TpEcu.cfg.rxId) //EEE OVO JE KLJUCCCC!!!!!!!!!!!! ovde proverava od koga je poruka!!!
+    if (canId == TpEcu.cfg.rxId) 
     {
         chPtr = &TpEcu;
         
@@ -341,15 +341,14 @@ static void VwTp_HandleRx(Tp_ChannelType * chPtr,uint8_t dlc,uint8_t * dataPtr)
             chPtr->txSize = 0;
             chPtr->txOffset = 0;
             chPtr->txState = VWTP_FINISHED; // Ovo smece sluzi da se pozove kwp_Receive iz 
-            ESP_LOGE("TP2.0","Uspevam da se dog sa ECu");
 
         }
         else 
         {
             //received ack when not expected
-            #ifdef VWTP_DET
+            
             ESP_LOGE("VWTP","Not expected ACK");
-            #endif
+            
         }
         xTaskResumeAll(); // End of critical section, interrupts enabled
     }
@@ -391,7 +390,6 @@ static void VwTp_HandleRx(Tp_ChannelType * chPtr,uint8_t dlc,uint8_t * dataPtr)
     else
     {
         // error case
-        ESP_LOGW("TP2.0","OVDE GA ZATVARA-390");
 
         VwTp_sendClose(chPtr);
     }
@@ -490,7 +488,7 @@ static void VwTp_HandleCallbacks(Tp_ChannelType * const chPtr)
         if (NULL != chPtr->cfg.rxIndication)
         {
             chPtr->cfg.rxIndication(chPtr->rxBuffer,chPtr->rxSize);
-            ESP_LOGI("TP2.0","Ovo trigeruje kwpReceive");
+            //ESP_LOGI("TP2.0","Ovo trigeruje kwpReceive");
         }
         vTaskSuspendAll(); // Critical section, interrupts enabled
         chPtr->rxSize = 0u;
@@ -518,14 +516,21 @@ static void VwTp_HandleTx(Tp_ChannelType * const chPtr)
     uint16_t tmp;
     uint8_t dlc;
     uint8_t msg[8];
+
+    
+    //printf("E ovo me jebe neko mi promeni ovo i sve ode u kurac ---%d",chPtr->txState);
+    vTaskDelay(pdMS_TO_TICKS(30));
     if ( VWTP_WAIT == chPtr->txState )
     {
-        //ESP_LOGE("TP2.0","Treba ovde posle handsgake da se to ispegla");
+
+        ESP_LOGE("TP2.0","Handletx koji JEDINI salje ");
         if ((chPtr->txSize < 8u) || (((chPtr->txSize)-(chPtr->txOffset)) < 8u))
         {
             dlc = ((chPtr->txSize)-(chPtr->txOffset))+1u;
+
             if (dlc != 1)
             {
+
                 msg[0] = 0x10u | chPtr->seqCntTx; // single frame or last frame
                 for (tmp=0;tmp<(dlc-1);tmp++)
                 {
@@ -535,7 +540,7 @@ static void VwTp_HandleTx(Tp_ChannelType * const chPtr)
                 {
                     chPtr->txTimeout = 0;      // Resetuj tajmer za timeout
                     chPtr->txState = VWTP_ACK;
-                    ESP_LOGE("TP2.0","Mora ovde da dodje da bi odgovorio na B1 iz HandleRx-ovo je pre prijema poruke ");
+                    //ESP_LOGE("TP2.0","Mora ovde da dodje da bi odgovorio na B1 iz HandleRx-ovo je pre prijema poruke ");
                     xSemaphoreGive(TpSendComplete);
 
                 }
@@ -554,8 +559,6 @@ static void VwTp_HandleTx(Tp_ChannelType * const chPtr)
         }
         else
         {
-            ESP_LOGE("TP2.0","Mora ovde da dodje da bi odgovorio na B1 ALI NE PRODJEs");
-
             dlc = 8;
             msg[0] = 0x20u | chPtr->seqCntTx; // consecutive frame
             for (tmp=0;tmp<7u;tmp++)
@@ -565,6 +568,8 @@ static void VwTp_HandleTx(Tp_ChannelType * const chPtr)
             if (CAN_OK == TPSENDMESSAGE(chPtr->cfg.txId,dlc,msg))
             {
                  ESP_LOGE("TP2.0","handletx stalno salje");
+                                     xSemaphoreGive(TpSendComplete);
+
                 chPtr->txOffset += 7u;
                 if (chPtr->seqCntTx < 0xFu)
                 {
@@ -626,7 +631,7 @@ uint8_t TpConnect(uint8_t EcuID){
         msg[4] = 0x00u; // txId (lsb)
         msg[5] = 0x03u; // valid txId (msb) 0x300
         msg[6] = 0x01u; // app = kwp2000
-        if(correct == TPSENDMESSAGE(EcuChannel->cfg.txId,sizeof(msg),msg)){
+        if(CAN_OK == TPSENDMESSAGE(EcuChannel->cfg.txId,sizeof(msg),msg)){
             pov=correct;
             EcuChannel->cfg.rxId= (0x200u | EcuID); 
             ESP_LOGI("TP","USPESNO POSLAT CONNECT NA CAN ");
@@ -642,7 +647,7 @@ static void VwTp_HandleTxTimeout(Tp_ChannelType * const chPtr){
     uint8_t ackCfg = 0;
     if (VWTP_ACK == chPtr->txState)
     {
-        ESP_LOGI("TP2.0","Pa onda ovde");
+        //ESP_LOGI("TP2.0","Pa onda ovde");
         if (0x80 == (chPtr->cfg.ackTimeout & 0xC0u))
         {
             // multiplier: 10 ms

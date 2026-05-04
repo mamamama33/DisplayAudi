@@ -141,13 +141,13 @@ uint8_t CanWrite(uint16_t CanID, uint8_t len, uint8_t* Data)
 
     if (twai_transmit(&msg, pdMS_TO_TICKS(15)) == ESP_OK) {
         //ESP_LOGE("Physical","Uspesno izvrsena funkcija twai_transmit");
-        return 1;
+        return 0;
     }
-    printf("CAN TX [ID: 0x%03X] [LEN: %d] DATA: ", CanID, len);
+    /*printf("CAN TX [ID: 0x%03X] [LEN: %d] DATA: ", CanID, len);
     for(int i = 0; i < len; i++) {
             printf("%02X ", Data[i]);
-    }
-    return 0;
+    }*/
+    return 1;
 }
 
 // CAN init 
