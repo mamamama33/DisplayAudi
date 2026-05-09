@@ -7,8 +7,6 @@ static TaskHandle_t VwTpTaskHdl = NULL;
 #define correct 1u
 #define notcorrect 0u
 
-SemaphoreHandle_t TpSendComplete = NULL;
-
 /*Koristim static void kako bi zastitio da niko ne moze da ih poziva*/
 
 static void VwTp_HandleTx(Tp_ChannelType * const chPtr);
@@ -406,7 +404,7 @@ static void VwTp_sendAck(Tp_ChannelType * const chPtr)
     msg[0] = 0xB0u | ackSeq; // ack, ready
     if (CAN_OK == TPSENDMESSAGE(chPtr->cfg.txId,sizeof(msg),msg))
     {
-        ESP_LOGE("TP2.0","ACK je poslat to je neophodno");
+        //ESP_LOGE("TP2.0","ACK je poslat to je neophodno");
         vTaskSuspendAll(); // Critical section, interrupts enabled
         chPtr->ackSeqCntRx = chPtr->seqCntRx;
         chPtr->txFlags.ack = 0u;
@@ -462,7 +460,7 @@ static void VwTp_sendTpParams(Tp_ChannelType * const chPtr, uint8_t response)
         if (CAN_OK == TPSENDMESSAGE(chPtr->cfg.txId,sizeof(tpParams),tpParams))
         {
             chPtr->txFlags.params = 0;
-            ESP_LOGE("TP2.0","TpParams poslat odma posle prvo ecu odgovora");
+            //ESP_LOGE("TP2.0","TpParams poslat odma posle prvo ecu odgovora");
         }
     }
 }
@@ -523,7 +521,7 @@ static void VwTp_HandleTx(Tp_ChannelType * const chPtr)
     if ( VWTP_WAIT == chPtr->txState )
     {
 
-        ESP_LOGE("TP2.0","Handletx koji JEDINI salje ");
+        //ESP_LOGE("TP2.0","Handletx koji JEDINI salje ");
         if ((chPtr->txSize < 8u) || (((chPtr->txSize)-(chPtr->txOffset)) < 8u))
         {
             dlc = ((chPtr->txSize)-(chPtr->txOffset))+1u;
@@ -541,7 +539,7 @@ static void VwTp_HandleTx(Tp_ChannelType * const chPtr)
                     chPtr->txTimeout = 0;      // Resetuj tajmer za timeout
                     chPtr->txState = VWTP_ACK;
                     //ESP_LOGE("TP2.0","Mora ovde da dodje da bi odgovorio na B1 iz HandleRx-ovo je pre prijema poruke ");
-                    xSemaphoreGive(TpSendComplete);
+                    //oreGive(TpSendComplete);
 
                 }
             }
@@ -552,7 +550,7 @@ static void VwTp_HandleTx(Tp_ChannelType * const chPtr)
                 {
                     ESP_LOGE("TP2.0","handletx stalno salje");
                     chPtr->txState = VWTP_FINISHED;
-                    xSemaphoreGive(TpSendComplete);
+                    //xSemaphoreGive(TpSendComplete);
 
                 }
             }
@@ -568,7 +566,7 @@ static void VwTp_HandleTx(Tp_ChannelType * const chPtr)
             if (CAN_OK == TPSENDMESSAGE(chPtr->cfg.txId,dlc,msg))
             {
                  ESP_LOGE("TP2.0","handletx stalno salje");
-                                     xSemaphoreGive(TpSendComplete);
+                                     //xSemaphoreGive(TpSendComplete);
 
                 chPtr->txOffset += 7u;
                 if (chPtr->seqCntTx < 0xFu)
@@ -703,7 +701,6 @@ void TpInit(){
     TpEcu.txState = VWTP_CONNECT;
     TpEcu.rxState = VWTP_CONNECT;
     TpEcu.seqCntRx = 0xFu;
-    TpSendComplete = xSemaphoreCreateBinary();
     xTaskCreatePinnedToCore(Tp_Cyclic, "VwTp", 4096u, NULL, 6, &VwTpTaskHdl,1);
     vTaskDelay(pdMS_TO_TICKS(120));
 }

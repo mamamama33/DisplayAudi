@@ -153,8 +153,9 @@ void DataCyclic(void *pvParameters){
         vTaskDelay(20u/portTICK_PERIOD_MS);
         switch(state){
             case DATA_IDLE:
-
-            pov1=1;
+            if(SetDataDid==true)
+                state=DATA_REQUEST;
+                        
             break;
             case DATA_REQUEST:
                 //Prosledjujem mu koji DID  HOCU ili ti sta hocu da mi prikaze
@@ -180,11 +181,11 @@ void DataCyclic(void *pvParameters){
             case DATA_WAITNG:
                 //UZIMAM podatak uz proveru da li je dobar
                 if(Kwp_GetDataFromEcu(didbuffer)==correct){
-                
-                EngineDiag_HandleDid(didbuffer,did);  
-                state=DATA_READED;     
+                    
+                    EngineDiag_HandleDid(didbuffer,did);  
+                    state=DATA_READED;     
 
-                ESP_LOGI("DataAnaliser","Uspeo sam da dobijem neke podatke od ECU");           
+                    ESP_LOGI("DataAnaliser","Uspeo sam da dobijem neke podatke od ECU");           
 
                 }
                 else{
@@ -221,7 +222,7 @@ uint8_t DataInit(){
 
   
 
-    xTaskCreatePinnedToCore(DataCyclic, "Data", 2048u, NULL, 4, &taskHandle,1);
+    xTaskCreatePinnedToCore(DataCyclic, "Data", 2048u, NULL, 3, &taskHandle,1);
     vTaskDelay(110u / portTICK_PERIOD_MS);
 
     return 1;

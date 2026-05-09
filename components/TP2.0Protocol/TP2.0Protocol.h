@@ -87,5 +87,4 @@ uint8_t TpConnect(uint8_t);
 uint8_t VwTp_Send(uint8_t , uint8_t * , uint16_t );
 void VwTp_Disconnect();
 extern volatile uint8_t KwpStartSessionFlag;
-extern SemaphoreHandle_t TpSendComplete;
 void TpInit();
