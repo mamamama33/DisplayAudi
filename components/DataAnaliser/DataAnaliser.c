@@ -180,37 +180,33 @@ void DataCyclic(void *pvParameters){
             break;
             case DATA_WAITNG:
                 //UZIMAM podatak uz proveru da li je dobar
-                if(Kwp_GetDataFromEcu(didbuffer)==correct){
-                    
-                    EngineDiag_HandleDid(didbuffer,did);  
-                    state=DATA_READED;     
-
-                    ESP_LOGI("DataAnaliser","Uspeo sam da dobijem neke podatke od ECU");           
-
-                }
-                else{
-                    
-                    ESP_LOGE("DataAnaliser","Ne mogu da DOBIJEM PODATKE OD ECU");          
-
-                    //Cekamo da vidimo da li ce stici da se kwp izvrsi ili je stv greska
-                    if(count1>20){
-                       //Vracamo se na pocetak doslo je do greska u uspostavi veze KWP
-                        state=DATA_IDLE;
-                        count2=0;
-                    }
-                    else{
-                        count1++;
-                    }
+                if(ReadyToGetData==true){
+                    state=DATA_READED;
                 }
             break;
-
             case DATA_READED:
+                    if(Kwp_GetDataFromEcu(didbuffer)==correct){
+                        EngineDiag_HandleDid(didbuffer,did);  
+                        ESP_LOGI("DataAnaliser","Uspeo sam da dobijem neke podatke od ECU");           
+                    }
+                    else{
+                        //Cekamo da vidimo da li ce stici da se kwp izvrsi ili je stv greska
+                        if(count2>20){
+                        //Vracamo se na pocetak doslo je do greska u uspostavi veze KWP
+                            state=DATA_IDLE;
+                            ESP_LOGE("DataAnaliser-ERROR","Ne mogu da DOBIJEM PODATKE OD ECU");          
+                            count2=0;
+                        }
+                        else{
+                            count2++;
+                        }
+                    }
             ESP_LOGI("Data","Uspesno zavrsena jedna sesija podatka");
             state=DATA_IDLE;
             break;
    
         }
-        vTaskDelay(pdMS_TO_TICKS(100));
+        vTaskDelay(pdMS_TO_TICKS(30));
     }
 
 }
@@ -220,10 +216,8 @@ void DataCyclic(void *pvParameters){
 /*KOD NJEGA IMA ECU ID AL TO MENI NE TREBA meni treba samo callback za handlovanje didova*/
 uint8_t DataInit(){
 
-  
-
     xTaskCreatePinnedToCore(DataCyclic, "Data", 2048u, NULL, 3, &taskHandle,1);
-    vTaskDelay(110u / portTICK_PERIOD_MS);
+    vTaskDelay(60u / portTICK_PERIOD_MS);
 
     return 1;
 }

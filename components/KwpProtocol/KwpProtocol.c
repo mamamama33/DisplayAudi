@@ -31,6 +31,7 @@ volatile bool SetDataDid=false;
 static SemaphoreHandle_t TpSendComplete = NULL;
 
 uint8_t currentSid;
+volatile bool ReadyToGetData=false;
 
 static TaskHandle_t taskHandle;
 static uint8_t        didBuffer[12u];
@@ -235,9 +236,10 @@ uint8_t Kwp_GetConnectionState(void)
     }
     return retVal;
 }
-/*Getter za data*/
+/*Getter za data ovo treba da se ispuni*/
 // KwpStatuses = KWP_PROCESSING;
-   //     KwpStages = KWP_READDID;
+//KwpStages = KWP_READDID;.
+//KWP_READY == KwpStages) && (KWP_IDLE == KwpStatuses 
 uint8_t Kwp_GetDataFromEcu(uint8_t * const dataPtr){
 
     uint8_t retVal=0;
@@ -260,8 +262,6 @@ uint8_t Kwp_GetDataFromEcu(uint8_t * const dataPtr){
 
 void Kwp_Receive(uint8_t * dataPtr,uint16_t len)
 {
-    //ESP_LOGE("KWP","Trebalo bi da udje na receive");
-
     uint8_t i = 0;
     if (KWP_WAITING == KwpStatuses)
     {
@@ -384,12 +384,6 @@ static void Kwp_ReadEcuId(uint8_t idOption)
 
 
     }
-/*    if (xSemaphoreTake(TpSendComplete, pdMS_TO_TICKS(1000)) == pdTRUE) {
-        ESP_LOGI("KWP", "Kwp se izvrsio i dobio potvrdu od TP");
-    } else {
-        ESP_LOGE("KWP", "Kwp se nije izvrsio ili nije dobio potvrdu od TP u roku od 1000 ms");
-    }*/
-
 }
 
 static void Kwp_StartRoutine(uint8_t rid, uint16_t rEntOpt)
@@ -422,6 +416,7 @@ static void Kwp_ReadData(uint8_t did)
     msg[1] = 0x02; // Length
     msg[2] = READDATA_SID; // SID
     msg[3] = did; // data local id
+
     currentSid=READDATA_SID;
 
     if (KWP_OK == Kwp_SendTp(msg))
@@ -430,8 +425,7 @@ static void Kwp_ReadData(uint8_t did)
         KwpStatuses = KWP_PROCESSING;
         KwpStages = KWP_READDID;
         xTaskResumeAll(); // End of critical section, interrupts enabled
-       // ESP_LOGE("KWP","Poslat koji did hocu ");
-
+        ReadyToGetData=true;
     }
     if (xSemaphoreTake(TpSendComplete, pdMS_TO_TICKS(1000)) == pdTRUE) {
         ESP_LOGI("KWP", "Kwp se izvrsio i dobio potvrdu od TP");
