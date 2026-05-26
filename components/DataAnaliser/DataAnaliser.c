@@ -16,40 +16,113 @@ typedef struct
 }EngineDiag_ChannelType;
 
 static EngineDiag_ChannelType channels[ENGINEDIAG_CH_MAX];
-
+//Znaci ovo su koje didove zelim da trazim od ECU-a i koji su mi potrebni za prikaz na displeju
 const uint8_t ChIdxToDid[ENGINEDIAG_CH_MAX] = 
 {
+    //DURMI1 je injection duration u vcds-u
+    //qmi1 injection quantity u vcds-u
+    /*--------PRVI BLOK U VCDS-U*/
     [ENGINEDIAG_CH_COOLANTTEMP1] = 1u,
     [ENGINEDIAG_CH_DURMI1] = 1u,
     [ENGINEDIAG_CH_QMI1] = 1u,
     [ENGINEDIAG_CH_ENGINESPEED1] = 1u,
+    /*-------------------*/
+
+    /*---------SESTI BLOK U VCDS-U---------*/
+    [ENGINEDIAG_CH_VEHICLESPEED] = 2u,
+    /*----------SEDMI BLOK U VCDS-U----------*/
     [ENGINEDIAG_CH_FUELTEMP] = 7u,
     [ENGINEDIAG_CH_IATTEMP7] = 7u,
     [ENGINEDIAG_CH_COOLANTTEMP7] = 7u,
+    /*----------DESETI BLOK U VCDS-U----------*/
+    [ENGINEDIAG_CH_MAF] = 10u,
+
+    /*----------JEDANAESTI BLOK U VCDS-U----------*/
+    [ENGINEDIAG_CH_BOOSTSPECIFIED]= 11u,
+    [ENGINEDIAG_CH_BOOSTACTUAL] = 11u,
+    [ENGINEDIAG_CHARGEPRESSURE] = 11u,
+    /*----------DVANAESTI BLOK U VCDS-U----------*/
+    [ENGINEDIAG_CH_VOLTAGE] = 12u,
+
+    /*---------PETNAESTI BLOK U VCDS-U---------*/
+    [ENGINEDIAG_CH_FUELCONSUMPTION] = 15u,
+    /*---------DVADESETI BLOK U VCDS-U*/
+    //TO JE ABS NEZ DA LI MI TREBA UOPSTE
+
+    /*---------DVADESET I OSAM BLOK U VCDS-U---------*/
+    [ENGINEDIAG_CH_ACCELERATION_PEDAL] = 28u,
+
+    /*----------DVADESET I DEVET BLOK U VCDS-U----------*/
     [ENGINEDIAG_CH_OILTEMP] = 29u,
+    [ENGINEDIAG_CH_OILLEVEL] = 29u,
+
+    /*-----------SEZDESET I DRUGI BLOK U VCDS-U-----------*/
     [ENGINEDIAG_CH_ENGINETEMP62] = 62u,
     [ENGINEDIAG_CH_COOLERTEMP62] = 62u,
     [ENGINEDIAG_CH_AMBITEMP62] = 62u,
     [ENGINEDIAG_CH_IATTEMP62] = 62u,
-    [ENGINEDIAG_CH_EGTEMP67] = 67u,
+
+    /*-----------SEZDESET I TRECI BLOK U VCDS-U-----------*/
+    [ENGINEDIAG_CH_REFRIGERANTPRESSURE] = 63u,
+
+    /*-----------SEZDESET I CETVRTI BLOK U VCDS-U-----------*/
+    [ENGINEDIAG_CH_FANDUTYCYCLE] = 64u,
+
     [ENGINEDIAG_CH_EGTEMP74] = 74u,
     [ENGINEDIAG_CH_LAMBDA74] = 74u,
 };
 const uint8_t ChIdxToDidOffset[ENGINEDIAG_CH_MAX] = 
 {
-    [ENGINEDIAG_CH_COOLANTTEMP1] = 3u,
-    [ENGINEDIAG_CH_DURMI1] = 2u,
-    [ENGINEDIAG_CH_QMI1] = 1u,
+    /*--------PRVI BLOK U VCDS-U*/
     [ENGINEDIAG_CH_ENGINESPEED1] = 0u,
+    [ENGINEDIAG_CH_QMI1] = 1u,
+    [ENGINEDIAG_CH_DURMI1] = 2u,
+    [ENGINEDIAG_CH_COOLANTTEMP1] = 3u,
+
+    /*---------SESTI BLOK U VCDS-U---------*/
+    [ENGINEDIAG_CH_VEHICLESPEED] = 0u,
+    
+
+    /*--------SEDMI BLOK U VCDS-U*/
     [ENGINEDIAG_CH_FUELTEMP] = 0u,
+    //iNTAKE AIR TEMPERATURE 
     [ENGINEDIAG_CH_IATTEMP7] = 2u,
     [ENGINEDIAG_CH_COOLANTTEMP7] = 3u,
+    /*----------DESETI BLOK U VCDS-U----------*/
+
+    [ENGINEDIAG_CH_MAF] = 0u,
+
+    /*----------JEDANAESTI BLOK U VCDS-U----------*/
+    [ENGINEDIAG_CH_BOOSTSPECIFIED]= 1u,
+    [ENGINEDIAG_CH_BOOSTACTUAL] = 2u,
+    [ENGINEDIAG_CHARGEPRESSURE] = 3u,
+    /*----------DVANAESTI BLOK U VCDS-U----------*/
+    [ENGINEDIAG_CH_VOLTAGE] = 2u,
+
+    /*---------PETNAESTI BLOK U VCDS-U---------*/
+
+    [ENGINEDIAG_CH_FUELCONSUMPTION] = 2u,
+    /*---------DVADESETI BLOK U VCDS-U*/
+    //TO JE ABS NEZ DA LI MI TREBA UOPSTE
+
+    /*---------DVADESET I OSAM BLOK U VCDS-U---------*/
+    [ENGINEDIAG_CH_ACCELERATION_PEDAL] = 3u,
+
+    /*----------DVADESET I DEVET BLOK U VCDS-U----------*/
     [ENGINEDIAG_CH_OILTEMP] = 0u,
+    [ENGINEDIAG_CH_OILLEVEL] = 1u,
+    /*--------- SEZDESET I DRUGI BLOK U VCDS-U---------*/
     [ENGINEDIAG_CH_ENGINETEMP62] = 0u,
     [ENGINEDIAG_CH_COOLERTEMP62] = 1u,
     [ENGINEDIAG_CH_AMBITEMP62] = 2u,
     [ENGINEDIAG_CH_IATTEMP62] = 3u,
-    [ENGINEDIAG_CH_EGTEMP67] = 0u,
+    /*-----------SEZDESET I TRECI BLOK U VCDS-U-----------*/
+    [ENGINEDIAG_CH_REFRIGERANTPRESSURE] = 0u,
+
+
+    /*-----------SEZDESET I CETVRTI BLOK U VCDS-U-----------*/
+    [ENGINEDIAG_CH_FANDUTYCYCLE] = 2u,
+
     [ENGINEDIAG_CH_EGTEMP74] = 1u,
     [ENGINEDIAG_CH_LAMBDA74] = 2u
 };
@@ -76,6 +149,8 @@ uint8_t DidSetter(uint8_t Setdid)
 
 
 //Funkcija koja ce obradjivati DID-ove -Da desifruje sta je sta u poruci
+/*buffer je niz od 4*3 bajtova od jednog bloka koje sam izvukao preko kwprequest */
+/* PUNIM MOJU BAZU channels[ch].data[b] sa baferom */
 static void EngineDiag_HandleDid(uint8_t * buffer, uint8_t actualDid)
 {
     uint32_t timestamp = 0u;
@@ -109,6 +184,7 @@ static void EngineDiag_HandleDid(uint8_t * buffer, uint8_t actualDid)
 
 /*FUNKCIJA ZA DOBAVLJANJE podataka KOJA POZIVA DIDSETTER koji posle 
 poziva KwpRequest koji od ECU trazi podatke*/
+/*Znaci prvo ova funkcija pa tek onda ona druga*/
 uint8_t EngineDiag_GetChData(const EngineDiag_ChannelIdType ch, uint8_t * dataPtr, uint32_t timeout)
 {
     uint8_t retVal = DIAG_ERR;
@@ -150,7 +226,7 @@ void DataCyclic(void *pvParameters){
     //Prosledjujem DID i dobijam podatke preko funckije-gettera -njegovog parametra  
     uint8_t didbuffer[4u*3u];
     while(1){
-        vTaskDelay(20u/portTICK_PERIOD_MS);
+        vTaskDelay(10u/portTICK_PERIOD_MS);
         switch(state){
             case DATA_IDLE:
             if(SetDataDid==true)
@@ -185,6 +261,7 @@ void DataCyclic(void *pvParameters){
                 }
             break;
             case DATA_READED:
+                    /* kwp get data izvuce pa prosledi ovom */
                     if(Kwp_GetDataFromEcu(didbuffer)==correct){
                         EngineDiag_HandleDid(didbuffer,did);  
                         ESP_LOGI("DataAnaliser","Uspeo sam da dobijem neke podatke od ECU");           

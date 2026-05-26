@@ -16,7 +16,7 @@ void DisCyclic(void *pvParameters){
     uint8_t broj;
     while(1){
             
-            broj=EngineDiag_GetChData(ch,data,300);
+            broj=EngineDiag_GetChData(ch,data,200);
             Dis_DecodeFrame(data);
             ch++;
             if(ch>=ENGINEDIAG_CH_MAX)

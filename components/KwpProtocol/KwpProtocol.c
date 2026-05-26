@@ -354,10 +354,6 @@ static void Kwp_StartSession(uint8_t sessionId)
         KwpStatuses = KWP_PROCESSING;
         KwpStages = KWP_START_SESSION;
     }
-    else{
-        //ESP_LOGE("KWP","NE USPEM da posaljem session");
-
-    }
     if (xSemaphoreTake(TpSendComplete, pdMS_TO_TICKS(1000)) == pdTRUE) {
         ESP_LOGI("KWP", "Send iz startsessiona se izvrsila");
     }
