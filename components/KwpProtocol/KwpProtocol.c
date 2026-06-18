@@ -142,7 +142,7 @@ void KwpCyclic(void *pvParameters){
         }
         /*Idalje se obradjuju podaci*/
         else if(KwpStatuses==KWP_PROCESSING){
-           if (20u <= timeout){
+           if (60u <= timeout){
                 
                 KwpStatuses = KWP_IDLE;
 
@@ -419,7 +419,7 @@ static void Kwp_ReadData(uint8_t did)
     {
         vTaskSuspendAll(); // Critical section, interrupts enabled
         KwpStatuses = KWP_PROCESSING;
-        KwpStages = KWP_READDID;
+        KwpStages = KWP_READY;
         xTaskResumeAll(); // End of critical section, interrupts enabled
         ReadyToGetData=true;
     }

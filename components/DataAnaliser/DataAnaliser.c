@@ -279,11 +279,11 @@ void DataCyclic(void *pvParameters){
                         }
                     }
             ESP_LOGI("Data","Uspesno zavrsena jedna sesija podatka");
-            state=DATA_IDLE;
+            state=DATA_REQUEST;
             break;
    
         }
-        vTaskDelay(pdMS_TO_TICKS(30));
+        vTaskDelay(pdMS_TO_TICKS(50));
     }
 
 }
