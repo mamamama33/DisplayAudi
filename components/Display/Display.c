@@ -22,7 +22,7 @@ void DisCyclic(void *pvParameters){
             if(ch>=ENGINEDIAG_CH_MAX)
                 ch=0;
 
-            vTaskDelay(pdMS_TO_TICKS(50));
+            vTaskDelay(pdMS_TO_TICKS(20));
        
     }
 

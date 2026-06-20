@@ -1,0 +1,2887 @@
+Command: /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.elf /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.elf -m '/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python' '/home/student/esp-idf/tools/idf.py'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.1-dev-2938-g12f36a021f 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Jun 18 2026 13:14:25[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v3.1[0m
+[0;32mI (33) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=09180h ( 37248) map[0m
+[0;32mI (101) esp_image: segment 1: paddr=000191a8 vaddr=3ffb0000 size=02c0ch ( 11276) load[0m
+[0;32mI (106) esp_image: segment 2: paddr=0001bdbc vaddr=40080000 size=0425ch ( 16988) load[0m
+[0;32mI (113) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=108c4h ( 67780) map[0m
+[0;32mI (137) esp_image: segment 4: paddr=000308ec vaddr=4008425c size=06aech ( 27372) load[0m
+[0;32mI (149) esp_image: segment 5: paddr=000373e0 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (155) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (155) boot: Disabling RNG early entropy source...[0m
+[0;32mI (167) cpu_start: Multicore app[0m
+[0;32mI (175) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (175) cpu_start: Pro cpu start user code[0m
+[0;32mI (175) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (177) app_init: Application information:[0m
+[0;32mI (181) app_init: Project name:     DisplayAudi[0m
+[0;32mI (185) app_init: App version:      fd2361b-dirty[0m
+[0;32mI (190) app_init: Compile time:     Jun 18 2026 13:14:50[0m
+[0;32mI (195) app_init: ELF file SHA256:  4a5fdc1bd...[0m
+[0;32mI (199) app_init: ESP-IDF:          v6.1-dev-2938-g12f36a021f[0m
+[0;32mI (205) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (208) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (212) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (217) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (223) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (228) heap_init: At 3FFB3728 len 0002C8D8 (178 KiB): DRAM[0m
+[0;32mI (233) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (238) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (244) heap_init: At 4008AD48 len 000152B8 (84 KiB): IRAM[0m
+[0;33mW (250) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (262) spi_flash: detected chip: generic[0m
+[0;32mI (266) spi_flash: flash io: dio[0m
+[0;33mW (269) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (282) main_task: Started on CPU0[0m
+[0;32mI (292) main_task: Calling app_main()[0m
+[0;32mI (1552) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[0;32mI (1632) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[0;32mI (1712) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[0;32mI (1792) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[0;32mI (1872) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (1892) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (1922) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (1942) main_task: Returned from app_main()[0m
+[0;32mI (1952) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (1952) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (1982) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2012) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2042) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2072) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2102) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2132) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2162) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2192) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2222) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2252) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2282) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2312) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2342) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2372) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2402) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2432) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2462) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2492) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2522) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2552) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2582) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2612) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2642) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2672) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2702) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2712) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2722) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2732) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2732) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2742) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2752) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2762) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2762) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2772) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2782) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2792) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2792) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2802) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2812) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2822) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2822) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2832) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2842) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2852) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2852) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2862) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2872) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2882) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2882) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2892) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2902) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2912) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2912) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2922) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2932) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2942) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2942) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2952) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2962) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2972) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2972) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2982) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2992) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3002) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3002) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3012) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3022) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3032) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3032) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3042) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3052) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3062) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3062) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3072) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3082) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3092) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3092) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3102) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3112) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3122) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3122) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3132) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3142) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3152) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3152) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3162) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3172) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3182) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3182) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3192) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3202) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3212) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3212) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3222) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3232) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3242) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3242) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3252) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3262) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3272) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3272) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3282) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3292) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3302) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3302) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3312) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3322) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3332) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3332) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3342) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3352) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3362) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3362) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3372) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3382) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3392) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3392) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3402) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3412) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3422) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3422) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3432) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3442) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3452) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3452) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3462) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3472) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3482) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3482) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3492) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3502) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3512) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3512) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3522) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3532) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3542) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3542) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3552) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3562) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3572) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3572) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3582) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3592) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3602) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3602) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3612) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3622) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3632) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3632) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3642) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3652) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3662) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3662) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3672) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3682) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3692) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3692) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3702) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3712) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3722) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3722) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3732) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3742) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3752) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3752) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3762) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3772) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3782) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3782) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3792) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3802) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3812) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3812) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3822) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3832) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3842) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3842) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3852) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3862) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3872) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3872) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3882) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3892) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3902) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3902) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3912) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3922) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3932) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3932) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3942) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3952) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3962) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3962) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3972) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3982) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3992) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3992) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4002) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4012) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4022) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4022) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4032) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4042) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4052) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4052) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4062) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4072) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4082) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4082) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4092) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4102) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4112) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4112) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4122) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4132) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4142) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4142) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4152) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4162) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4172) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4172) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4182) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4192) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4202) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4202) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4212) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4222) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4232) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4232) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4242) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4252) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4262) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4262) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4272) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4282) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4292) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4292) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4302) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4312) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4322) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4322) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4332) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4342) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4352) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4352) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4362) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4372) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4382) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4382) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4392) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4402) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4412) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4412) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4422) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4432) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4442) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4442) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4452) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4462) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4472) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4472) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4482) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4492) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4502) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4502) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4512) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4522) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4532) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4532) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4542) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4552) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4562) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4562) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4572) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4582) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4592) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4592) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4602) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4612) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4622) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4622) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4632) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4642) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4652) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4652) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4662) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4672) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4682) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4682) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4692) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4702) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4712) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4712) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4722) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4732) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4742) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4742) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4752) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4762) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4772) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4772) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4782) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4792) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4802) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4802) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4812) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4822) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4832) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4832) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4842) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4852) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4862) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4862) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4872) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4882) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4892) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4892) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4902) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4912) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4922) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4922) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4932) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4942) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4952) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4952) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4962) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4972) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4982) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4982) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4992) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5002) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5012) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5012) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5022) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5032) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5042) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5042) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5052) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5062) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5072) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5072) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5082) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5092) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5102) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5102) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5112) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5122) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5132) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5132) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5142) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5152) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5162) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5162) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5172) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5182) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5192) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5192) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5202) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5212) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5222) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5222) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5232) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5242) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5252) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5252) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5262) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5272) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5282) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5282) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5292) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5302) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5312) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5312) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5322) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5332) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5342) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5342) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5352) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5362) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5372) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5372) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5382) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5392) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5402) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5402) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5412) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5422) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5432) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5432) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5442) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5452) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5462) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5462) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5472) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5482) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5492) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5492) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5502) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5512) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5522) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5522) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5532) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5542) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5552) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5552) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5562) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5572) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5582) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5582) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5592) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5602) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5612) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5612) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5622) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5632) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5642) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5642) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5652) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5662) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5672) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5672) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5682) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5692) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5702) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5702) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5712) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5722) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5732) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5732) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5742) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5752) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5762) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5762) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5772) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5782) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5792) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5792) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5802) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5812) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5822) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5822) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5832) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5842) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5852) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5852) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5862) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5872) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5882) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5882) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5892) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5902) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5912) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5912) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5922) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5932) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5942) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5942) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5952) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5962) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5972) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5972) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5982) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5992) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6002) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6002) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6012) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6022) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6032) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6032) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6042) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6052) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6062) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6062) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6072) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6082) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6092) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6092) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6102) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6112) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6122) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6122) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6132) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6142) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6152) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6152) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6162) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6172) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6182) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6182) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6192) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6202) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6212) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6212) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6222) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6232) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6242) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6242) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6252) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6262) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6272) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6272) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6282) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6292) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6302) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6302) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6312) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6322) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6332) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6332) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6342) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6352) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6362) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6362) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6372) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6382) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6392) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6392) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6402) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6412) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6422) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6422) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6432) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6442) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6452) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6452) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6462) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6472) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6482) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6482) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6492) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6502) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6512) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6512) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6522) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6532) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6542) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6542) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6552) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6562) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6572) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6572) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6582) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6592) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6602) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6602) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6612) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6622) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6632) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6632) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6642) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6652) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6662) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6662) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6672) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6682) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6692) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6692) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6702) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6712) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6722) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6722) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6732) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6742) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6752) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6752) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6762) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6772) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6782) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6782) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6792) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6802) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6812) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6812) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6822) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6832) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6842) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6842) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6852) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6862) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6872) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6872) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6882) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6892) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6902) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6902) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6912) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6922) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6932) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6932) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6942) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6952) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6962) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6962) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6972) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6982) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6992) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6992) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7002) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7012) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7022) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7022) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7032) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7042) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7052) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7052) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7062) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7072) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7082) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7082) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7092) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7102) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7112) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7112) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7122) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7132) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7142) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7142) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7152) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7162) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7172) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7172) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7182) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7192) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7202) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7202) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7212) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7222) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7232) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7232) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7242) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7252) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7262) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7262) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7272) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7282) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7292) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7292) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7302) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7312) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7322) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7322) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7332) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7342) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7352) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7352) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7362) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7372) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7382) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7382) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7392) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7402) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7412) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7412) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7422) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7432) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7442) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7442) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7452) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7462) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7472) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7472) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7482) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7492) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7502) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7502) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7512) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7522) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7532) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7532) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7542) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7552) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7562) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7562) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7572) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7582) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7592) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7592) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7602) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7612) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7622) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7622) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7632) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7642) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7652) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7652) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7662) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7672) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7682) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7682) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7692) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7702) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7712) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7712) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7722) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7732) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7742) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7742) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7752) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7762) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7772) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7772) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7782) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7792) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7802) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7802) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7812) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7822) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7832) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7832) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7842) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7852) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7862) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7862) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7872) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7882) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7892) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7892) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7902) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7912) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7922) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7922) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7932) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7942) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7952) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7952) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7962) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7972) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7982) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7982) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7992) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8002) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8012) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8012) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8022) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8032) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8042) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8042) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8052) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8062) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8072) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8072) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8082) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8092) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8102) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8102) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8112) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8122) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8132) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8132) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8142) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8152) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8162) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8162) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8172) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8182) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8192) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8192) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8202) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8212) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8222) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8222) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8232) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8242) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8252) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8252) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8262) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8272) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8282) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8282) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8292) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8302) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8312) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8312) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8322) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8332) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8342) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8342) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8352) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8362) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8372) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8372) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8382) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8392) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8402) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8402) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8412) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8422) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8432) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8432) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8442) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8452) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8462) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8462) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8472) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8482) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8492) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8492) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8502) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8512) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8522) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8522) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8532) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8542) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8552) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8552) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8562) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8572) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8582) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8582) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8592) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8602) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8612) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8612) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8622) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8632) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8642) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8642) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8652) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8662) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8672) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8672) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8682) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8692) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8702) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8702) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8712) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8722) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8732) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8732) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8742) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8752) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8762) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8762) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8772) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8782) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8792) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8792) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8802) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8812) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8822) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8822) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8832) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8842) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8852) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8852) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8862) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8872) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8882) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8882) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8892) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8902) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8912) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8912) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8922) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8932) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8942) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8942) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8952) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8962) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8972) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8972) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8982) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8992) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9002) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9002) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9012) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9022) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9032) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9032) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9042) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9052) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9062) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9062) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9072) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9082) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9092) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9092) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9102) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9112) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9122) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9122) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9132) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9142) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9152) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9152) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9162) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9172) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9182) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9182) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9192) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9202) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9212) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9212) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9222) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9232) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9242) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9242) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9252) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9262) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9272) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9272) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9282) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9292) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9302) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9302) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9312) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9322) KWP: NIJE Poslat zahteva TRAZIM zahtev od ECU[0m
+[1;31mE (2612) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2642) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2672) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2702) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2712) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2722) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2732) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2732) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2742) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2752) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2762) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2762) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2772) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2782) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2792) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2792) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2802) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2812) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2822) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2822) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2832) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2842) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2852) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2852) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2862) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2872) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2882) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2882) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2892) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2902) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2912) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2912) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2922) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2932) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2942) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2942) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2952) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2962) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2972) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2972) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2982) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2992) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3002) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3002) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3012) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3022) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3032) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3032) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3042) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3052) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3062) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3062) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3072) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3082) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3092) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3092) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3102) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3112) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3122) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3122) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3132) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3142) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3152) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3152) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3162) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3172) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3182) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3182) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3192) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3202) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3212) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3212) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3222) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3232) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3242) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3242) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3252) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3262) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3272) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3272) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3282) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3292) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3302) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3302) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3312) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3322) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3332) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3332) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3342) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3352) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3362) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3362) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3372) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3382) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3392) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3392) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3402) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3412) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3422) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3422) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3432) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3442) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3452) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3452) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3462) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3472) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3482) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3482) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3492) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3502) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3512) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3512) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3522) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3532) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3542) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3542) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3552) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3562) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3572) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3572) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3582) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3592) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3602) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3602) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3612) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3622) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3632) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3632) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3642) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3652) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3662) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3662) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3672) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3682) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3692) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3692) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3702) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3712) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3722) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3722) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3732) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3742) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3752) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3752) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3762) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3772) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3782) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3782) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3792) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3802) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3812) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3812) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3822) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3832) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3842) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3842) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3852) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3862) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3872) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3872) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3882) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3892) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3902) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3902) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3912) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3922) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3932) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3932) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3942) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3952) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3962) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3962) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3972) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3982) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3992) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (3992) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4002) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4012) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4022) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4022) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4032) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4042) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4052) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4052) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4062) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4072) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4082) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4082) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4092) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4102) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4112) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4112) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4122) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4132) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4142) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4142) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4152) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4162) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4172) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4172) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4182) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4192) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4202) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4202) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4212) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4222) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4232) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4232) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4242) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4252) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4262) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4262) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4272) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4282) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4292) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4292) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4302) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4312) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4322) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4322) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4332) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4342) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4352) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4352) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4362) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4372) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4382) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4382) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4392) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4402) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4412) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4412) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4422) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4432) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4442) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4442) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4452) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4462) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4472) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4472) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4482) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4492) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4502) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4502) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4512) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4522) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4532) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4532) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4542) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4552) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4562) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4562) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4572) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4582) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4592) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4592) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4602) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4612) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4622) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4622) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4632) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4642) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4652) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4652) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4662) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4672) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4682) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4682) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4692) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4702) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4712) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4712) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4722) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4732) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4742) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4742) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4752) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4762) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4772) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4772) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4782) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4792) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4802) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4802) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4812) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4822) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4832) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4832) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4842) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4852) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4862) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4862) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4872) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4882) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4892) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4892) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4902) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4912) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4922) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4922) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4932) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4942) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4952) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4952) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4962) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4972) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4982) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (4982) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4992) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5002) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5012) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5012) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5022) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5032) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5042) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5042) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5052) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5062) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5072) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5072) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5082) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5092) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5102) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5102) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5112) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5122) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5132) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5132) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5142) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5152) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5162) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5162) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5172) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5182) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5192) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5192) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5202) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5212) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5222) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5222) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5232) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5242) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5252) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5252) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5262) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5272) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5282) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5282) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5292) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5302) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5312) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5312) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5322) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5332) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5342) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5342) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5352) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5362) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5372) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5372) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5382) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5392) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5402) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5402) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5412) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5422) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5432) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5432) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5442) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5452) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5462) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5462) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5472) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5482) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5492) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5492) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5502) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5512) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5522) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5522) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5532) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5542) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5552) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5552) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5562) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5572) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5582) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5582) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5592) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5602) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5612) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5612) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5622) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5632) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5642) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5642) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5652) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5662) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5672) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5672) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5682) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5692) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5702) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5702) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5712) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5722) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5732) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5732) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5742) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5752) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5762) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5762) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5772) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5782) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5792) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5792) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5802) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5812) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5822) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5822) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5832) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5842) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5852) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5852) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5862) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5872) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5882) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5882) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5892) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5902) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5912) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5912) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5922) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5932) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5942) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5942) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5952) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5962) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5972) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5972) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5982) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (5992) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6002) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6002) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6012) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6022) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6032) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6032) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6042) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6052) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6062) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6062) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6072) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6082) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6092) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6092) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6102) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6112) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6122) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6122) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6132) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6142) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6152) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6152) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6162) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6172) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6182) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6182) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6192) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6202) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6212) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6212) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6222) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6232) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6242) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6242) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6252) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6262) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6272) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6272) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6282) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6292) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6302) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6302) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6312) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6322) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6332) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6332) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6342) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6352) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6362) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6362) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6372) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6382) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6392) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6392) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6402) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6412) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6422) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6422) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6432) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6442) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6452) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6452) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6462) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6472) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6482) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6482) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6492) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6502) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6512) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6512) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6522) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6532) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6542) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6542) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6552) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6562) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6572) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6572) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6582) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6592) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6602) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6602) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6612) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6622) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6632) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6632) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6642) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6652) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6662) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6662) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6672) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6682) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6692) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6692) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6702) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6712) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6722) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6722) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6732) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6742) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6752) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6752) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6762) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6772) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6782) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6782) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6792) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6802) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6812) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6812) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6822) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6832) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6842) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6842) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6852) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6862) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6872) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6872) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6882) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6892) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6902) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6902) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6912) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6922) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6932) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6932) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6942) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6952) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6962) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6962) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6972) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6982) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6992) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (6992) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7002) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7012) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7022) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7022) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7032) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7042) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7052) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7052) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7062) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7072) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7082) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7082) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7092) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7102) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7112) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7112) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7122) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7132) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7142) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7142) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7152) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7162) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7172) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7172) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7182) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7192) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7202) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7202) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7212) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7222) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7232) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7232) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7242) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7252) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7262) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7262) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7272) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7282) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7292) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7292) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7302) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7312) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7322) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7322) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7332) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7342) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7352) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7352) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7362) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7372) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7382) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7382) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7392) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7402) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7412) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7412) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7422) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7432) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7442) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7442) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7452) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7462) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7472) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7472) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7482) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7492) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7502) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7502) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7512) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7522) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7532) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7532) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7542) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7552) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7562) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7562) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7572) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7582) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7592) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7592) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7602) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7612) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7622) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7622) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7632) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7642) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7652) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7652) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7662) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7672) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7682) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7682) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7692) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7702) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7712) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7712) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7722) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7732) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7742) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7742) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7752) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7762) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7772) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7772) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7782) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7792) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7802) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7802) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7812) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7822) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7832) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7832) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7842) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7852) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7862) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7862) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7872) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7882) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7892) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7892) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7902) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7912) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7922) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7922) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7932) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7942) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7952) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7952) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7962) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7972) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7982) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (7982) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7992) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8002) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8012) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8012) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8022) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8032) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8042) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8042) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8052) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8062) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8072) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8072) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8082) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8092) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8102) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8102) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8112) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8122) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8132) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8132) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8142) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8152) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8162) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8162) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8172) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8182) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8192) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8192) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8202) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8212) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8222) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8222) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8232) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8242) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8252) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8252) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8262) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8272) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8282) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8282) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8292) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8302) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8312) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8312) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8322) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8332) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8342) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8342) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8352) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8362) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8372) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8372) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8382) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8392) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8402) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8402) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8412) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8422) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8432) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8432) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8442) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8452) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8462) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8462) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8472) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8482) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8492) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8492) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8502) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8512) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8522) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8522) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8532) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8542) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8552) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8552) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8562) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8572) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8582) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8582) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8592) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8602) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8612) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8612) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8622) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8632) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8642) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8642) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8652) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8662) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8672) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8672) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8682) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8692) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8702) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8702) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8712) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8722) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8732) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8732) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8742) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8752) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8762) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8762) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8772) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8782) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8792) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8792) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8802) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8812) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8822) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8822) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8832) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8842) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8852) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8852) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8862) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8872) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8882) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8882) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8892) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8902) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8912) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8912) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8922) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8932) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8942) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8942) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8952) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8962) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8972) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8972) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8982) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (8992) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9002) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9002) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9012) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9022) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9032) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9032) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9042) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9052) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9062) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9062) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9072) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9082) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9092) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9092) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9102) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9112) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9122) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9122) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9132) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9142) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9152) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9152) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9162) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9172) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9182) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9182) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9192) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9202) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9212) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9212) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9222) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9232) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9242) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9242) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9252) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9262) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9272) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9272) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9282) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9292) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9302) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9302) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9312) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9322) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9332) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9332) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9342) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9352) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9362) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9362) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9372) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9382) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9392) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9392) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9402) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9412) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9422) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9422) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9432) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9442) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9452) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9452) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9462) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9472) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9482) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9482) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9492) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9502) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9512) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9512) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9522) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9532) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9542) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9542) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9552) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9562) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9572) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9572) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9582) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9592) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9602) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9602) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9612) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9622) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9632) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9632) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9642) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9652) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9662) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9662) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9672) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9682) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9692) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9692) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9702) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9712) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9722) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9722) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9732) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9742) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9752) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9752) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9762) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9772) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9782) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9782) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9792) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9802) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9812) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9812) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9822) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9832) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9842) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9842) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9852) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9862) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9872) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9872) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9882) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9892) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9902) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9902) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9912) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9922) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9932) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9932) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9942) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9952) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9962) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9962) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9972) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9982) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9992) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (9992) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10002) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10012) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10022) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10022) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10032) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10042) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10052) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10052) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10062) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10072) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10082) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10082) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10092) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10102) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10112) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10112) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10122) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10132) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10142) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10142) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10152) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10162) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10172) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10172) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10182) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10192) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10202) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10202) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10212) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10222) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10232) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10232) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10242) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10252) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10262) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10262) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10272) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10282) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10292) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10292) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10302) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10312) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10322) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10322) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10332) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10342) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10352) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10352) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10362) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10372) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10382) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10382) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10392) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10402) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10412) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10412) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10422) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10432) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10442) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10442) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10452) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10462) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10472) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10472) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10482) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10492) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10502) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10502) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10512) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10522) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10532) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10532) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10542) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10552) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10562) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10562) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10572) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10582) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10592) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10592) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10602) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10612) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10622) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10622) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10632) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10642) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10652) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10652) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10662) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10672) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10682) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10682) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10692) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10702) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10712) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10712) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10722) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10732) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10742) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10742) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10752) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10762) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10772) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10772) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10782) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10792) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10802) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10802) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10812) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10822) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10832) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10832) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10842) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10852) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10862) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10862) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10872) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10882) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10892) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10892) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10902) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10912) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10922) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10922) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10932) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10942) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10952) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10952) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10962) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10972) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10982) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (10982) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (10992) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11002) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11012) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11012) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11022) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11032) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11042) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11042) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11052) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11062) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11072) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11072) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11082) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11092) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11102) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11102) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11112) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11122) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11132) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11132) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11142) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11152) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11162) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11162) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11172) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11182) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11192) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11192) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11202) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11212) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11222) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11222) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11232) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11242) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11252) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11252) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11262) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11272) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11282) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11282) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11292) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11302) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11312) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11312) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11322) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11332) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11342) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11342) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11352) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11362) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11372) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11372) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11382) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11392) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11402) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11402) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11412) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11422) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11432) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11432) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11442) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11452) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11462) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11462) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11472) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11482) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11492) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11492) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11502) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11512) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11522) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11522) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11532) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11542) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11552) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11552) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11562) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11572) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11582) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11582) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11592) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11602) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11612) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11612) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11622) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11632) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11642) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11642) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11652) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11662) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11672) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11672) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11682) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11692) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11702) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11702) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11712) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11722) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11732) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11732) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11742) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11752) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11762) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11762) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11772) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11782) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11792) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11792) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11802) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11812) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11822) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11822) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11832) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11842) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11852) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11852) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11862) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11872) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11882) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11882) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11892) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11902) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11912) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11912) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11922) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11932) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11942) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11942) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11952) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11962) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11972) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11972) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (11982) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (11992) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12002) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12002) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12012) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12022) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12032) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12032) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12042) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12052) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12062) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12062) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12072) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12082) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12092) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12092) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12102) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12112) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12122) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12122) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12132) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12142) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12152) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12152) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12162) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12172) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12182) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12182) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12192) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12202) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12212) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12212) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12222) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12232) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12242) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12242) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12252) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12262) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12272) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12272) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12282) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12292) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12302) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12302) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12312) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12322) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12332) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12332) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12342) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12352) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12362) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12362) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12372) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12382) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12392) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12392) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12402) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12412) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12422) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12422) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12432) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12442) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12452) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12452) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12462) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12472) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12482) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12482) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12492) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12502) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12512) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12512) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12522) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12532) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12542) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12542) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12552) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12562) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12572) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12572) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12582) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12592) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12602) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12602) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12612) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12622) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12632) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12632) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12642) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12652) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12662) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12662) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12672) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12682) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12692) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12692) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12702) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12712) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12722) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12722) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12732) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12742) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12752) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12752) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12762) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12772) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12782) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12782) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12792) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12802) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12812) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12812) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12822) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12832) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12842) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12842) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12852) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12862) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12872) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12872) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12882) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12892) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12902) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12902) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12912) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12922) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12932) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12932) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12942) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12952) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12962) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12962) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (12972) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12982) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12992) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (12992) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13002) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13012) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13022) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13022) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13032) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13042) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13052) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13052) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13062) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13072) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13082) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13082) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13092) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13102) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13112) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13112) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13122) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13132) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13142) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13142) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13152) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13162) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13172) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13172) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13182) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13192) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13202) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13202) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13212) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13222) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13232) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13232) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13242) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13252) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13262) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13262) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13272) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13282) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13292) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13292) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13302) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13312) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13322) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13322) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13332) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13342) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13352) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13352) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13362) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13372) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13382) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13382) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13392) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13402) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13412) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13412) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13422) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13432) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13442) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13442) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13452) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13462) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13472) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13472) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13482) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13492) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13502) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13502) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13512) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13522) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13532) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13532) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13542) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13552) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13562) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13562) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13572) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13582) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13592) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13592) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13602) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13612) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13622) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13622) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13632) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13642) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13652) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13652) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13662) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13672) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13682) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13682) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13692) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13702) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13712) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13712) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13722) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13732) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13742) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13742) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13752) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13762) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13772) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13772) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13782) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13792) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13802) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13802) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13812) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13822) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13832) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13832) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (13842) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (13852) KWP: NIJE Poslat zahtev za ECU[0m
+[1;31mE (2372) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2402) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2432) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2462) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2492) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2522) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2552) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2582) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2612) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2642) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2672) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2702) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2732) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2762) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2792) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2822) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2852) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2882) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2912) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2942) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2972) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3002) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3032) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3062) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3092) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3122) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3152) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3182) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3212) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3242) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3272) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3302) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3332) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3362) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3392) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3422) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3452) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3482) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3512) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3542) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3572) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3602) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3632) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3662) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3692) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3722) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3752) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3782) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3812) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3842) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3872) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3902) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3932) Kwp-req: zahtev za DID: 02[0m
+[0;32mI (3932) DataAnaliser: MOGU I USPEO SAM DA POSALJEM DID[0m
+[1;31mE (4022) DataAnaliser-ERROR: Ne mogu da DOBIJEM PODATKE OD ECU[0m
+[1;31mE (4052) DataAnaliser-ERROR: Ne mogu da DOBIJEM PODATKE OD ECU[0m
+[1;31mE (4082) DataAnaliser-ERROR: Ne mogu da DOBIJEM PODATKE OD ECU[0m
+[1;31mE (4112) DataAnaliser-ERROR: Ne mogu da DOBIJEM PODATKE OD ECU[0m
+
+assert failed: xQueueSemaphoreTake queue.c:1718 (!( ( xTaskGetSchedulerState() == ( ( BaseType_t ) 0 ) ) && ( xTicksToWait != 0 ) ))
+
+
+Backtrace: 0x40085d8d:0x3ffb9ec0 0x40085d55:0x3ffb9ee0 0x40085b29:0x3ffb9f00 0x400dedb5:0x3ffba020 0x40089140:0x3ffba060 0x400e07f9:0x3ffba080 0x400891dd:0x3ffba0b0 0x400d2881:0x3ffba0d0 0x400890dd:0x3ffba0f0 0x400d6ed6:0x3ffba150 0x400d6fc1:0x3ffba180 0x400de681:0x3ffba1b0
+
+
+
+
+ELF file SHA256: 4a5fdc1bd
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.1-dev-2938-g12f36a021f 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Jun 18 2026 13:14:25[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v3.1[0m
+[0;32mI (33) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (48) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (70) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=09180h ( 37248) map[0m
+[0;32mI (101) esp_image: segment 1: paddr=000191a8 vaddr=3ffb0000 size=02c0ch ( 11276) load[0m
+[0;32mI (106) esp_image: segment 2: paddr=0001bdbc vaddr=40080000 size=0425ch ( 16988) load[0m
+[0;32mI (113) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=108c4h ( 67780) map[0m
+[0;32mI (137) esp_image: segment 4: paddr=000308ec vaddr=4008425c size=06aech ( 27372) load[0m
+[0;32mI (149) esp_image: segment 5: paddr=000373e0 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (155) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (155) boot: Disabling RNG early entropy source...[0m
+[0;32mI (167) cpu_start: Multicore app[0m
+[0;32mI (175) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (175) cpu_start: Pro cpu start user code[0m
+[0;32mI (175) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (177) app_init: Application information:[0m
+[0;32mI (181) app_init: Project name:     DisplayAudi[0m
+[0;32mI (185) app_init: App version:      fd2361b-dirty[0m
+[0;32mI (189) app_init: Compile time:     Jun 18 2026 13:14:50[0m
+[0;32mI (195) app_init: ELF file SHA256:  4a5fdc1bd...[0m
+[0;32mI (199) app_init: ESP-IDF:          v6.1-dev-2938-g12f36a021f[0m
+[0;32mI (204) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (208) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (212) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (216) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (222) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (227) heap_init: At 3FFB3728 len 0002C8D8 (178 KiB): DRAM[0m
+[0;32mI (233) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (238) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (244) heap_init: At 4008AD48 len 000152B8 (84 KiB): IRAM[0m
+[0;33mW (250) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (262) spi_flash: detected chip: generic[0m
+[0;32mI (265) spi_flash: flash io: dio[0m
+[0;33mW (268) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (282) main_task: Started on CPU0[0m
+[0;32mI (292) main_task: Calling app_main()[0m
+[0;32mI (692) TP2.0: NIJE dobar ID od ECU[0m
+[0;32mI (1552) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[0;32mI (1632) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[0;32mI (1682) TP2.0: NIJE dobar ID od ECU[0m
+[0;32mI (1712) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[0;32mI (1792) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[0;32mI (1872) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (1892) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (1922) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (1942) main_task: Returned from app_main()[0m
+[0;32mI (1952) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (1952) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (1982) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2012) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (2032) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (2042) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2072) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2102) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (2112) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (2132) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2162) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (2192) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (2192) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2222) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2252) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (2272) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (2282) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2312) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2342) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (2352) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (2372) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2402) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (2432) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (2432) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2462) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2492) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (2512) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (2522) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2552) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2582) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (2592) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (2612) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2642) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (2672) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (2672) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (2682) TP2.0: NIJE dobar ID od ECU[0m
+[1;31mE (2702) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2732) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (2752) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (2762) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2792) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2822) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (2832) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (2852) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2882) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (2912) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (2912) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2942) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (2972) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (2992) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (3002) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3032) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3062) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (3072) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (3092) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3122) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (3152) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (3152) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3182) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3212) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (3232) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (3242) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3272) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3302) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (3312) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (3332) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3362) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (3392) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (3392) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3422) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3452) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (3472) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (3482) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3512) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3542) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (3552) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (3572) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3602) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (3632) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (3632) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3662) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (3682) TP2.0: NIJE dobar ID od ECU[0m
+[1;31mE (3692) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (3712) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (3722) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3752) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3782) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (3792) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (3812) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3842) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (3872) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (3872) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3902) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3932) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (3952) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (3962) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (3992) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4022) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (4032) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (4052) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4082) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (4112) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (4112) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4142) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4172) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (4192) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (4202) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4232) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4262) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (4272) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (4292) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4322) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (4352) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (4352) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4382) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4412) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (4432) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (4442) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4472) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4502) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (4512) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (4532) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4562) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (4592) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (4592) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4622) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4652) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (4672) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (4682) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (4682) TP2.0: NIJE dobar ID od ECU[0m
+[1;31mE (4712) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4742) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (4752) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (4772) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4802) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (4832) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[1;31mE (4832) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4862) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4892) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[0;32mI (4912) TP: USPESNO POSLAT CONNECT NA CAN [0m
+[0;33mW (4912) TP2.0: Uspesno primljena prva povratna od ECU-setujem chptr-idle[0m
+[1;31mE (4922) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4952) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (4982) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5012) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5042) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5072) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5102) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5132) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5162) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5192) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5222) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5252) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5282) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5312) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5342) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5372) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5402) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5432) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5462) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5492) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5522) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5552) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5582) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5612) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5642) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5672) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5702) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5732) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5762) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5792) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5822) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5852) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5882) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5912) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5942) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (5972) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6002) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6032) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6062) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6092) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6122) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6152) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6182) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6212) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6242) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6272) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6302) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6332) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6362) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6392) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6422) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6452) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6482) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6512) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6542) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6572) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6602) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6632) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6662) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6682) TP2.0: Sendclose se salje jer je ECU tako rekao[0m
+[1;31mE (6692) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6722) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6752) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6782) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6812) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6842) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6872) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6902) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6932) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6962) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (6992) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7022) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7052) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7082) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7112) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7142) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7172) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7202) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7232) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7262) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7292) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7322) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7352) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7382) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7412) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7442) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7472) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7502) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7532) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7562) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7592) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7622) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7652) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7682) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7712) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7742) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7772) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7802) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7832) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7862) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7892) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7922) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7952) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (7982) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8012) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8042) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8072) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8102) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8132) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8162) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8192) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8222) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8252) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8282) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8312) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8342) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8372) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8402) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8432) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8462) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8492) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8522) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8552) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8582) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8612) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8642) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8672) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8702) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8732) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8762) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8792) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8822) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8852) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8882) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8912) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8942) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (8972) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9002) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9032) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9062) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9092) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9122) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9152) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m
+[1;31mE (9182) DataAnaliser: Ne mogu da TRAZIM zahtev od ECU[0m

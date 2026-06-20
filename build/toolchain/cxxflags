@@ -3,5 +3,5 @@
 -fno-builtin-memcpy
 -fno-builtin-memset
 -fno-builtin-bzero
--specs=picolibc.specs
+"-specs=/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/specs/picolibc.specs"
 -fno-rtti

@@ -172,6 +172,8 @@ static void EngineDiag_HandleDid(uint8_t * buffer, uint8_t actualDid)
                     {
                         // Copy 3 bytes of data from buffer with offset
                         channels[ch].data[b] = buffer[(offset * 3u)+b];
+                        ESP_LOGE("Data","Uspeo je da upise u bafer od data");
+
                     }
                     channels[ch].timestamp = timestamp;
                     xTaskResumeAll(); // End of critical section, interrupts enabled
@@ -200,6 +202,9 @@ uint8_t EngineDiag_GetChData(const EngineDiag_ChannelIdType ch, uint8_t * dataPt
             for (i=0; i<3u; i++)
             {
                 dataPtr[i] = channels[ch].data[i];
+                
+                ESP_LOGE("Data","Displajov geter je pokupio podatke za case slucaj");
+
             }
             retVal = DIAG_OK;
             xTaskResumeAll(); // End of critical section, interrupts enabled
@@ -226,7 +231,7 @@ void DataCyclic(void *pvParameters){
     //Prosledjujem DID i dobijam podatke preko funckije-gettera -njegovog parametra  
     uint8_t didbuffer[4u*3u];
     while(1){
-        vTaskDelay(10u/portTICK_PERIOD_MS);
+        vTaskDelay(pdMS_TO_TICKS(10));
         switch(state){
             case DATA_IDLE:
             if(SetDataDid==true)
@@ -236,54 +241,40 @@ void DataCyclic(void *pvParameters){
             case DATA_REQUEST:
                 //Prosledjujem mu koji DID  HOCU ili ti sta hocu da mi prikaze
                 if(KwpRequest(did)==correct){
-                state=DATA_WAITNG;
-                pov1=2;
-                ESP_LOGI("DataAnaliser","MOGU I USPEO SAM DA POSALJEM DID");
+                //state=DATA_READED;
+                //pov1=2;
+                vTaskDelay(pdMS_TO_TICKS(15));
+               // ESP_LOGI("DataAnaliser","MOGU I USPEO SAM DA POSALJEM DID");
                 }
                 else{
-                    //Cekamo da vidimo da li ce stici da se kwp izvrsi ili je stv greska
-                    if(count1>20){
-                       //Vracamo se na pocetak doslo je do greska u uspostavi veze KWP
-                        //NE mogu da trazim jer njegov automat koci
-                        ESP_LOGE("DataAnaliser","Ne mogu da TRAZIM zahtev od ECU");           
-                        state=DATA_IDLE;
-                        count1=0;
-                    }
-                    else{
-                        count1++;
-                    }
+                
+                    //ESP_LOGE("DataAnaliser","Ne mogu da TRAZIM zahtev od ECU");
+                    break;
+                
                 }
-            break;
-            case DATA_WAITNG:
-                //UZIMAM podatak uz proveru da li je dobar
-                if(ReadyToGetData==true){
-                    state=DATA_READED;
-                }
-            break;
+
+            /*Treba da napravim tajmer ako ne uspe da prekopira i sve to obradi dalje da nastavi sa upitom*/
+
             case DATA_READED:
                     /* kwp get data izvuce pa prosledi ovom */
                     if(Kwp_GetDataFromEcu(didbuffer)==correct){
-                        EngineDiag_HandleDid(didbuffer,did);  
-                        ESP_LOGI("DataAnaliser","Uspeo sam da dobijem neke podatke od ECU");           
+                        
+                        //EngineDiag_HandleDid(didbuffer,did);  
+                        //ESP_LOGI("DataA"," dobijem podatke od ECU"); 
+                        printf("bafera: %u",didbuffer[1]);
+                        state=DATA_REQUEST;     
                     }
                     else{
-                        //Cekamo da vidimo da li ce stici da se kwp izvrsi ili je stv greska
-                        if(count2>20){
-                        //Vracamo se na pocetak doslo je do greska u uspostavi veze KWP
-                            state=DATA_IDLE;
-                            ESP_LOGE("DataAnaliser-ERROR","Ne mogu da DOBIJEM PODATKE OD ECU");          
-                            count2=0;
-                        }
-                        else{
-                            count2++;
-                        }
+
+                        ESP_LOGE("DataAnaliser-ERROR","Ne mogu da DOBIJEM PODATKE OD ECU");
+
                     }
-            ESP_LOGI("Data","Uspesno zavrsena jedna sesija podatka");
-            state=DATA_REQUEST;
+                    state=DATA_REQUEST;     
+
+            
             break;
    
         }
-        vTaskDelay(pdMS_TO_TICKS(50));
     }
 
 }
