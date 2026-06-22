@@ -28,10 +28,12 @@ KwpStage KwpStages=KWP_START; //handshake-session....
 KwpStatus KwpStatuses=KWP_IDLE;   //IDLE ,,error...
 volatile bool SetDataDid=false;
 
-static SemaphoreHandle_t TpSendComplete = NULL;
+extern SemaphoreHandle_t TpSendComplete = NULL;
+
+static SemaphoreHandle_t GetData = NULL;
+
 
 uint8_t currentSid;
-volatile bool ReadyToGetData=false;
 
 static TaskHandle_t taskHandle;
 static uint8_t        didBuffer[12u];
@@ -81,7 +83,6 @@ void KwpCyclic(void *pvParameters){
         if(KwpStatuses==KWP_IDLE){
             timeout=0;
             switch(KwpStages){
-
                 case KWP_START:
                     if(correct==KwpStart(ecuid)){
                         vTaskDelay(pdMS_TO_TICKS(30));
@@ -187,6 +188,7 @@ void KwpCyclic(void *pvParameters){
 
 uint8_t KwpInit(){
     TpSendComplete = xSemaphoreCreateBinary();
+    GetData = xSemaphoreCreateBinary();
     KwpStages =KWP_START;
     xTaskCreatePinnedToCore(KwpCyclic, "Data", 4096u, NULL, 5, &taskHandle,1);
     vTaskDelay(120u / portTICK_PERIOD_MS);
@@ -416,8 +418,7 @@ static void Kwp_ReadData(uint8_t did)
     if (KWP_OK == Kwp_SendTp(msg))
     {
         KwpStatuses = KWP_PROCESSING;
-        KwpStages = KWP_READY;
-        ReadyToGetData=true;
+        KwpStages = KWP_READDID;
     }
     if (xSemaphoreTake(TpSendComplete, pdMS_TO_TICKS(1000)) == pdTRUE) {
     } else {
