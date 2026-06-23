@@ -1,1035 +1,0 @@
-Command: /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.elf /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.elf -m '/home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python' '/home/student/esp-idf/tools/idf.py'
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0040,len:6272
-load:0x40078000,len:15848
-load:0x40080400,len:3920
-entry 0x40080644
-[0;32mI (27) boot: ESP-IDF v6.1-dev-2938-g12f36a021f 2nd stage bootloader[0m
-[0;32mI (27) boot: compile time Jun 18 2026 13:14:25[0m
-[0;32mI (28) boot: Multicore bootloader[0m
-[0;32mI (30) boot: chip revision: v3.1[0m
-[0;32mI (33) boot.esp32: SPI Speed      : 40MHz[0m
-[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
-[0;32mI (40) boot.esp32: SPI Flash Size : 2MB[0m
-[0;32mI (44) boot: Enabling RNG early entropy source...[0m
-[0;32mI (49) boot: Partition Table:[0m
-[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
-[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
-[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
-[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00100000[0m
-[0;32mI (77) boot: End of partition table[0m
-[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=091b0h ( 37296) map[0m
-[0;32mI (101) esp_image: segment 1: paddr=000191d8 vaddr=3ffb0000 size=02c0ch ( 11276) load[0m
-[0;32mI (106) esp_image: segment 2: paddr=0001bdec vaddr=40080000 size=0422ch ( 16940) load[0m
-[0;32mI (113) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1093ch ( 67900) map[0m
-[0;32mI (137) esp_image: segment 4: paddr=00030964 vaddr=4008422c size=06b1ch ( 27420) load[0m
-[0;32mI (149) esp_image: segment 5: paddr=00037488 vaddr=50000000 size=00028h (    40) load[0m
-[0;32mI (155) boot: Loaded app from partition at offset 0x10000[0m
-[0;32mI (155) boot: Disabling RNG early entropy source...[0m
-[0;32mI (167) cpu_start: Multicore app[0m
-[0;32mI (175) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
-[0;32mI (175) cpu_start: Pro cpu start user code[0m
-[0;32mI (175) cpu_start: cpu freq: 160000000 Hz[0m
-[0;32mI (177) app_init: Application information:[0m
-[0;32mI (181) app_init: Project name:     DisplayAudi[0m
-[0;32mI (185) app_init: App version:      fd2361b-dirty[0m
-[0;32mI (190) app_init: Compile time:     Jun 18 2026 13:14:50[0m
-[0;32mI (195) app_init: ELF file SHA256:  a30bd06ff...[0m
-[0;32mI (199) app_init: ESP-IDF:          v6.1-dev-2938-g12f36a021f[0m
-[0;32mI (205) efuse_init: Min chip rev:     v0.0[0m
-[0;32mI (208) efuse_init: Max chip rev:     v3.99 [0m
-[0;32mI (212) efuse_init: Chip rev:         v3.1[0m
-[0;32mI (217) heap_init: Initializing. RAM available for dynamic allocation:[0m
-[0;32mI (223) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
-[0;32mI (228) heap_init: At 3FFB3728 len 0002C8D8 (178 KiB): DRAM[0m
-[0;32mI (233) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
-[0;32mI (238) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
-[0;32mI (244) heap_init: At 4008AD48 len 000152B8 (84 KiB): IRAM[0m
-[0;33mW (250) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
-[0;32mI (262) spi_flash: detected chip: generic[0m
-[0;32mI (266) spi_flash: flash io: dio[0m
-[0;33mW (269) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
-[0;32mI (282) main_task: Started on CPU0[0m
-[0;32mI (292) main_task: Calling app_main()[0m
-[0;32mI (1552) TP: USPESNO POSLAT CONNECT NA CAN [0m
-[0;32mI (1622) TP: USPESNO POSLAT CONNECT NA CAN [0m
-[0;32mI (1692) TP: USPESNO POSLAT CONNECT NA CAN [0m
-[0;32mI (1762) TP: USPESNO POSLAT CONNECT NA CAN [0m
-[0;32mI (1832) TP: USPESNO POSLAT CONNECT NA CAN [0m
-[0;32mI (1902) TP: USPESNO POSLAT CONNECT NA CAN [0m
-[0;32mI (1942) main_task: Returned from app_main()[0m
-[1;31mE (2532) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2532) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2532) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2532) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2532) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2532) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2542) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2542) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2542) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2552) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2552) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2552) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2562) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2562) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2562) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2572) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2572) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2582) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2582) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2582) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2592) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2592) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2592) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2602) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2602) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2602) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2612) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2612) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2612) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2622) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2622) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2632) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2632) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2632) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2642) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2642) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2642) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2652) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2652) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2652) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2662) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2662) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2662) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2672) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2672) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2672) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2682) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2682) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2692) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2692) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2692) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2702) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2702) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2702) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2712) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2712) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2712) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2722) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2722) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2722) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2732) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2732) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2742) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2742) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2742) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2752) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2752) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2752) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2762) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2762) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2762) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2772) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2772) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2772) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2782) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2782) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2792) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2792) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2792) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2802) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2802) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2802) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2812) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2812) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2812) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2822) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2822) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2822) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2832) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2832) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2842) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2842) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2842) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2852) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2852) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2852) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2862) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2862) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2862) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2872) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2872) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2872) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2882) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2882) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2882) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2892) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2892) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2902) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2902) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2902) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2912) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2912) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2912) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2922) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2922) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2922) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2932) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2932) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2932) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2942) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2942) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2952) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2952) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2952) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2962) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2962) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2962) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2972) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2972) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2972) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2982) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2982) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2982) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2992) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (2992) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3002) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3002) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3002) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3012) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3012) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3012) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3022) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3022) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3022) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3032) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3032) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3032) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3042) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3042) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3052) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3052) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3052) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3062) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3062) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3062) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3072) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3072) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3072) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3082) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3082) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3082) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3092) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3092) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3092) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3102) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3102) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3112) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3112) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3112) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3122) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3122) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3122) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3132) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3132) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3132) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3142) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3142) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3142) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3152) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3152) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3162) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3162) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3162) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3172) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3172) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3172) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3182) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3182) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3182) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3192) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3192) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3192) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3202) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3202) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3212) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3212) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3212) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3222) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3222) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3222) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3232) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3232) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3232) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3242) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3242) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3242) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3252) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3252) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3262) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3262) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3262) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3272) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3272) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3272) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3282) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3282) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3282) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3292) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3292) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3292) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3302) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3302) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3302) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3312) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3312) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3322) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3322) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3322) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3332) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3332) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3332) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3342) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3342) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3342) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3352) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3352) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3352) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3362) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3362) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3372) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3372) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3372) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3382) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3382) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3382) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3392) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3392) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3392) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3402) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3402) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3402) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3412) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3412) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3422) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3422) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3422) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3432) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3432) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3432) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3442) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3442) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3442) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3452) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3452) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3452) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3462) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3462) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3472) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3472) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3472) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3482) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3482) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3482) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3492) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3492) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3492) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3502) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3502) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3502) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3512) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3512) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3512) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3522) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3522) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3532) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3532) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3532) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3542) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3542) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3542) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3552) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3552) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3552) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3562) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3562) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3562) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3572) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3572) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3582) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3582) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3582) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3592) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3592) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3592) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3602) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3602) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3602) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3612) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3612) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3612) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3622) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3622) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3632) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3632) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3632) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3642) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3642) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3642) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3652) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3652) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3652) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3662) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3662) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3662) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3672) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3672) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3682) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3682) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3682) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3692) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3692) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3692) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3702) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3702) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3702) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3712) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3712) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3712) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3722) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3722) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3722) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3732) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3732) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3742) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3742) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3742) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3752) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3752) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3752) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3762) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3762) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3762) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3772) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3772) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3772) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3782) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3782) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3792) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3792) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3792) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3802) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3802) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3802) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3812) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3812) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3812) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3822) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3822) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3822) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3832) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3832) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3842) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3842) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3842) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3852) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3852) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3852) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3862) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3862) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3862) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3872) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3872) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3872) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3882) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3882) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3892) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3892) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3892) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3902) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3902) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3902) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3912) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3912) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3912) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3922) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3922) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3922) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3932) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3932) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3932) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3942) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3942) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3952) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3952) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3952) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3962) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3962) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3962) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3972) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3972) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3972) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3982) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3982) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3982) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3992) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (3992) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4002) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4002) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4002) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4012) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4012) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4012) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4022) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4022) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4022) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4032) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4032) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4032) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4042) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4042) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4052) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4052) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4052) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4062) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4062) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4062) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4072) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4072) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4072) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4082) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4082) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4082) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4092) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4092) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4092) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4102) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4102) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4112) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4112) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4112) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4122) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4122) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4122) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4132) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4132) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4132) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4142) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4142) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4142) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4152) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4152) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4162) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4162) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4162) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4172) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4172) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4172) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4182) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4182) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4182) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4192) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4192) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4192) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4202) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4202) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4212) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4212) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4212) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4222) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4222) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4222) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4232) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4232) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4232) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4242) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4242) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4242) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4252) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4252) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4262) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4262) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4262) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4272) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4272) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4272) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4282) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4282) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4282) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4292) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4292) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4292) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4302) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4302) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4302) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4312) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4312) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4322) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4322) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4322) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4332) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4332) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4332) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4342) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4342) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4342) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4352) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4352) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4352) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4362) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4362) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4372) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4372) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4372) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4382) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4382) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4382) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4392) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4392) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4392) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4402) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4402) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4402) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4412) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4412) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4422) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4422) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4422) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4432) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4432) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4432) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4442) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4442) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4442) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4452) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4452) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4452) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4462) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4462) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4472) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4472) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4472) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4482) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4482) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4482) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4492) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4492) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4492) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4502) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4502) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4502) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4512) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4512) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4512) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4522) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4522) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4532) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4532) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4532) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4542) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4542) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4542) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4552) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4552) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4552) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4562) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4562) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4562) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4572) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4572) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4582) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4582) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4582) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4592) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4592) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4592) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4602) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4602) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4602) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4612) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4612) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4612) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4622) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4622) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4632) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4632) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4632) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4642) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4642) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4642) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4652) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4652) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4652) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4662) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4662) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4662) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4672) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4672) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4682) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4682) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4682) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4692) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4692) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4692) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4702) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4702) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4702) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4712) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4712) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4712) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4722) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4722) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4722) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4732) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4732) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4742) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4742) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4742) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4752) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4752) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4752) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4762) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4762) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4762) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4772) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4772) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4772) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4782) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4782) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4792) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4792) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4792) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4802) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4802) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4802) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4812) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4812) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4812) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4822) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4822) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4822) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4832) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4832) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4842) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4842) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4842) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4852) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4852) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4852) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4862) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4862) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4862) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4872) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4872) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4872) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4882) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4882) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4892) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4892) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4892) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4902) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4902) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4902) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4912) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4912) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4912) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4922) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4922) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4922) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4932) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4932) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4932) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4942) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4942) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4952) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4952) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4952) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4962) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4962) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4962) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4972) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4972) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4972) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4982) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4982) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4982) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4992) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (4992) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5002) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5002) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5002) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5012) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5012) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5012) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5022) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5022) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5022) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5032) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5032) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5032) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5042) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5042) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5052) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5052) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5052) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5062) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5062) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5062) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5072) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5072) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5072) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5082) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5082) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5082) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5092) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5092) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5102) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5102) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5102) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5112) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5112) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5112) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5122) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5122) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5122) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5132) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5132) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5132) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5142) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5142) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5142) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5152) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5152) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5162) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5162) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5162) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5172) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5172) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5172) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5182) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5182) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5182) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5192) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5192) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5192) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5202) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5202) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5212) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5212) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5212) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5222) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5222) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5222) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5232) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5232) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5232) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5242) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5242) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5242) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5252) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5252) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5262) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5262) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5262) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5272) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5272) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5272) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5282) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5282) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5282) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5292) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5292) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5292) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5302) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5302) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5312) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5312) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5312) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5322) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5322) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5322) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5332) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5332) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5332) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5342) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5342) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5342) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5352) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5352) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5352) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5362) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5362) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5372) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5372) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5372) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5382) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5382) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5382) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5392) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5392) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5392) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5402) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5402) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5402) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5412) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5412) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5422) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5422) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5422) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5432) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5432) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5432) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5442) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5442) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5442) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5452) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5452) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5452) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5462) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5462) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5472) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5472) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5472) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5482) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5482) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5482) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5492) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5492) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5492) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5502) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5502) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5502) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5512) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5512) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5522) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5522) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5522) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5532) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5532) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5532) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5542) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5542) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5542) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5552) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5552) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5552) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5562) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5562) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5562) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5572) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5572) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5582) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5582) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5582) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5592) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5592) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5592) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5602) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5602) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5602) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5612) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5612) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5612) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5622) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5622) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5632) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5632) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5632) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5642) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5642) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5642) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5652) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5652) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5652) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5662) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5662) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5662) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5672) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5672) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5682) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5682) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5682) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5692) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5692) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5692) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5702) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5702) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5702) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5712) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5712) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5712) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5722) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5722) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5732) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5732) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5732) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5742) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5742) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5742) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5752) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5752) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5752) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5762) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5762) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5762) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5772) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5772) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5772) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5782) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5782) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5792) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5792) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5792) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5802) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5802) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5802) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5812) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5812) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5812) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5822) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5822) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5822) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5832) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5832) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5842) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5842) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5842) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5852) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5852) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5852) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5862) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5862) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5862) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5872) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5872) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5872) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5882) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5882) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5892) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5892) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5892) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5902) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5902) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5902) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5912) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5912) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5912) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5922) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5922) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5922) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5932) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5932) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5932) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5942) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5942) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5952) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5952) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5952) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5962) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5962) KWP: NIJE Poslat zahtev za ECU[0m
-[1;31mE (5962) KWP: N��p|p�pp�pppp�� �� � ||||���ppp��p|�|����p�� p�p� |�p�|p�� |����p|��p� ���� p ��p|pp|ppppp���|p�����pp�� |����p�� p��p��pp|�|p p p|pp|ppppp�� �� � ||||���pp|�p����� ppp��|� ����p pp� �|p�� p��p|�ppp���|p��p��|p p p|p�p|ppppp�� �� �pp��|���|�| p�� �����|p���|p�����p�� p�|��� ���� �|p ��p�| p�p�pppp���|p�����pp�� |����p�� p��p��pp|�|p p p�| p�p�pppp�� �� � ||||���pp|�p����� ppp��|� ����p pp� �|p�� p��p|�ppp���|p��p��|p p p�|p|ppppp�� �� �pp��|���|�| p�� �����|p���|p�����p�� p�|��� ���� 

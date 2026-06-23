@@ -3,8 +3,7 @@
 #include "esp_log.h"
 #define correct 1
 static uint8_t did=0;
-uint8_t count1=0,count2=0;
-uint8_t pov1=0;
+uint8_t count1=0;
 static DataState state=DATA_IDLE;
 static TaskHandle_t taskHandle;
 static Diag_CallbackType *callback;
@@ -241,9 +240,8 @@ void DataCyclic(void *pvParameters){
             case DATA_REQUEST:
                 //Prosledjujem mu koji DID  HOCU ili ti sta hocu da mi prikaze
                 if(KwpRequest(did)==correct){
-                //state=DATA_READED;
+                state=DATA_READED;
                 //pov1=2;
-                vTaskDelay(pdMS_TO_TICKS(15));
                // ESP_LOGI("DataAnaliser","MOGU I USPEO SAM DA POSALJEM DID");
                 }
                 else{
@@ -257,19 +255,18 @@ void DataCyclic(void *pvParameters){
 
             case DATA_READED:
                     /* kwp get data izvuce pa prosledi ovom */
-                    if(Kwp_GetDataFromEcu(didbuffer)==correct){
-                        
-                        //EngineDiag_HandleDid(didbuffer,did);  
-                        //ESP_LOGI("DataA"," dobijem podatke od ECU"); 
-                        printf("bafera: %u",didbuffer[1]);
-                        state=DATA_REQUEST;     
+                    if(xSemaphoreTake(GetData,pdMS_TO_TICKS(20))){
+
+                        if(Kwp_GetDataFromEcu(didbuffer)==correct){
+            
+                            printf("bafera: %u",didbuffer[1]);
+                            state=DATA_REQUEST;     
+                        }
+
                     }
                     else{
-
-                        ESP_LOGE("DataAnaliser-ERROR","Ne mogu da DOBIJEM PODATKE OD ECU");
-
+                        //Semafor nije mogao vise da drzi
                     }
-                    state=DATA_REQUEST;     
 
             
             break;

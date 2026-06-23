@@ -28,9 +28,9 @@ KwpStage KwpStages=KWP_START; //handshake-session....
 KwpStatus KwpStatuses=KWP_IDLE;   //IDLE ,,error...
 volatile bool SetDataDid=false;
 
-extern SemaphoreHandle_t TpSendComplete = NULL;
+static SemaphoreHandle_t TpSendComplete = NULL;
 
-static SemaphoreHandle_t GetData = NULL;
+SemaphoreHandle_t GetData = NULL;
 
 
 uint8_t currentSid;
@@ -247,6 +247,8 @@ uint8_t Kwp_GetDataFromEcu(uint8_t * const dataPtr){
 
     uint8_t retVal=0;
     uint8_t tmp;
+    if(KwpStages == KWP_READY){
+
         vTaskSuspendAll(); // Critical section, interrupts enabled
         for(tmp=0;tmp<sizeof(didBuffer);tmp++)
         {
@@ -255,6 +257,7 @@ uint8_t Kwp_GetDataFromEcu(uint8_t * const dataPtr){
         retVal = 1;
         xTaskResumeAll(); // End of critical section, interrupts enabled
     
+    }
     return retVal;
 
 }
@@ -276,12 +279,14 @@ void Kwp_Receive(uint8_t * dataPtr,uint16_t len)
                 // Positive response
                 if ((KWP_READDID == KwpStages) && (dataId == dataPtr[3u]) && (sizeof(didBuffer) <= (len-4u)))
                 {
-                    
                     for (i=0;i<(sizeof(didBuffer) );i++)
                     {
                         didBuffer[i] = dataPtr[4u+i];
                         printf("kwpbaf %u",didBuffer[2]);
                     }
+                    
+                    xSemaphoreGive(GetData);
+
                     KwpStages = KWP_READY;
                     
                 }
@@ -419,10 +424,6 @@ static void Kwp_ReadData(uint8_t did)
     {
         KwpStatuses = KWP_PROCESSING;
         KwpStages = KWP_READDID;
-    }
-    if (xSemaphoreTake(TpSendComplete, pdMS_TO_TICKS(1000)) == pdTRUE) {
-    } else {
-        ESP_LOGE("KWP", "Kwp se nije izvrsio ili nije dobio potvrdu od TP u roku od 1000 ms");
     }
 
 }
