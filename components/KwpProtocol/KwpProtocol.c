@@ -120,14 +120,12 @@ void KwpCyclic(void *pvParameters){
                     /*KADA AUTOMAT DODJE DOVDE MOZE DATAANALISER DA POZOVE KwpRequest znaci moze da posalje did pretoga moram setovati komunikaciju*/
                     /*KAO U VCDS-u da udjem u measuring blocks!!!!*/
                     KwpStages = KWP_READY; 
-                    vTaskDelay(pdMS_TO_TICKS(20));
                 break;
                 /*Setujem dataID-neki kurac u DIDu*/    
                 case KWP_READDID:
                                  
                     Kwp_ReadData(dataId);
-                    vTaskDelay(pdMS_TO_TICKS(10));
-                break;
+=                break;
                     
                 case KWP_CLOSE:
                 //vTaskDelete(taskHandle);
@@ -135,15 +133,19 @@ void KwpCyclic(void *pvParameters){
                 /*ZAVRSEN JE JEDAN KRUG PODATAKA*/
                 KwpStages=KWP_START;
                 break;
+                case KWP_READY:
+                    vTaskDelay(pdMS_TO_TICKS(3));
                 default:
                 break;
 
             }
-            /*SAMOOO POSTAVLJANJE SETOVANJE ZA DIAG */
+
+            vTaskDelay(pdMS_TO_TICKS(10));
+
         }
         /*Idalje se obradjuju podaci*/
         else if(KwpStatuses==KWP_PROCESSING){
-           if (2 <= timeout){
+           if (6 <= timeout){
                 
                 KwpStatuses = KWP_IDLE;
 
@@ -155,7 +157,8 @@ void KwpCyclic(void *pvParameters){
                 timeout++;
             }
 
-        
+            vTaskDelay(pdMS_TO_TICKS(3));
+
         }
 
         /*Automat ulazi u cekanje kako bi mogao da primi poruku 
@@ -163,7 +166,7 @@ void KwpCyclic(void *pvParameters){
         */
         
         else if(KwpStatuses==KWP_WAITING){
-            if (3 <= timeout)
+            if (8 <= timeout)
             {
                 // (Rx) timeout occured while waiting for response
                 //KwpStages = KWP_CLOSE;
@@ -173,13 +176,14 @@ void KwpCyclic(void *pvParameters){
             {
                 timeout++;
             }
+            vTaskDelay(pdMS_TO_TICKS(3));
+
         }
         else 
         {
             // Error state
         }
 
-        vTaskDelay(pdMS_TO_TICKS(10));
 
     }
 
@@ -218,7 +222,7 @@ uint8_t KwpRequest(uint8_t did){
         dataId=did;
         xTaskResumeAll();
 
-        ESP_LOGE("Kwp","DID: %02X",did);
+        //ESP_LOGE("Kwp","DID: %02X",did);
         return 1;
     }
     else{
@@ -247,6 +251,7 @@ uint8_t Kwp_GetDataFromEcu(uint8_t * const dataPtr){
 
     uint8_t retVal=0;
     uint8_t tmp;
+    printf("Kwp je %d",KwpStages);
     if(KwpStages == KWP_READY){
 
         vTaskSuspendAll(); // Critical section, interrupts enabled
@@ -282,7 +287,7 @@ void Kwp_Receive(uint8_t * dataPtr,uint16_t len)
                     for (i=0;i<(sizeof(didBuffer) );i++)
                     {
                         didBuffer[i] = dataPtr[4u+i];
-                        printf("kwpbaf %u",didBuffer[2]);
+                        //printf("kwpbaf %u",didBuffer[2]);
                     }
                     
                     xSemaphoreGive(GetData);
@@ -290,7 +295,7 @@ void Kwp_Receive(uint8_t * dataPtr,uint16_t len)
                     KwpStages = KWP_READY;
                     
                 }
-                KwpStatuses = KWP_IDLE;
+                KwpStatuses = KWP_IDLE; 
             }
             else if ((NEGATIVERESP_SID == dataPtr[2u])&& (2u < dataPtr[1u]))
             {
@@ -424,6 +429,8 @@ static void Kwp_ReadData(uint8_t did)
     {
         KwpStatuses = KWP_PROCESSING;
         KwpStages = KWP_READDID;
+    }
+    if (xSemaphoreTake(TpSendComplete, pdMS_TO_TICKS(1000)) == pdTRUE) {
     }
 
 }

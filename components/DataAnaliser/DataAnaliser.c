@@ -230,7 +230,7 @@ void DataCyclic(void *pvParameters){
     //Prosledjujem DID i dobijam podatke preko funckije-gettera -njegovog parametra  
     uint8_t didbuffer[4u*3u];
     while(1){
-        vTaskDelay(pdMS_TO_TICKS(10));
+        vTaskDelay(pdMS_TO_TICKS(14));
         switch(state){
             case DATA_IDLE:
             if(SetDataDid==true)
@@ -247,26 +247,28 @@ void DataCyclic(void *pvParameters){
                 else{
                 
                     //ESP_LOGE("DataAnaliser","Ne mogu da TRAZIM zahtev od ECU");
-                    break;
                 
                 }
+                break;
 
             /*Treba da napravim tajmer ako ne uspe da prekopira i sve to obradi dalje da nastavi sa upitom*/
 
             case DATA_READED:
                     /* kwp get data izvuce pa prosledi ovom */
-                    if(xSemaphoreTake(GetData,pdMS_TO_TICKS(20))){
+                    
 
                         if(Kwp_GetDataFromEcu(didbuffer)==correct){
             
-                            printf("bafera: %u",didbuffer[1]);
-                            state=DATA_REQUEST;     
+                            printf("prvi podatak je: %u",didbuffer[2]);
+                        }
+                        else{
+
+                            printf("Ne uspeGetdata");
                         }
 
-                    }
-                    else{
-                        //Semafor nije mogao vise da drzi
-                    }
+                    
+                        state=DATA_REQUEST;     
+
 
             
             break;
