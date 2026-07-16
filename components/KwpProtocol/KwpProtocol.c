@@ -125,7 +125,7 @@ void KwpCyclic(void *pvParameters){
                 case KWP_READDID:
                                  
                     Kwp_ReadData(dataId);
-=                break;
+                break;
                     
                 case KWP_CLOSE:
                 //vTaskDelete(taskHandle);
@@ -134,7 +134,8 @@ void KwpCyclic(void *pvParameters){
                 KwpStages=KWP_START;
                 break;
                 case KWP_READY:
-                    vTaskDelay(pdMS_TO_TICKS(3));
+                    vTaskDelay(pdMS_TO_TICKS(10));
+                break;
                 default:
                 break;
 
@@ -251,8 +252,7 @@ uint8_t Kwp_GetDataFromEcu(uint8_t * const dataPtr){
 
     uint8_t retVal=0;
     uint8_t tmp;
-    printf("Kwp je %d",KwpStages);
-    if(KwpStages == KWP_READY){
+    /*if(KwpStages == KWP_READY){
 
         vTaskSuspendAll(); // Critical section, interrupts enabled
         for(tmp=0;tmp<sizeof(didBuffer);tmp++)
@@ -263,6 +263,12 @@ uint8_t Kwp_GetDataFromEcu(uint8_t * const dataPtr){
         xTaskResumeAll(); // End of critical section, interrupts enabled
     
     }
+    return retVal;
+    */
+    for(tmp=0;tmp<sizeof(didBuffer);tmp++){
+            dataPtr[tmp] = didBuffer[tmp]; // copy data
+    }
+    retVal = 1;
     return retVal;
 
 }
@@ -290,7 +296,7 @@ void Kwp_Receive(uint8_t * dataPtr,uint16_t len)
                         //printf("kwpbaf %u",didBuffer[2]);
                     }
                     
-                    xSemaphoreGive(GetData);
+                    //xSemaphoreGive(GetData);
 
                     KwpStages = KWP_READY;
                     

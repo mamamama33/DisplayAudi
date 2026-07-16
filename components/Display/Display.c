@@ -11,19 +11,19 @@ EngineDiag_ChannelIdType ch=0;
 uint8_t data[3];
 uint8_t Ispravnost; 
 char buffer[64];   // rezervišeš memoriju
-
+/*UZimam stalno poslednji blok i uzimam 1 karakter koji ne treba da uzmem*/
 void DisCyclic(void *pvParameters){
     uint8_t broj;
     while(1){
-            
+            vTaskDelay(pdMS_TO_TICKS(35));
             broj=EngineDiag_GetChData(ch,data,200);
             Dis_DecodeFrame(data);
+            ESP_LOGI("TAG", "Brojevi: %u",data[0]);
             ch++;
-            if(ch>=ENGINEDIAG_CH_MAX)
+            if(ch>=12)
                 ch=0;
 
-            vTaskDelay(pdMS_TO_TICKS(20));
-       
+
     }
 
 }
@@ -461,7 +461,7 @@ uint8_t Dis_DecodeFrame(uint8_t *frameData)
         p += sprintf(p, "---" );
         break;
     }
-   // printf("Testiranje ispisa %s",p);
+   
     len =0 ;
     return len;
 }

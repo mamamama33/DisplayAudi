@@ -1,7 +1,7 @@
 {
     "version":            "1.3",
     "project_name":       "DisplayAudi",
-    "project_version":    "d92067f-dirty",
+    "project_version":    "21c81e2-dirty",
     "project_path":       "/home/student/Desktop/ProjekatDisplej/DisplayAudi",
     "idf_path":           "/home/student/esp-idf",
     "build_dir":          "/home/student/Desktop/ProjekatDisplej/DisplayAudi/build",

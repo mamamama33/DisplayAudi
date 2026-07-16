@@ -2,11 +2,12 @@
 #include"KwpProtocol.h"
 #include "esp_log.h"
 #define correct 1
-static uint8_t did=0;
+static uint8_t did=1;
 uint8_t count1=0;
 static DataState state=DATA_IDLE;
 static TaskHandle_t taskHandle;
 static Diag_CallbackType *callback;
+    uint8_t didbuffer[4u*3u];
 
 typedef struct
 {
@@ -16,6 +17,10 @@ typedef struct
 
 static EngineDiag_ChannelType channels[ENGINEDIAG_CH_MAX];
 //Znaci ovo su koje didove zelim da trazim od ECU-a i koji su mi potrebni za prikaz na displeju
+const uint8_t WantedDid[13]={
+    1u,2u,7u,10u,11u,12u,15u,28u,29u,62u,63u,64u,74u
+};
+
 const uint8_t ChIdxToDid[ENGINEDIAG_CH_MAX] = 
 {
     //DURMI1 je injection duration u vcds-u
@@ -70,6 +75,8 @@ const uint8_t ChIdxToDid[ENGINEDIAG_CH_MAX] =
     [ENGINEDIAG_CH_EGTEMP74] = 74u,
     [ENGINEDIAG_CH_LAMBDA74] = 74u,
 };
+
+
 const uint8_t ChIdxToDidOffset[ENGINEDIAG_CH_MAX] = 
 {
     /*--------PRVI BLOK U VCDS-U*/
@@ -134,7 +141,7 @@ sluzi da pokupim DID koji mi je ECU odgovorio
 uint8_t DidSetter(uint8_t Setdid)
 {
     uint8_t retVal = DIAG_ERR;
-    if (DATA_IDLE == state)
+    if (DATA_REQUEST == state)
     {
         vTaskSuspendAll(); // Critical section, interrupts enabled
         did = Setdid;
@@ -150,6 +157,7 @@ uint8_t DidSetter(uint8_t Setdid)
 //Funkcija koja ce obradjivati DID-ove -Da desifruje sta je sta u poruci
 /*buffer je niz od 4*3 bajtova od jednog bloka koje sam izvukao preko kwprequest */
 /* PUNIM MOJU BAZU channels[ch].data[b] sa baferom */
+/*
 static void EngineDiag_HandleDid(uint8_t * buffer, uint8_t actualDid)
 {
     uint32_t timestamp = 0u;
@@ -170,7 +178,7 @@ static void EngineDiag_HandleDid(uint8_t * buffer, uint8_t actualDid)
                     for (b=0; b < 3u; b++)
                     {
                         // Copy 3 bytes of data from buffer with offset
-                        channels[ch].data[b] = buffer[(offset * 3u)+b];
+                        channels[ch].data[b] = didbuffer[(offset * 3u)+b];
                         ESP_LOGE("Data","Uspeo je da upise u bafer od data");
 
                     }
@@ -180,8 +188,9 @@ static void EngineDiag_HandleDid(uint8_t * buffer, uint8_t actualDid)
             }
         }
     }
-}
-
+}*/
+static uint32_t zadnjeVremePrijema = 0;
+    static uint8_t counter;
 
 /*FUNKCIJA ZA DOBAVLJANJE podataka KOJA POZIVA DIDSETTER koji posle 
 poziva KwpRequest koji od ECU trazi podatke*/
@@ -191,27 +200,41 @@ uint8_t EngineDiag_GetChData(const EngineDiag_ChannelIdType ch, uint8_t * dataPt
     uint8_t retVal = DIAG_ERR;
     uint32_t sysTime = 0;
     uint8_t i = 0;
+    uint8_t offset,b; 
+    
+
     if (ch < ENGINEDIAG_CH_MAX)
     {
         sysTime = xTaskGetTickCount();
-        if ( channels[ch].timestamp > (sysTime - (timeout/ portTICK_PERIOD_MS)))
+        //v
+        if((sysTime - zadnjeVremePrijema) < pdMS_TO_TICKS(timeout))
         {
             // Data is not too old
             vTaskSuspendAll(); // Critical section, interrupts enabled
-            for (i=0; i<3u; i++)
+            for (offset=0; offset < 4u; offset++)
             {
-                dataPtr[i] = channels[ch].data[i];
-                
-                ESP_LOGE("Data","Displajov geter je pokupio podatke za case slucaj");
+                // Search for a matching MBW from all the 4 MWBs we received
+                if (offset == ChIdxToDidOffset[ch])
+                {
+                    vTaskSuspendAll(); // Critical section, interrupts enabled
+                    for (b=0; b < 3u; b++)
+                    {
+                        // Copy 3 bytes of data from buffer with offset
+                        dataPtr[i] = didbuffer[(offset * 3u)+b];
 
+                    }
+                    xTaskResumeAll(); // End of critical section, interrupts enabled
+                }
             }
             retVal = DIAG_OK;
             xTaskResumeAll(); // End of critical section, interrupts enabled
         }
         else 
         {
-            //Data is too old or never received
-            if (DIAG_OK == DidSetter(ChIdxToDid[ch]))
+            zadnjeVremePrijema=sysTime;
+
+            //MOram modifikovati tako da ne sara stalno po svemu - ono iz displeja nego ako pritisnem tipku da onda promeni koji kanal hocu
+            if (DIAG_OK == DidSetter(WantedDid[ch]))
             {
                 retVal = DIAG_PENDING;
             }
@@ -228,9 +251,7 @@ uint8_t EngineDiag_GetChData(const EngineDiag_ChannelIdType ch, uint8_t * dataPt
 //automat stanja
 void DataCyclic(void *pvParameters){
     //Prosledjujem DID i dobijam podatke preko funckije-gettera -njegovog parametra  
-    uint8_t didbuffer[4u*3u];
     while(1){
-        vTaskDelay(pdMS_TO_TICKS(14));
         switch(state){
             case DATA_IDLE:
             if(SetDataDid==true)
@@ -258,14 +279,9 @@ void DataCyclic(void *pvParameters){
                     
 
                         if(Kwp_GetDataFromEcu(didbuffer)==correct){
-            
-                            printf("prvi podatak je: %u",didbuffer[2]);
+                            /*Dobar je ispis*/
+                            //printf("baff-%u",didbuffer[1]);
                         }
-                        else{
-
-                            printf("Ne uspeGetdata");
-                        }
-
                     
                         state=DATA_REQUEST;     
 
@@ -274,6 +290,8 @@ void DataCyclic(void *pvParameters){
             break;
    
         }
+        vTaskDelay(pdMS_TO_TICKS(10));
+
     }
 
 }
