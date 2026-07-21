@@ -39,7 +39,6 @@ twai_mask_filter_config_t filter2 = {
 
 /* Getter za rucicu */
 uint8_t GetStalkButton() {
-    
     return StalkGetter;
 }
 
@@ -82,7 +81,7 @@ void StalkButton(void *pvParameters)
         if (xQueueReceive(StalkButtonQueue, &msg, portMAX_DELAY))
         {
             buttons = msg.data[1];
-            ESP_LOGW("stalk","Pritisnuto dugme");
+            //ESP_LOGW("stalk","Pritisnuto dugme");
 
             if (lastButtons != buttons)
             {
@@ -168,9 +167,9 @@ void Can_Init()
     StalkButtonQueue = xQueueCreate(STALKBUTTON, sizeof(twai_message_t));
 
     // Taskovi
-    xTaskCreatePinnedToCore(Can_Receive, "CanRx", 2048, NULL, 7, NULL, 0);
-    xTaskCreatePinnedToCore(Kwp_Task, "KwpTask", 4096, NULL, 7, NULL, 1);
-    xTaskCreatePinnedToCore(StalkButton, "StalkButton", 2048, NULL, 6, NULL, 0);
+    xTaskCreatePinnedToCore(Can_Receive, "CanRx", 2048, NULL, 7, NULL, 1);
+    xTaskCreatePinnedToCore(Kwp_Task, "KwpTask", 4096, NULL, 6, NULL, 1);
+    xTaskCreatePinnedToCore(StalkButton, "StalkButton", 2048, NULL, 5, NULL, 1);
 }
 /*
 void Can_Init()

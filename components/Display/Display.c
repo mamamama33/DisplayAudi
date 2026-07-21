@@ -6,23 +6,199 @@
 static TaskHandle_t disTaskHandle;
 
 uint8_t buttons=0; //0 znaci ni jedno dugmo se nije kliknulo
-EngineDiag_ChannelIdType ch=0;
+uint8_t strana=0;
 
-uint8_t data[3];
+uint8_t data[12];
+uint8_t block[3];
 uint8_t Ispravnost; 
-char buffer[64];   // rezervišeš memoriju
+
+char BufferforDis[1024];
+typedef struct
+{
+    uint8_t blocks[4];
+    uint8_t id;
+
+} Block;
+
+
+Block Strane[][2] =
+{
+    // ================= PRVA STRANA =================
+    {
+        {
+            .id = 6,
+            .blocks = {
+                0,5,2,5
+                // 0 je brzina km/h a 2 je accel pedal pos
+            }
+        },
+
+        {
+            .id = 11,
+            .blocks = {
+                0,1,2,3
+                // 0 je rpm, 1 je boost pressure actual,
+                // 2 je specified, a duty cycle je 3
+            }
+        }
+    },
+
+
+    // ================= DRUGA STRANA =================
+    {
+        {
+            .id = 7,
+            .blocks = {
+                0,5,2,3
+                // 0 je fuel temp, 2 je intake air temp,
+                // 3 je coolant temp - engine
+            }
+        },
+
+        {
+            .id = 62,
+            .blocks = {
+                5,1,2,5
+                // 1 je coolant temp coolant,
+                // 2 je ambient temp
+            }
+        }
+    },
+
+
+    // ================= TREĆA STRANA =================
+    {
+        {
+            .id = 29,
+            .blocks = {
+                0,1,5,5
+                // 0 je oil temp, 1 je oil level
+            }
+        },
+
+        {
+            .id = 15,
+            .blocks = {
+                5,1,2,5
+                // 1 je engine torque,
+                // 2 je fuel consumption
+            }
+        }
+    },
+
+
+    // ================= ČETVRTA STRANA =================
+    {
+        {
+            .id = 63,
+            .blocks = {
+                0,5,2,5
+                // 0 je refrigerant pressure,
+                // 2 je cooling request koji vrv neću dobiti
+            }
+        },
+
+        {
+            .id = 64,
+            .blocks = {
+                0,1,2,5
+                // 0 je coolant temp engine,
+                // 1 je coolant temp cooler,
+                // 2 je fan duty
+            }
+        }
+    },
+
+
+    // ================= PETA STRANA =================
+    {
+        {
+            .id = 13,
+            .blocks = {
+                0,1,2,3
+                // Koliko dizne bacaju je to sve
+            }
+        },
+
+        {
+            .id = 4,
+            .blocks = {
+                5,5,5,3
+                // 3 je torsion value
+            }
+        }
+    },
+
+
+    // ================= ŠESTA STRANA =================
+    {
+        {
+            .id = 10,
+            .blocks = {
+                0,5,5,5
+                // MAF senzor
+            }
+        },
+
+        {
+            .id = 12,
+            .blocks = {
+                5,5,2,5
+                // voltage
+            }
+        }
+    }
+
+};
+
 /*UZimam stalno poslednji blok i uzimam 1 karakter koji ne treba da uzmem*/
 void DisCyclic(void *pvParameters){
-    uint8_t broj;
     while(1){
-            vTaskDelay(pdMS_TO_TICKS(35));
-            broj=EngineDiag_GetChData(ch,data,200);
-            Dis_DecodeFrame(data);
-            ESP_LOGI("TAG", "Brojevi: %u",data[0]);
-            ch++;
-            if(ch>=12)
-                ch=0;
+          vTaskDelay(pdMS_TO_TICKS(5));
+          uint8_t offset,b;
+          buttons=GetStalkButton();
+          /*Logika za stalkgetter*/
+                
+          //ch oznacava koju stranu 
+          if(buttons!=0x00){
+            strana++;
+            if(strana>=6)
+              strana=0;
 
+          }
+          //Zato sto imam 2 sida u svakom clanu
+          for(int i =1;i<3;i++){
+            
+            if(DataSetter(Strane[strana][i].id)){
+
+
+
+              
+            }
+            if(EngineDiag_GetChData(Strane[strana][i].id,data)==RETOK){
+              
+              for (offset=0; offset < 4u; offset++)
+              {
+                      if(offset == Strane[strana][i].blocks[offset]){
+
+                        vTaskSuspendAll(); // Critical section, interrupts enabled
+                        for (b=0; b < 3u; b++)
+                        {
+                            // Copy 3 bytes of data from buffer with offset
+                            block[b] = data[(offset*3)+b];
+
+                        }
+                        xTaskResumeAll(); // End of critical section, interrupts enabled
+
+                        Dis_DecodeFrame(block);
+
+                      }
+
+              }
+            }
+
+
+          }
 
     }
 
@@ -34,7 +210,7 @@ uint8_t Dis_DecodeFrame(uint8_t *frameData)
   //char * p_saved = p;
 
   char * p;
-  p=buffer;
+  p=BufferforDis;
   uint8_t len;
   uint16_t val_u16;
   int16_t val_s16;
@@ -459,16 +635,16 @@ uint8_t Dis_DecodeFrame(uint8_t *frameData)
 
       default:
         p += sprintf(p, "---" );
+        return 1;
         break;
     }
    
-    len =0 ;
-    return len;
+    return 0;
 }
 
 
 void DisplayInit(){
 
-    xTaskCreatePinnedToCore(DisCyclic,"Dis",2048u,NULL,3,&disTaskHandle,1);
+    xTaskCreatePinnedToCore(DisCyclic,"Dis",2048u,NULL,3,&disTaskHandle,0);
     vTaskDelay(pdMS_TO_TICKS(50));
 }

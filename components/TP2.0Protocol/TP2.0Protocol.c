@@ -701,7 +701,7 @@ void TpInit(){
     TpEcu.txState = VWTP_CONNECT;
     TpEcu.rxState = VWTP_CONNECT;
     TpEcu.seqCntRx = 0xFu;
-    xTaskCreatePinnedToCore(Tp_Cyclic, "VwTp", 4096u, NULL, 6, &VwTpTaskHdl,1);
+    xTaskCreatePinnedToCore(Tp_Cyclic, "VwTp", 4096u, NULL, 4, &VwTpTaskHdl,1);
     vTaskDelay(pdMS_TO_TICKS(120));
 }
 

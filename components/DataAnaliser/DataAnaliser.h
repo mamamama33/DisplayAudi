@@ -10,12 +10,11 @@ typedef void (Diag_CallbackType)(uint8_t *, uint8_t);
 typedef enum{
     DATA_IDLE,
     DATA_REQUEST,
-    DATA_READED,
+    DATA_READING
 }DataState;
 
 typedef enum 
 {
-
     ENGINEDIAG_CH_VEHICLESPEED,
     ENGINEDIAG_CH_MAF,
     ENGINEDIAG_CH_BOOSTSPECIFIED,
@@ -47,7 +46,7 @@ typedef enum
     ENGINEDIAG_CH_MAX,
 }EngineDiag_ChannelIdType;
 
-uint8_t EngineDiag_GetChData(const EngineDiag_ChannelIdType, uint8_t *, uint32_t);
+uint8_t EngineDiag_GetChData(uint8_t *);
 
 void DataCyclic(void *);
 uint8_t DataInit();

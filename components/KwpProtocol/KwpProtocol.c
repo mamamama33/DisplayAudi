@@ -1,6 +1,8 @@
 #include"KwpProtocol.h"
 #include "TP2.0Protocol.h"
 #include"esp_log.h"
+#include <stdatomic.h>
+
 /*SID DEO*/
 //  ID |||| SID|| DID||| DATA
 
@@ -30,8 +32,7 @@ volatile bool SetDataDid=false;
 
 static SemaphoreHandle_t TpSendComplete = NULL;
 
-SemaphoreHandle_t GetData = NULL;
-
+atomic_bool Kwp_Readed =  ATOMIC_VAR_INIT(false);
 
 uint8_t currentSid;
 
@@ -193,9 +194,8 @@ void KwpCyclic(void *pvParameters){
 
 uint8_t KwpInit(){
     TpSendComplete = xSemaphoreCreateBinary();
-    GetData = xSemaphoreCreateBinary();
     KwpStages =KWP_START;
-    xTaskCreatePinnedToCore(KwpCyclic, "Data", 4096u, NULL, 5, &taskHandle,1);
+    xTaskCreatePinnedToCore(KwpCyclic, "Data", 4096u, NULL, 3, &taskHandle,1);
     vTaskDelay(120u / portTICK_PERIOD_MS);
     return 1;
 }
@@ -262,14 +262,24 @@ uint8_t Kwp_GetDataFromEcu(uint8_t * const dataPtr){
         retVal = 1;
         xTaskResumeAll(); // End of critical section, interrupts enabled
     
-    }
-    return retVal;
-    */
-    for(tmp=0;tmp<sizeof(didBuffer);tmp++){
+    }*/
+    if(atomic_load(&Kwp_Readed) == true){
+
+        vTaskSuspendAll(); // Critical section, interrupts enabled
+        for(tmp=0;tmp<sizeof(didBuffer);tmp++)
+        {
             dataPtr[tmp] = didBuffer[tmp]; // copy data
+        }
+        retVal = 1;
+        xTaskResumeAll(); // End of critical section, interrupts enabled
+        atomic_store(&Kwp_Readed, false);
+
     }
-    retVal = 1;
+    
+    
     return retVal;
+
+
 
 }
 
@@ -295,8 +305,7 @@ void Kwp_Receive(uint8_t * dataPtr,uint16_t len)
                         didBuffer[i] = dataPtr[4u+i];
                         //printf("kwpbaf %u",didBuffer[2]);
                     }
-                    
-                    //xSemaphoreGive(GetData);
+                    atomic_store(&Kwp_Readed, true);
 
                     KwpStages = KWP_READY;
                     
