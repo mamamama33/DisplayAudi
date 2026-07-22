@@ -5,182 +5,26 @@
 
 static TaskHandle_t disTaskHandle;
 
-uint8_t buttons=0; //0 znaci ni jedno dugmo se nije kliknulo
-uint8_t strana=0;
-
 uint8_t data[12];
 uint8_t block[3];
 uint8_t Ispravnost; 
 
 char BufferforDis[1024];
-typedef struct
-{
-    uint8_t blocks[4];
-    uint8_t id;
 
-} Block;
-
-
-Block Strane[][2] =
-{
-    // ================= PRVA STRANA =================
-    {
-        {
-            .id = 6,
-            .blocks = {
-                0,5,2,5
-                // 0 je brzina km/h a 2 je accel pedal pos
-            }
-        },
-
-        {
-            .id = 11,
-            .blocks = {
-                0,1,2,3
-                // 0 je rpm, 1 je boost pressure actual,
-                // 2 je specified, a duty cycle je 3
-            }
-        }
-    },
-
-
-    // ================= DRUGA STRANA =================
-    {
-        {
-            .id = 7,
-            .blocks = {
-                0,5,2,3
-                // 0 je fuel temp, 2 je intake air temp,
-                // 3 je coolant temp - engine
-            }
-        },
-
-        {
-            .id = 62,
-            .blocks = {
-                5,1,2,5
-                // 1 je coolant temp coolant,
-                // 2 je ambient temp
-            }
-        }
-    },
-
-
-    // ================= TREĆA STRANA =================
-    {
-        {
-            .id = 29,
-            .blocks = {
-                0,1,5,5
-                // 0 je oil temp, 1 je oil level
-            }
-        },
-
-        {
-            .id = 15,
-            .blocks = {
-                5,1,2,5
-                // 1 je engine torque,
-                // 2 je fuel consumption
-            }
-        }
-    },
-
-
-    // ================= ČETVRTA STRANA =================
-    {
-        {
-            .id = 63,
-            .blocks = {
-                0,5,2,5
-                // 0 je refrigerant pressure,
-                // 2 je cooling request koji vrv neću dobiti
-            }
-        },
-
-        {
-            .id = 64,
-            .blocks = {
-                0,1,2,5
-                // 0 je coolant temp engine,
-                // 1 je coolant temp cooler,
-                // 2 je fan duty
-            }
-        }
-    },
-
-
-    // ================= PETA STRANA =================
-    {
-        {
-            .id = 13,
-            .blocks = {
-                0,1,2,3
-                // Koliko dizne bacaju je to sve
-            }
-        },
-
-        {
-            .id = 4,
-            .blocks = {
-                5,5,5,3
-                // 3 je torsion value
-            }
-        }
-    },
-
-
-    // ================= ŠESTA STRANA =================
-    {
-        {
-            .id = 10,
-            .blocks = {
-                0,5,5,5
-                // MAF senzor
-            }
-        },
-
-        {
-            .id = 12,
-            .blocks = {
-                5,5,2,5
-                // voltage
-            }
-        }
-    }
-
-};
 
 /*UZimam stalno poslednji blok i uzimam 1 karakter koji ne treba da uzmem*/
 void DisCyclic(void *pvParameters){
     while(1){
-          vTaskDelay(pdMS_TO_TICKS(5));
+          vTaskDelay(pdMS_TO_TICKS(10));
           uint8_t offset,b;
-          buttons=GetStalkButton();
-          /*Logika za stalkgetter*/
-                
-          //ch oznacava koju stranu 
-          if(buttons!=0x00){
-            strana++;
-            if(strana>=6)
-              strana=0;
+          uint8_t Trenutnastrana2=0;
 
-          }
           //Zato sto imam 2 sida u svakom clanu
-          for(int i =1;i<3;i++){
-            
-            if(DataSetter(Strane[strana][i].id)){
 
-
-
-              
-            }
-            if(EngineDiag_GetChData(Strane[strana][i].id,data)==RETOK){
+            if(EngineDiag_GetChData(data,&Trenutnastrana2)==RETOK){
               
               for (offset=0; offset < 4u; offset++)
               {
-                      if(offset == Strane[strana][i].blocks[offset]){
-
                         vTaskSuspendAll(); // Critical section, interrupts enabled
                         for (b=0; b < 3u; b++)
                         {
@@ -190,15 +34,15 @@ void DisCyclic(void *pvParameters){
                         }
                         xTaskResumeAll(); // End of critical section, interrupts enabled
 
-                        Dis_DecodeFrame(block);
+                        //Dis_DecodeFrame(block);
+                        printf("%u \n",block[0]);
 
-                      }
 
               }
+  
+
             }
 
-
-          }
 
     }
 

@@ -1,0 +1,59 @@
+Command: ninja all
+[1/13] Performing build step for 'bootloader'
+[1/1] cd /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader && /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[2/11] Building C object esp-idf/DataAnaliser/CMakeFiles/__idf_DataAnaliser.dir/DataAnaliser.c.obj
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/DataAnaliser/DataAnaliser.c: In function 'EngineDiag_GetChData':
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/DataAnaliser/DataAnaliser.c:192:13: warning: unused variable 'i' [-Wunused-variable]
+  192 |     uint8_t i = 0;
+      |             ^
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/DataAnaliser/DataAnaliser.c:191:14: warning: unused variable 'sysTime' [-Wunused-variable]
+  191 |     uint32_t sysTime = 0;
+      |              ^~~~~~~
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/DataAnaliser/DataAnaliser.c: At top level:
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/DataAnaliser/DataAnaliser.c:185:16: warning: 'counter' defined but not used [-Wunused-variable]
+  185 | static uint8_t counter;
+      |                ^~~~~~~
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/DataAnaliser/DataAnaliser.c:184:17: warning: 'zadnjeVremePrijema' defined but not used [-Wunused-variable]
+  184 | static uint32_t zadnjeVremePrijema = 0;
+      |                 ^~~~~~~~~~~~~~~~~~
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/DataAnaliser/DataAnaliser.c:10:27: warning: 'callback' defined but not used [-Wunused-variable]
+   10 | static Diag_CallbackType *callback;
+      |                           ^~~~~~~~
+[3/11] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+In file included from /home/student/Desktop/ProjekatDisplej/DisplayAudi/main/main.c:10:
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/Display/Display.h:6:13: warning: 'Dis_CreateStrings' declared 'static' but never defined [-Wunused-function]
+    6 | static void Dis_CreateStrings(uint8_t *);
+      |             ^~~~~~~~~~~~~~~~~
+[4/11] Linking C static library esp-idf/DataAnaliser/libDataAnaliser.a
+[5/11] Building C object esp-idf/Display/CMakeFiles/__idf_Display.dir/Display.c.obj
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/Display/Display.c: In function 'Dis_DecodeFrame':
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/Display/Display.c:58:11: warning: unused variable 'len' [-Wunused-variable]
+   58 |   uint8_t len;
+      |           ^~~
+In file included from /home/student/Desktop/ProjekatDisplej/DisplayAudi/components/Display/Display.c:1:
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/Display/Display.h: At top level:
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/Display/Display.h:6:13: warning: 'Dis_CreateStrings' declared 'static' but never defined [-Wunused-function]
+    6 | static void Dis_CreateStrings(uint8_t *);
+      |             ^~~~~~~~~~~~~~~~~
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/components/Display/Display.c:6:21: warning: 'disTaskHandle' defined but not used [-Wunused-variable]
+    6 | static TaskHandle_t disTaskHandle;
+      |                     ^~~~~~~~~~~~~
+[6/11] Linking C static library esp-idf/Display/libDisplay.a
+[7/11] Linking C static library esp-idf/main/libmain.a
+[8/11] Generating esp-idf/esp_system/ld/sections.ld
+info: Default value for MBEDTLS_ARIA_C in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+info: Default value for MBEDTLS_THREADING_C in sdkconfig is n but it is y according to Kconfig.
+Using default value from sdkconfig (n).
+info: Default value for MBEDTLS_SHA3_C in sdkconfig is y but it is n according to Kconfig.
+Using default value from sdkconfig (y).
+[9/11] Linking CXX executable DisplayAudi.elf
+[10/11] Generating binary image from built executable
+esptool v5.2.0
+Creating ESP32 image...
+Merged 3 ELF sections.
+Successfully created ESP32 image.
+Generated /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.bin
+[11/11] cd /home/student/Desktop/ProjekatDisplej/DisplayAudi/build && /home/student/.espressif/python_env/idf6.1_py3.10_env/bin/python /home/student/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/partition_table/partition-table.bin /home/student/Desktop/ProjekatDisplej/DisplayAudi/build/DisplayAudi.bin
+DisplayAudi.bin binary size 0x25b80 bytes. Smallest app partition is 0x100000 bytes. 0xda480 bytes (85%) free.
