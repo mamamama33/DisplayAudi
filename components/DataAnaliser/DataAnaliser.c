@@ -35,7 +35,7 @@ Block Strane[][2] =
             .id = 6,
             .blocks = {
                 0,5,2,5
-                // 0 je brzina km/h a 2 je accel pedal pos
+                // 0 je brzina km/h CASE 7 ,a 2 je accel pedal pos CASE 33
             }
         },
 
@@ -43,8 +43,8 @@ Block Strane[][2] =
             .id = 11,
             .blocks = {
                 0,1,2,3
-                // 0 je rpm, 1 je boost pressure actual,
-                // 2 je specified, a duty cycle je 3
+                // 0 je rpm CASE 1, 1 je boost pressure actual CASE 18,
+                // 2 je specified CASE 18, a duty cycle je 3 CASE 23           SVE FORMULE OK
             }
         }
     },
@@ -56,11 +56,11 @@ Block Strane[][2] =
             .id = 7,
             .blocks = {
                 0,5,2,3
-                // 0 je fuel temp, 2 je intake air temp,
+                // 0 je fuel temp CASE 5, 2 je intake air temp,  SVI CASE 05 sto meni treba
                 // 3 je coolant temp - engine
             }
         },
-
+                                    //SVE CELA STRANA JE 05 CASE            SVE FORMULE OK
         {
             .id = 62,
             .blocks = {
@@ -78,7 +78,7 @@ Block Strane[][2] =
             .id = 29,
             .blocks = {
                 0,1,5,5
-                // 0 je oil temp, 1 je oil level
+                // 0 je oil temp CASE 5, 1 je oil level CASE 102  NEMA FORMULA ZA 102 ali a=10 ,b = 00 tkd neko mnozenje jer u leru pise 00mm na snimku IMA CASE 13(mozda je taj)
             }
         },
 
@@ -86,8 +86,8 @@ Block Strane[][2] =
             .id = 15,
             .blocks = {
                 5,1,2,5
-                // 1 je engine torque,
-                // 2 je fuel consumption
+                // 1 je engine torque CASE 52, formula OK 
+                // 2 je fuel consumption CASE 35 formula ok
             }
         }
     },
@@ -98,9 +98,9 @@ Block Strane[][2] =
         {
             .id = 63,
             .blocks = {
-                0,5,2,5
-                // 0 je refrigerant pressure,
-                // 2 je cooling request koji vrv neću dobiti
+                0,1,5,5
+                // 0 je refrigerant pressure, CASE 69 OK FORMULA
+                // 1 je torque load CASE 52 kao engine torque 
             }
         },
 
@@ -108,9 +108,9 @@ Block Strane[][2] =
             .id = 64,
             .blocks = {
                 0,1,2,5
-                // 0 je coolant temp engine,
-                // 1 je coolant temp cooler,
-                // 2 je fan duty
+                // 0 je coolant temp engine, CASE 5
+                // 1 je coolant temp cooler, CASE 5 
+                // 2 je fan duty             CASE 23 a=102 ,b= 25 FORMULE ok 
             }
         }
     },
@@ -122,15 +122,15 @@ Block Strane[][2] =
             .id = 13,
             .blocks = {
                 0,1,2,3
-                // Koliko dizne bacaju je to sve
+                // Koliko dizne bacaju je to sve SVE SU CASE 51 OK FORMULA
             }
         },
-
+                                                                //MOOGUCE NESTO NOVO DODATI
         {
             .id = 4,
             .blocks = {
                 5,5,5,3
-                // 3 je torsion value
+                // 3 je torsion value CASE 34 FORMULA OK
             }
         }
     },
@@ -141,16 +141,16 @@ Block Strane[][2] =
         {
             .id = 10,
             .blocks = {
-                0,5,5,5
-                // MAF senzor
+                0,1,5,5
+                // MAF senzor je 0 CASE 49 u formuli je mh/h a meni je mg/str, atmosferski pritisak 1 CASE 12
             }
         },
-
+                                                                //SEM MAF FENZORA SVE FORMULE OK
         {
             .id = 12,
             .blocks = {
-                5,5,2,5
-                // voltage
+                5,1,2,5
+                // PreGlow plug je 1 CASE 55 voltage je 2 CASE 6 TACAN 
             }
         }
     }
@@ -213,7 +213,7 @@ uint8_t EngineDiag_GetChData(uint8_t * dataPtr,uint8_t* TrenutnaStrana)
                         for (b=0; b < 3u; b++)
                         {
                             // Copy 3 bytes of data from buffer with offset
-                            dataPtr[(offset*3)+b] =0;
+                            dataPtr[(offset*3)+b] = 0;
 
                         }
 

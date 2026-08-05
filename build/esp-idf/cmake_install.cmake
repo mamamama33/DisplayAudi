@@ -729,6 +729,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/esp-idf/AnimatedGIF/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/esp-idf/PhysicalCan/cmake_install.cmake")
 endif()
 
@@ -749,6 +754,96 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/esp-idf/chmorgan__esp-libhelix-mp3/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/esp-idf/espressif__esp-modbus/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/esp-idf/espressif__esp-zboss-lib/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/esp-idf/espressif__esp-zigbee-lib/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/esp-idf/espressif__mdns/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/esp-idf/espressif__cjson/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/esp-idf/espressif__dm9051/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/esp-idf/espressif__esp-dsp/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/esp-idf/espressif__esp_modem/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/esp-idf/espressif__ksz8851snl/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/esp-idf/espressif__lan86xx_common/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/esp-idf/espressif__lan867x/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/esp-idf/espressif__network_provisioning/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/esp-idf/espressif__w5500/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/esp-idf/joltwallet__littlefs/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/esp-idf/arduino/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/esp-idf/TFT_eSPI/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/esp-idf/Display/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/esp-idf/TFT_eWidget/cmake_install.cmake")
 endif()
 

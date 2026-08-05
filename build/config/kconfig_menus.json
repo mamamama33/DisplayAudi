@@ -4923,6 +4923,874 @@
     {
         "children": [
             {
+                "children": [],
+                "depends_on": null,
+                "help": "The name of a target variant (e.g., a specific board) in the variants/\nfolder, e.g.  \"heltec_wifi_lora_32_V2\". The name is case sensitive.\nSpecifying a variant name different from the target enables additional\ncustomization, for example the definition of GPIO pins.",
+                "id": "ARDUINO_VARIANT",
+                "name": "ARDUINO_VARIANT",
+                "range": null,
+                "title": "Arduino target variant (board)",
+                "type": "string"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": null,
+                "id": "ENABLE_ARDUINO_DEPENDS",
+                "name": "ENABLE_ARDUINO_DEPENDS",
+                "range": null,
+                "title": null,
+                "type": "bool"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Enabling this option will implement app_main and start Arduino.\nAll you need to implement in your main.cpp is setup() and loop()\nand include Arduino.h\nIf disabled, you can call initArduino() to run any preparations\nrequired by the framework",
+                "id": "AUTOSTART_ARDUINO",
+                "name": "AUTOSTART_ARDUINO",
+                "range": null,
+                "title": "Autostart Arduino setup and loop on boot",
+                "type": "bool"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "depends_on": "<choice ARDUINO_RUNNING_CORE>",
+                        "help": null,
+                        "id": "ARDUINO_RUN_CORE0",
+                        "name": "ARDUINO_RUN_CORE0",
+                        "range": null,
+                        "title": "CORE 0",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "!FREERTOS_UNICORE && <choice ARDUINO_RUNNING_CORE>",
+                        "help": null,
+                        "id": "ARDUINO_RUN_CORE1",
+                        "name": "ARDUINO_RUN_CORE1",
+                        "range": null,
+                        "title": "CORE 1",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "!FREERTOS_UNICORE && <choice ARDUINO_RUNNING_CORE>",
+                        "help": null,
+                        "id": "ARDUINO_RUN_NO_AFFINITY",
+                        "name": "ARDUINO_RUN_NO_AFFINITY",
+                        "range": null,
+                        "title": "BOTH",
+                        "type": "bool"
+                    }
+                ],
+                "depends_on": null,
+                "help": "Select on which core Arduino's setup() and loop() functions run",
+                "id": "arduino-configuration-core-on-which-arduino-s-setup-and-loop-are-running-home-student-Desktop-ProjekatDisplej-DisplayAudi-components-arduino-Kconfig.projbuild-31",
+                "name": "ARDUINO_RUNNING_CORE",
+                "title": "Core on which Arduino's setup() and loop() are running",
+                "type": "choice"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": null,
+                "id": "ARDUINO_RUNNING_CORE",
+                "name": "ARDUINO_RUNNING_CORE",
+                "range": null,
+                "title": null,
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Amount of stack available for the Arduino task.",
+                "id": "ARDUINO_LOOP_STACK_SIZE",
+                "name": "ARDUINO_LOOP_STACK_SIZE",
+                "range": null,
+                "title": "Loop thread stack size",
+                "type": "int"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "depends_on": "<choice ARDUINO_EVENT_RUNNING_CORE>",
+                        "help": null,
+                        "id": "ARDUINO_EVENT_RUN_CORE0",
+                        "name": "ARDUINO_EVENT_RUN_CORE0",
+                        "range": null,
+                        "title": "CORE 0",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "!FREERTOS_UNICORE && <choice ARDUINO_EVENT_RUNNING_CORE>",
+                        "help": null,
+                        "id": "ARDUINO_EVENT_RUN_CORE1",
+                        "name": "ARDUINO_EVENT_RUN_CORE1",
+                        "range": null,
+                        "title": "CORE 1",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "!FREERTOS_UNICORE && <choice ARDUINO_EVENT_RUNNING_CORE>",
+                        "help": null,
+                        "id": "ARDUINO_EVENT_RUN_NO_AFFINITY",
+                        "name": "ARDUINO_EVENT_RUN_NO_AFFINITY",
+                        "range": null,
+                        "title": "BOTH",
+                        "type": "bool"
+                    }
+                ],
+                "depends_on": null,
+                "help": "Select on which core Arduino's WiFi.onEvent() run",
+                "id": "arduino-configuration-core-on-which-arduino-s-event-handler-is-running-home-student-Desktop-ProjekatDisplej-DisplayAudi-components-arduino-Kconfig.projbuild-61",
+                "name": "ARDUINO_EVENT_RUNNING_CORE",
+                "title": "Core on which Arduino's event handler is running",
+                "type": "choice"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": null,
+                "id": "ARDUINO_EVENT_RUNNING_CORE",
+                "name": "ARDUINO_EVENT_RUNNING_CORE",
+                "range": null,
+                "title": null,
+                "type": "int"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "depends_on": "<choice ARDUINO_SERIAL_EVENT_TASK_RUNNING_CORE>",
+                        "help": null,
+                        "id": "ARDUINO_SERIAL_EVENT_RUN_CORE0",
+                        "name": "ARDUINO_SERIAL_EVENT_RUN_CORE0",
+                        "range": null,
+                        "title": "CORE 0",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "!FREERTOS_UNICORE && <choice ARDUINO_SERIAL_EVENT_TASK_RUNNING_CORE>",
+                        "help": null,
+                        "id": "ARDUINO_SERIAL_EVENT_RUN_CORE1",
+                        "name": "ARDUINO_SERIAL_EVENT_RUN_CORE1",
+                        "range": null,
+                        "title": "CORE 1",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "!FREERTOS_UNICORE && <choice ARDUINO_SERIAL_EVENT_TASK_RUNNING_CORE>",
+                        "help": null,
+                        "id": "ARDUINO_SERIAL_EVENT_RUN_NO_AFFINITY",
+                        "name": "ARDUINO_SERIAL_EVENT_RUN_NO_AFFINITY",
+                        "range": null,
+                        "title": "BOTH",
+                        "type": "bool"
+                    }
+                ],
+                "depends_on": null,
+                "help": "Select on which core Arduino's Serial Event task run",
+                "id": "arduino-configuration-core-on-which-arduino-s-serial-event-task-is-running-home-student-Desktop-ProjekatDisplej-DisplayAudi-components-arduino-Kconfig.projbuild-85",
+                "name": "ARDUINO_SERIAL_EVENT_TASK_RUNNING_CORE",
+                "title": "Core on which Arduino's Serial Event task is running",
+                "type": "choice"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": null,
+                "id": "ARDUINO_SERIAL_EVENT_TASK_RUNNING_CORE",
+                "name": "ARDUINO_SERIAL_EVENT_TASK_RUNNING_CORE",
+                "range": null,
+                "title": null,
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Amount of stack available for the Serial Event task.",
+                "id": "ARDUINO_SERIAL_EVENT_TASK_STACK_SIZE",
+                "name": "ARDUINO_SERIAL_EVENT_TASK_STACK_SIZE",
+                "range": null,
+                "title": "Serial Event task stack size",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Select at what priority you want the Serial Event task to run.",
+                "id": "ARDUINO_SERIAL_EVENT_TASK_PRIORITY",
+                "name": "ARDUINO_SERIAL_EVENT_TASK_PRIORITY",
+                "range": null,
+                "title": "Priority of the Serial Event task",
+                "type": "int"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "depends_on": "<choice ARDUINO_UDP_RUNNING_CORE>",
+                        "help": null,
+                        "id": "ARDUINO_UDP_RUN_CORE0",
+                        "name": "ARDUINO_UDP_RUN_CORE0",
+                        "range": null,
+                        "title": "CORE 0",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "!FREERTOS_UNICORE && <choice ARDUINO_UDP_RUNNING_CORE>",
+                        "help": null,
+                        "id": "ARDUINO_UDP_RUN_CORE1",
+                        "name": "ARDUINO_UDP_RUN_CORE1",
+                        "range": null,
+                        "title": "CORE 1",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "!FREERTOS_UNICORE && <choice ARDUINO_UDP_RUNNING_CORE>",
+                        "help": null,
+                        "id": "ARDUINO_UDP_RUN_NO_AFFINITY",
+                        "name": "ARDUINO_UDP_RUN_NO_AFFINITY",
+                        "range": null,
+                        "title": "BOTH",
+                        "type": "bool"
+                    }
+                ],
+                "depends_on": null,
+                "help": "Select on which core Arduino's UDP run",
+                "id": "arduino-configuration-core-on-which-arduino-s-udp-is-running-home-student-Desktop-ProjekatDisplej-DisplayAudi-components-arduino-Kconfig.projbuild-121",
+                "name": "ARDUINO_UDP_RUNNING_CORE",
+                "title": "Core on which Arduino's UDP is running",
+                "type": "choice"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": null,
+                "id": "ARDUINO_UDP_RUNNING_CORE",
+                "name": "ARDUINO_UDP_RUNNING_CORE",
+                "range": null,
+                "title": null,
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Select at what priority you want the UDP task to run.",
+                "id": "ARDUINO_UDP_TASK_PRIORITY",
+                "name": "ARDUINO_UDP_TASK_PRIORITY",
+                "range": null,
+                "title": "Priority of the UDP task",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Amount of stack available for the UDP task.",
+                "id": "ARDUINO_UDP_TASK_STACK_SIZE",
+                "name": "ARDUINO_UDP_TASK_STACK_SIZE",
+                "range": null,
+                "title": "UDP task stack size",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Enabling this option will Attach all interrupts with the IRAm flag.\nIt will also make some HAL function, like, digitalRead/Write and more\n                        be loaded into IRAM for access inside ISRs.\n                        Beware that this is a very dangerous setting. Enable it only if you\n                        are fully aware of the consequences.",
+                "id": "ARDUINO_ISR_IRAM",
+                "name": "ARDUINO_ISR_IRAM",
+                "range": null,
+                "title": "Run interrupts in IRAM",
+                "type": "bool"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Enabling this option will run all hardware abstraction without locks.\nWhile communication with external hardware will be faster, you need to\nmake sure that there is no option to use the same bus from another thread\nor interrupt at the same time. Option is best used with Arduino enabled\nand code implemented only in setup/loop and Arduino callbacks",
+                "id": "DISABLE_HAL_LOCKS",
+                "name": "DISABLE_HAL_LOCKS",
+                "range": null,
+                "title": "Disable mutex locks for HAL",
+                "type": "bool"
+            },
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "<choice ARDUHAL_LOG_DEFAULT_LEVEL>",
+                                "help": null,
+                                "id": "ARDUHAL_LOG_DEFAULT_LEVEL_NONE",
+                                "name": "ARDUHAL_LOG_DEFAULT_LEVEL_NONE",
+                                "range": null,
+                                "title": "No output",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice ARDUHAL_LOG_DEFAULT_LEVEL>",
+                                "help": null,
+                                "id": "ARDUHAL_LOG_DEFAULT_LEVEL_ERROR",
+                                "name": "ARDUHAL_LOG_DEFAULT_LEVEL_ERROR",
+                                "range": null,
+                                "title": "Error",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice ARDUHAL_LOG_DEFAULT_LEVEL>",
+                                "help": null,
+                                "id": "ARDUHAL_LOG_DEFAULT_LEVEL_WARN",
+                                "name": "ARDUHAL_LOG_DEFAULT_LEVEL_WARN",
+                                "range": null,
+                                "title": "Warning",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice ARDUHAL_LOG_DEFAULT_LEVEL>",
+                                "help": null,
+                                "id": "ARDUHAL_LOG_DEFAULT_LEVEL_INFO",
+                                "name": "ARDUHAL_LOG_DEFAULT_LEVEL_INFO",
+                                "range": null,
+                                "title": "Info",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice ARDUHAL_LOG_DEFAULT_LEVEL>",
+                                "help": null,
+                                "id": "ARDUHAL_LOG_DEFAULT_LEVEL_DEBUG",
+                                "name": "ARDUHAL_LOG_DEFAULT_LEVEL_DEBUG",
+                                "range": null,
+                                "title": "Debug",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice ARDUHAL_LOG_DEFAULT_LEVEL>",
+                                "help": null,
+                                "id": "ARDUHAL_LOG_DEFAULT_LEVEL_VERBOSE",
+                                "name": "ARDUHAL_LOG_DEFAULT_LEVEL_VERBOSE",
+                                "range": null,
+                                "title": "Verbose",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": null,
+                        "help": "Specify how much output to see in logs by default.",
+                        "id": "arduino-configuration-debug-log-configuration-default-log-level-home-student-Desktop-ProjekatDisplej-DisplayAudi-components-arduino-Kconfig.projbuild-177",
+                        "name": "ARDUHAL_LOG_DEFAULT_LEVEL",
+                        "title": "Default log level",
+                        "type": "choice"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": null,
+                        "id": "ARDUHAL_LOG_DEFAULT_LEVEL",
+                        "name": "ARDUHAL_LOG_DEFAULT_LEVEL",
+                        "range": null,
+                        "title": null,
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Enable ANSI terminal color codes in bootloader output.\nIn order to view these, your terminal program must support ANSI color codes.",
+                        "id": "ARDUHAL_LOG_COLORS",
+                        "name": "ARDUHAL_LOG_COLORS",
+                        "range": null,
+                        "title": "Use ANSI terminal colors in log output",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "This option will redefine the ESP_LOGx macros to Arduino's log_x macros.\nTo enable for your application, add the following after your includes:\n#ifdef ARDUINO_ARCH_ESP32\n#include \"esp32-hal-log.h\"\n#endif",
+                        "id": "ARDUHAL_ESP_LOG",
+                        "name": "ARDUHAL_ESP_LOG",
+                        "range": null,
+                        "title": "Forward ESP_LOGx to Arduino log output",
+                        "type": "bool"
+                    }
+                ],
+                "depends_on": null,
+                "id": "arduino-configuration-debug-log-configuration-home-student-Desktop-ProjekatDisplej-DisplayAudi-components-arduino-Kconfig.projbuild-176",
+                "title": "Debug Log Configuration",
+                "type": "menu"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "depends_on": "<choice ARDUHAL_PARTITION_SCHEME>",
+                        "help": null,
+                        "id": "ARDUHAL_PARTITION_SCHEME_DEFAULT",
+                        "name": "ARDUHAL_PARTITION_SCHEME_DEFAULT",
+                        "range": null,
+                        "title": "Default",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "<choice ARDUHAL_PARTITION_SCHEME>",
+                        "help": null,
+                        "id": "ARDUHAL_PARTITION_SCHEME_MINIMAL",
+                        "name": "ARDUHAL_PARTITION_SCHEME_MINIMAL",
+                        "range": null,
+                        "title": "Minimal (for 2MB FLASH)",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "<choice ARDUHAL_PARTITION_SCHEME>",
+                        "help": null,
+                        "id": "ARDUHAL_PARTITION_SCHEME_NO_OTA",
+                        "name": "ARDUHAL_PARTITION_SCHEME_NO_OTA",
+                        "range": null,
+                        "title": "No OTA (for large apps)",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "<choice ARDUHAL_PARTITION_SCHEME>",
+                        "help": null,
+                        "id": "ARDUHAL_PARTITION_SCHEME_HUGE_APP",
+                        "name": "ARDUHAL_PARTITION_SCHEME_HUGE_APP",
+                        "range": null,
+                        "title": "Huge App (for very large apps)",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "<choice ARDUHAL_PARTITION_SCHEME>",
+                        "help": null,
+                        "id": "ARDUHAL_PARTITION_SCHEME_MIN_SPIFFS",
+                        "name": "ARDUHAL_PARTITION_SCHEME_MIN_SPIFFS",
+                        "range": null,
+                        "title": "Minimal SPIFFS (for large apps with OTA)",
+                        "type": "bool"
+                    }
+                ],
+                "depends_on": null,
+                "help": "Specify which partition scheme to be used.",
+                "id": "arduino-configuration-used-partition-scheme-home-student-Desktop-ProjekatDisplej-DisplayAudi-components-arduino-Kconfig.projbuild-225",
+                "name": "ARDUHAL_PARTITION_SCHEME",
+                "title": "Used partition scheme",
+                "type": "choice"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": null,
+                "id": "ARDUHAL_PARTITION_SCHEME",
+                "name": "ARDUHAL_PARTITION_SCHEME",
+                "range": null,
+                "title": null,
+                "type": "string"
+            },
+            {
+                "children": [],
+                "depends_on": "AUTOSTART_ARDUINO",
+                "help": "If enabled, WiFi will connect to the last used SSID (if station was enabled),\nelse connection will be started only after calling WiFi.begin(ssid, password)",
+                "id": "AUTOCONNECT_WIFI",
+                "name": "AUTOCONNECT_WIFI",
+                "range": null,
+                "title": "Autoconnect WiFi on boot",
+                "type": "bool"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_SPI",
+                        "name": "ARDUINO_SELECTIVE_SPI",
+                        "range": null,
+                        "title": "Enable SPI",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_Wire",
+                        "name": "ARDUINO_SELECTIVE_Wire",
+                        "range": null,
+                        "title": "Enable Wire",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_ESP_SR",
+                        "name": "ARDUINO_SELECTIVE_ESP_SR",
+                        "range": null,
+                        "title": "Enable ESP-SR",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_ESP_Video",
+                        "name": "ARDUINO_SELECTIVE_ESP_Video",
+                        "range": null,
+                        "title": "Enable ESP-Video",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_EEPROM",
+                        "name": "ARDUINO_SELECTIVE_EEPROM",
+                        "range": null,
+                        "title": "Enable EEPROM",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_Preferences",
+                        "name": "ARDUINO_SELECTIVE_Preferences",
+                        "range": null,
+                        "title": "Enable Preferences",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_Ticker",
+                        "name": "ARDUINO_SELECTIVE_Ticker",
+                        "range": null,
+                        "title": "Enable Ticker",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_Update",
+                        "name": "ARDUINO_SELECTIVE_Update",
+                        "range": null,
+                        "title": "Enable Update",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_Zigbee",
+                        "name": "ARDUINO_SELECTIVE_Zigbee",
+                        "range": null,
+                        "title": "Enable Zigbee",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "ARDUINO_SELECTIVE_COMPILATION && ARDUINO_SELECTIVE_FS",
+                                "help": null,
+                                "id": "ARDUINO_SELECTIVE_SD",
+                                "name": "ARDUINO_SELECTIVE_SD",
+                                "range": null,
+                                "title": "Enable SD",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "ARDUINO_SELECTIVE_COMPILATION && ARDUINO_SELECTIVE_FS",
+                                "help": null,
+                                "id": "ARDUINO_SELECTIVE_SD_MMC",
+                                "name": "ARDUINO_SELECTIVE_SD_MMC",
+                                "range": null,
+                                "title": "Enable SD_MMC",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "ARDUINO_SELECTIVE_COMPILATION && ARDUINO_SELECTIVE_FS",
+                                "help": null,
+                                "id": "ARDUINO_SELECTIVE_SPIFFS",
+                                "name": "ARDUINO_SELECTIVE_SPIFFS",
+                                "range": null,
+                                "title": "Enable SPIFFS",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "ARDUINO_SELECTIVE_COMPILATION && ARDUINO_SELECTIVE_FS",
+                                "help": null,
+                                "id": "ARDUINO_SELECTIVE_FFat",
+                                "name": "ARDUINO_SELECTIVE_FFat",
+                                "range": null,
+                                "title": "Enable FFat",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "ARDUINO_SELECTIVE_COMPILATION && ARDUINO_SELECTIVE_FS",
+                                "help": null,
+                                "id": "ARDUINO_SELECTIVE_LittleFS",
+                                "name": "ARDUINO_SELECTIVE_LittleFS",
+                                "range": null,
+                                "title": "Enable LittleFS",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_FS",
+                        "name": "ARDUINO_SELECTIVE_FS",
+                        "range": null,
+                        "title": "Enable FS",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_Network",
+                        "name": "ARDUINO_SELECTIVE_Network",
+                        "range": null,
+                        "title": "Enable Networking",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_Ethernet",
+                        "name": "ARDUINO_SELECTIVE_Ethernet",
+                        "range": null,
+                        "title": "Enable Ethernet",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_PPP",
+                        "name": "ARDUINO_SELECTIVE_PPP",
+                        "range": null,
+                        "title": "Enable PPP",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_Hash",
+                        "name": "ARDUINO_SELECTIVE_Hash",
+                        "range": null,
+                        "title": "Enable Hash",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION && ARDUINO_SELECTIVE_Network",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_ArduinoOTA",
+                        "name": "ARDUINO_SELECTIVE_ArduinoOTA",
+                        "range": null,
+                        "title": "Enable ArduinoOTA",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION && ARDUINO_SELECTIVE_Network",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_AsyncUDP",
+                        "name": "ARDUINO_SELECTIVE_AsyncUDP",
+                        "range": null,
+                        "title": "Enable AsyncUDP",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION && ARDUINO_SELECTIVE_Network",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_DNSServer",
+                        "name": "ARDUINO_SELECTIVE_DNSServer",
+                        "range": null,
+                        "title": "Enable DNSServer",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION && ARDUINO_SELECTIVE_Network",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_ESPmDNS",
+                        "name": "ARDUINO_SELECTIVE_ESPmDNS",
+                        "range": null,
+                        "title": "Enable ESPmDNS",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION && ARDUINO_SELECTIVE_Network",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_HTTPClient",
+                        "name": "ARDUINO_SELECTIVE_HTTPClient",
+                        "range": null,
+                        "title": "Enable HTTPClient",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION && ARDUINO_SELECTIVE_Network",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_Matter",
+                        "name": "ARDUINO_SELECTIVE_Matter",
+                        "range": null,
+                        "title": "Enable Matter",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION && ARDUINO_SELECTIVE_Network",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_NetBIOS",
+                        "name": "ARDUINO_SELECTIVE_NetBIOS",
+                        "range": null,
+                        "title": "Enable NetBIOS",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION && ARDUINO_SELECTIVE_Network",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_WebServer",
+                        "name": "ARDUINO_SELECTIVE_WebServer",
+                        "range": null,
+                        "title": "Enable WebServer",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION && ARDUINO_SELECTIVE_Network",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_WiFi",
+                        "name": "ARDUINO_SELECTIVE_WiFi",
+                        "range": null,
+                        "title": "Enable WiFi",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION && ARDUINO_SELECTIVE_Network",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_NetworkClientSecure",
+                        "name": "ARDUINO_SELECTIVE_NetworkClientSecure",
+                        "range": null,
+                        "title": "Enable NetworkClientSecure",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION && ARDUINO_SELECTIVE_Network && ARDUINO_SELECTIVE_WiFi",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_WiFiProv",
+                        "name": "ARDUINO_SELECTIVE_WiFiProv",
+                        "range": null,
+                        "title": "Enable WiFiProv",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_BLE",
+                        "name": "ARDUINO_SELECTIVE_BLE",
+                        "range": null,
+                        "title": "Enable BLE",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_BluetoothSerial",
+                        "name": "ARDUINO_SELECTIVE_BluetoothSerial",
+                        "range": null,
+                        "title": "Enable BluetoothSerial",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_SimpleBLE",
+                        "name": "ARDUINO_SELECTIVE_SimpleBLE",
+                        "range": null,
+                        "title": "Enable SimpleBLE",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_RainMaker",
+                        "name": "ARDUINO_SELECTIVE_RainMaker",
+                        "range": null,
+                        "title": "Enable RainMaker",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_OpenThread",
+                        "name": "ARDUINO_SELECTIVE_OpenThread",
+                        "range": null,
+                        "title": "Enable OpenThread",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "ARDUINO_SELECTIVE_COMPILATION",
+                        "help": null,
+                        "id": "ARDUINO_SELECTIVE_Insights",
+                        "name": "ARDUINO_SELECTIVE_Insights",
+                        "range": null,
+                        "title": "Enable Insights",
+                        "type": "bool"
+                    }
+                ],
+                "depends_on": null,
+                "help": null,
+                "id": "ARDUINO_SELECTIVE_COMPILATION",
+                "name": "ARDUINO_SELECTIVE_COMPILATION",
+                "range": null,
+                "title": "Include only specific Arduino libraries",
+                "type": "bool"
+            }
+        ],
+        "depends_on": null,
+        "id": "arduino-configuration-home-student-Desktop-ProjekatDisplej-DisplayAudi-components-arduino-Kconfig.projbuild-1",
+        "title": "Arduino Configuration",
+        "type": "menu"
+    },
+    {
+        "children": [
+            {
                 "children": [
                     {
                         "children": [],
@@ -37649,6 +38517,2701 @@
                 "depends_on": null,
                 "id": "component-config-wear-levelling-home-student-esp-idf-components-wear_levelling-Kconfig-1",
                 "title": "Wear Levelling",
+                "type": "menu"
+            },
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": null,
+                                "id": "TFT_eSPI_ESPIDF",
+                                "name": "TFT_eSPI_ESPIDF",
+                                "range": null,
+                                "title": "Enable Configuration",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": null,
+                        "id": "component-config-tft_espi-hidden-menu-home-student-Desktop-ProjekatDisplej-DisplayAudi-components-TFT_eSPI-Kconfig-3",
+                        "title": "Hidden menu",
+                        "type": "menu"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_DRIVER>",
+                                "help": "Generic driver for common displays",
+                                "id": "TFT_ILI9341_DRIVER",
+                                "name": "TFT_ILI9341_DRIVER",
+                                "range": null,
+                                "title": "ILI9341 - 1",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_DRIVER>",
+                                "help": "Alternative ILI9341 driver, see https://github.com/Bodmer/TFT_eSPI/issues/1172",
+                                "id": "TFT_ILI9341_2_DRIVER",
+                                "name": "TFT_ILI9341_2_DRIVER",
+                                "range": null,
+                                "title": "ILI9341 - 2",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_DRIVER>",
+                                "help": "Define additional parameters below for this display",
+                                "id": "TFT_ST7735_DRIVER",
+                                "name": "TFT_ST7735_DRIVER",
+                                "range": null,
+                                "title": "ST7735",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_DRIVER>",
+                                "help": "Define additional parameters below for this display",
+                                "id": "TFT_ILI9163_DRIVER",
+                                "name": "TFT_ILI9163_DRIVER",
+                                "range": null,
+                                "title": "ILI9163",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_DRIVER>",
+                                "help": null,
+                                "id": "TFT_S6D02A1_DRIVER",
+                                "name": "TFT_S6D02A1_DRIVER",
+                                "range": null,
+                                "title": "S6D02A1",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_DRIVER>",
+                                "help": null,
+                                "id": "TFT_HX8357D_DRIVER",
+                                "name": "TFT_HX8357D_DRIVER",
+                                "range": null,
+                                "title": "HX8357D",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_DRIVER>",
+                                "help": null,
+                                "id": "TFT_ILI9481_DRIVER",
+                                "name": "TFT_ILI9481_DRIVER",
+                                "range": null,
+                                "title": "ILI9481",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_DRIVER>",
+                                "help": null,
+                                "id": "TFT_ILI9486_DRIVER",
+                                "name": "TFT_ILI9486_DRIVER",
+                                "range": null,
+                                "title": "ILI9486",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_DRIVER>",
+                                "help": "WARNING: Do not connect ILI9488 display SDO to MISO if other devices \nshare the SPI bus (TFT SDO does NOT tristate when CS is high)",
+                                "id": "TFT_ILI9488_DRIVER",
+                                "name": "TFT_ILI9488_DRIVER",
+                                "range": null,
+                                "title": "ILI9488",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_DRIVER>",
+                                "help": "Full configuration option, define additional parameters below for this display",
+                                "id": "TFT_ST7789_DRIVER",
+                                "name": "TFT_ST7789_DRIVER",
+                                "range": null,
+                                "title": "ST7789 - 1",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_DRIVER>",
+                                "help": "Minimal configuration option, define additional parameters below for this display",
+                                "id": "TFT_ST7789_2_DRIVER",
+                                "name": "TFT_ST7789_2_DRIVER",
+                                "range": null,
+                                "title": "ST7789 - 2",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_DRIVER>",
+                                "help": null,
+                                "id": "TFT_R61581_DRIVER",
+                                "name": "TFT_R61581_DRIVER",
+                                "range": null,
+                                "title": "R61581",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_DRIVER>",
+                                "help": null,
+                                "id": "TFT_RM68140_DRIVER",
+                                "name": "TFT_RM68140_DRIVER",
+                                "range": null,
+                                "title": "RM68140",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_DRIVER>",
+                                "help": null,
+                                "id": "TFT_ST7796_DRIVER",
+                                "name": "TFT_ST7796_DRIVER",
+                                "range": null,
+                                "title": "ST7796",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_DRIVER>",
+                                "help": null,
+                                "id": "TFT_SSD1351_DRIVER",
+                                "name": "TFT_SSD1351_DRIVER",
+                                "range": null,
+                                "title": "SSD1351",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_DRIVER>",
+                                "help": null,
+                                "id": "TFT_SSD1963_480_DRIVER",
+                                "name": "TFT_SSD1963_480_DRIVER",
+                                "range": null,
+                                "title": "SSD1963_480",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_DRIVER>",
+                                "help": null,
+                                "id": "TFT_SSD1963_800_DRIVER",
+                                "name": "TFT_SSD1963_800_DRIVER",
+                                "range": null,
+                                "title": "SSD1963_800",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_DRIVER>",
+                                "help": null,
+                                "id": "TFT_SSD1963_800ALT_DRIVER",
+                                "name": "TFT_SSD1963_800ALT_DRIVER",
+                                "range": null,
+                                "title": "SSD1963_800ALT",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_DRIVER>",
+                                "help": null,
+                                "id": "TFT_ILI9225_DRIVER",
+                                "name": "TFT_ILI9225_DRIVER",
+                                "range": null,
+                                "title": "ILI9225",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_DRIVER>",
+                                "help": null,
+                                "id": "TFT_GC9A01_DRIVER",
+                                "name": "TFT_GC9A01_DRIVER",
+                                "range": null,
+                                "title": "GC9A01",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": null,
+                        "help": "Driver for the TFT LCD screen",
+                        "id": "component-config-tft_espi-select-tft-driver-home-student-Desktop-ProjekatDisplej-DisplayAudi-components-TFT_eSPI-Kconfig-11",
+                        "name": "TFT_DRIVER",
+                        "title": "Select TFT driver",
+                        "type": "choice"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_COLOR_ORDER>",
+                                "help": null,
+                                "id": "TFT_RGB_ORDER",
+                                "name": "TFT_RGB_ORDER",
+                                "range": null,
+                                "title": "RGB",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_COLOR_ORDER>",
+                                "help": null,
+                                "id": "TFT_BGR_ORDER",
+                                "name": "TFT_BGR_ORDER",
+                                "range": null,
+                                "title": "BGR",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": "TFT_ST7735_DRIVER || TFT_ST7789_DRIVER || TFT_ST7789_2_DRIVER || TFT_ILI9341_DRIVER || TFT_ILI9341_2_DRIVER",
+                        "help": "Define the colour order IF the blue and red are swapped on your display",
+                        "id": "component-config-tft_espi-define-the-colour-order-home-student-Desktop-ProjekatDisplej-DisplayAudi-components-TFT_eSPI-Kconfig-75",
+                        "name": "TFT_COLOR_ORDER",
+                        "title": "Define the colour order",
+                        "type": "choice"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "TFT_ILI9341_DRIVER || TFT_ILI9341_2_DRIVER",
+                        "help": "Enable if using M5Stack module with integrated ILI9341",
+                        "id": "TFT_M5STACK",
+                        "name": "TFT_M5STACK",
+                        "range": null,
+                        "title": "M5Stack",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "TFT_ST7735_DRIVER || TFT_ST7789_DRIVER || TFT_ST7789_2_DRIVER || TFT_ILI9163_DRIVER || TFT_GC9A01_DRIVER",
+                        "help": null,
+                        "id": "TFT_WIDTH",
+                        "name": "TFT_WIDTH",
+                        "range": null,
+                        "title": "LCD pixel width in portrait orientation",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "TFT_ST7735_DRIVER || TFT_ST7789_DRIVER || TFT_ST7789_2_DRIVER || TFT_ILI9163_DRIVER || TFT_GC9A01_DRIVER",
+                        "help": null,
+                        "id": "TFT_HEIGHT",
+                        "name": "TFT_HEIGHT",
+                        "range": null,
+                        "title": "LCD pixel height in portrait orientation",
+                        "type": "int"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_ST7735_TYPE>",
+                                "help": null,
+                                "id": "TFT_ST7735_INITB",
+                                "name": "TFT_ST7735_INITB",
+                                "range": null,
+                                "title": "INITB",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_ST7735_TYPE>",
+                                "help": null,
+                                "id": "TFT_ST7735_GREENTAB",
+                                "name": "TFT_ST7735_GREENTAB",
+                                "range": null,
+                                "title": "GREENTAB",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_ST7735_TYPE>",
+                                "help": null,
+                                "id": "TFT_ST7735_GREENTAB2",
+                                "name": "TFT_ST7735_GREENTAB2",
+                                "range": null,
+                                "title": "GREENTAB2",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_ST7735_TYPE>",
+                                "help": null,
+                                "id": "TFT_ST7735_GREENTAB3",
+                                "name": "TFT_ST7735_GREENTAB3",
+                                "range": null,
+                                "title": "GREENTAB3",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_ST7735_TYPE>",
+                                "help": "For 128 x 128 display",
+                                "id": "TFT_ST7735_GREENTAB128",
+                                "name": "TFT_ST7735_GREENTAB128",
+                                "range": null,
+                                "title": "GREENTAB128",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_ST7735_TYPE>",
+                                "help": "For 160 x 80 display (BGR, inverted, 26 offset)",
+                                "id": "TFT_ST7735_GREENTAB160x80",
+                                "name": "TFT_ST7735_GREENTAB160x80",
+                                "range": null,
+                                "title": "GREENTAB160x80",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_ST7735_TYPE>",
+                                "help": null,
+                                "id": "TFT_ST7735_REDTAB",
+                                "name": "TFT_ST7735_REDTAB",
+                                "range": null,
+                                "title": "REDTAB",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_ST7735_TYPE>",
+                                "help": null,
+                                "id": "TFT_ST7735_BLACKTAB",
+                                "name": "TFT_ST7735_BLACKTAB",
+                                "range": null,
+                                "title": "BLACKTAB",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_ST7735_TYPE>",
+                                "help": "For 160 x 80 display with 24 pixel offset",
+                                "id": "TFT_ST7735_REDTAB160x80",
+                                "name": "TFT_ST7735_REDTAB160x80",
+                                "range": null,
+                                "title": "REDTAB160x80",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": "TFT_ST7735_DRIVER",
+                        "help": "Try out the different options below if the screen does not display graphics\ncorrectly,e.g. colours wrong, mirror images, or stray pixels at the edges.",
+                        "id": "component-config-tft_espi-define-the-type-of-display-home-student-Desktop-ProjekatDisplej-DisplayAudi-components-TFT_eSPI-Kconfig-106",
+                        "name": "TFT_ST7735_TYPE",
+                        "title": "Define the type of display",
+                        "type": "choice"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_COLOR_INVERSION>",
+                                "help": null,
+                                "id": "TFT_INVERSION_DISABLE",
+                                "name": "TFT_INVERSION_DISABLE",
+                                "range": null,
+                                "title": "None",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_COLOR_INVERSION>",
+                                "help": null,
+                                "id": "TFT_INVERSION_ON",
+                                "name": "TFT_INVERSION_ON",
+                                "range": null,
+                                "title": "On",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_COLOR_INVERSION>",
+                                "help": null,
+                                "id": "TFT_INVERSION_OFF",
+                                "name": "TFT_INVERSION_OFF",
+                                "range": null,
+                                "title": "Off",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": null,
+                        "help": "If colours are inverted (white shows as black) then try changing this option.\"",
+                        "id": "component-config-tft_espi-color-inversion-correction-home-student-Desktop-ProjekatDisplej-DisplayAudi-components-TFT_eSPI-Kconfig-139",
+                        "name": "TFT_COLOR_INVERSION",
+                        "title": "Color inversion correction",
+                        "type": "choice"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_INTERFACE>",
+                                "help": null,
+                                "id": "TFT_SPI",
+                                "name": "TFT_SPI",
+                                "range": null,
+                                "title": "SPI",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice TFT_INTERFACE>",
+                                "help": null,
+                                "id": "TFT_PARALLEL_8_BIT",
+                                "name": "TFT_PARALLEL_8_BIT",
+                                "range": null,
+                                "title": "Parallel (8-bit)",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": null,
+                        "help": "Communication interface between the microcontroller and the LCD.",
+                        "id": "component-config-tft_espi-lcd-interface-home-student-Desktop-ProjekatDisplej-DisplayAudi-components-TFT_eSPI-Kconfig-153",
+                        "name": "TFT_INTERFACE",
+                        "title": "LCD Interface",
+                        "type": "choice"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "TFT_PARALLEL_8_BIT",
+                                "help": null,
+                                "id": "TFT_D0",
+                                "name": "TFT_D0",
+                                "range": null,
+                                "title": "Data 0 pin",
+                                "type": "int"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "TFT_PARALLEL_8_BIT",
+                                "help": null,
+                                "id": "TFT_D1",
+                                "name": "TFT_D1",
+                                "range": null,
+                                "title": "Data 1 pin",
+                                "type": "int"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "TFT_PARALLEL_8_BIT",
+                                "help": null,
+                                "id": "TFT_D2",
+                                "name": "TFT_D2",
+                                "range": null,
+                                "title": "Data 2 pin",
+                                "type": "int"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "TFT_PARALLEL_8_BIT",
+                                "help": null,
+                                "id": "TFT_D3",
+                                "name": "TFT_D3",
+                                "range": null,
+                                "title": "Data 3 pin",
+                                "type": "int"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "TFT_PARALLEL_8_BIT",
+                                "help": null,
+                                "id": "TFT_D4",
+                                "name": "TFT_D4",
+                                "range": null,
+                                "title": "Data 4 pin",
+                                "type": "int"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "TFT_PARALLEL_8_BIT",
+                                "help": null,
+                                "id": "TFT_D5",
+                                "name": "TFT_D5",
+                                "range": null,
+                                "title": "Data 5 pin",
+                                "type": "int"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "TFT_PARALLEL_8_BIT",
+                                "help": null,
+                                "id": "TFT_D6",
+                                "name": "TFT_D6",
+                                "range": null,
+                                "title": "Data 6 pin",
+                                "type": "int"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "TFT_PARALLEL_8_BIT",
+                                "help": null,
+                                "id": "TFT_D7",
+                                "name": "TFT_D7",
+                                "range": null,
+                                "title": "Data 7 pin",
+                                "type": "int"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "TFT_PARALLEL_8_BIT",
+                                "help": null,
+                                "id": "TFT_WR",
+                                "name": "TFT_WR",
+                                "range": null,
+                                "title": "Write strobe pin",
+                                "type": "int"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "TFT_PARALLEL_8_BIT",
+                                "help": null,
+                                "id": "TFT_RD",
+                                "name": "TFT_RD",
+                                "range": null,
+                                "title": "Read strobe pin",
+                                "type": "int"
+                            }
+                        ],
+                        "depends_on": "TFT_PARALLEL_8_BIT",
+                        "id": "component-config-tft_espi-display-data-pins-home-student-Desktop-ProjekatDisplej-DisplayAudi-components-TFT_eSPI-Kconfig-164",
+                        "title": "Display Data pins",
+                        "type": "menu"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [
+                                    {
+                                        "children": [],
+                                        "depends_on": "<choice TFT_SPI_PORT>",
+                                        "help": null,
+                                        "id": "TFT_VSPI_PORT",
+                                        "name": "TFT_VSPI_PORT",
+                                        "range": null,
+                                        "title": "VSPI (SPI2)",
+                                        "type": "bool"
+                                    },
+                                    {
+                                        "children": [],
+                                        "depends_on": "<choice TFT_SPI_PORT>",
+                                        "help": null,
+                                        "id": "TFT_HSPI_PORT",
+                                        "name": "TFT_HSPI_PORT",
+                                        "range": null,
+                                        "title": "HSPI (SPI3)",
+                                        "type": "bool"
+                                    }
+                                ],
+                                "depends_on": "TFT_SPI",
+                                "help": "The ESP32 has 2 free SPI ports i.e. VSPI (SPI2) and HSPI (SPI3),\nthe VSPI is the default. If the VSPI port is in use and pins are\nnot accessible (e.g. TTGO T-Beam) then use the HSPI port for the\nTFT display.",
+                                "id": "component-config-tft_espi-display-spi-config-spi-port-home-student-Desktop-ProjekatDisplej-DisplayAudi-components-TFT_eSPI-Kconfig-220",
+                                "name": "TFT_SPI_PORT",
+                                "title": "SPI port",
+                                "type": "choice"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "TFT_SPI",
+                                "help": "Master In Slave Out pin.\nCan be labelled as SDO in some displays",
+                                "id": "TFT_MISO",
+                                "name": "TFT_MISO",
+                                "range": [
+                                    -1,
+                                    32
+                                ],
+                                "title": "TFT MISO pin",
+                                "type": "int"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "TFT_SPI",
+                                "help": "Master Out Slave In pin.\nCan be labelled as SDA or SDI in some displays",
+                                "id": "TFT_MOSI",
+                                "name": "TFT_MOSI",
+                                "range": [
+                                    -1,
+                                    32
+                                ],
+                                "title": "TFT MOSI pin",
+                                "type": "int"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "TFT_SPI",
+                                "help": "Labelled in some displays as WR",
+                                "id": "TFT_SCLK",
+                                "name": "TFT_SCLK",
+                                "range": [
+                                    -1,
+                                    32
+                                ],
+                                "title": "TFT Clock pin",
+                                "type": "int"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "TFT_SPI",
+                                "help": "Some displays support SPI reads via the MISO pin, other displays have a single\nbi-directional SDA pin and the library will try to read this via the MOSI line",
+                                "id": "TFT_SDA_READ",
+                                "name": "TFT_SDA_READ",
+                                "range": null,
+                                "title": "Use SDA line for reading",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "TFT_SPI",
+                                "help": "Define the SPI clock frequency, this affects the graphics rendering speed. Too\nfast and the TFT driver will not keep up and display corruption appears.\nWith an ILI9341 display 40MHz works OK, 80MHz sometimes fails\nWith a ST7735 display more than 27MHz may not work (spurious pixels and lines)\nWith an ILI9163 display 27 MHz works OK.",
+                                "id": "TFT_SPI_FREQUENCY",
+                                "name": "TFT_SPI_FREQUENCY",
+                                "range": [
+                                    1,
+                                    80000000
+                                ],
+                                "title": "SPI Frequency (Hz)",
+                                "type": "int"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "TFT_SPI",
+                                "help": "Optional reduced SPI frequency for reading TFT.\nSet to -1 to use the default frequency",
+                                "id": "TFT_SPI_READ_FREQ",
+                                "name": "TFT_SPI_READ_FREQ",
+                                "range": [
+                                    -1,
+                                    80000000
+                                ],
+                                "title": "SPI Read Frequency (Hz)",
+                                "type": "int"
+                            }
+                        ],
+                        "depends_on": "TFT_SPI",
+                        "id": "component-config-tft_espi-display-spi-config-home-student-Desktop-ProjekatDisplej-DisplayAudi-components-TFT_eSPI-Kconfig-217",
+                        "title": "Display SPI config",
+                        "type": "menu"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": null,
+                                "id": "TFT_CS",
+                                "name": "TFT_CS",
+                                "range": [
+                                    -1,
+                                    33
+                                ],
+                                "title": "TFT Chip Select pin",
+                                "type": "int"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Labelled as DC or RS (Register Select) in some displays",
+                                "id": "TFT_DC",
+                                "name": "TFT_DC",
+                                "range": [
+                                    -1,
+                                    31
+                                ],
+                                "title": "TFT Data/Command pin",
+                                "type": "int"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": null,
+                                "id": "TFT_RST",
+                                "name": "TFT_RST",
+                                "range": [
+                                    -1,
+                                    33
+                                ],
+                                "title": "TFT Reset pin",
+                                "type": "int"
+                            },
+                            {
+                                "children": [
+                                    {
+                                        "children": [],
+                                        "depends_on": "ENABLE_BL",
+                                        "help": "Pin for the backlight control signal",
+                                        "id": "TFT_BL",
+                                        "name": "TFT_BL",
+                                        "range": [
+                                            -1,
+                                            33
+                                        ],
+                                        "title": "TFT Backlight pin",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "children": [
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice TFT_BACKLIGHT_ON>",
+                                                "help": null,
+                                                "id": "TFT_BACKLIGHT_ON_HIGH",
+                                                "name": "TFT_BACKLIGHT_ON_HIGH",
+                                                "range": null,
+                                                "title": "HIGH",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice TFT_BACKLIGHT_ON>",
+                                                "help": null,
+                                                "id": "TFT_BACKLIGHT_ON_LOW",
+                                                "name": "TFT_BACKLIGHT_ON_LOW",
+                                                "range": null,
+                                                "title": "LOW",
+                                                "type": "bool"
+                                            }
+                                        ],
+                                        "depends_on": "ENABLE_BL",
+                                        "help": "The backlight will be turned ON when tft.begin() is called, but the library\nneeds to know if the LEDs are ON with the pin HIGH or LOW.",
+                                        "id": "component-config-tft_espi-control-pin-configuration-enable-backlight-control-pin-state-to-activate-backlight-home-student-Desktop-ProjekatDisplej-DisplayAudi-components-TFT_eSPI-Kconfig-327",
+                                        "name": "TFT_BACKLIGHT_ON",
+                                        "title": "Pin state to activate backlight",
+                                        "type": "choice"
+                                    }
+                                ],
+                                "depends_on": null,
+                                "help": null,
+                                "id": "ENABLE_BL",
+                                "name": "ENABLE_BL",
+                                "range": null,
+                                "title": "Enable backlight control",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": null,
+                                "id": "TFT_BACKLIGHT_ON",
+                                "name": "TFT_BACKLIGHT_ON",
+                                "range": null,
+                                "title": null,
+                                "type": "int"
+                            }
+                        ],
+                        "depends_on": null,
+                        "id": "component-config-tft_espi-control-pin-configuration-home-student-Desktop-ProjekatDisplej-DisplayAudi-components-TFT_eSPI-Kconfig-291",
+                        "title": "Control Pin configuration",
+                        "type": "menu"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": null,
+                                "id": "TFT_LOAD_GLCD",
+                                "name": "TFT_LOAD_GLCD",
+                                "range": null,
+                                "title": "Font 1: Original Adafruit 8 pixel font needs ~1820 bytes in FLASH",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": null,
+                                "id": "TFT_LOAD_FONT2",
+                                "name": "TFT_LOAD_FONT2",
+                                "range": null,
+                                "title": "Font 2: Small 16 pixel high font, needs ~3534 bytes in FLASH, 96 characters",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": null,
+                                "id": "TFT_LOAD_FONT4",
+                                "name": "TFT_LOAD_FONT4",
+                                "range": null,
+                                "title": "Font 4: Medium 26 pixel high font, needs ~5848 bytes in FLASH, 96 characters",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": null,
+                                "id": "TFT_LOAD_FONT6",
+                                "name": "TFT_LOAD_FONT6",
+                                "range": null,
+                                "title": "Font 6: Large 48 pixel font, needs ~2666 bytes in FLASH, only characters 1234567890:-.apm",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": null,
+                                "id": "TFT_LOAD_FONT7",
+                                "name": "TFT_LOAD_FONT7",
+                                "range": null,
+                                "title": "Font 7: 7 segment 48 pixel font, needs ~2438 bytes in FLASH, only characters 1234567890:.",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": null,
+                                "id": "TFT_LOAD_FONT8",
+                                "name": "TFT_LOAD_FONT8",
+                                "range": null,
+                                "title": "Font 8: Large 75 pixel font needs ~3256 bytes in FLASH, only characters 1234567890:-.",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": null,
+                                "id": "TFT_LOAD_GFXFF",
+                                "name": "TFT_LOAD_GFXFF",
+                                "range": null,
+                                "title": "FreeFonts: Include access to the 48 Adafruit_GFX free fonts FF1 to FF48 and custom fonts",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": null,
+                                "id": "TFT_SMOOTH_FONT",
+                                "name": "TFT_SMOOTH_FONT",
+                                "range": null,
+                                "title": "Smooth Fonts",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": null,
+                        "id": "component-config-tft_espi-fonts-home-student-Desktop-ProjekatDisplej-DisplayAudi-components-TFT_eSPI-Kconfig-347",
+                        "title": "Fonts",
+                        "type": "menu"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [
+                                    {
+                                        "children": [],
+                                        "depends_on": "ENABLE_TOUCH",
+                                        "help": null,
+                                        "id": "TOUCH_CS",
+                                        "name": "TOUCH_CS",
+                                        "range": null,
+                                        "title": "Touch chip select pin",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "children": [],
+                                        "depends_on": "ENABLE_TOUCH",
+                                        "help": null,
+                                        "id": "SPI_TOUCH_FREQUENCY",
+                                        "name": "SPI_TOUCH_FREQUENCY",
+                                        "range": null,
+                                        "title": "SPI frequency for XPT2046 chip (Hz)",
+                                        "type": "int"
+                                    }
+                                ],
+                                "depends_on": null,
+                                "help": null,
+                                "id": "ENABLE_TOUCH",
+                                "name": "ENABLE_TOUCH",
+                                "range": null,
+                                "title": "Enable Touch",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": null,
+                        "id": "component-config-tft_espi-touch-screen-configuration-home-student-Desktop-ProjekatDisplej-DisplayAudi-components-TFT_eSPI-Kconfig-381",
+                        "title": "Touch screen configuration",
+                        "type": "menu"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": null,
+                                "id": "DISABLE_WARNINGS",
+                                "name": "DISABLE_WARNINGS",
+                                "range": null,
+                                "title": "Disable Library warnings",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": null,
+                        "id": "component-config-tft_espi-other-settings-home-student-Desktop-ProjekatDisplej-DisplayAudi-components-TFT_eSPI-Kconfig-401",
+                        "title": "Other settings",
+                        "type": "menu"
+                    }
+                ],
+                "depends_on": null,
+                "id": "component-config-tft_espi-home-student-Desktop-ProjekatDisplej-DisplayAudi-components-TFT_eSPI-Kconfig-1",
+                "title": "TFT_eSPI",
+                "type": "menu"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Limits how deeply nested arrays/objects can be before cJSON\nrejects to parse them. This is to prevent stack overflows.\nLower values use less stack, higher values allow deeper nesting.",
+                        "id": "CJSON_NESTING_LIMIT",
+                        "name": "CJSON_NESTING_LIMIT",
+                        "range": null,
+                        "title": "Maximum nesting depth for JSON parsing",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Limits the depth for circular reference detection during\nprinting/comparison operations. This prevents infinite loops\nand stack overflows when processing JSON structures with\ncircular references. Lower values use less stack.",
+                        "id": "CJSON_CIRCULAR_LIMIT",
+                        "name": "CJSON_CIRCULAR_LIMIT",
+                        "range": null,
+                        "title": "Maximum depth for circular reference detection",
+                        "type": "int"
+                    }
+                ],
+                "depends_on": null,
+                "id": "component-config-cjson-home-student-Desktop-ProjekatDisplej-DisplayAudi-managed_components-espressif__cjson-Kconfig-1",
+                "title": "cJSON",
+                "type": "menu"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "depends_on": "IDF_TARGET_ESP32 || IDF_TARGET_ESP32S3 || IDF_TARGET_ESP32P4 || IDF_TARGET_ESP32S31",
+                        "help": null,
+                        "id": "DSP_OPTIMIZATIONS_SUPPORTED",
+                        "name": "DSP_OPTIMIZATIONS_SUPPORTED",
+                        "range": null,
+                        "title": null,
+                        "type": "bool"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "<choice DSP_OPTIMIZATION>",
+                                "help": null,
+                                "id": "DSP_ANSI",
+                                "name": "DSP_ANSI",
+                                "range": null,
+                                "title": "ANSI C",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "DSP_OPTIMIZATIONS_SUPPORTED && <choice DSP_OPTIMIZATION>",
+                                "help": null,
+                                "id": "DSP_OPTIMIZED",
+                                "name": "DSP_OPTIMIZED",
+                                "range": null,
+                                "title": "Optimized",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": null,
+                        "help": "An ANSI C version could be used for verification and debug purpose,\nor for chips where an optimized version is not available.",
+                        "id": "component-config-dsp-library-dsp-optimization-home-student-Desktop-ProjekatDisplej-DisplayAudi-managed_components-espressif__esp-dsp-Kconfig-9",
+                        "name": "DSP_OPTIMIZATION",
+                        "title": "DSP Optimization",
+                        "type": "choice"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": null,
+                        "id": "DSP_OPTIMIZATION",
+                        "name": "DSP_OPTIMIZATION",
+                        "range": null,
+                        "title": null,
+                        "type": "int"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "<choice DSP_MAX_FFT_SIZE>",
+                                "help": null,
+                                "id": "DSP_MAX_FFT_SIZE_512",
+                                "name": "DSP_MAX_FFT_SIZE_512",
+                                "range": null,
+                                "title": "512",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice DSP_MAX_FFT_SIZE>",
+                                "help": null,
+                                "id": "DSP_MAX_FFT_SIZE_1024",
+                                "name": "DSP_MAX_FFT_SIZE_1024",
+                                "range": null,
+                                "title": "1024",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice DSP_MAX_FFT_SIZE>",
+                                "help": null,
+                                "id": "DSP_MAX_FFT_SIZE_2048",
+                                "name": "DSP_MAX_FFT_SIZE_2048",
+                                "range": null,
+                                "title": "2048",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice DSP_MAX_FFT_SIZE>",
+                                "help": null,
+                                "id": "DSP_MAX_FFT_SIZE_4096",
+                                "name": "DSP_MAX_FFT_SIZE_4096",
+                                "range": null,
+                                "title": "4096",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice DSP_MAX_FFT_SIZE>",
+                                "help": null,
+                                "id": "DSP_MAX_FFT_SIZE_8192",
+                                "name": "DSP_MAX_FFT_SIZE_8192",
+                                "range": null,
+                                "title": "8192",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice DSP_MAX_FFT_SIZE>",
+                                "help": null,
+                                "id": "DSP_MAX_FFT_SIZE_16384",
+                                "name": "DSP_MAX_FFT_SIZE_16384",
+                                "range": null,
+                                "title": "16384",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice DSP_MAX_FFT_SIZE>",
+                                "help": null,
+                                "id": "DSP_MAX_FFT_SIZE_32768",
+                                "name": "DSP_MAX_FFT_SIZE_32768",
+                                "range": null,
+                                "title": "32768",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": null,
+                        "help": "This is default FFT size for internal usage.",
+                        "id": "component-config-dsp-library-maximum-fft-length-home-student-Desktop-ProjekatDisplej-DisplayAudi-managed_components-espressif__esp-dsp-Kconfig-29",
+                        "name": "DSP_MAX_FFT_SIZE",
+                        "title": "Maximum FFT length",
+                        "type": "choice"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": null,
+                        "id": "DSP_MAX_FFT_SIZE",
+                        "name": "DSP_MAX_FFT_SIZE",
+                        "range": null,
+                        "title": null,
+                        "type": "int"
+                    }
+                ],
+                "depends_on": null,
+                "id": "component-config-dsp-library-home-student-Desktop-ProjekatDisplej-DisplayAudi-managed_components-espressif__esp-dsp-Kconfig-1",
+                "title": "DSP Library",
+                "type": "menu"
+            },
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "FMB_COMM_MODE_TCP_EN",
+                                "help": "Modbus default port number used by Modbus TCP stack",
+                                "id": "FMB_TCP_PORT_DEFAULT",
+                                "name": "FMB_TCP_PORT_DEFAULT",
+                                "range": [
+                                    0,
+                                    65535
+                                ],
+                                "title": "Modbus TCP port number",
+                                "type": "int"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "FMB_COMM_MODE_TCP_EN",
+                                "help": "Maximum allowed connections number for Modbus TCP stack.\nThis is used by Modbus master and slave port layer to establish connections.\nThis parameter may decrease performance of Modbus stack and can cause\nincreasing of processing time (increase only if absolutely necessary).",
+                                "id": "FMB_TCP_PORT_MAX_CONN",
+                                "name": "FMB_TCP_PORT_MAX_CONN",
+                                "range": [
+                                    1,
+                                    10
+                                ],
+                                "title": "Maximum allowed connections for TCP stack",
+                                "type": "int"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "FMB_COMM_MODE_TCP_EN",
+                                "help": "Modbus TCP connection timeout in seconds.\nOnce expired the current connection with the client will be closed\nand Modbus TCP slave will be waiting for new connection to accept.\nThis timeout is applicable for Modbus TCP master when it tries to connect to the Modbus TCP slaves.",
+                                "id": "FMB_TCP_CONNECTION_TOUT_SEC",
+                                "name": "FMB_TCP_CONNECTION_TOUT_SEC",
+                                "range": [
+                                    1,
+                                    7200
+                                ],
+                                "title": "Modbus TCP connection timeout",
+                                "type": "int"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "FMB_COMM_MODE_TCP_EN",
+                                "help": "This option is used to set keep-alive time for Modbus TCP connections.\nThis timeout is the interval after which the device sends keep-alive messages\nto maintain a connection with a server before register the error.\nThe keep-alive time can be configured and should be set based on the actual needs of the application,\nconsidering the trade-off between keeping the connection alive and minimizing system load.",
+                                "id": "FMB_TCP_KEEP_ALIVE_TOUT_SEC",
+                                "name": "FMB_TCP_KEEP_ALIVE_TOUT_SEC",
+                                "range": [
+                                    1,
+                                    7200
+                                ],
+                                "title": "Modbus TCP keep alive timeout (seconds)",
+                                "type": "int"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "FMB_COMM_MODE_TCP_EN",
+                                "help": "This option represents a maximum time the driver task can block while waiting\nfor an event during each loop iteration. Lower values allow the system to handle failures\nwhile waiting for socket IO events, though they slightly increase CPU usage.\nFor high-throughput applications with many concurrent connections, reducing to 10-20 ms may help.",
+                                "id": "FMB_TCP_EVENT_WAIT_MS",
+                                "name": "FMB_TCP_EVENT_WAIT_MS",
+                                "range": [
+                                    10,
+                                    500
+                                ],
+                                "title": "Modbus TCP event wait timeout (ms)",
+                                "type": "int"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "FMB_COMM_MODE_TCP_EN",
+                                "help": "The option applies to SO_RCVTIMEO when reading the MBAP header from a socket.\nThis is the worst-case blocking time if a partial TCP segment arrives.\nOn a reliable LAN, 50-100 ms is sufficient. Lower values reduce the\nmaximum stall that one slow connection can impose on other connections.",
+                                "id": "FMB_TCP_READ_TIMEOUT_MS",
+                                "name": "FMB_TCP_READ_TIMEOUT_MS",
+                                "range": [
+                                    1,
+                                    500
+                                ],
+                                "title": "Modbus TCP socket read timeout (ms)",
+                                "type": "int"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "FMB_COMM_MODE_TCP_EN",
+                                "help": "This is a timeout for the socket writability check and send operation.\nBefore each send, the driver verifies the socket is writable via select function.\nReduce for faster failure detection; increase on high-latency links.",
+                                "id": "FMB_TCP_SEND_TIMEOUT_MS",
+                                "name": "FMB_TCP_SEND_TIMEOUT_MS",
+                                "range": [
+                                    10,
+                                    1000
+                                ],
+                                "title": "Modbus TCP send timeout (ms)",
+                                "type": "int"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "FMB_COMM_MODE_TCP_EN",
+                                "help": "This option represents the maximum time allocated to event loop run function per driver loop iteration.\nThe value controls how many queued events (connect, send, error, etc.) are dispatched\nbefore returning to check sockets. Lower values reduce latency for socket\nI/O at the cost of processing fewer events per iteration.",
+                                "id": "FMB_TCP_EVENT_LOOP_TICK_MS",
+                                "name": "FMB_TCP_EVENT_LOOP_TICK_MS",
+                                "range": [
+                                    10,
+                                    300
+                                ],
+                                "title": "Modbus TCP event loop processing budget (ms)",
+                                "type": "int"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "FMB_COMM_MODE_TCP_EN",
+                                "help": "If this option is set the Modbus stack uses UID (Unit Identifier) field in MBAP frame.\nElse the UID is ignored by master and slave.",
+                                "id": "FMB_TCP_UID_ENABLED",
+                                "name": "FMB_TCP_UID_ENABLED",
+                                "range": null,
+                                "title": "Modbus TCP enable UID (Unit Identifier) support",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": "LWIP_ENABLE",
+                        "help": "Enable Modbus TCP option for stack.",
+                        "id": "FMB_COMM_MODE_TCP_EN",
+                        "name": "FMB_COMM_MODE_TCP_EN",
+                        "range": null,
+                        "title": "Enable Modbus stack support for TCP communication mode",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Enable RTU Modbus communication mode option for Modbus serial stack.",
+                        "id": "FMB_COMM_MODE_RTU_EN",
+                        "name": "FMB_COMM_MODE_RTU_EN",
+                        "range": null,
+                        "title": "Enable Modbus stack support for RTU mode",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Enable ASCII Modbus communication mode option for Modbus serial stack.",
+                        "id": "FMB_COMM_MODE_ASCII_EN",
+                        "name": "FMB_COMM_MODE_ASCII_EN",
+                        "range": null,
+                        "title": "Enable Modbus stack support for ASCII mode",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "If master sends a frame which is not broadcast, it has to wait some time for slave response.\nif slave is not respond in this time, the master will process timeout error.",
+                        "id": "FMB_MASTER_TIMEOUT_MS_RESPOND",
+                        "name": "FMB_MASTER_TIMEOUT_MS_RESPOND",
+                        "range": [
+                            150,
+                            30000
+                        ],
+                        "title": "Slave respond timeout (Milliseconds)",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "This option represents the maximum API blocking time used by controller API calls.\nThis API blocking time was intentionally separated from master timeout = CONFIG_FMB_MASTER_TIMEOUT_MS_RESPOND\nto prevent possible misconfiguration and the value must be higher than the master timeout.",
+                        "id": "FMB_MASTER_MAX_API_BLOCKING_TIME_MS",
+                        "name": "FMB_MASTER_MAX_API_BLOCKING_TIME_MS",
+                        "range": [
+                            3000,
+                            200000
+                        ],
+                        "title": "Modbus TCP master API blocking threshold (ms)",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "If master sends a broadcast frame, it has to wait conversion time to delay,\nthen master can send next frame.",
+                        "id": "FMB_MASTER_DELAY_MS_CONVERT",
+                        "name": "FMB_MASTER_DELAY_MS_CONVERT",
+                        "range": [
+                            150,
+                            2000
+                        ],
+                        "title": "Slave conversion delay (Milliseconds)",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Modbus event queue length. It is used by event queue tasks\nfor corresponding communication mode.",
+                        "id": "FMB_QUEUE_LENGTH",
+                        "name": "FMB_QUEUE_LENGTH",
+                        "range": [
+                            10,
+                            500
+                        ],
+                        "title": "Modbus event task queue length",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Modbus port task stack size for rx/tx event processing.\nIt may be adjusted when debugging is enabled (for example).",
+                        "id": "FMB_PORT_TASK_STACK_SIZE",
+                        "name": "FMB_PORT_TASK_STACK_SIZE",
+                        "range": [
+                            2048,
+                            16384
+                        ],
+                        "title": "Modbus port task stack size",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Modbus RX/TX buffer size for UART driver initialization.\nThis buffer is used for modbus frame transfer. The Modbus protocol maximum\nframe size is 260 bytes (TCP). Bigger size can be used for non standard implementations.",
+                        "id": "FMB_BUFFER_SIZE",
+                        "name": "FMB_BUFFER_SIZE",
+                        "range": [
+                            256,
+                            2048
+                        ],
+                        "title": "Modbus RX/TX buffer size",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "FMB_COMM_MODE_ASCII_EN",
+                        "help": "This option defines the number of data bits per ASCII character.",
+                        "id": "FMB_SERIAL_ASCII_BITS_PER_SYMB",
+                        "name": "FMB_SERIAL_ASCII_BITS_PER_SYMB",
+                        "range": [
+                            7,
+                            8
+                        ],
+                        "title": "Number of data bits per ASCII character",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "FMB_COMM_MODE_ASCII_EN",
+                        "help": "This option defines response timeout of slave in milliseconds for ASCII communication mode.\nThus the timeout will expire and allow the master program to handle the error.",
+                        "id": "FMB_SERIAL_ASCII_TIMEOUT_RESPOND_MS",
+                        "name": "FMB_SERIAL_ASCII_TIMEOUT_RESPOND_MS",
+                        "range": [
+                            200,
+                            5000
+                        ],
+                        "title": "Response timeout for ASCII communication mode (ms)",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Modbus port data processing task priority.\nThe priority of Modbus controller task is equal to (CONFIG_FMB_PORT_TASK_PRIO - 1).",
+                        "id": "FMB_PORT_TASK_PRIO",
+                        "name": "FMB_PORT_TASK_PRIO",
+                        "range": [
+                            3,
+                            23
+                        ],
+                        "title": "Modbus port task priority",
+                        "type": "int"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "<choice FMB_PORT_TASK_AFFINITY>",
+                                "help": null,
+                                "id": "FMB_PORT_TASK_AFFINITY_NO_AFFINITY",
+                                "name": "FMB_PORT_TASK_AFFINITY_NO_AFFINITY",
+                                "range": null,
+                                "title": "No affinity",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice FMB_PORT_TASK_AFFINITY>",
+                                "help": null,
+                                "id": "FMB_PORT_TASK_AFFINITY_CPU0",
+                                "name": "FMB_PORT_TASK_AFFINITY_CPU0",
+                                "range": null,
+                                "title": "CPU0",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice FMB_PORT_TASK_AFFINITY>",
+                                "help": null,
+                                "id": "FMB_PORT_TASK_AFFINITY_CPU1",
+                                "name": "FMB_PORT_TASK_AFFINITY_CPU1",
+                                "range": null,
+                                "title": "CPU1",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": "!FREERTOS_UNICORE",
+                        "help": "Allows setting the core affinity of the Modbus controller task, i.e. whether the task is pinned to\nparticular CPU, or allowed to run on any CPU.",
+                        "id": "component-config-modbus-configuration-modbus-task-affinity-home-student-Desktop-ProjekatDisplej-DisplayAudi-managed_components-espressif__esp-modbus-Kconfig-191",
+                        "name": "FMB_PORT_TASK_AFFINITY",
+                        "title": "Modbus task affinity",
+                        "type": "choice"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": null,
+                        "id": "FMB_PORT_TASK_AFFINITY",
+                        "name": "FMB_PORT_TASK_AFFINITY",
+                        "range": null,
+                        "title": null,
+                        "type": "hex"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "FMB_CONTROLLER_SLAVE_ID_SUPPORT",
+                                "help": "Modbus slave ID value to identify modbus device\nin the network using <Report Slave ID> command.\nMost significant byte of ID is used as short device ID and\nother three bytes used as long ID.",
+                                "id": "FMB_CONTROLLER_SLAVE_ID",
+                                "name": "FMB_CONTROLLER_SLAVE_ID",
+                                "range": [
+                                    0,
+                                    285960729237
+                                ],
+                                "title": "Modbus controller slave ID",
+                                "type": "hex"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "FMB_CONTROLLER_SLAVE_ID_SUPPORT",
+                                "help": "Modbus slave ID buffer size used to store vendor specific ID information\nfor the <Report Slave ID> command.",
+                                "id": "FMB_CONTROLLER_SLAVE_ID_MAX_SIZE",
+                                "name": "FMB_CONTROLLER_SLAVE_ID_MAX_SIZE",
+                                "range": [
+                                    4,
+                                    255
+                                ],
+                                "title": "Modbus Slave ID maximum buffer size (bytes)",
+                                "type": "int"
+                            }
+                        ],
+                        "depends_on": null,
+                        "help": "Modbus slave ID support enable.\nWhen enabled the Modbus <Report Slave ID> command is supported by stack.",
+                        "id": "FMB_CONTROLLER_SLAVE_ID_SUPPORT",
+                        "name": "FMB_CONTROLLER_SLAVE_ID_SUPPORT",
+                        "range": null,
+                        "title": "Modbus controller slave ID support",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Modbus controller notification timeout in milliseconds.\nThis timeout is used to send notification about accessed parameters.",
+                        "id": "FMB_CONTROLLER_NOTIFY_TIMEOUT",
+                        "name": "FMB_CONTROLLER_NOTIFY_TIMEOUT",
+                        "range": [
+                            0,
+                            200
+                        ],
+                        "title": "Modbus controller notification timeout (ms)",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Modbus controller notification queue size.\nThe notification queue is used to get information about accessed parameters.",
+                        "id": "FMB_CONTROLLER_NOTIFY_QUEUE_SIZE",
+                        "name": "FMB_CONTROLLER_NOTIFY_QUEUE_SIZE",
+                        "range": [
+                            0,
+                            200
+                        ],
+                        "title": "Modbus controller notification queue size",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Modbus controller task stack size. The Stack size may be adjusted when\ndebug mode is used which requires more stack size (for example).",
+                        "id": "FMB_CONTROLLER_STACK_SIZE",
+                        "name": "FMB_CONTROLLER_STACK_SIZE",
+                        "range": [
+                            2048,
+                            32768
+                        ],
+                        "title": "Modbus controller stack size",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Modbus stack event queue timeout in milliseconds. This may help to optimize\nModbus stack event processing time.",
+                        "id": "FMB_EVENT_QUEUE_TIMEOUT",
+                        "name": "FMB_EVENT_QUEUE_TIMEOUT",
+                        "range": [
+                            10,
+                            500
+                        ],
+                        "title": "Modbus stack event queue timeout (ms)",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "If this option is set the Modbus stack uses ISR dispatch method\nto send timeout events from the callback function called from ISR.\nThis option has dependency with the UART_ISR_IN_IRAM option which places UART interrupt\nhandler into IRAM to prevent delays related to processing of UART events.",
+                        "id": "FMB_TIMER_USE_ISR_DISPATCH_METHOD",
+                        "name": "FMB_TIMER_USE_ISR_DISPATCH_METHOD",
+                        "range": null,
+                        "title": "Modbus timer uses ISR dispatch method",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "If this option is set the Modbus stack supports extended list of types\nin data dictionary and conversion API to work with the extended types\notherwise the only legacy types are supported. The extended types include\ninteger, float, double types with different endianness and size.",
+                        "id": "FMB_EXT_TYPE_SUPPORT",
+                        "name": "FMB_EXT_TYPE_SUPPORT",
+                        "range": null,
+                        "title": "Modbus uses extended types to support third party devices",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "This option defines the maximum number of Modbus command handlers for Modbus master and slave.\nThe option can be useful to register additional commands and its handlers.",
+                        "id": "FMB_FUNC_HANDLERS_MAX",
+                        "name": "FMB_FUNC_HANDLERS_MAX",
+                        "range": [
+                            16,
+                            255
+                        ],
+                        "title": "Maximum number of Modbus function handlers",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "IDF_TOOLCHAIN_GCC",
+                        "help": "Enable compiler static analyzer for Modbus library.\nThis is workaround to avoid false-positives for some IDF related components.\nWhen enabled, the library files will be analysed with GCC static analyzer.",
+                        "id": "FMB_COMPILER_STATIC_ANALYZER_ENABLE",
+                        "name": "FMB_COMPILER_STATIC_ANALYZER_ENABLE",
+                        "range": null,
+                        "title": "Enable compiler static analyzer for Modbus library",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "This option enables the integration of Modbus library with MDNS library.\nWhen enabled, the Modbus library will use the MDNS API to resolve the node names within Modbus segment.",
+                        "id": "FMB_MDNS_INTEGRATION_ENABLE",
+                        "name": "FMB_MDNS_INTEGRATION_ENABLE",
+                        "range": null,
+                        "title": "Enable MDNS integration for Modbus library",
+                        "type": "bool"
+                    }
+                ],
+                "depends_on": null,
+                "id": "component-config-modbus-configuration-home-student-Desktop-ProjekatDisplej-DisplayAudi-managed_components-espressif__esp-modbus-Kconfig-1",
+                "title": "Modbus configuration",
+                "type": "menu"
+            },
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "children": [
+                                    {
+                                        "children": [],
+                                        "depends_on": "<choice ZB_DEVICE_TYPE>",
+                                        "help": "Select this to enable Zigbee Coordinator or Router.",
+                                        "id": "ZB_ZCZR",
+                                        "name": "ZB_ZCZR",
+                                        "range": null,
+                                        "title": "Zigbee Coordinator or Router device",
+                                        "type": "bool"
+                                    },
+                                    {
+                                        "children": [],
+                                        "depends_on": "<choice ZB_DEVICE_TYPE>",
+                                        "help": "Select this to enable Zigbee End Device.",
+                                        "id": "ZB_ZED",
+                                        "name": "ZB_ZED",
+                                        "range": null,
+                                        "title": "Zigbee End Device",
+                                        "type": "bool"
+                                    },
+                                    {
+                                        "children": [],
+                                        "depends_on": "SOC_IEEE802154_SUPPORTED && <choice ZB_DEVICE_TYPE>",
+                                        "help": "Select this to enable Zigbee Green Power Device.",
+                                        "id": "ZB_ZGPD",
+                                        "name": "ZB_ZGPD",
+                                        "range": null,
+                                        "title": "Zigbee Green power device",
+                                        "type": "bool"
+                                    }
+                                ],
+                                "depends_on": "ZB_ENABLED",
+                                "help": "Configure the Zigbee device type",
+                                "id": "component-config-zigbee-zigbee-enable-configure-the-zigbee-device-type-home-student-Desktop-ProjekatDisplej-DisplayAudi-managed_components-espressif__esp-zigbee-lib-Kconfig-9",
+                                "name": "ZB_DEVICE_TYPE",
+                                "title": "Configure the Zigbee device type",
+                                "type": "choice"
+                            },
+                            {
+                                "children": [
+                                    {
+                                        "children": [],
+                                        "depends_on": "<choice ZB_RADIO_TYPE>",
+                                        "help": "Select this to use the native 15.4 radio.",
+                                        "id": "ZB_RADIO_NATIVE",
+                                        "name": "ZB_RADIO_NATIVE",
+                                        "range": null,
+                                        "title": "Native 15.4 radio",
+                                        "type": "bool"
+                                    },
+                                    {
+                                        "children": [],
+                                        "depends_on": "<choice ZB_RADIO_TYPE>",
+                                        "help": "Select this to connect to a Radio Co-Processor via Spinel UART.",
+                                        "id": "ZB_RADIO_SPINEL_UART",
+                                        "name": "ZB_RADIO_SPINEL_UART",
+                                        "range": null,
+                                        "title": "Connect to 15.4 radio via Radio Spinel UART",
+                                        "type": "bool"
+                                    }
+                                ],
+                                "depends_on": "ZB_ENABLED",
+                                "help": null,
+                                "id": "component-config-zigbee-zigbee-enable-configure-the-zigbee-radio-type-home-student-Desktop-ProjekatDisplej-DisplayAudi-managed_components-espressif__esp-zigbee-lib-Kconfig-34",
+                                "name": "ZB_RADIO_TYPE",
+                                "title": "Configure the Zigbee radio type",
+                                "type": "choice"
+                            },
+                            {
+                                "children": [
+                                    {
+                                        "children": [],
+                                        "depends_on": "(ZB_ZCZR || ZB_ZGPD) && SOC_IEEE802154_SUPPORTED && ZB_ENABLED",
+                                        "help": "when enable green power, example would support as green power proxy(zczr default enabled), green power combo or just green power device.",
+                                        "id": "ZB_GP_ENABLED",
+                                        "name": "ZB_GP_ENABLED",
+                                        "range": null,
+                                        "title": "Zigbee Green Power enable",
+                                        "type": "bool"
+                                    }
+                                ],
+                                "depends_on": "ZB_ENABLED",
+                                "id": "component-config-zigbee-zigbee-enable-zigbee-example-home-student-Desktop-ProjekatDisplej-DisplayAudi-managed_components-espressif__esp-zigbee-lib-Kconfig-52",
+                                "title": "Zigbee Example",
+                                "type": "menu"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "ZB_ENABLED",
+                                "help": "Setting Zigbee stack debug mode.",
+                                "id": "ZB_DEBUG_MODE",
+                                "name": "ZB_DEBUG_MODE",
+                                "range": null,
+                                "title": "Zigbee Debug Mode",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": null,
+                        "help": "Select this option to enable Zigbee and show the submenu with Zigbee configuration choices.",
+                        "id": "ZB_ENABLED",
+                        "name": "ZB_ENABLED",
+                        "range": null,
+                        "title": "Zigbee Enable",
+                        "type": "bool"
+                    }
+                ],
+                "depends_on": null,
+                "id": "component-config-zigbee-home-student-Desktop-ProjekatDisplej-DisplayAudi-managed_components-espressif__esp-zigbee-lib-Kconfig-1",
+                "title": "Zigbee",
+                "type": "menu"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "If enabled (default), the esp-modem automatically defragments CMUX messages\nto only pass the completed CMUX message to higher layers.\nThis is useful for messages in command mode (if they're received fragmented).\nIt's not a problem for messages in data mode as the upper layer (PPP protocol)\ndefines message boundaries.\nKeep the default to true for most cases (as most devices use simply 1 byte CMUX\nlength, as the internal Rx buffer of size >= 256 bytes won't overflow)\nSet to false if your devices uses 2 byte CMUX payload (e.g. A7672S).\nThe operation would work without an issue in data mode, but some replies\nin command mode might come fragmented in rare cases so might need to retry\nAT commands.",
+                        "id": "ESP_MODEM_CMUX_DEFRAGMENT_PAYLOAD",
+                        "name": "ESP_MODEM_CMUX_DEFRAGMENT_PAYLOAD",
+                        "range": null,
+                        "title": "Defragment CMUX messages internally",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "If enabled we will process the ongoing AT command by growing the current\nbuffer (if we've run out the preconfigured buffer).\nIf disabled, we simply report a failure.\nUse this if additional allocation is not a problem and you need to reliably process\nall commands, usually with sporadically longer responses than the configured buffer.\nCould be also used to defragment AT replies in CMUX mode if CMUX_DEFRAGMENT_PAYLOAD=n",
+                        "id": "ESP_MODEM_USE_INFLATABLE_BUFFER_IF_NEEDED",
+                        "name": "ESP_MODEM_USE_INFLATABLE_BUFFER_IF_NEEDED",
+                        "range": null,
+                        "title": "Use inflatable buffer in DCE",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Some devices might need a pause before sending SABM command that creates\nvirtual terminal. This delay applies only to establishing a CMUX mode.\nThe typical reason for failing SABM request without a delay is that\nsome devices (SIM800) send MSC requests just after opening a new DLCI.",
+                        "id": "ESP_MODEM_CMUX_DELAY_AFTER_DLCI_SETUP",
+                        "name": "ESP_MODEM_CMUX_DELAY_AFTER_DLCI_SETUP",
+                        "range": null,
+                        "title": "Delay in ms to wait before creating another virtual terminal",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Some devices might need a pause before sending disconnect command that closes\nvirtual terminal. This delay applies only in CMUX mode.",
+                        "id": "ESP_MODEM_CMUX_DELAY_AFTER_NETIF_DISCONNECT",
+                        "name": "ESP_MODEM_CMUX_DELAY_AFTER_NETIF_DISCONNECT",
+                        "range": null,
+                        "title": "Delay in ms to wait before closing virtual terminal abd rigt after PPP disconnect(NETIF)",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "If enabled, the CMUX protocol would only use 1 byte size field.\nYou can use this option for devices that support only short CMUX payloads\nto make the protocol more robust on noisy environments or when underlying\ntransport gets corrupted often (for example by Rx buffer overflows)",
+                        "id": "ESP_MODEM_CMUX_USE_SHORT_PAYLOADS_ONLY",
+                        "name": "ESP_MODEM_CMUX_USE_SHORT_PAYLOADS_ONLY",
+                        "range": null,
+                        "title": "CMUX to support only short payloads (<128 bytes)",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "ESP_MODEM_ADD_CUSTOM_MODULE",
+                                "help": "Name of the header file in the main component which implements esp_modem_create_custom_dce()\ncalled from C-API for creating esp_modem_dce object.\nThis header provides definition of the custom module with some additional and/or updated commands\nand API. It also defines creation of DCE based on this custom module, typically calling:\ndce_factory::Factory::create_unique_dce_from<CustomModule, DCE*>(dce_config, std::move(dte), netif)\nPlease refer to the pppos_client example for more details.",
+                                "id": "ESP_MODEM_CUSTOM_MODULE_HEADER",
+                                "name": "ESP_MODEM_CUSTOM_MODULE_HEADER",
+                                "range": null,
+                                "title": "Header file name which defines custom DCE creation",
+                                "type": "string"
+                            }
+                        ],
+                        "depends_on": null,
+                        "help": "If enabled, we adapt the C-API to create a DCE from a user defined class",
+                        "id": "ESP_MODEM_ADD_CUSTOM_MODULE",
+                        "name": "ESP_MODEM_ADD_CUSTOM_MODULE",
+                        "range": null,
+                        "title": "Add support for custom module in C-API",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Some AT commands returns textual values which C-API copy as c-string to user allocated space,\nit also truncates the output data to this size. Increase this if some AT answers are truncated.\nCallers of esp_modem_get_imsi(), esp_modem_get_imei(), esp_modem_get_operator_name(),\nesp_modem_get_module_name(), esp_modem_at(), and esp_modem_at_raw() must allocate output\nbuffers of at least this many bytes (see ESP_MODEM_C_API_STR_BUF_SIZE).",
+                        "id": "ESP_MODEM_C_API_STR_MAX",
+                        "name": "ESP_MODEM_C_API_STR_MAX",
+                        "range": null,
+                        "title": "Size in bytes for response from AT commands returning textual values (C-API)",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "If enabled, APIs to add URC handler are available",
+                        "id": "ESP_MODEM_URC_HANDLER",
+                        "name": "ESP_MODEM_URC_HANDLER",
+                        "range": null,
+                        "title": "Enable support for adding URC handler",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "If enabled, the library sends a PPP escape (\"+++\" command)\nto switch to command mode. This make switching from PPP to CMD\nmode more robust for some devices (e.g. Quectel), but might cause\ntrouble for other devices (e.g. SIMCOM).",
+                        "id": "ESP_MODEM_PPP_ESCAPE_BEFORE_EXIT",
+                        "name": "ESP_MODEM_PPP_ESCAPE_BEFORE_EXIT",
+                        "range": null,
+                        "title": "Send escape sequence when switching PPP -> CMD",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "If enabled, the library dumps all transmitted and received data.\nThis option is only used for debugging.",
+                        "id": "ESP_MODEM_ADD_DEBUG_LOGS",
+                        "name": "ESP_MODEM_ADD_DEBUG_LOGS",
+                        "range": null,
+                        "title": "Add UART Tx/Rx logs",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "We use pre-generated headers and sources with common AT commands.\nThis is useful for using ESP-MODEM library with IDEs and code navigation.\nWhen developing ESP-MODEM library, it's usually more convenient\nto work with sources directly, using C-preprocessor's metaprogramming.\nSet this to 'y' if you're making changes to the actual sources of\nthe AT command definitions (typically in esp_modem_command_declare.inc)",
+                        "id": "ESP_MODEM_ENABLE_DEVELOPMENT_MODE",
+                        "name": "ESP_MODEM_ENABLE_DEVELOPMENT_MODE",
+                        "range": null,
+                        "title": "Use development mode",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "If enabled, the library can use PPP netif from lwip.\nThis is the default and most common setting.\nBut it's possible to disable it and use only AT commands,\nin this case it's not required to enable LWIP_PPP_SUPPORT.",
+                        "id": "ESP_MODEM_USE_PPP_MODE",
+                        "name": "ESP_MODEM_USE_PPP_MODE",
+                        "range": null,
+                        "title": "Use PPP mode",
+                        "type": "bool"
+                    }
+                ],
+                "depends_on": null,
+                "id": "component-config-esp-modem-home-student-Desktop-ProjekatDisplej-DisplayAudi-managed_components-espressif__esp_modem-Kconfig-1",
+                "title": "esp-modem",
+                "type": "menu"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Number of network interfaces to be served by the mDNS library.\nLowering this number helps to reduce some static RAM usage.",
+                        "id": "MDNS_MAX_INTERFACES",
+                        "name": "MDNS_MAX_INTERFACES",
+                        "range": [
+                            1,
+                            9
+                        ],
+                        "title": "Max number of interfaces",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Services take up a certain amount of memory, and allowing fewer\nservices to be open at the same time conserves memory. Specify\nthe maximum amount of services here.",
+                        "id": "MDNS_MAX_SERVICES",
+                        "name": "MDNS_MAX_SERVICES",
+                        "range": null,
+                        "title": "Max number of services",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Allows setting mDNS task priority. Please do not set the task priority\nhigher than priorities of system tasks. Compile time warning/error\nwould be emitted if the chosen task priority were too high.",
+                        "id": "MDNS_TASK_PRIORITY",
+                        "name": "MDNS_TASK_PRIORITY",
+                        "range": [
+                            1,
+                            255
+                        ],
+                        "title": "mDNS task priority",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Allows setting the length of mDNS action queue.",
+                        "id": "MDNS_ACTION_QUEUE_LEN",
+                        "name": "MDNS_ACTION_QUEUE_LEN",
+                        "range": [
+                            8,
+                            64
+                        ],
+                        "title": "Maximum actions pending to the server",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Allows setting mDNS task stacksize.",
+                        "id": "MDNS_TASK_STACK_SIZE",
+                        "name": "MDNS_TASK_STACK_SIZE",
+                        "range": null,
+                        "title": "mDNS task stack size",
+                        "type": "int"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "<choice MDNS_TASK_AFFINITY>",
+                                "help": null,
+                                "id": "MDNS_TASK_AFFINITY_NO_AFFINITY",
+                                "name": "MDNS_TASK_AFFINITY_NO_AFFINITY",
+                                "range": null,
+                                "title": "No affinity",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice MDNS_TASK_AFFINITY>",
+                                "help": null,
+                                "id": "MDNS_TASK_AFFINITY_CPU0",
+                                "name": "MDNS_TASK_AFFINITY_CPU0",
+                                "range": null,
+                                "title": "CPU0",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "!FREERTOS_UNICORE && <choice MDNS_TASK_AFFINITY>",
+                                "help": null,
+                                "id": "MDNS_TASK_AFFINITY_CPU1",
+                                "name": "MDNS_TASK_AFFINITY_CPU1",
+                                "range": null,
+                                "title": "CPU1",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": null,
+                        "help": "Allows setting mDNS tasks affinity, i.e. whether the task is pinned to\nCPU0, pinned to CPU1, or allowed to run on any CPU.",
+                        "id": "component-config-mdns-mdns-task-affinity-home-student-Desktop-ProjekatDisplej-DisplayAudi-managed_components-espressif__mdns-Kconfig-41",
+                        "name": "MDNS_TASK_AFFINITY",
+                        "title": "mDNS task affinity",
+                        "type": "choice"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": null,
+                        "id": "MDNS_TASK_AFFINITY",
+                        "name": "MDNS_TASK_AFFINITY",
+                        "range": null,
+                        "title": null,
+                        "type": "hex"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [
+                                    {
+                                        "children": [],
+                                        "depends_on": "(SPIRAM_USE_CAPS_ALLOC || SPIRAM_USE_MALLOC) && <choice MDNS_TASK_MEMORY_ALLOC_FROM>",
+                                        "help": "mDNS task creates on the SPIRAM.\nThis option requires FreeRTOS component to allow creating\ntasks on the external memory.\nPlease read the documentation about FREERTOS_TASK_CREATE_ALLOW_EXT_MEM",
+                                        "id": "MDNS_TASK_CREATE_FROM_SPIRAM",
+                                        "name": "MDNS_TASK_CREATE_FROM_SPIRAM",
+                                        "range": null,
+                                        "title": "mDNS task creates on the SPIRAM (READ HELP)",
+                                        "type": "bool"
+                                    },
+                                    {
+                                        "children": [],
+                                        "depends_on": "<choice MDNS_TASK_MEMORY_ALLOC_FROM>",
+                                        "help": null,
+                                        "id": "MDNS_TASK_CREATE_FROM_INTERNAL",
+                                        "name": "MDNS_TASK_CREATE_FROM_INTERNAL",
+                                        "range": null,
+                                        "title": "mDNS task creates on the internal RAM",
+                                        "type": "bool"
+                                    }
+                                ],
+                                "depends_on": null,
+                                "help": null,
+                                "id": "component-config-mdns-mdns-memory-configuration-select-mdns-task-create-on-which-type-of-memory-home-student-Desktop-ProjekatDisplej-DisplayAudi-managed_components-espressif__mdns-Kconfig-66",
+                                "name": "MDNS_TASK_MEMORY_ALLOC_FROM",
+                                "title": "Select mDNS task create on which type of memory",
+                                "type": "choice"
+                            },
+                            {
+                                "children": [
+                                    {
+                                        "children": [],
+                                        "depends_on": "(SPIRAM_USE_CAPS_ALLOC || SPIRAM_USE_MALLOC) && <choice MDNS_MEMORY_ALLOC_FROM>",
+                                        "help": null,
+                                        "id": "MDNS_MEMORY_ALLOC_SPIRAM",
+                                        "name": "MDNS_MEMORY_ALLOC_SPIRAM",
+                                        "range": null,
+                                        "title": "Allocate mDNS memory from SPIRAM",
+                                        "type": "bool"
+                                    },
+                                    {
+                                        "children": [],
+                                        "depends_on": "<choice MDNS_MEMORY_ALLOC_FROM>",
+                                        "help": null,
+                                        "id": "MDNS_MEMORY_ALLOC_INTERNAL",
+                                        "name": "MDNS_MEMORY_ALLOC_INTERNAL",
+                                        "range": null,
+                                        "title": "Allocate mDNS memory from internal RAM",
+                                        "type": "bool"
+                                    }
+                                ],
+                                "depends_on": null,
+                                "help": null,
+                                "id": "component-config-mdns-mdns-memory-configuration-select-mdns-memory-allocation-type-home-student-Desktop-ProjekatDisplej-DisplayAudi-managed_components-espressif__mdns-Kconfig-83",
+                                "name": "MDNS_MEMORY_ALLOC_FROM",
+                                "title": "Select mDNS memory allocation type",
+                                "type": "choice"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Enable to implement custom memory functions for mDNS library.\nThis option is useful when the application wants to use custom\nmemory allocation functions for mDNS library.",
+                                "id": "MDNS_MEMORY_CUSTOM_IMPL",
+                                "name": "MDNS_MEMORY_CUSTOM_IMPL",
+                                "range": null,
+                                "title": "Implement custom memory functions",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": null,
+                        "id": "component-config-mdns-mdns-memory-configuration-home-student-Desktop-ProjekatDisplej-DisplayAudi-managed_components-espressif__mdns-Kconfig-64",
+                        "title": "MDNS Memory Configuration",
+                        "type": "menu"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Configures timeout for adding a new mDNS service. Adding a service\nfails if could not be completed within this time.",
+                        "id": "MDNS_SERVICE_ADD_TIMEOUT_MS",
+                        "name": "MDNS_SERVICE_ADD_TIMEOUT_MS",
+                        "range": [
+                            10,
+                            30000
+                        ],
+                        "title": "mDNS adding service timeout (ms)",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Configures period of mDNS timer, which periodically transmits packets\nand schedules mDNS searches.",
+                        "id": "MDNS_TIMER_PERIOD_MS",
+                        "name": "MDNS_TIMER_PERIOD_MS",
+                        "range": [
+                            10,
+                            10000
+                        ],
+                        "title": "mDNS timer period (ms)",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Enables optional mDNS networking implementation using BSD sockets\nin UDP multicast mode.\nThis option creates a new thread to serve receiving packets (TODO).\nThis option uses additional N sockets, where N is number of interfaces.",
+                        "id": "MDNS_NETWORKING_SOCKET",
+                        "name": "MDNS_NETWORKING_SOCKET",
+                        "range": null,
+                        "title": "Use BSD sockets for mDNS networking",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Enable only if the querier and the responder share the same IP address.\nThis usually happens in test mode, where we may run multiple instances of\nresponders/queriers on the same interface.",
+                        "id": "MDNS_SKIP_SUPPRESSING_OWN_QUERIES",
+                        "name": "MDNS_SKIP_SUPPRESSING_OWN_QUERIES",
+                        "range": null,
+                        "title": "Skip suppressing our own packets",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [
+                                    {
+                                        "children": [],
+                                        "depends_on": "MDNS_DEBUG_USE_ESP_LOG",
+                                        "help": "This buffer is used to output mDNS packets in debug prints.",
+                                        "id": "MDNS_DEBUG_BUFFER_SIZE",
+                                        "name": "MDNS_DEBUG_BUFFER_SIZE",
+                                        "range": null,
+                                        "title": "Size of temporary buffer for debug prints",
+                                        "type": "int"
+                                    }
+                                ],
+                                "depends_on": "MDNS_ENABLE_DEBUG_PRINTS",
+                                "help": "Enable this option to route debug prints to ESP_LOG, which allows more flexibility.",
+                                "id": "MDNS_DEBUG_USE_ESP_LOG",
+                                "name": "MDNS_DEBUG_USE_ESP_LOG",
+                                "range": null,
+                                "title": "Route debug prints to ESP_LOG",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": null,
+                        "help": "Enable for the library to log received and sent mDNS packets to stdout.",
+                        "id": "MDNS_ENABLE_DEBUG_PRINTS",
+                        "name": "MDNS_ENABLE_DEBUG_PRINTS",
+                        "range": null,
+                        "title": "Enable debug prints of mDNS packets",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Enable for the console cli to be available on the device.",
+                        "id": "MDNS_ENABLE_CONSOLE_CLI",
+                        "name": "MDNS_ENABLE_CONSOLE_CLI",
+                        "range": null,
+                        "title": "Enable Command Line Interface on device console",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Enables support for IPv4 reverse lookup. If enabled, the mDNS library\nresponse to PTR queries of \"A.B.C.D.in-addr.arpa\" type.",
+                        "id": "MDNS_RESPOND_REVERSE_QUERIES",
+                        "name": "MDNS_RESPOND_REVERSE_QUERIES",
+                        "range": null,
+                        "title": "Enable responding to IPv4 reverse queries",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Enables adding multiple service instances under the same service type.",
+                        "id": "MDNS_MULTIPLE_INSTANCE",
+                        "name": "MDNS_MULTIPLE_INSTANCE",
+                        "range": null,
+                        "title": "Multiple instances under the same service type",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Set up mDNS for the default WiFi station.\nDisable this option if you do not need mDNS on default WiFi STA.",
+                                "id": "MDNS_PREDEF_NETIF_STA",
+                                "name": "MDNS_PREDEF_NETIF_STA",
+                                "range": null,
+                                "title": "Use predefined interface for WiFi Station",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Set up mDNS for the default WiFi Access Point.\nDisable this option if you do not need mDNS on default WiFi AP.",
+                                "id": "MDNS_PREDEF_NETIF_AP",
+                                "name": "MDNS_PREDEF_NETIF_AP",
+                                "range": null,
+                                "title": "Use predefined interface for WiFi Access Point",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "ETH_ENABLED",
+                                "help": "Set up mDNS for the default Ethernet interface.\nDisable this option if you do not need mDNS on default Ethernet.",
+                                "id": "MDNS_PREDEF_NETIF_ETH",
+                                "name": "MDNS_PREDEF_NETIF_ETH",
+                                "range": null,
+                                "title": "Use predefined interface for Ethernet",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": null,
+                        "id": "component-config-mdns-mdns-predefined-interfaces-home-student-Desktop-ProjekatDisplej-DisplayAudi-managed_components-espressif__mdns-Kconfig-178",
+                        "title": "MDNS Predefined interfaces",
+                        "type": "menu"
+                    }
+                ],
+                "depends_on": null,
+                "id": "component-config-mdns-home-student-Desktop-ProjekatDisplej-DisplayAudi-managed_components-espressif__mdns-Kconfig-1",
+                "title": "mDNS",
+                "type": "menu"
+            },
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "(ESP_WIFI_ENABLED || ESP_WIFI_REMOTE_ENABLED) && <choice NETWORK_PROV_NETWORK_TYPE>",
+                                "help": null,
+                                "id": "NETWORK_PROV_NETWORK_TYPE_WIFI",
+                                "name": "NETWORK_PROV_NETWORK_TYPE_WIFI",
+                                "range": null,
+                                "title": "Network Type - Wi-Fi",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "OPENTHREAD_ENABLED && <choice NETWORK_PROV_NETWORK_TYPE>",
+                                "help": null,
+                                "id": "NETWORK_PROV_NETWORK_TYPE_THREAD",
+                                "name": "NETWORK_PROV_NETWORK_TYPE_THREAD",
+                                "range": null,
+                                "title": "Network Type - Thread",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": null,
+                        "help": null,
+                        "id": "component-config-network-provisioning-manager-network-type-home-student-Desktop-ProjekatDisplej-DisplayAudi-managed_components-espressif__network_provisioning-Kconfig-3",
+                        "name": "NETWORK_PROV_NETWORK_TYPE",
+                        "title": "Network Type",
+                        "type": "choice"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "This sets the maximum number of entries of network scan results that will be kept by the\nprovisioning manager",
+                        "id": "NETWORK_PROV_SCAN_MAX_ENTRIES",
+                        "name": "NETWORK_PROV_SCAN_MAX_ENTRIES",
+                        "range": [
+                            1,
+                            255
+                        ],
+                        "title": "Max Network Scan Result Entries",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Time (in seconds) after which the network provisioning manager will auto-stop after connecting to\na network successfully.",
+                        "id": "NETWORK_PROV_AUTOSTOP_TIMEOUT",
+                        "name": "NETWORK_PROV_AUTOSTOP_TIMEOUT",
+                        "range": [
+                            5,
+                            600
+                        ],
+                        "title": "Provisioning auto-stop timeout",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "BT_ENABLED",
+                        "help": "This option is applicable only when provisioning transport is BLE. Used to enable BLE bonding process\nwhere the information from the pairing process will be stored on the devices.",
+                        "id": "NETWORK_PROV_BLE_BONDING",
+                        "name": "NETWORK_PROV_BLE_BONDING",
+                        "range": null,
+                        "title": "Enable BLE bonding",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "BT_NIMBLE_ENABLED",
+                        "help": "Used to enable Secure connection support when provisioning transport is BLE.",
+                        "id": "NETWORK_PROV_BLE_SEC_CONN",
+                        "name": "NETWORK_PROV_BLE_SEC_CONN",
+                        "range": null,
+                        "title": "Enable BLE Secure connection flag",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "BT_ENABLED",
+                        "help": "Used to enforce link encryption when attempting to read / write characteristic",
+                        "id": "NETWORK_PROV_BLE_FORCE_ENCRYPTION",
+                        "name": "NETWORK_PROV_BLE_FORCE_ENCRYPTION",
+                        "range": null,
+                        "title": "Force Link Encryption during characteristic Read / Write",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "BT_ENABLED",
+                        "help": "Used to enable support Notification in BLE descriptors of prov* characteristics",
+                        "id": "NETWORK_PROV_BLE_NOTIFY",
+                        "name": "NETWORK_PROV_BLE_NOTIFY",
+                        "range": null,
+                        "title": "Add support for Notification for provisioning BLE descriptors",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "NETWORK_PROV_KEEP_BLE_ON_AFTER_PROV",
+                                "help": null,
+                                "id": "NETWORK_PROV_DISCONNECT_AFTER_PROV",
+                                "name": "NETWORK_PROV_DISCONNECT_AFTER_PROV",
+                                "range": null,
+                                "title": "Terminate connection after provisioning is done",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": "BT_ENABLED",
+                        "help": null,
+                        "id": "NETWORK_PROV_KEEP_BLE_ON_AFTER_PROV",
+                        "name": "NETWORK_PROV_KEEP_BLE_ON_AFTER_PROV",
+                        "range": null,
+                        "title": "Keep BT on after provisioning is done",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "<choice NETWORK_PROV_WIFI_STA_SCAN_METHOD>",
+                                "help": "Scan will end after scanning the entire channel. This option is useful in Mesh WiFi Systems.",
+                                "id": "NETWORK_PROV_WIFI_STA_ALL_CHANNEL_SCAN",
+                                "name": "NETWORK_PROV_WIFI_STA_ALL_CHANNEL_SCAN",
+                                "range": null,
+                                "title": "All Channel Scan",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice NETWORK_PROV_WIFI_STA_SCAN_METHOD>",
+                                "help": "Scan will end after an AP matching with the SSID has been detected.",
+                                "id": "NETWORK_PROV_WIFI_STA_FAST_SCAN",
+                                "name": "NETWORK_PROV_WIFI_STA_FAST_SCAN",
+                                "range": null,
+                                "title": "Fast Scan",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": "NETWORK_PROV_NETWORK_TYPE_WIFI",
+                        "help": null,
+                        "id": "component-config-network-provisioning-manager-wifi-provisioning-scan-method-home-student-Desktop-ProjekatDisplej-DisplayAudi-managed_components-espressif__network_provisioning-Kconfig-75",
+                        "name": "NETWORK_PROV_WIFI_STA_SCAN_METHOD",
+                        "title": "Wifi Provisioning Scan Method",
+                        "type": "choice"
+                    }
+                ],
+                "depends_on": null,
+                "id": "component-config-network-provisioning-manager-home-student-Desktop-ProjekatDisplej-DisplayAudi-managed_components-espressif__network_provisioning-Kconfig-1",
+                "title": "Network Provisioning Manager",
+                "type": "menu"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Toggle SD card support\nThis requires IDF v5+ as older ESP-IDF do not support SD card erase.",
+                        "id": "LITTLEFS_SDMMC_SUPPORT",
+                        "name": "LITTLEFS_SDMMC_SUPPORT",
+                        "range": null,
+                        "title": "SDMMC support (requires ESP-IDF v5+)",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Define maximum number of partitions that can be mounted.",
+                        "id": "LITTLEFS_MAX_PARTITIONS",
+                        "name": "LITTLEFS_MAX_PARTITIONS",
+                        "range": [
+                            1,
+                            10
+                        ],
+                        "title": "Maximum Number of Partitions",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Logical page size of LITTLEFS partition, in bytes. Must be multiple\nof flash page size (which is usually 256 bytes).\nLarger page sizes reduce overhead when storing large files, and\nimprove filesystem performance when reading large files.\nSmaller page sizes reduce overhead when storing small (< page size)\nfiles.",
+                        "id": "LITTLEFS_PAGE_SIZE",
+                        "name": "LITTLEFS_PAGE_SIZE",
+                        "range": [
+                            256,
+                            1024
+                        ],
+                        "title": "LITTLEFS logical page size",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Includes NULL-terminator. If flashing a prebuilt filesystem image,\nrebuild the filesystem image if this value changes.\nmklittlefs, the tool that generates the image will automatically be rebuilt.\nIf downloading a pre-built release of mklittlefs, it was most-likely\nbuilt with LFS_NAME_MAX=32 and should not be used.",
+                        "id": "LITTLEFS_OBJ_NAME_LEN",
+                        "name": "LITTLEFS_OBJ_NAME_LEN",
+                        "range": [
+                            16,
+                            1022
+                        ],
+                        "title": "Maximum object name length including NULL terminator.",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Minimum size of a block read. All read operations will be a\nmultiple of this value.",
+                        "id": "LITTLEFS_READ_SIZE",
+                        "name": "LITTLEFS_READ_SIZE",
+                        "range": null,
+                        "title": "Minimum size of a block read.",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Minimum size of a block program. All write operations will be a\nmultiple of this value.",
+                        "id": "LITTLEFS_WRITE_SIZE",
+                        "name": "LITTLEFS_WRITE_SIZE",
+                        "range": null,
+                        "title": "Minimum size of a block write.",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Look ahead size. Must be a multiple of 8.",
+                        "id": "LITTLEFS_LOOKAHEAD_SIZE",
+                        "name": "LITTLEFS_LOOKAHEAD_SIZE",
+                        "range": null,
+                        "title": "Look ahead size.",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Size of block caches. Each cache buffers a portion of a block in RAM.\nThe littlefs needs a read cache, a program cache, and one additional\ncache per file. Larger caches can improve performance by storing more\ndata and reducing the number of disk accesses. Must be a multiple of\nthe read and program sizes, and a factor of the block size (4096).",
+                        "id": "LITTLEFS_CACHE_SIZE",
+                        "name": "LITTLEFS_CACHE_SIZE",
+                        "range": null,
+                        "title": "Cache Size",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Number of erase cycles before littlefs evicts metadata logs and moves \nthe metadata to another block. Suggested values are in the\nrange 100-1000, with large values having better performance at the cost\nof less consistent wear distribution.\nSet to -1 to disable block-level wear-leveling.",
+                        "id": "LITTLEFS_BLOCK_CYCLES",
+                        "name": "LITTLEFS_BLOCK_CYCLES",
+                        "range": [
+                            -1,
+                            1024
+                        ],
+                        "title": "LittleFS wear-leveling block cycles",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Saves timestamp on modification. Uses an additional 4bytes.",
+                        "id": "LITTLEFS_USE_MTIME",
+                        "name": "LITTLEFS_USE_MTIME",
+                        "range": null,
+                        "title": "Save file modification time",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Records the filepath only as a 32-bit hash in the file descriptor instead\nof the entire filepath. Saves approximately `sizeof(filepath)` bytes\nper file descriptor.\nIf enabled, functionality (like fstat) that requires the file path \nfrom the file descriptor will not work.\nIn rare cases, may cause unlinking or renaming issues (unlikely) if\nthere's a hash collision between an open filepath and a filepath\nto be modified.",
+                        "id": "LITTLEFS_USE_ONLY_HASH",
+                        "name": "LITTLEFS_USE_ONLY_HASH",
+                        "range": null,
+                        "title": "Don't store filepath in the file descriptor",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Converts LittleFS error codes into human readable strings.\nMay increase binary size depending on logging level.",
+                        "id": "LITTLEFS_HUMAN_READABLE",
+                        "name": "LITTLEFS_HUMAN_READABLE",
+                        "range": null,
+                        "title": "Make errno human-readable",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "<choice LITTLEFS_MTIME>",
+                                "help": "Saves timestamp on modification.",
+                                "id": "LITTLEFS_MTIME_USE_SECONDS",
+                                "name": "LITTLEFS_MTIME_USE_SECONDS",
+                                "range": null,
+                                "title": "Use Seconds",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice LITTLEFS_MTIME>",
+                                "help": "Saves nonce on modification; intended for detecting filechanges\non systems without access to a RTC.\n\nA file who's nonce is the same as it was at a previous time has \nhigh probability of not having been modified.\n\nUpon file modification, the nonce is incremented by one. Upon file\ncreation, a random nonce is assigned.\n\nThere is a very slim chance that a file will have the same nonce if\nit is deleted and created again (approx 1 in 4 billion).",
+                                "id": "LITTLEFS_MTIME_USE_NONCE",
+                                "name": "LITTLEFS_MTIME_USE_NONCE",
+                                "range": null,
+                                "title": "Use Nonce",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": "LITTLEFS_USE_MTIME",
+                        "help": "Save an additional 4-byte attribute. Options listed below.",
+                        "id": "component-config-littlefs-mtime-attribute-options-home-student-Desktop-ProjekatDisplej-DisplayAudi-managed_components-joltwallet__littlefs-Kconfig-107",
+                        "name": "LITTLEFS_MTIME",
+                        "title": "mtime attribute options",
+                        "type": "choice"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Enabling this feature allows for greater drop-in compatability\nwhen replacing SPIFFS. Since SPIFFS doesn't have folders, and \nfolders are just considered as part of a file name, enabling this\nwill automatically create folders as necessary to create a file\ninstead of throwing an error. Similarly, upon the deletion of the\nlast file in a folder, the folder will be deleted. It is recommended\nto only enable this flag as a stop-gap solution.",
+                        "id": "LITTLEFS_SPIFFS_COMPAT",
+                        "name": "LITTLEFS_SPIFFS_COMPAT",
+                        "range": null,
+                        "title": "Improve SPIFFS drop-in compatability",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Enabling this feature extends SPIFFS capability.\nIn SPIFFS data is written immediately to the flash storage when fflush() function called.\nIn LittleFS flush() does not write data to the flash, and fsync() call needed after.\nWith this feature fflush() will write data to the storage.",
+                        "id": "LITTLEFS_FLUSH_FILE_EVERY_WRITE",
+                        "name": "LITTLEFS_FLUSH_FILE_EVERY_WRITE",
+                        "range": null,
+                        "title": "Flush file to flash after each write operation",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "!LITTLEFS_USE_ONLY_HASH && LITTLEFS_SPIFFS_COMPAT",
+                        "help": "Support opening directory by following APIs:\n\n    int fd = open(\"my_directory\", O_DIRECTORY);",
+                        "id": "LITTLEFS_OPEN_DIR",
+                        "name": "LITTLEFS_OPEN_DIR",
+                        "range": null,
+                        "title": "Support opening directory",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "LITTLEFS_FCNTL_GET_PATH",
+                                "help": "ESP-IDF's header file \"fcntl.h\" doesn't support macro \"F_GETPATH\",\nso we should define this macro here.",
+                                "id": "LITTLEFS_FCNTL_F_GETPATH_VALUE",
+                                "name": "LITTLEFS_FCNTL_F_GETPATH_VALUE",
+                                "range": null,
+                                "title": "Value of command F_GETPATH",
+                                "type": "int"
+                            }
+                        ],
+                        "depends_on": "!LITTLEFS_USE_ONLY_HASH",
+                        "help": "Support getting directory by following APIs:\n\n    char buffer[MAXPATHLEN];\n\n    int fd = open(\"my_file\", flags);\n    fcntl(fd, F_GETPATH, buffer);",
+                        "id": "LITTLEFS_FCNTL_GET_PATH",
+                        "name": "LITTLEFS_FCNTL_GET_PATH",
+                        "range": null,
+                        "title": "Support get file or directory path",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [
+                                    {
+                                        "children": [],
+                                        "depends_on": "<choice LITTLEFS_DISK_VERSION>",
+                                        "help": null,
+                                        "id": "LITTLEFS_DISK_VERSION_MOST_RECENT",
+                                        "name": "LITTLEFS_DISK_VERSION_MOST_RECENT",
+                                        "range": null,
+                                        "title": "Write the most recent LittleFS version",
+                                        "type": "bool"
+                                    },
+                                    {
+                                        "children": [],
+                                        "depends_on": "<choice LITTLEFS_DISK_VERSION>",
+                                        "help": null,
+                                        "id": "LITTLEFS_DISK_VERSION_2_1",
+                                        "name": "LITTLEFS_DISK_VERSION_2_1",
+                                        "range": null,
+                                        "title": "Write LittleFS 2.1",
+                                        "type": "bool"
+                                    },
+                                    {
+                                        "children": [],
+                                        "depends_on": "<choice LITTLEFS_DISK_VERSION>",
+                                        "help": null,
+                                        "id": "LITTLEFS_DISK_VERSION_2_0",
+                                        "name": "LITTLEFS_DISK_VERSION_2_0",
+                                        "range": null,
+                                        "title": "Write LittleFS 2.0 (no forward-looking erase-state CRCs)",
+                                        "type": "bool"
+                                    }
+                                ],
+                                "depends_on": "LITTLEFS_MULTIVERSION",
+                                "help": "See LITTLEFS_MULTIVERSION for details.",
+                                "id": "component-config-littlefs-support-selecting-the-littlefs-minor-version-to-write-to-disk-littlefs_disk_version-home-student-Desktop-ProjekatDisplej-DisplayAudi-managed_components-joltwallet__littlefs-Kconfig-201",
+                                "name": "LITTLEFS_DISK_VERSION",
+                                "title": "LITTLEFS_DISK_VERSION",
+                                "type": "choice"
+                            }
+                        ],
+                        "depends_on": null,
+                        "help": "LittleFS 2.6 bumps the on-disk minor version of littlefs from lfs2.0 -> lfs2.1.\n\nThis change is backwards-compatible, but after the first write with the new version,\nthe image on disk will no longer be mountable by older versions of littlefs.\n\nEnabling LITTLEFS_MULTIVERSION allows to select the On-disk version\nto use when writing in the form of 16-bit major version\n+ 16-bit minor version. This limiting metadata to what is supported by\nolder minor versions. Note that some features will be lost. Defaults to\nto the most recent minor version when zero.",
+                        "id": "LITTLEFS_MULTIVERSION",
+                        "name": "LITTLEFS_MULTIVERSION",
+                        "range": null,
+                        "title": "Support selecting the LittleFS minor version to write to disk",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "<choice LITTLEFS_MALLOC_STRATEGY>",
+                                "help": "Disallow dynamic allocation, static buffers must be provided by the calling application.",
+                                "id": "LITTLEFS_MALLOC_STRATEGY_DISABLE",
+                                "name": "LITTLEFS_MALLOC_STRATEGY_DISABLE",
+                                "range": null,
+                                "title": "Static buffers only",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice LITTLEFS_MALLOC_STRATEGY>",
+                                "help": "Uses an automatic allocation strategy. On systems with heap in SPIRAM, if\nthe allocation size does not exceed SPIRAM_MALLOC_ALWAYSINTERNAL then internal\nheap allocation if preferred, otherwise allocation will be attempted from SPIRAM\nheap.",
+                                "id": "LITTLEFS_MALLOC_STRATEGY_DEFAULT",
+                                "name": "LITTLEFS_MALLOC_STRATEGY_DEFAULT",
+                                "range": null,
+                                "title": "Default heap selection",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice LITTLEFS_MALLOC_STRATEGY>",
+                                "help": "Uses ESP-IDF heap_caps_malloc to allocate from internal heap.",
+                                "id": "LITTLEFS_MALLOC_STRATEGY_INTERNAL",
+                                "name": "LITTLEFS_MALLOC_STRATEGY_INTERNAL",
+                                "range": null,
+                                "title": "Internal heap",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "(SPIRAM_USE_MALLOC || SPIRAM_USE_CAPS_ALLOC) && <choice LITTLEFS_MALLOC_STRATEGY>",
+                                "help": "Uses ESP-IDF heap_caps_malloc to allocate from SPIRAM heap.\nAllocation fails if SPIRAM is exhausted; internal heap is not used.",
+                                "id": "LITTLEFS_MALLOC_STRATEGY_SPIRAM",
+                                "name": "LITTLEFS_MALLOC_STRATEGY_SPIRAM",
+                                "range": null,
+                                "title": "SPIRAM heap",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice LITTLEFS_MALLOC_STRATEGY>",
+                                "help": "Uses ESP-IDF heap_caps_malloc_prefer to allocate from SPIRAM heap,\nfalling back to the default heap (typically internal RAM) if the\nSPIRAM allocation fails. Choose this when you want SPIRAM to be\nused opportunistically without hard-failing under SPIRAM pressure.",
+                                "id": "LITTLEFS_MALLOC_STRATEGY_SPIRAM_PREFER",
+                                "name": "LITTLEFS_MALLOC_STRATEGY_SPIRAM_PREFER",
+                                "range": null,
+                                "title": "SPIRAM heap, fall back to default heap",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": null,
+                        "help": "Maps lfs_malloc to ESP-IDF capabilities-based memory allocator or\ndisables dynamic allocation in favour of user-provided static buffers.",
+                        "id": "component-config-littlefs-buffer-allocation-strategy-home-student-Desktop-ProjekatDisplej-DisplayAudi-managed_components-joltwallet__littlefs-Kconfig-219",
+                        "name": "LITTLEFS_MALLOC_STRATEGY",
+                        "title": "Buffer allocation strategy",
+                        "type": "choice"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Selects whether littlefs performs runtime assert checks.",
+                        "id": "LITTLEFS_ASSERTS",
+                        "name": "LITTLEFS_ASSERTS",
+                        "range": null,
+                        "title": "Enable asserts",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Use esp_partition_mmap to map the partitions to memory, which can provide a significant\nperformance boost in some cases. Make sure the chip you're using has enough available address\nspace to map the partition (for the ESP32 there is 4MB available).",
+                        "id": "LITTLEFS_MMAP_PARTITION",
+                        "name": "LITTLEFS_MMAP_PARTITION",
+                        "range": null,
+                        "title": "Memory map LITTLEFS partitions",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Enable calling esp_task_wdt_reset() during flash read/write/erase operations\nto prevent task watchdog timeouts during long-running filesystem operations.",
+                        "id": "LITTLEFS_WDT_RESET",
+                        "name": "LITTLEFS_WDT_RESET",
+                        "range": null,
+                        "title": "Reset task watchdog during flash operations",
+                        "type": "bool"
+                    }
+                ],
+                "depends_on": null,
+                "id": "component-config-littlefs-home-student-Desktop-ProjekatDisplej-DisplayAudi-managed_components-joltwallet__littlefs-Kconfig-1",
+                "title": "LittleFS",
                 "type": "menu"
             },
             {
