@@ -1,10 +1,9 @@
 #include "Arduino.h"
-#include "pins_arduino.h"
 
 float getBatteryVoltage() {
-  int analogVolt = analogReadMilliVolts(1);
+  int analogVolt = analogReadMilliVolts(1); 
   float voltage = analogVolt / 1000.0;
-  voltage = voltage * (100.0 + 200.0) / 200.0;
+  voltage = voltage * (100.0+200.0) / 200.0;
   return voltage;
 }
 
@@ -21,12 +20,8 @@ bool getChargingState() {
 
 void (*__onChargeStart__)();
 void (*__onChargeEnd__)();
-void setOnChargeStart(void (*func)()) {
-  __onChargeStart__ = func;
-}
-void setOnChargeEnd(void (*func)()) {
-  __onChargeEnd__ = func;
-}
+void setOnChargeStart(void (*func)()) { __onChargeStart__ = func; }
+void setOnChargeEnd(void (*func)()) { __onChargeEnd__ = func; }
 
 void ARDUINO_ISR_ATTR chargeIsr() {
   if (getChargingState()) {
@@ -36,7 +31,7 @@ void ARDUINO_ISR_ATTR chargeIsr() {
   }
 }
 
-extern "C" void initVariant(void) {
+extern "C" void initVariant(void){
   pinMode(CHG, INPUT_PULLUP);
   attachInterrupt(CHG, chargeIsr, CHANGE);
   analogReadResolution(12);

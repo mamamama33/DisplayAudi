@@ -19,10 +19,13 @@
 // limitations under the License.
 //===========================================================================
 #include "AnimatedGIF.h"
-#include "esp_timer.h"
+
 // Here is all of the actual code...
 #include "gif.inl"
-
+#include "esp_timer.h"          // za esp_timer_get_time()
+#include "freertos/FreeRTOS.h"  // za vTaskDelay i pdMS_TO_TICKS
+#include "freertos/task.h"
+#include "rom/ets_sys.h"        // za ets_delay_us
 //
 // Memory initialization
 //
@@ -297,7 +300,7 @@ int AnimatedGIF::playFrame(bool bSync, int *delayMilliseconds, void *pUser)
 {
 int rc;
 #if !defined( __MACH__ ) && !defined( __LINUX__ )
-long lTime = (esp_timer_get_time() / 1000ULL);
+long lTime = (esp_timer_get_time() / 1000);
 #endif
 
     if (_gif.GIFFile.iPos >= _gif.GIFFile.iSize-1) // no more data exists
@@ -335,7 +338,7 @@ long lTime = (esp_timer_get_time() / 1000ULL);
     if (bSync)
     {
 #if !defined( __MACH__ ) && !defined( __LINUX__ ) 
-        lTime = millis() - lTime;
+        lTime = (esp_timer_get_time() / 1000) - lTime;
         if (lTime < _gif.iFrameDelay) // need to pause a bit
            vTaskDelay(pdMS_TO_TICKS(_gif.iFrameDelay - lTime));
 #endif // __LINUX__

@@ -156,7 +156,7 @@ Block Strane[][2] =
     }
 
 };
-uint8_t strana=5;
+uint8_t strana=0;
 uint8_t TacanId=0;
 
 /*PRVO SE SETUJE PA SE ONDA PREBACI U STANJE DA MOZE 

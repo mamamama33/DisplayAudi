@@ -1,4 +1,4 @@
-/*
+/* 
  * The MIT License (MIT)
  *
  * Copyright (c) 2021 Ha Thach (tinyusb.org) for Adafruit Industries
@@ -22,6 +22,7 @@
  * THE SOFTWARE.
  */
 
+
 #include "esp32-hal-gpio.h"
 #include "pins_arduino.h"
 
@@ -33,4 +34,5 @@ void initVariant(void) {
   // a strapping pin!)
   pinMode(SS, INPUT_PULLUP);
 }
+
 }

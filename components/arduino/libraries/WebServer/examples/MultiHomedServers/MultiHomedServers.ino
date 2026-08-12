@@ -1,11 +1,10 @@
-#include <Arduino.h>
 #include <WiFi.h>
-#include <NetworkClient.h>
+#include <WiFiClient.h>
 #include <WebServer.h>
 #include <ESPmDNS.h>
 
-const char *ssid = "WiFi_SSID";
-const char *password = "WiFi_Password";
+const char* ssid = "WiFi_SSID";
+const char* password = "WiFi_Password";
 const char *apssid = "ESP32";
 
 WebServer *server0, *server1, *server2;
@@ -44,7 +43,7 @@ void handleNotFound(WebServer *server) {
   message += "\nArguments: ";
   message += server->args();
   message += "\n";
-  for (int i = 0; i < server->args(); i++) {
+  for (uint8_t i = 0; i < server->args(); i++) {
     message += " " + server->argName(i) + ": " + server->arg(i) + "\n";
   }
   server->send(404, "text/plain", message);
@@ -67,7 +66,7 @@ void setup(void) {
   pinMode(led, OUTPUT);
   digitalWrite(led, 0);
   Serial.begin(115200);
-
+  while(!Serial){ delay(100); }
   Serial.println("Multi-homed Servers example starting");
   delay(1000);
   WiFi.mode(WIFI_STA);
@@ -87,10 +86,10 @@ void setup(void) {
   if (!WiFi.softAP(apssid)) {
     Serial.println("failed to start softAP");
     for (;;) {
-      digitalWrite(led, 1);
-      delay(100);
-      digitalWrite(led, 0);
-      delay(100);
+        digitalWrite(led, 1);
+        delay(100);
+        digitalWrite(led, 0);
+        delay(100);
     }
   }
   Serial.print("Soft AP SSID: \"");
@@ -121,16 +120,8 @@ void setup(void) {
   server2->begin();
   Serial.println("HTTP server2 started");
 
-  Serial.printf("SSID: %s\n\thttp://", ssid);
-  Serial.print(WiFi.localIP());
-  Serial.print(":8080\n\thttp://");
-  Serial.print(WiFi.localIP());
-  Serial.println(":8081");
-  Serial.printf("SSID: %s\n\thttp://", apssid);
-  Serial.print(WiFi.softAPIP());
-  Serial.print(":8080\n\thttp://");
-  Serial.print(WiFi.softAPIP());
-  Serial.println(":8081");
+  Serial.printf("SSID: %s\n\thttp://", ssid); Serial.print(WiFi.localIP()); Serial.print(":8080\n\thttp://"); Serial.print(WiFi.localIP()); Serial.println(":8081");
+  Serial.printf("SSID: %s\n\thttp://", apssid); Serial.print(WiFi.softAPIP()); Serial.print(":8080\n\thttp://"); Serial.print(WiFi.softAPIP()); Serial.println(":8081");
   Serial.printf("Any of the above SSIDs\n\thttp://esp32.local:8080\n\thttp://esp32.local:8081\n");
 }
 
@@ -138,5 +129,5 @@ void loop(void) {
   server0->handleClient();
   server1->handleClient();
   server2->handleClient();
-  delay(2);  //allow the cpu to switch to other tasks
+  delay(2);//allow the cpu to switch to other tasks
 }

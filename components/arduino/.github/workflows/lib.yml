@@ -7,16 +7,7 @@ on:
 
   # Schedule weekly builds on every Sunday at 4 am
   schedule:
-    - cron: "0 4 * * SUN"
-
-concurrency:
-  group: libs-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
-
-permissions:
-  contents: write
-  pull-requests: read
-  pages: write
+    - cron: '0 4 * * SUN' 
 
 env:
   # It's convenient to set variables for values used multiple times in the workflow
@@ -27,56 +18,43 @@ env:
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
 jobs:
-  gen-matrix:
+  compile-sketch:
     if: |
       contains(github.event.pull_request.labels.*.name, 'lib_test') ||
       (github.event_name == 'schedule' && github.repository == 'espressif/arduino-esp32')
     runs-on: ubuntu-latest
-    outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
-      - name: Generate matrix
-        id: set-matrix
-        run: |
-          source .github/scripts/socs_config.sh
-
-          # Generate matrix with target and fqbn from BUILD_TEST_TARGETS
-          echo '{"include": [' > matrix.json
-          first=true
-          for target in "${BUILD_TEST_TARGETS[@]}"; do
-            if [ "$first" = true ]; then
-              first=false
-            else
-              echo ',' >> matrix.json
-            fi
-            echo "{\"target\": \"$target\", \"fqbn\": \"espressif:esp32:$target\"}" >> matrix.json
-          done
-          echo ']}' >> matrix.json
-
-          cat matrix.json
-          printf "matrix=%s\n" "$(cat matrix.json | jq -c .)" >> $GITHUB_OUTPUT
-
-  compile-sketch:
-    needs: gen-matrix
-    runs-on: ubuntu-latest
     env:
       REPOSITORY: |
         - source-path: '.'
           name: "espressif:esp32"
 
     strategy:
-      matrix: ${{ fromJson(needs.gen-matrix.outputs.matrix) }}
+      matrix:
+        target:
+          - esp32
+          - esp32s2
+          - esp32c3
+          - esp32s3
+
+        include:
+          - target: esp32
+            fqbn: espressif:esp32:esp32
+          - target: esp32s2
+            fqbn: espressif:esp32:esp32s2
+          - target: esp32c3
+            fqbn: espressif:esp32:esp32c3
+          - target: esp32s3
+            fqbn: espressif:esp32:esp32s3
+
 
     steps:
       # This step makes the contents of the repository available to the workflow
       - name: Checkout repository
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@v3
 
       - name: Compile sketch
-        uses: P-R-O-C-H-Y/compile-sketches@a62f069b92dc8f5053da4ac439ea6d1950cf6379 # main
+        uses: P-R-O-C-H-Y/compile-sketches@main
         with:
           platforms: |
             ${{ env.REPOSITORY }}
@@ -91,42 +69,43 @@ jobs:
             - --warnings="all"
 
       - name: Upload artifact
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        uses: actions/upload-artifact@v3
         with:
-          name: ${{ env.SKETCHES_REPORTS_ARTIFACT_NAME }}-${{ matrix.target }}
+          name: ${{ env.SKETCHES_REPORTS_ARTIFACT_NAME }}
           path: ${{ env.SKETCHES_REPORTS_PATH }}
 
   report-to-file:
-    needs: compile-sketch # Wait for the compile job to finish to get the data for the report
+    needs: compile-sketch  # Wait for the compile job to finish to get the data for the report
     if: github.event_name == 'schedule' # Only run the job when the workflow is triggered by a schedule
     runs-on: ubuntu-latest
     steps:
       # Check out repository
-      - name: Checkout repository
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Checkout repository    
+        uses: actions/checkout@v3
         with:
           token: ${{ env.GITHUB_TOKEN }}
-          fetch-depth: "0"
+          fetch-depth: '0'
 
       - name: Switch branch
-        run: git checkout remotes/origin/gh-pages
+        run:
+          git checkout remotes/origin/gh-pages
 
       # This step is needed to get the size data produced by the compile jobs
       - name: Download sketches reports artifact
-        uses: actions/download-artifact@95815c38cf2ff2164869cbab79da8d1f422bc89e # v4.2.1
+        uses: actions/download-artifact@v3
         with:
-          pattern: ${{ env.SKETCHES_REPORTS_ARTIFACT_NAME }}-*
-          merge-multiple: true
+          name: ${{ env.SKETCHES_REPORTS_ARTIFACT_NAME }}
           path: ${{ env.SKETCHES_REPORTS_PATH }}
 
       - name: Report results
-        uses: P-R-O-C-H-Y/report-size-deltas@4a79caa6dcc3579024293638b97156106edc588e # main
+        uses: P-R-O-C-H-Y/report-size-deltas@main
         with:
           sketches-reports-source: ${{ env.SKETCHES_REPORTS_PATH }}
           destination-file: ${{ env.RESULT_LIBRARY_TEST_FILE }}
 
       - name: Append file with action URL
-        run: echo "/ [GitHub Action Link](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}})" >> ${{ env.RESULT_LIBRARY_TEST_FILE }}
+        run:
+          echo "/ [GitHub Action Link](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}})" >> ${{ env.RESULT_LIBRARY_TEST_FILE }}
 
       - name: Push to github repo
         run: |
@@ -136,21 +115,15 @@ jobs:
           git commit -m "Generated External Libraries Test Results"
           git push origin HEAD:gh-pages
 
-  #Upload PR number as artifact
-  upload-pr-number:
-    name: Upload PR number
-    if: (github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'lib_test'))
+  event_file:
+    name: "Event File"
+    if: |
+      contains(github.event.pull_request.labels.*.name, 'lib_test')
+    needs: compile-sketch
     runs-on: ubuntu-latest
     steps:
-      - name: Save the PR number in an artifact
-        shell: bash
-        env:
-          PR_NUM: ${{ github.event.number }}
-        run: echo $PR_NUM > pr_num.txt
-
-      - name: Upload PR number
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
-        with:
-          name: pr_number
-          path: ./pr_num.txt
-          overwrite: true
+       - name: Upload
+         uses: actions/upload-artifact@v2
+         with:
+           name: Event File
+           path: ${{github.event_path}}

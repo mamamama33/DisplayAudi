@@ -1,6 +1,0 @@
-"-specs=/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/specs/picolibc.specs"
--Wno-frame-address
--mlongcalls
--fno-builtin-memcpy
--fno-builtin-memset
--fno-builtin-bzero

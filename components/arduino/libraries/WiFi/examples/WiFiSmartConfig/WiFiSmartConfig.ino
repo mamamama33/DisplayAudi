@@ -1,9 +1,3 @@
-#include <Arduino.h>
-#include "sdkconfig.h"
-#if CONFIG_ESP_HOSTED_ENABLED
-#error "SmartConfig is only supported in SoCs with native Wi-Fi support"
-#endif
-
 #include "WiFi.h"
 
 void setup() {
@@ -38,4 +32,5 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+
 }

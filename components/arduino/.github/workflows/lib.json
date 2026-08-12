@@ -9,8 +9,7 @@
     {
         "name": "ArduinoBLE",
         "exclude_targets": [
-            "esp32s2",
-            "esp32p4"
+            "esp32s2"
         ],
         "sketch_path": [
             "~/Arduino/libraries/ArduinoBLE/examples/Central/Scan/Scan.ino"
@@ -24,26 +23,16 @@
         ]
     },
     {
-        "source-url": "https://github.com/ESP32Async/ESPAsyncWebServer.git",
+        "source-url": "https://github.com/me-no-dev/ESPAsyncWebServer.git",
         "required-libs": [
-            {"source-url": "https://github.com/ESP32Async/AsyncTCP.git"}
+            {"source-url": "https://github.com/me-no-dev/AsyncTCP.git"}
         ],
         "exclude_targets": [],
         "sketch_path": [
-            "~/Arduino/libraries/ESPAsyncWebServer/examples/arduino/HTTPMethodsWithArduino/HTTPMethodsWithArduino.ino",
-            "~/Arduino/libraries/ESPAsyncWebServer/examples/arduino/StaticFile/StaticFile.ino",
-            "~/Arduino/libraries/ESPAsyncWebServer/examples/arduino/WebSocket/WebSocket.ino",
-            "~/Arduino/libraries/ESPAsyncWebServer/examples/arduino/ServerSentEvents/ServerSentEvents.ino",
-            "~/Arduino/libraries/ESPAsyncWebServer/examples/arduino/Upload/Upload.ino",
-            "~/Arduino/libraries/ESPAsyncWebServer/examples/arduino/Middleware/Middleware.ino"
-        ]
-    },
-    {
-        "name": "EthernetESP32",
-        "exclude_targets": [],
-        "sketch_path": [
-            "~/Arduino/libraries/EthernetESP32/examples/LegacyEthernetTest/LegacyEthernetTest.ino",
-            "~/Arduino/libraries/EthernetESP32/examples/TwoEthernets/TwoEthernets.ino"
+            "~/Arduino/libraries/ESPAsyncWebServer/examples/CaptivePortal/CaptivePortal.ino",
+            "~/Arduino/libraries/ESPAsyncWebServer/examples/ESP_AsyncFSBrowser/ESP_AsyncFSBrowser.ino",
+            "~/Arduino/libraries/ESPAsyncWebServer/examples/regex_patterns/regex_patterns.ino",
+            "~/Arduino/libraries/ESPAsyncWebServer/examples/simple_server/simple_server.ino"
         ]
     },
     {
@@ -72,14 +61,6 @@
         "exclude_targets": [],
         "sketch_path": [
             "~/Arduino/libraries/WS2812FX/examples/ws2812fx_spi/ws2812fx_spi.ino"
-        ]
-    },
-    {
-        "name": "ZACwire for TSic",
-        "exclude_targets": [],
-        "sketch_path": [
-            "~/Arduino/libraries/ZACwire_for_TSic/examples/ReadingTwoTSICs/ReadingTwoTSICs.ino",
-            "~/Arduino/libraries/ZACwire_for_TSic/examples/ReadSingleTSIC206/ReadSingleTSIC206.ino"
         ]
     }
 ]

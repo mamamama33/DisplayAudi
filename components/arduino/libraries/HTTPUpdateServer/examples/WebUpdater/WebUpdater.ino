@@ -2,9 +2,8 @@
   To upload through terminal you can use: curl -F "image=@firmware.bin" esp32-webupdate.local/update
 */
 
-#include <Arduino.h>
 #include <WiFi.h>
-#include <NetworkClient.h>
+#include <WiFiClient.h>
 #include <WebServer.h>
 #include <ESPmDNS.h>
 #include <HTTPUpdateServer.h>
@@ -14,9 +13,9 @@
 #define STAPSK  "your-password"
 #endif
 
-const char *host = "esp32-webupdate";
-const char *ssid = STASSID;
-const char *password = STAPSK;
+const char* host = "esp32-webupdate";
+const char* ssid = STASSID;
+const char* password = STAPSK;
 
 WebServer httpServer(80);
 HTTPUpdateServer httpUpdater;
@@ -37,6 +36,7 @@ void setup(void) {
   if (MDNS.begin(host)) {
     Serial.println("mDNS responder started");
   }
+
 
   httpUpdater.setup(&httpServer);
   httpServer.begin();

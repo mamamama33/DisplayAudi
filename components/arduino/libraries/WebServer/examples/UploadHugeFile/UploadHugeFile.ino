@@ -1,11 +1,11 @@
-#include <Arduino.h>
 #include <WiFi.h>
+#include <WiFiClient.h>
 #include <WebServer.h>
 #include <uri/UriRegex.h>
 #include <SD.h>
 
-const char *ssid = "**********";
-const char *password = "**********";
+const char* ssid = "**********";
+const char* password = "**********";
 
 WebServer server(80);
 
@@ -15,25 +15,25 @@ void handleCreate() {
 }
 void handleCreateProcess() {
   String path = "/" + server.pathArg(0);
-  HTTPRaw &raw = server.raw();
+  HTTPRaw& raw = server.raw();
   if (raw.status == RAW_START) {
     if (SD.exists((char *)path.c_str())) {
       SD.remove((char *)path.c_str());
     }
     rawFile = SD.open(path.c_str(), FILE_WRITE);
-    Serial.print("Upload: START, filename: ");
+    Serial.print("Upload: START, filename: "); 
     Serial.println(path);
   } else if (raw.status == RAW_WRITE) {
     if (rawFile) {
       rawFile.write(raw.buf, raw.currentSize);
     }
-    Serial.print("Upload: WRITE, Bytes: ");
+    Serial.print("Upload: WRITE, Bytes: "); 
     Serial.println(raw.currentSize);
   } else if (raw.status == RAW_END) {
     if (rawFile) {
       rawFile.close();
     }
-    Serial.print("Upload: END, Size: ");
+    Serial.print("Upload: END, Size: "); 
     Serial.println(raw.totalSize);
   }
 }
@@ -51,7 +51,7 @@ void handleNotFound() {
   message += "\nArguments: ";
   message += server.args();
   message += "\n";
-  for (int i = 0; i < server.args(); i++) {
+  for (uint8_t i = 0; i < server.args(); i++) {
     message += " " + server.argName(i) + ": " + server.arg(i) + "\n";
   }
   server.send(404, "text/plain", message);
@@ -60,9 +60,7 @@ void handleNotFound() {
 void setup(void) {
   Serial.begin(115200);
 
-  while (!SD.begin()) {
-    delay(1);
-  }
+  while (!SD.begin()) delay(1);
   Serial.println("SD Card initialized.");
 
   WiFi.mode(WIFI_STA);
@@ -81,9 +79,10 @@ void setup(void) {
   server.onNotFound(handleNotFound);
   server.begin();
   Serial.println("HTTP server started");
+
 }
 
 void loop(void) {
   server.handleClient();
-  delay(2);  //allow the cpu to switch to other tasks
+  delay(2);//allow the cpu to switch to other tasks
 }

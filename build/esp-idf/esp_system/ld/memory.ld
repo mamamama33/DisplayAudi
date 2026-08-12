@@ -21,36 +21,21 @@
 */
 /*
  * Automatically generated file. DO NOT EDIT.
- * Espressif IoT Development Framework (ESP-IDF) 6.1.0 Configuration Header
+ * Espressif IoT Development Framework (ESP-IDF) Configuration Header
  */
        
 /* List of deprecated options */
 /*
- * SPDX-FileCopyrightText: 2021-2024 Espressif Systems (Shanghai) CO LTD
+ * SPDX-FileCopyrightText: 2021 Espressif Systems (Shanghai) CO LTD
  *
  * SPDX-License-Identifier: Apache-2.0
  */
 /* CPU instruction prefetch padding size for flash mmap scenario */
-/* Copy from esp_secure_boot.h */
-/*
- * PMP region granularity size
- * Software may determine the PMP granularity by writing zero to pmp0cfg, then writing all ones
- * to pmpaddr0, then reading back pmpaddr0. If G is the index of the least-significant bit set,
- * the PMP granularity is 2^G+2 bytes.
- */
+_esp_flash_mmap_prefetch_pad_size = 16;
 /* CPU instruction prefetch padding size for memory protection scenario */
+_esp_memprot_prefetch_pad_size = 0;
 /* Memory alignment size for PMS */
-    /* rtc timer data (s_rtc_timer_retain_mem, see esp_clk.c files). For rtc_timer_data_in_rtc_mem section. */
-/*
- * FAST_REFLASHING_PADDING
- *
- * Aligns the current location (.) to CONFIG_ESPTOOLPY_FAST_REFLASHING_PADDING.
- * If more than half of the alignment block is already consumed,
- * extra padding is applied to skip to the next boundary.
- * For example, if the current location (.) is 0x1900 and the padding is 4 KB,
- * the location will be moved to 0x3000 instead of 0x2000 because less than
- * half of the current 4 KB block remains (0x2000 - 0x1900 < 2 KB).
- */
+_esp_memprot_align_size = 0;
 /* If BT is not built at all */
 MEMORY
 {
@@ -58,7 +43,7 @@ MEMORY
   of the various regions. The 'data access port' dram/drom regions map to the same iram/irom regions but
   are connected to the data port of the CPU and eg allow bytewise access. */
   /* IRAM for PRO cpu. Not sure if happy with this, this is MMU area... */
-  iram0_0_seg (RX) : org = 0x40080000, len = 0x20000 + 0x0
+  iram0_0_seg (RX) : org = 0x40080000, len = 0x20000
   /* Even though the segment name is iram, it is actually mapped to flash
   */
   iram0_2_seg (RX) : org = 0x400D0020, len = 0x330000-0x20
@@ -83,90 +68,25 @@ MEMORY
   /* Flash mapped constant data */
   drom0_0_seg (R) : org = 0x3F400020, len = 0x400000-0x20
   /* (See iram0_2_seg for meaning of 0x20 offset in the above.) */
-/**
- *  RTC Memory Layout for ESP32
- *
- *  ESP32 has two separate RTC memory regions:
- *  1. RTC FAST Memory: 8KB, accessible by PRO_CPU only
- *  2. RTC SLOW Memory: 8KB, accessible by both CPUs and ULP coprocessor
- *
- *  ==================== RTC FAST Memory ====================
- *  Size: 8KB (0x2000)
- *  IRAM View: 0x400C0000 - 0x400C2000 (executable)
- *  DRAM View: 0x3FF80000 - 0x3FF82000 (data access)
- *
- *  +-----------------------------+ 0x400C2000 / 0x3FF82000 (RTC FAST memory end)
- *  |   rtc_fast_reserved_seg     |
- *  | (ESP_BOOTLOADER_RESERVE_RTC)|
- *  |- - - - - - - - - - - - - - -|
- *  | bootloader_data_rtc_mem     | s_bootloader_retain_mem
- *  +-----------------------------+ 0x400C2000 - ESP_BOOTLOADER_RESERVE_RTC
- *  |     rtc_iram_seg /          |
- *  |     rtc_data_seg            |
- *  | .rtc.text                   | RTC wake stub code
- *  |- - - - - - - - - - - - - - -|
- *  | .rtc.data / .rtc.rodata     | (when CONFIG_ESP32_RTCDATA_IN_FAST_MEM)
- *  |- - - - - - - - - - - - - - -|
- *  | .rtc.bss                    |
- *  +-----------------------------+ 0x400C0000 / 0x3FF80000 (RTC FAST memory start)
- *
- *  ==================== RTC SLOW Memory ====================
- *  Size: 8KB (0x2000)
- *  Address: 0x50000000 - 0x50002000
- *
- *  +-----------------------------+ 0x50002000 (RTC SLOW memory end)
- *  |   rtc_slow_reserved_seg     |
- *  |    (RESERVE_RTC_MEM = 24)   |
- *  |- - - - - - - - - - - - - - -|
- *  | rtc_timer_data_in_rtc_mem   | s_rtc_timer_retain_mem (24 bytes)
- *  | (RTC_TIMER_RESERVE_RTC)     |
- *  +-----------------------------+ 0x50002000 - RESERVE_RTC_MEM
- *  |      rtc_slow_seg           |
- *  |- - - - - - - - - - - - - - -|
- *  | .rtc.data / .rtc.rodata     | (when !CONFIG_ESP32_RTCDATA_IN_FAST_MEM)
- *  | .rtc.bss                    |
- *  +-----------------------------+ 0x50000000 + CONFIG_ULP_COPROC_RESERVE_MEM (if ULP enabled)
- *  | ULP Coprocessor Reserve     | (Optional, CONFIG_ULP_COPROC_RESERVE_MEM)
- *  | (code + data)               |
- *  +-----------------------------+ 0x50000000 (RTC SLOW memory start)
- *
- *  ESP_BOOTLOADER_RESERVE_RTC = ALIGN_UP(CONFIG_BOOTLOADER_RESERVE_RTC_SIZE, 8)
- *  RESERVE_RTC_MEM = RTC_TIMER_RESERVE_RTC (24 bytes) for ESP32
- *
- *  Note: RTC data can be placed in either FAST or SLOW memory based on
- *        CONFIG_ESP32_RTCDATA_IN_FAST_MEM configuration option.
- */
-  /* RTC fast memory (executable). Persists over deep sleep. */
+  /* RTC fast memory (executable). Persists over deep sleep.
+   */
   rtc_iram_seg(RWX) : org = 0x400C0000, len = 0x2000 - 0
-  /* RTC fast memory (same block as above, rtc_iram_seg), viewed from data bus */
+  /* RTC fast memory (same block as above), viewed from data bus */
   rtc_data_seg(RW) : org = 0x3ff80000, len = 0x2000 - 0
-  /* We reduced the size of rtc_iram_seg and rtc_data_seg by ESP_BOOTLOADER_RESERVE_RTC value.
-     It reserves the amount of RTC fast memory that we use for this memory segment.
-     This segment is intended for keeping bootloader rtc data (s_bootloader_retain_mem, when a Kconfig option is on).
-     The aim of this is to keep data that will not be moved around and have a fixed address.
-     org = 0x3ff80000 + 0x2000 - ESP_BOOTLOADER_RESERVE_RTC == SOC_RTC_DRAM_HIGH - sizeof(rtc_retain_mem_t)
-  */
-  rtc_fast_reserved_seg(RW) : org = 0x3ff80000 + 0x2000 - 0, len = 0
   /* RTC slow memory (data accessible). Persists over deep sleep.
 
      Start of RTC slow memory is reserved for ULP co-processor code + data, if enabled.
   */
-  rtc_slow_seg(RW) : org = 0x50000000, len = 0x2000 - ((24))
-  /* We reduced the size of rtc_slow_seg by RESERVE_RTC_MEM value.
-     It reserves the amount of RTC slow memory that we use for this memory segment.
-     This segment is intended for keeping rtc timer data (s_rtc_timer_retain_mem, see esp_clk.c files).
-     The aim of this is to keep data that will not be moved around and have a fixed address.
-     org = 0x50000000 + 0x2000 - RESERVE_RTC_MEM
-  */
-  rtc_slow_reserved_seg(RW) : org = 0x50000000 + 0x2000 - ((24)), len = ((24))
+  rtc_slow_seg(RW) : org = 0x50000000 + 0,
+                                     len = 0x2000 - 0
   /* external memory */
-  extern_ram_seg(RW) : org = 0x3F800000,
+  extern_ram_seg(RWX) : org = 0x3F800000,
                                      len = 0x400000
 }
-_heap_start = _heap_low_start;
-_sram1_iram_start = 0x400A0000;
-_sram1_iram_len = ( _iram_end > _sram1_iram_start) ? (_iram_end - _sram1_iram_start) : 0;
-_heap_end = ALIGN(0x40000000 - _sram1_iram_len - 3, 4);
+_static_data_end = _bss_end;
+/* Heap ends at top of dram0_0_seg */
+_heap_end = 0x40000000 - 0x0;
+_data_seg_org = ORIGIN(rtc_data_seg);
 /* The lines below define location alias for .rtc.data section based on Kconfig option.
    When the option is not defined then use slow memory segment
    else the data will be placed in fast memory segment */
