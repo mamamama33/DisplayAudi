@@ -237,6 +237,8 @@ uint8_t EngineDiag_GetChData(uint8_t * dataPtr,uint8_t* TrenutnaStrana)
 //automat stanja
 void DataCyclic(void *pvParameters){
     //Prosledjujem DID i dobijam podatke preko funckije-gettera -njegovog parametra  
+    vTaskDelay(pdMS_TO_TICKS(100));
+
     while(1){
         switch(state){
             case DATA_IDLE:
@@ -289,7 +291,5 @@ void DataCyclic(void *pvParameters){
 uint8_t DataInit(){
 
     xTaskCreatePinnedToCore(DataCyclic, "Data", 2048u, NULL, 3, &taskHandle,1);
-    vTaskDelay(60u / portTICK_PERIOD_MS);
-
     return 1;
 }

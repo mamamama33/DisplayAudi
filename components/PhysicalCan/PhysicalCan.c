@@ -45,6 +45,7 @@ uint8_t GetStalkButton() {
 /* CAN receive task */
 void Can_Receive(void *pvParameters)
 {
+    vTaskDelay(pdMS_TO_TICKS(100));
     twai_message_t msg;
     while (1)
     {
@@ -75,6 +76,7 @@ void StalkButton(void *pvParameters)
     twai_message_t msg;
     uint8_t buttons;
     static uint8_t lastButtons = 0;
+    vTaskDelay(pdMS_TO_TICKS(100));
 
     while (1)
     {
@@ -109,6 +111,7 @@ void StalkButton(void *pvParameters)
 void Kwp_Task(void *pvParameters)
 {
     twai_message_t msg;
+    vTaskDelay(pdMS_TO_TICKS(100));
 
     while (1)
     {

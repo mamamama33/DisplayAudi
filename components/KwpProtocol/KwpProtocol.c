@@ -78,6 +78,7 @@ static void Kwp_SendTesterPresent()
 void KwpCyclic(void *pvParameters){
     
     static uint8_t timeout = 0;
+    vTaskDelay(pdMS_TO_TICKS(100));
 
     while(1){
 
@@ -196,7 +197,6 @@ uint8_t KwpInit(){
     TpSendComplete = xSemaphoreCreateBinary();
     KwpStages =KWP_START;
     xTaskCreatePinnedToCore(KwpCyclic, "Data", 4096u, NULL, 3, &taskHandle,1);
-    vTaskDelay(120u / portTICK_PERIOD_MS);
     return 1;
 }
 /*

@@ -442,20 +442,33 @@ void GIFDraw(GIFDRAW *pDraw) {
     }
 }
 
-void playStartupGIF(int repeatCount) {
+void playStartupGIF() {
     tft.fillScreen(TFT_BLACK);
     gif_xpos = (SCREEN_W - GIF_W) / 2; 
     gif_ypos = (SCREEN_H - GIF_H) / 2; 
 
-    for (int loopCount = 0; loopCount < repeatCount; loopCount++) {
-        if (gif.open((uint8_t *)audi_gif, sizeof(audi_gif), GIFDraw)) {
-            int delayMs = 0;
-            while (gif.playFrame(false, &delayMs)) {
-                vTaskDelay(pdMS_TO_TICKS(delayMs > 0 ? delayMs : 35));
+    while(true){
+       if (gif.open((uint8_t *)audi_gif, sizeof(audi_gif), GIFDraw)) {
+            tft.startWrite(); // The TFT chip select is locked low
+            while (gif.playFrame(false,NULL)) {
+              yield();
             }
             gif.close();
+            tft.endWrite();
+            break;
         }
     }
+    /*for (int loopCount = 0; loopCount < repeatCount; loopCount++) {
+        if (gif.open((uint8_t *)audi_gif, sizeof(audi_gif), GIFDraw)) {
+            tft.startWrite(); // The TFT chip select is locked low
+            while (gif.playFrame(false,NULL)) {
+              yield();
+            }
+            gif.close();
+            tft.endWrite();
+        }
+    }
+      */
 }
 
 // =========================================================================
@@ -749,6 +762,7 @@ int o = 0;
 float Rezultat;
 
 void DisCyclic(void *pvParameters) {
+    vTaskDelay(pdMS_TO_TICKS(100));
     while (1) {
           vTaskDelay(pdMS_TO_TICKS(10));
           uint8_t offset, b;
@@ -778,6 +792,9 @@ void DisCyclic(void *pvParameters) {
               if (Rezultat != 0) {
                 Display(block[0], offset, Rezultat);
               }
+              else{
+                ESP_LOGI("DIS","Rezultat je 0");
+              }
           }
     }
 }
@@ -786,13 +803,16 @@ void DisplayInit() {
     setupBacklight();
 
     tft.begin();
+    tft.initDMA();
+
     tft.setRotation(0);
+
     tft.fillScreen(COLOR_BG);
 
     sprSpeed.createSprite(METER_W, SPEED_H);
 
     gif.begin(GIF_PALETTE_RGB565_BE);
-    playStartupGIF(1);
+    playStartupGIF();
 
     tft.fillScreen(COLOR_BG);
     
@@ -802,5 +822,4 @@ void DisplayInit() {
     drawDashboardLayout();
     xTaskCreatePinnedToCore(DisCyclic, "Dis", 2048u, NULL, 3, &disTaskHandle, 0);
 
-    vTaskDelay(pdMS_TO_TICKS(50));
 }

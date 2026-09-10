@@ -1,7 +1,7 @@
 {
     "version":            "1",
     "project_name":       "TFTDIS",
-    "project_version":    "a96f112f-dirty",
+    "project_version":    "acecb6fe-dirty",
     "project_path":       "/home/uros/DisplayAudi",
     "idf_path":           "/home/uros/esp_v4.4/esp-idf-v4.4",
     "build_dir":          "/home/uros/DisplayAudi/build",

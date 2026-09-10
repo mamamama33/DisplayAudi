@@ -14,15 +14,17 @@ extern "C" {
 }
 
 extern "C" void app_main(void) {
-
-    vTaskDelay(pdMS_TO_TICKS(3000));
+    
+    vTaskDelay(pdMS_TO_TICKS(20));
     Can_Init();
-    vTaskDelay(pdMS_TO_TICKS(1000));
+    vTaskDelay(pdMS_TO_TICKS(20));
     TpInit();
-    vTaskDelay(pdMS_TO_TICKS(100));
+    vTaskDelay(pdMS_TO_TICKS(20));
     KwpInit();
-    vTaskDelay(pdMS_TO_TICKS(100));
+    vTaskDelay(pdMS_TO_TICKS(20));
     DataInit();
-    vTaskDelay(pdMS_TO_TICKS(100));
+    vTaskDelay(pdMS_TO_TICKS(20));
     DisplayInit();
+    vTaskDelay(pdMS_TO_TICKS(500)); // veci dilej kako bi se stabilizovao core 0 - gde je uzimanje podataka i lepljenje na ekran
+
 }

@@ -41,7 +41,7 @@ void Tp_Cyclic(void *pvParameters)
 {
     uint8_t chId = 0;
     Tp_ChannelType * chPtr = &TpEcu;
-    
+    vTaskDelay(pdMS_TO_TICKS(100));
     /*Ovo sam dodao kako bi mogao da prvo posaljem poruku-zahrev*/
 
 
@@ -702,6 +702,5 @@ void TpInit(){
     TpEcu.rxState = VWTP_CONNECT;
     TpEcu.seqCntRx = 0xFu;
     xTaskCreatePinnedToCore(Tp_Cyclic, "VwTp", 4096u, NULL, 4, &VwTpTaskHdl,1);
-    vTaskDelay(pdMS_TO_TICKS(120));
 }
 
