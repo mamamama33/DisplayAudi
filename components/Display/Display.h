@@ -15,7 +15,7 @@ extern "C" {
 #endif
 
 // Deklaracija funkcije za inicijalizaciju
-float Dis_DecodeFrame(uint8_t *);
+float Dis_DecodeFrame(float *);
 
 #ifdef __cplusplus
 }

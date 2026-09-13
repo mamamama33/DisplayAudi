@@ -14,7 +14,7 @@ extern "C" {
 }
 
 extern "C" void app_main(void) {
-    
+    esp_log_level_set("*", ESP_LOG_WARN);
     vTaskDelay(pdMS_TO_TICKS(20));
     Can_Init();
     vTaskDelay(pdMS_TO_TICKS(20));

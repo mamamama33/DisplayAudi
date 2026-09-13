@@ -100,7 +100,6 @@ void updateSpeed(int spd);
 float Dis_DecodeFrame(uint8_t *frameData)
 {
     float f = 0;
-
     switch (frameData[0])
     {
       case 0:
@@ -109,24 +108,24 @@ float Dis_DecodeFrame(uint8_t *frameData)
       
       case 1: // 0.2*a*b rpm
         f = frameData[1] * frameData[2];
-        f /= 5;
+        f /= 5.0f;
         break;
 
       case 2: // a*0.002*b %
       case 3: // 0.002*a*b Deg
         f = frameData[1] * frameData[2];
-        f *= 0.002;
+        f *= 0.002f;
         break;
 
       case 4: // abs(b-127)*0.01*a
         f = abs(frameData[2] - 127);
         f *= frameData[1];
-        f /= 100;
+        f /= 100.0f;
         break;
                 
       case 5: // a*(b-100)*0.1 °C
         f = frameData[1] * (frameData[2] - 100);
-        f /= 10;
+        f /= 10.0f;
         break;
       
       case 6:  // 0.001*a*b V
@@ -135,182 +134,182 @@ float Dis_DecodeFrame(uint8_t *frameData)
       case 22: // 0.001*a*b ms
       case 24: // 0.001*a*b A
         f = frameData[1] * frameData[2];
-        f *= 0.001;
+        f *= 0.001f;
         break;
       
       case 7: // 0.01*a*b km/h
         f = frameData[1] * frameData[2];
-        f /= 100;
+        f /= 100.0f;
         break;
         
       case 8: // 0.1*a*b
         f = frameData[1] * frameData[2];
-        f *= 0.1;
+        f *= 0.1f;
         break;
 
       case 9: // (b-127)*0.02*a Deg
-        f = (frameData[2] - 127.0) * frameData[1];
-        f *= 0.02;
+        f = (frameData[2] - 127.0f) * frameData[1];
+        f *= 0.02f;
         break;
         
       case 11: // 0.0001*a*(b-128)+1
-        f = frameData[1] * (frameData[2] - 128.0);
-        f *= 0.0001;
-        f += 1;
+        f = frameData[1] * (frameData[2] - 128.0f);
+        f *= 0.0001f;
+        f += 1.0f;
         break;
 
       case 13: // (b-127)*0.001*a mm
-        f = (frameData[2] - 127.0) * frameData[1];
-        f *= 0.001;
+        f = (frameData[2] - 127.0f) * frameData[1];
+        f *= 0.001f;
         break;
 
       case 14: // 0.005*a*b bar
         f = frameData[2] * frameData[1];
-        f *= 0.005;
+        f *= 0.005f;
         break;
         
       case 15: // 0.01*a*b ms
       case 19: // a*b*0.01 l
         f = frameData[1] * frameData[2];
-        f *= 0.01;
+        f *= 0.01f;
         break;
         
       case 18: // 0.04*a*b mbar
         f = frameData[1] * frameData[2];
-        f /= 25;
+        f /= 25.0f;
         break;
         
       case 20: // a*(b-128)/128 %
-        f = frameData[1] * (frameData[2] - 128);
-        f /= 128.0;
+        f = frameData[1] * (frameData[2] - 128.0f);
+        f /= 128.0f;
         break;
         
       case 23: // b/256*a %
-        f = frameData[2] / 256.0;
+        f = frameData[2] / 256.0f;
         f *= frameData[1];
         break;
         
       case 25: // (b*1.421)+(a/182) g/s
-        f = (frameData[1] / 182.0) + (1.421 * frameData[2]);
+        f = (frameData[1] / 182.0f) + (1.421f * frameData[2]);
         break;
 
       case 26: // b-a C
       case 28:
-        f = frameData[2] - frameData[1];
+        f = (float)frameData[2] - frameData[1];
         break;
        
       case 27: // abs(b-128)*0.01*a 
-        f = (frameData[2] - 128.0);
+        f = (frameData[2] - 128.0f);
         if (f < 0) {
-          f = f * (-1);
+          f = f * (-1.0f);
         }
         f *= frameData[1];
-        f *= 0.01;
+        f *= 0.01f;
         break;
 
       case 30: // b/12*a Deg k/w
-        f = frameData[2] / 12.0;
+        f = frameData[2] / 12.0f;
         f *= frameData[1];
         break;
 
       case 31: // b/2560*a °C
-        f = frameData[2] / 2560.0;
+        f = frameData[2] / 2560.0f;
         f *= frameData[1];
         break;
         
       case 33: // 100*b/a %
         if (frameData[1] == 0) {
-          f = 100 * frameData[2];
+          f = 100.0f * frameData[2];
         } else {
-          f = (100 * frameData[2]) / frameData[1];
+          f = (100.0f * frameData[2]) / frameData[1];
         }
         break;
       
       case 34: // (b-128)*0.01*a kW
-        f = (frameData[2] - 128.0) * frameData[1];
-        f *= 0.01;
+        f = (frameData[2] - 128.0f) * frameData[1];
+        f *= 0.01f;
         break;
         
       case 35: // 0.01*a*b l/h
         f = frameData[2] * frameData[1];
-        f *= 0.01;
+        f *= 0.01f;
         break;        
 
       case 38: // (b-128)*0.001*a Deg k/w
-        f = (frameData[2] - 128.0);
+        f = (frameData[2] - 128.0f);
         f *= frameData[1];
-        f *= 0.001;
+        f *= 0.001f;
         break;
               
       case 39: // b/256*a mg/h
-        f = frameData[2] / 256.0;
+        f = frameData[2] / 256.0f;
         f *= frameData[1];
         break;
 
       case 43: // b*0.1+(25.5*a) V
-        f = frameData[2] * 0.1;
-        f += 25.5 * frameData[1];
+        f = frameData[2] * 0.1f;
+        f += 25.5f * frameData[1];
         break;
 
       case 45: // 0.1*a*b/100     
         f = frameData[2] * frameData[1];
-        f /= 1000.0;
+        f /= 1000.0f;
         break;
 
       case 46: // (a*b-3200)*0.0027 Deg k/w
         f = frameData[2] * frameData[1];
-        f -= 3200.0;
-        f *= 0.0027;
+        f -= 3200.0f;
+        f *= 0.0027f;
         break;
 
       case 47: // (b-128)*a ms
-        f = (frameData[2] - 128) * frameData[1];
+        f = (frameData[2] - 128.0f) * frameData[1];
         break;
 
       case 49: // (b/4)*a*0.1 mg/h
-        f = (frameData[2] / 4.0);
+        f = (frameData[2] / 4.0f);
         f *= frameData[1];
-        f *= 0.1;
+        f *= 0.1f;
         break;
       
       case 50: // (b-128)/(0.01*a) mbar
-        f = (frameData[2] - 128.0);
-        f /= 0.01;
+        f = (frameData[2] - 128.0f);
+        f /= 0.01f;
         if (frameData[1] != 0) {
           f /= frameData[1];
         }
         break;
 
       case 51: // ((b-128)/255)*a mg/h
-        f = frameData[2] - 128.0;
-        f /= 255.0;
+        f = frameData[2] - 128.0f;
+        f /= 255.0f;
         f *= frameData[1];
         break;
 
       case 52: // b*0.02*a-a Nm
         f = frameData[1] * frameData[2];
-        f /= 50;
+        f /= 50.0f;
         f -= frameData[1];
         break;
 
       case 53: // (b-128)*1.4222+0.006*a g/s
-        f = (frameData[2] - 128.0) * 1.4222;
-        f += frameData[1] * 0.006;
+        f = (frameData[2] - 128.0f) * 1.4222f;
+        f += frameData[1] * 0.006f;
         break;
 
       case 48:      
       case 54: // a*256+b Count
-        f = frameData[1] * 256;
+        f = frameData[1] * 256.0f;
         f += frameData[2];
         break;
 
       case 55: // a*b/200 s
         f = frameData[1] * frameData[2];
-        f /= 200.0;
+        f /= 200.0f;
         break;
 
       case 56: // a*256+b WSC
-        f = 256 * frameData[1] + frameData[2];
+        f = 256.0f * frameData[1] + frameData[2];
         break;
 
       case 59: // (a*256+b)/32768
@@ -319,12 +318,12 @@ float Dis_DecodeFrame(uint8_t *frameData)
         break;
 
       case 60: // (a*256+b)*0.01 sec
-        f = 256.0 * frameData[1] + frameData[2];
-        f *= 0.01;
+        f = 256.0f * frameData[1] + frameData[2];
+        f *= 0.01f;
         break;
 
       case 61: // (b-128)/a
-        f = frameData[2] - 128.0;
+        f = frameData[2] - 128.0f;
         if (frameData[1] != 0) {
           f /= frameData[1];
         }
@@ -332,41 +331,41 @@ float Dis_DecodeFrame(uint8_t *frameData)
 
       case 62: // 0.256*a*b S
         f = frameData[1] * frameData[2];
-        f *= 0.256;
+        f *= 0.256f;
         break;
 
       case 64: // a+b Ohm
-        f = frameData[1] + frameData[2];
+        f = (float)frameData[1] + frameData[2];
         break;
 
       case 65: // 0.01*a*(b-127) mm
-        f = 0.01 * frameData[1];
-        f *= frameData[2] - 127.0;
+        f = 0.01f * frameData[1];
+        f *= frameData[2] - 127.0f;
         break;
 
       case 66: // (a*b)/511.12 V
         f = frameData[1] * frameData[2];
-        f /= 511.12;
+        f /= 511.12f;
         break;
 
       case 67: // (640*a)+b*2.5 Deg
-        f = 640.0 * frameData[1];
-        f += 2.5 * frameData[2];
+        f = 640.0f * frameData[1];
+        f += 2.5f * frameData[2];
         break;
 
       case 68: // (256*a+b)/7.365 deg/s
-        f = 256.0 * frameData[1] + frameData[2];
-        f /= 7.365;
+        f = 256.0f * frameData[1] + frameData[2];
+        f /= 7.365f;
         break;
 
       case 69: // (256*a +b)*0.3254 Bar
-        f = 256.0 * frameData[1] + frameData[2];
-        f *= 0.3254;
+        f = 256.0f * frameData[1] + frameData[2];
+        f *= 0.3254f;
         break;
 
       case 70: // (256*a +b)*0.192 m/s^2
-        f = 256.0 * frameData[1] + frameData[2];
-        f *= 0.192;
+        f = 256.0f * frameData[1] + frameData[2];
+        f *= 0.192f;
         break;
 
       default:
@@ -376,7 +375,6 @@ float Dis_DecodeFrame(uint8_t *frameData)
 
     return f;
 }
-
 // =========================================================================
 // KONTROLA OSVETLJENJA (PWM + LDR)
 // =========================================================================
@@ -783,18 +781,25 @@ void DisCyclic(void *pvParameters) {
                         xTaskResumeAll();
 
                         Rezultat = Dis_DecodeFrame(block);
+                        ESP_LOGW("rez","R je %.2f a b je %d",Rezultat,block[0]);
+
+
+                                      if (Rezultat != 0) {
+                          Display(block[0], offset, Rezultat);
+                        }
+                        else{
+                          //ESP_LOGW("DIS","Rezultat je 0");
+                        }
+
+
+              
               }
             if(Trenutnastrana2==1){
 
             drawTelemetryPage();
             }
 
-              if (Rezultat != 0) {
-                Display(block[0], offset, Rezultat);
-              }
-              else{
-                ESP_LOGI("DIS","Rezultat je 0");
-              }
+
           }
     }
 }
