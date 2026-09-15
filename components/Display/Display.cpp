@@ -26,7 +26,7 @@ extern "C" {
 #define ACCENT_RED     0xF9C7
 #define ACCENT_LIME    0x4FE8
 #define ACCENT_DARK    0x10A3
-#define TRANSPARENT_COLOR  0x0000   // CRNA - tvoja ikonica ima crnu pozadinu
+#define TRANSPARENT_COLOR  0x0000
 
 #define COLOR_BG          0x0821
 #define COLOR_TEXT_LIGHT  0xFFFF
@@ -72,8 +72,8 @@ extern "C" {
 
 // --- IKONICA ISPOD TRAKE ---
 #define ICON_SIZE         32
-#define ICON_POS_X        (SCREEN_W - PADDING_X - ICON_SIZE)   // desno poravnato
-#define ICON_POS_Y_OFFSET 50                                    // ispod trake
+#define ICON_POS_X        (SCREEN_W - PADDING_X - ICON_SIZE)
+#define ICON_POS_Y_OFFSET 50
 
 // --- OBJEKTI ---
 TFT_eSPI tft = TFT_eSPI(); 
@@ -109,6 +109,7 @@ uint8_t data[12];
 uint8_t block[3];
 uint8_t Ispravnost; 
 uint8_t Trenutnastrana2 = 0;
+uint8_t TrenutniId=0;
 uint16_t touch_val = 0;
 bool changed = false;
 uint8_t brojac = 0;
@@ -359,13 +360,12 @@ TelemetryItem engineItems[4] = {
 };
 
 // =========================================================================
-// STATIČKE PROMENLJIVE ZA PRAĆENJE STANJA TRAKE (bez treperenja)
+// STATIČKE PROMENLJIVE ZA PRAĆENJE STANJA TRAKE
 // =========================================================================
 static int lastFillW[NUM_ROWS] = {-1, -1, -1, -1, -1};
 static uint16_t lastBarColor[NUM_ROWS] = {0, 0, 0, 0, 0};
 static bool barFirstDraw[NUM_ROWS] = {true, true, true, true, true};
 
-// Reset stanja pri promeni stranice
 void resetBarState() {
     for (int i = 0; i < NUM_ROWS; i++) {
         lastFillW[i] = -1;
@@ -375,7 +375,7 @@ void resetBarState() {
 }
 
 // =========================================================================
-// CRTAJ IKONICU - transparentno, preskoči crnu
+// CRTAJ IKONICU
 // =========================================================================
 void drawIconTransparent(int x, int y, int size, const uint16_t* icon) {
     if (icon == NULL) return;
@@ -391,43 +391,33 @@ void drawIconTransparent(int x, int y, int size, const uint16_t* icon) {
 }
 
 // =========================================================================
-// ISCRTAJ STATIČKI DEO REDA (label, unit, icon)
+// STATIČKI DEO REDA
 // =========================================================================
 void drawTelemetryRowStatic(uint8_t row, TelemetryItem& item) {
     if (row >= NUM_ROWS) return;
 
     int yBase = START_Y + (row * ROW_SPACING);
     
-    // =====================================================================
-    // IKONICA - ISPOD TRAKE (donji desni ugao reda)
-    // =====================================================================
+    // IKONICA
     if (item.icon != NULL) {
         int iconX = ICON_POS_X;
         int iconY = yBase + ICON_POS_Y_OFFSET;
         
-        // Proveri da ne prelazi u sledeći red
         if (iconY + ICON_SIZE > yBase + ROW_SPACING - 2) {
             iconY = yBase + ROW_SPACING - ICON_SIZE - 2;
         }
         
-        // Obriši region ikonice
         smartClear(iconX, iconY, ICON_SIZE, ICON_SIZE);
-        
-        // Nacrtaj ikonicu bez crne pozadine
         drawIconTransparent(iconX, iconY, ICON_SIZE, item.icon);
     }
 
-    // =====================================================================
     // NAZIV SENZORA
-    // =====================================================================
     smartClear(PADDING_X, yBase - 2, 170, 22);
     tft.setTextDatum(TL_DATUM);
     tft.setTextColor(ACCENT_BLUE);
     tft.drawString(item.label, PADDING_X, yBase, 2);
 
-    // =====================================================================
     // JEDINICA
-    // =====================================================================
     smartClear(SCREEN_W - PADDING_X - 40, yBase + 4, 40, 22);
     tft.setTextDatum(TL_DATUM);
     tft.setTextColor(ACCENT_SKY);
@@ -435,14 +425,30 @@ void drawTelemetryRowStatic(uint8_t row, TelemetryItem& item) {
 }
 
 // =========================================================================
-// ISCRTAJ DINAMIČKI DEO REDA (vrednost i traka) - BEZ TREPERENJA
+// DINAMIČKI DEO REDA (vrednost i traka)
 // =========================================================================
 void drawTelemetryRowDynamic(uint8_t row, TelemetryItem& item) {
     if (row >= NUM_ROWS) return;
 
+    // RATE LIMITING - max 20 update-a u sekundi
+    static uint32_t lastUpdateTime[NUM_ROWS] = {0};
+    uint32_t now = millis();
+    if (now - lastUpdateTime[row] < 50) return;
+    lastUpdateTime[row] = now;
+
+    // HISTEREZA - ignoriši promene manje od 0.2
+    static float lastVal[NUM_ROWS] = {0};
+    static bool firstDrawVal[NUM_ROWS] = {true};
+    
+    if (!firstDrawVal[row]) {
+        float diff = fabs(item.val - lastVal[row]);
+        if (diff < 0.2f) return;
+    }
+    firstDrawVal[row] = false;
+    lastVal[row] = item.val;
+
     int yBase = START_Y + (row * ROW_SPACING);
 
-    // Pripremi string vrednosti
     char buf[12];
     if (item.decimals == 0) {
         snprintf(buf, sizeof(buf), "%d", (int)round(item.val));
@@ -450,9 +456,7 @@ void drawTelemetryRowDynamic(uint8_t row, TelemetryItem& item) {
         snprintf(buf, sizeof(buf), "%.1f", item.val);
     }
 
-    // =====================================================================
     // BOJE
-    // =====================================================================
     uint16_t textColor = ACCENT_CYAN;
     uint16_t barColor  = ACCENT_LIME;
     
@@ -466,9 +470,7 @@ void drawTelemetryRowDynamic(uint8_t row, TelemetryItem& item) {
         barColor  = ACCENT_BLUE;
     }
 
-    // =====================================================================
     // VREDNOST
-    // =====================================================================
     int valX = SCREEN_W - PADDING_X - 22 - 90;
     int valY = yBase - 6;
     int valW = 90;
@@ -479,9 +481,7 @@ void drawTelemetryRowDynamic(uint8_t row, TelemetryItem& item) {
     tft.setTextColor(textColor);
     tft.drawString(buf, SCREEN_W - PADDING_X - 22, yBase, 4);
 
-    // =====================================================================
-    // PROGRESIVNA TRAKA - BEZ TREPERENJA
-    // =====================================================================
+    // TRAKA
     int barY = yBase + 30;
     
     float minV = item.minV;
@@ -494,7 +494,6 @@ void drawTelemetryRowDynamic(uint8_t row, TelemetryItem& item) {
     int prevFillW = lastFillW[row];
     uint16_t prevColor = lastBarColor[row];
     
-    // Prvi put - iscrtaj celu traku (okvir + pozadina)
     if (barFirstDraw[row]) {
         smartClear(PADDING_X, barY, BAR_W, BAR_H);
         tft.drawRoundRect(PADDING_X, barY, BAR_W, BAR_H, 4, ACCENT_DARK);
@@ -510,40 +509,25 @@ void drawTelemetryRowDynamic(uint8_t row, TelemetryItem& item) {
         return;
     }
     
-    // Ako je ista širina i ista boja - ništa ne radi (NEMA TREPERENJA)
-    if (prevFillW == fillW && prevColor == barColor) {
-        return;
-    }
+    if (prevFillW == fillW && prevColor == barColor) return;
     
-    // Ako se širina ILI boja promenila
     if (fillW > prevFillW && prevColor == barColor) {
-        // Traka se PUNI - dodaj samo novi deo (od prevFillW do fillW)
         tft.fillRoundRect(PADDING_X + prevFillW, barY, fillW - prevFillW, BAR_H, 4, barColor);
     }
     else if (fillW < prevFillW && prevColor == barColor) {
-        // Traka se PRAZNI - obriši samo višak
-        // Obriši region od fillW do prevFillW
         smartClear(PADDING_X + fillW, barY, prevFillW - fillW, BAR_H);
-        
-        // Ponovo nacrtaj okvir (da bude ivica vidljiva)
         tft.drawRoundRect(PADDING_X, barY, BAR_W, BAR_H, 4, ACCENT_DARK);
         tft.drawRoundRect(PADDING_X + 1, barY + 1, BAR_W - 2, BAR_H - 2, 4, ACCENT_BLUE);
         
-        // Ako je ostalo još fill-a, precrtaj ga
         if (fillW > 0) {
             tft.fillRoundRect(PADDING_X, barY, fillW, BAR_H, 4, barColor);
         }
     }
     else {
-        // Boja se promenila (ili oboje) - precrtaj ceo fill
-        // Obriši ceo fill region
         smartClear(PADDING_X, barY, BAR_W, BAR_H);
-        
-        // Okvir
         tft.drawRoundRect(PADDING_X, barY, BAR_W, BAR_H, 4, ACCENT_DARK);
         tft.drawRoundRect(PADDING_X + 1, barY + 1, BAR_W - 2, BAR_H - 2, 4, ACCENT_BLUE);
         
-        // Novi fill
         if (fillW > 0) {
             tft.fillRoundRect(PADDING_X, barY, fillW, BAR_H, 4, barColor);
         }
@@ -583,17 +567,19 @@ void showEngineStatusPage() {
 }
 
 // =========================================================================
-// UPDATE funkcije - samo dinamika
+// UPDATE funkcije - ISPRAVLJENE
 // =========================================================================
-void updateFuelTemp(float temp, bool isPulsing = false) { tempItems[0].val = temp; drawTelemetryRowDynamic(0, tempItems[0]); }
-void updateAmbientTemp(float temp, bool isPulsing = false) { tempItems[1].val = temp; drawTelemetryRowDynamic(1, tempItems[1]); }
-void updateCoolantTemp(float temp, bool isPulsing = false) { tempItems[2].val = temp; drawTelemetryRowDynamic(2, tempItems[2]); }
-void updateCoolantTempEngine(float temp, bool isPulsing = false) { tempItems[3].val = temp; drawTelemetryRowDynamic(3, tempItems[3]); }
-void updateIntakeAir(float temp, bool isPulsing = false) { tempItems[4].val = temp; drawTelemetryRowDynamic(4, tempItems[4]); }
+// tempItems indeksi: 0=FUEL, 1=AMBIENT, 2=COOLANT(RAD), 3=INTAKE, 4=COOLANT(ENG)
+void updateFuelTemp(float temp, bool isPulsing = false)          { tempItems[0].val = temp; drawTelemetryRowDynamic(0, tempItems[0]); }
+void updateAmbientTemp(float temp, bool isPulsing = false)       { tempItems[1].val = temp; drawTelemetryRowDynamic(1, tempItems[1]); }
+void updateCoolantTemp(float temp, bool isPulsing = false)       { tempItems[2].val = temp; drawTelemetryRowDynamic(2, tempItems[2]); }
+void updateIntakeAir(float temp, bool isPulsing = false)         { tempItems[3].val = temp; drawTelemetryRowDynamic(3, tempItems[3]); }
+void updateCoolantTempEngine(float temp, bool isPulsing = false) { tempItems[4].val = temp; drawTelemetryRowDynamic(4, tempItems[4]); }
 
-void updateOilTemp(float temp) { engineItems[0].val = temp; drawTelemetryRowDynamic(0, engineItems[0]); }
-void updateOilLevel(float level) { engineItems[1].val = level; drawTelemetryRowDynamic(1, engineItems[1]); }
-void updateFuelCons(float cons) { engineItems[2].val = cons; drawTelemetryRowDynamic(2, engineItems[2]); }
+// engineItems indeksi: 0=OIL TEMP, 1=OIL LEVEL, 2=FUEL CONS, 3=ENG TORQUE
+void updateOilTemp(float temp)      { engineItems[0].val = temp; drawTelemetryRowDynamic(0, engineItems[0]); }
+void updateOilLevel(float level)    { engineItems[1].val = level; drawTelemetryRowDynamic(1, engineItems[1]); }
+void updateFuelCons(float cons)     { engineItems[2].val = cons; drawTelemetryRowDynamic(2, engineItems[2]); }
 void updateEngineTorque(float torque) { engineItems[3].val = torque; drawTelemetryRowDynamic(3, engineItems[3]); }
 
 // =========================================================================
@@ -700,7 +686,7 @@ void updateRpmBar(int val) {
 }
 
 void updateBoostReq(float spec) {
-    int spec_blocks = map((int)(spec * 100), 100, 300, 0, BOOST_NUM_BLOCKS);
+    int spec_blocks = map((int)spec, 0, 3000, 0, BOOST_NUM_BLOCKS);
     int startX = METER_X + 50;
     bool pulseState = (millis() % 160) < 80;
 
@@ -725,7 +711,7 @@ void updateBoostReq(float spec) {
 }
 
 void updateBoostAct(float act) {
-    int act_blocks = map((int)(act * 100), 100, 300, 0, BOOST_NUM_BLOCKS);
+    int act_blocks = map((int)(act), 0, 3000, 0, BOOST_NUM_BLOCKS);
     int startX = METER_X + 50;
     bool pulseState = (millis() % 160) < 80;
 
@@ -772,7 +758,7 @@ void updatePedal(int pedal) {
 }
 
 // =========================================================================
-// SWEEP
+// SWEEP - ISPRAVLJENO (indeksi)
 // =========================================================================
 void runGaugeSweep(uint8_t page) {
     const int steps = 12;
@@ -798,13 +784,14 @@ void runGaugeSweep(uint8_t page) {
         }
     } 
     else if (page == 1) {
+        // ISPRAVLJENO: INTAKE AIR = tempItems[3], COOLANT ENG = tempItems[4]
         for (int i = 0; i <= steps; i++) {
             float ratio = (float)i / steps;
             updateFuelTemp(tempItems[0].minV + ratio * (tempItems[0].maxV - tempItems[0].minV));
             updateAmbientTemp(tempItems[1].minV + ratio * (tempItems[1].maxV - tempItems[1].minV));
             updateCoolantTemp(tempItems[2].minV + ratio * (tempItems[2].maxV - tempItems[2].minV));
-            updateCoolantTempEngine(tempItems[3].minV + ratio * (tempItems[3].maxV - tempItems[3].minV));
-            updateIntakeAir(tempItems[4].minV + ratio * (tempItems[4].maxV - tempItems[4].minV));
+            updateIntakeAir(tempItems[3].minV + ratio * (tempItems[3].maxV - tempItems[3].minV));
+            updateCoolantTempEngine(tempItems[4].minV + ratio * (tempItems[4].maxV - tempItems[4].minV));
             vTaskDelay(pdMS_TO_TICKS(10));
         }
         for (int i = steps; i >= 0; i--) {
@@ -812,8 +799,8 @@ void runGaugeSweep(uint8_t page) {
             updateFuelTemp(tempItems[0].minV + ratio * (tempItems[0].maxV - tempItems[0].minV));
             updateAmbientTemp(tempItems[1].minV + ratio * (tempItems[1].maxV - tempItems[1].minV));
             updateCoolantTemp(tempItems[2].minV + ratio * (tempItems[2].maxV - tempItems[2].minV));
-            updateCoolantTempEngine(tempItems[3].minV + ratio * (tempItems[3].maxV - tempItems[3].minV));
-            updateIntakeAir(tempItems[4].minV + ratio * (tempItems[4].maxV - tempItems[4].minV));
+            updateIntakeAir(tempItems[3].minV + ratio * (tempItems[3].maxV - tempItems[3].minV));
+            updateCoolantTempEngine(tempItems[4].minV + ratio * (tempItems[4].maxV - tempItems[4].minV));
             vTaskDelay(pdMS_TO_TICKS(10));
         }
     }
@@ -838,38 +825,48 @@ void runGaugeSweep(uint8_t page) {
 }
 
 // =========================================================================
-// DISPLAY SWITCHER
+// DISPLAY SWITCHER - ISPRAVLJENO
 // =========================================================================
-void Display(uint8_t firstframe, uint8_t offset, float rez) {
-  switch (Trenutnastrana2) {
-    case 0:
-      if (firstframe == 1) updateRpmBar(rez);
-      else if (firstframe == 7) updateSpeed(rez);
-      else if (firstframe == 33) updatePedal(rez);
-      else if (firstframe == 18 && offset == 1) updateBoostAct(rez);
-      else if (firstframe == 18 && offset == 2) updateBoostReq(rez);
-    break;
+void Display(uint8_t firstframe, uint8_t offset, float rez, uint8_t id=0) {
+    // DEBUG - otkomentariši da vidiš šta stiže iz CAN-a
+    // static uint32_t lastPrint = 0;
+    // if (millis() - lastPrint > 500) {
+    //     Serial.printf("page=%d id=%d offset=%d first=%d val=%.1f\n", 
+    //                   Trenutnastrana2, id, offset, firstframe, rez);
+    //     lastPrint = millis();
+    // }
+    
+    switch (Trenutnastrana2) {
+      case 0:
+        if (firstframe == 1) updateRpmBar(rez);
+        else if (firstframe == 7) updateSpeed(rez);
+        else if (firstframe == 33) updatePedal(rez);
+        else if (firstframe == 18 && offset == 1) updateBoostAct(rez);
+        else if (firstframe == 18 && offset == 2) updateBoostReq(rez);
+      break;
 
-    case 1:
-      if (offset == 0) updateFuelTemp(rez);
-      else if (offset == 1) updateAmbientTemp(rez);
-      else if (offset == 2) updateCoolantTemp(rez);
-      else if (offset == 3) updateCoolantTempEngine(rez);
-      else if (offset == 4) updateIntakeAir(rez);
-    break;
+      case 1:
+        // TEMPERATURES - mapiranje prema id+offset
+        if (offset == 0 && id == 0) updateFuelTemp(rez);
+        else if (offset == 1 && id == 1) updateCoolantTemp(rez);
+        else if (offset == 2 && id == 1) updateAmbientTemp(rez);
+        else if (offset == 3 && id == 0) updateCoolantTempEngine(rez);
+        else if (offset == 2 && id == 0) updateIntakeAir(rez);
+      break;
 
-    case 2:
-      if (offset == 0) updateOilTemp(rez);
-      else if (offset == 1) updateOilLevel(rez);
-      else if (offset == 2) updateFuelCons(rez);
-      else if (offset == 3) updateEngineTorque(rez);
-    break;
+      case 2:
+        // ENGINE & FUEL
+        if (offset == 0 && id == 1) updateOilTemp(rez);
+        else if (offset == 1 && id == 0) updateOilLevel(rez);
+        else if (offset == 2 && id==0 ) updateFuelCons(rez);
+        else if (offset == 1 && id == 1) updateEngineTorque(rez);
+      break;
 
-    case 3:
-    case 4:
-    case 5:
-    break;
-  }
+      case 3:
+      case 4:
+      case 5:
+      break;
+    }
 }
 
 int i = 0;
@@ -903,18 +900,21 @@ void DisCyclic(void *pvParameters) {
             changed = false;
           }
 
-          if (EngineDiag_GetChData(data, &Trenutnastrana2) == RETOK) {
+          if (EngineDiag_GetChData(data, &Trenutnastrana2, &TrenutniId) == RETOK) {
             for (offset = 0; offset < 4u; offset++) {
                         vTaskSuspendAll();
                         for (b = 0; b < 3u; b++) {
                             block[b] = data[(offset * 3) + b];
                         }
                         xTaskResumeAll();
-
                         Rezultat = Dis_DecodeFrame(block);
-
-                        if (Rezultat != 0) {
-                          Display(block[0], offset, Rezultat);
+                        
+                        if (Trenutnastrana2 == 1 || Trenutnastrana2 == 2) {
+                            if (Rezultat != 0)
+                                Display(block[0], offset, Rezultat, TrenutniId);
+                        }
+                        else {
+                            Display(block[0], offset, Rezultat);
                         }
             }
           }

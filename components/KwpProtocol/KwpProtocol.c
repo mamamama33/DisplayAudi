@@ -279,8 +279,6 @@ uint8_t Kwp_GetDataFromEcu(uint8_t * const dataPtr){
     
     return retVal;
 
-
-
 }
 
 

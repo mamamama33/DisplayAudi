@@ -2,6 +2,8 @@
 #include <stdint.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include <stdatomic.h>
+
 typedef void (Diag_CallbackType)(uint8_t *, uint8_t);
 
 #define DIAG_OK       (0u)
@@ -46,9 +48,10 @@ typedef enum
     ENGINEDIAG_CH_MAX,
 }EngineDiag_ChannelIdType;
 
-uint8_t EngineDiag_GetChData(uint8_t *,uint8_t *);
+uint8_t EngineDiag_GetChData(uint8_t *,uint8_t *,uint8_t *);
 
 void DataCyclic(void *);
 uint8_t DataInit();
 uint8_t DidHandler();
 extern void SetStrana(uint8_t stranaId);
+extern atomic_int id;

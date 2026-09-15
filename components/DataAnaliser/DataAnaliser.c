@@ -1,6 +1,5 @@
 #include"DataAnaliser.h"
 #include"KwpProtocol.h"
-#include <stdatomic.h>
 #include "esp_log.h"
 #define correct 1
 static uint8_t did=6;
@@ -62,7 +61,7 @@ Block Strane[][2] =
         {
             .id = 7,
             .blocks = {
-                0,5,2,3
+                0,1,2,3
                 // 0 je fuel temp CASE 5, 2 je intake air temp,  SVI CASE 05 sto meni treba
                 // 3 je coolant temp - engine
             }
@@ -71,7 +70,7 @@ Block Strane[][2] =
         {
             .id = 62,
             .blocks = {
-                5,1,2,5
+                0,1,2,3
                 // 1 je coolant temp coolant,
                 // 2 je ambient temp
             }
@@ -185,7 +184,7 @@ uint8_t DidSetter(uint8_t Setdid)
 }
 
 
-uint8_t EngineDiag_GetChData(uint8_t * dataPtr,uint8_t* TrenutnaStrana)
+uint8_t EngineDiag_GetChData(uint8_t * dataPtr,uint8_t* TrenutnaStrana,uint8_t* TrenutniId)
 {
     uint8_t retVal = DIAG_ERR;
     uint32_t sysTime = 0;
@@ -198,15 +197,12 @@ uint8_t EngineDiag_GetChData(uint8_t * dataPtr,uint8_t* TrenutnaStrana)
             {
                       if(offset == Strane[strana][TacanId].blocks[offset]){
 
-                        vTaskSuspendAll(); // Critical section, interrupts enabled
                         for (b=0; b < 3u; b++)
                         {
                             // Copy 3 bytes of data from buffer with offset
                             dataPtr[(offset*3)+b] = didbuffer[(offset*3)+b];
 
                         }
-                        xTaskResumeAll(); // End of critical section, interrupts enabled
-
                       }
                       else{
 
@@ -219,10 +215,15 @@ uint8_t EngineDiag_GetChData(uint8_t * dataPtr,uint8_t* TrenutnaStrana)
 
                       }
             }
-        xTaskResumeAll(); 
+        TacanId++;
+        if(TacanId>=2)
+            TacanId=0;
         *TrenutnaStrana=strana;
+        *TrenutniId=TacanId;
         retVal=  DIAG_OK;
         atomic_store(&DataReaded, false);
+        xTaskResumeAll(); 
+
     }
     else{
         //Ostalo bi diagerr ali radi lepseg izgleda
@@ -257,8 +258,7 @@ void DataCyclic(void *pvParameters){
                 strana=0;
 
             }
-            if(TacanId>=2)
-                TacanId=0;
+
             break;
             case DATA_REQUEST:
                 //Prosledjujem mu koji DID  HOCU ili ti sta hocu da mi prikaze
@@ -277,7 +277,6 @@ void DataCyclic(void *pvParameters){
                         if(Kwp_GetDataFromEcu(didbuffer)==correct){
                             atomic_store(&DataReaded, true);
                             state=DATA_IDLE;
-                            TacanId++;    
                         }
                     
             break;
