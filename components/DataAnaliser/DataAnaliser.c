@@ -1,6 +1,8 @@
 #include"DataAnaliser.h"
 #include"KwpProtocol.h"
 #include "esp_log.h"
+#include <stdatomic.h>
+
 #define correct 1
 static uint8_t did=6;
 uint8_t count1=0;
@@ -183,8 +185,21 @@ uint8_t DidSetter(uint8_t Setdid)
     return retVal;
 }
 
+void IdSetter(){
 
-uint8_t EngineDiag_GetChData(uint8_t * dataPtr,uint8_t* TrenutnaStrana,uint8_t* TrenutniId)
+    TacanId++;
+    if(TacanId>=2)
+        TacanId=0;
+    atomic_store(&DataReaded, false);
+
+}
+
+uint8_t IdGetter(){
+    return TacanId;
+}
+
+
+uint8_t EngineDiag_GetChData(uint8_t * dataPtr,uint8_t* TrenutnaStrana)
 {
     uint8_t retVal = DIAG_ERR;
     uint32_t sysTime = 0;
@@ -215,13 +230,10 @@ uint8_t EngineDiag_GetChData(uint8_t * dataPtr,uint8_t* TrenutnaStrana,uint8_t* 
 
                       }
             }
-        TacanId++;
-        if(TacanId>=2)
-            TacanId=0;
+        //Moguce zato sto se stranica ne menja brzo
         *TrenutnaStrana=strana;
-        *TrenutniId=TacanId;
+
         retVal=  DIAG_OK;
-        atomic_store(&DataReaded, false);
         xTaskResumeAll(); 
 
     }

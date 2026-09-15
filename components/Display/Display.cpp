@@ -1,5 +1,4 @@
 #include "Display.h"
-
 #include "esp_log.h"
 #include <SPI.h>
 #include <TFT_eSPI.h>
@@ -11,6 +10,7 @@
 #include "driver/touch_pad.h"
 #include "carbonbg.h"
 #include "icons.h"
+
 extern "C" {
 #include "DataAnaliser.h"
 #include "PhysicalCan.h"
@@ -900,7 +900,9 @@ void DisCyclic(void *pvParameters) {
             changed = false;
           }
 
-          if (EngineDiag_GetChData(data, &Trenutnastrana2, &TrenutniId) == RETOK) {
+          if (EngineDiag_GetChData(data, &Trenutnastrana2) == RETOK) {
+            TrenutniId=IdGetter();
+            IdSetter();
             for (offset = 0; offset < 4u; offset++) {
                         vTaskSuspendAll();
                         for (b = 0; b < 3u; b++) {
