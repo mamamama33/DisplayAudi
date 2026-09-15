@@ -51,3 +51,4 @@ uint8_t EngineDiag_GetChData(uint8_t *,uint8_t *);
 void DataCyclic(void *);
 uint8_t DataInit();
 uint8_t DidHandler();
+extern void SetStrana(uint8_t stranaId);

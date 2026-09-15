@@ -27,6 +27,13 @@ typedef struct
 } Block;
 
 
+uint8_t strana=0;
+uint8_t TacanId=0;
+static uint32_t zadnjeVremePrijema = 0;
+static uint8_t counter;
+
+
+
 Block Strane[][2] =
 {
     // ================= PRVA STRANA =================
@@ -156,8 +163,6 @@ Block Strane[][2] =
     }
 
 };
-uint8_t strana=0;
-uint8_t TacanId=0;
 
 /*PRVO SE SETUJE PA SE ONDA PREBACI U STANJE DA MOZE 
 PREKO AUTOMATA DA SE POZOVE FUNKCIJA KwpRequest saljem
@@ -178,11 +183,6 @@ uint8_t DidSetter(uint8_t Setdid)
     }
     return retVal;
 }
-
-
-
-static uint32_t zadnjeVremePrijema = 0;
-static uint8_t counter;
 
 
 uint8_t EngineDiag_GetChData(uint8_t * dataPtr,uint8_t* TrenutnaStrana)
@@ -232,7 +232,11 @@ uint8_t EngineDiag_GetChData(uint8_t * dataPtr,uint8_t* TrenutnaStrana)
     return retVal;
 }
 
-
+void SetStrana(uint8_t stranaId){
+    vTaskSuspendAll(); // Critical section, interrupts enabled
+    strana=stranaId;
+    xTaskResumeAll(); // End of critical section, interrupts enabled
+}
 
 //automat stanja
 void DataCyclic(void *pvParameters){
