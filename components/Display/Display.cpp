@@ -10,14 +10,13 @@
 #include "driver/touch_pad.h"
 #include "carbonbg.h"
 #include "icons.h"
-
 extern "C" {
 #include "DataAnaliser.h"
 #include "PhysicalCan.h"
 }
 
 // =========================================================================
-// MODERNE BOJE ZA CARBON POZADINU
+// MODERNE BOJE
 // =========================================================================
 #define ACCENT_BLUE    0x5D9F
 #define ACCENT_SKY     0x4C9F
@@ -70,7 +69,6 @@ extern "C" {
 #define BAR_W             (SCREEN_W - (PADDING_X * 2))
 #define BAR_H             18
 
-// --- IKONICA ISPOD TRAKE ---
 #define ICON_SIZE         32
 #define ICON_POS_X        (SCREEN_W - PADDING_X - ICON_SIZE)
 #define ICON_POS_Y_OFFSET 50
@@ -109,10 +107,45 @@ uint8_t data[12];
 uint8_t block[3];
 uint8_t Ispravnost; 
 uint8_t Trenutnastrana2 = 0;
-uint8_t TrenutniId=0;
+uint8_t TrenutniId = 0;
 uint16_t touch_val = 0;
 bool changed = false;
 uint8_t brojac = 0;
+
+// --- VREDNOSTI ZA NOVE STRANICE ---
+float refrigerantPressure = 0.0f;
+float coolantTempGlobal = 0.0f;
+float fanDuty = 0.0f;
+
+float injectionDuration[4] = {0.0f, 0.0f, 0.0f, 0.0f};
+
+float mafValue = 0.0f;
+float voltageValue = 0.0f;
+
+float vehicleSpeed = 0.0f;
+
+// --- 0-100 TIMER ---
+enum RunState {
+    RUN_WAIT_STATIONARY,
+    RUN_ARMED,
+    RUN_MEASURING,
+    RUN_RESULT
+};
+
+RunState runState = RUN_WAIT_STATIONARY;
+uint32_t runStartTime = 0;
+uint32_t runStillSince = 0;
+uint32_t runResultShownAt = 0;
+
+float time60 = 0.0f;
+float time80 = 0.0f;
+float time100 = 0.0f;
+
+float bestTime100 = 0.0f;
+float lastTime100 = 0.0f;
+
+float historyTimes[5] = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
+int historyIndex = 0;
 
 // Forward deklaracije
 void updateSpeed(int spd);
@@ -120,6 +153,11 @@ void updateRpmBar(int val);
 void updateBoostReq(float spec);
 void updateBoostAct(float act);
 void updatePedal(int pedal);
+void update0to100(float speed_kmh);
+void drawCoolingPage();
+void drawInjectionPage();
+void drawMafVoltagePage();
+void drawTimerPage();
 
 // =========================================================================
 // CARBON POZADINA
@@ -272,7 +310,7 @@ void updateAutoBacklight() {
     if(touch_val < 200) {
         changed = true;
         brojac++;
-        if(brojac >= 3) {
+        if(brojac >= 7) {
             brojac = 0;
         }
         SetStrana(brojac);
@@ -330,7 +368,82 @@ void playStartupGIF() {
 }
 
 // =========================================================================
-// TELEMETRY
+// RAINBOW funkcija
+// =========================================================================
+uint16_t rainbow(byte value) {
+    byte red = 0, green = 0, blue = 0;
+    byte quadrant = value / 32;
+
+    if (quadrant == 0) { blue = 31; green = 2 * (value % 32); red = 0; }
+    if (quadrant == 1) { blue = 31 - (value % 32); green = 63; red = 0; }
+    if (quadrant == 2) { blue = 0; green = 63; red = value % 32; }
+    if (quadrant == 3) { blue = 0; green = 63 - 2 * (value % 32); red = 31; }
+    return (red << 11) + (green << 5) + blue;
+}
+
+// =========================================================================
+// RING METER sa carbon pozadinom
+// =========================================================================
+int ringMeter(float value, float vmin, float vmax, int x, int y, int r, 
+              const char *units, byte scheme, uint8_t decimals) {
+    
+    x += r; y += r;
+    int w = r / 3;
+    int angle = 150;
+    long vScaled = map((long)(value * 10), (long)(vmin * 10), (long)(vmax * 10), -angle, angle);
+    int v = (int)vScaled;
+    byte seg = 3;
+    byte inc = 6;
+    
+    int colour = ACCENT_CYAN;
+    
+    for (int i = -angle + inc/2; i < angle - inc/2; i += inc) {
+        float sx = cos((i - 90) * 0.0174532925);
+        float sy = sin((i - 90) * 0.0174532925);
+        uint16_t x0 = sx * (r - w) + x;
+        uint16_t y0 = sy * (r - w) + y;
+        uint16_t x1 = sx * r + x;
+        uint16_t y1 = sy * r + y;
+
+        float sx2 = cos((i + seg - 90) * 0.0174532925);
+        float sy2 = sin((i + seg - 90) * 0.0174532925);
+        int x2 = sx2 * (r - w) + x;
+        int y2 = sy2 * (r - w) + y;
+        int x3 = sx2 * r + x;
+        int y3 = sy2 * r + y;
+
+        if (i < v) {
+            switch (scheme) {
+                case 0: colour = ACCENT_RED; break;
+                case 1: colour = ACCENT_LIME; break;
+                case 2: colour = ACCENT_BLUE; break;
+                case 3: colour = rainbow(map(i, -angle, angle, 0, 127)); break;
+                case 4: colour = rainbow(map(i, -angle, angle, 70, 127)); break;
+                default: colour = ACCENT_CYAN; break;
+            }
+            tft.fillTriangle(x0, y0, x1, y1, x2, y2, colour);
+            tft.fillTriangle(x1, y1, x2, y2, x3, y3, colour);
+        }
+    }
+    
+    char buf[10];
+    if (decimals == 0) snprintf(buf, sizeof(buf), "%d", (int)round(value));
+    else snprintf(buf, sizeof(buf), "%.1f", value);
+    
+    tft.setTextColor(ACCENT_CYAN);
+    tft.setTextDatum(MC_DATUM);
+    if (r > 60) tft.drawString(buf, x, y - 5, 4);
+    else tft.drawString(buf, x, y, 2);
+    
+    tft.setTextColor(ACCENT_SKY);
+    if (r > 60) tft.drawString(units, x, y + 20, 2);
+    else tft.drawString(units, x, y + 12, 1);
+    
+    return x + r;
+}
+
+// =========================================================================
+// TELEMETRY STRUKTURA
 // =========================================================================
 struct TelemetryItem {
     const char* label;      
@@ -360,7 +473,7 @@ TelemetryItem engineItems[4] = {
 };
 
 // =========================================================================
-// STATIČKE PROMENLJIVE ZA PRAĆENJE STANJA TRAKE
+// STATIČKE PROMENLJIVE
 // =========================================================================
 static int lastFillW[NUM_ROWS] = {-1, -1, -1, -1, -1};
 static uint16_t lastBarColor[NUM_ROWS] = {0, 0, 0, 0, 0};
@@ -375,7 +488,7 @@ void resetBarState() {
 }
 
 // =========================================================================
-// CRTAJ IKONICU
+// IKONICA
 // =========================================================================
 void drawIconTransparent(int x, int y, int size, const uint16_t* icon) {
     if (icon == NULL) return;
@@ -391,52 +504,39 @@ void drawIconTransparent(int x, int y, int size, const uint16_t* icon) {
 }
 
 // =========================================================================
-// STATIČKI DEO REDA
+// TELEMETRY ROW STATIC + DYNAMIC (kao u tvom originalu)
 // =========================================================================
 void drawTelemetryRowStatic(uint8_t row, TelemetryItem& item) {
     if (row >= NUM_ROWS) return;
-
     int yBase = START_Y + (row * ROW_SPACING);
     
-    // IKONICA
     if (item.icon != NULL) {
         int iconX = ICON_POS_X;
         int iconY = yBase + ICON_POS_Y_OFFSET;
-        
-        if (iconY + ICON_SIZE > yBase + ROW_SPACING - 2) {
-            iconY = yBase + ROW_SPACING - ICON_SIZE - 2;
-        }
-        
+        if (iconY + ICON_SIZE > yBase + ROW_SPACING - 2) iconY = yBase + ROW_SPACING - ICON_SIZE - 2;
         smartClear(iconX, iconY, ICON_SIZE, ICON_SIZE);
         drawIconTransparent(iconX, iconY, ICON_SIZE, item.icon);
     }
-
-    // NAZIV SENZORA
+    
     smartClear(PADDING_X, yBase - 2, 170, 22);
     tft.setTextDatum(TL_DATUM);
     tft.setTextColor(ACCENT_BLUE);
     tft.drawString(item.label, PADDING_X, yBase, 2);
-
-    // JEDINICA
+    
     smartClear(SCREEN_W - PADDING_X - 40, yBase + 4, 40, 22);
     tft.setTextDatum(TL_DATUM);
     tft.setTextColor(ACCENT_SKY);
     tft.drawString(item.unit, SCREEN_W - PADDING_X - 12, yBase + 6, 2);
 }
 
-// =========================================================================
-// DINAMIČKI DEO REDA (vrednost i traka)
-// =========================================================================
 void drawTelemetryRowDynamic(uint8_t row, TelemetryItem& item) {
     if (row >= NUM_ROWS) return;
-
-    // RATE LIMITING - max 20 update-a u sekundi
+    
     static uint32_t lastUpdateTime[NUM_ROWS] = {0};
     uint32_t now = millis();
     if (now - lastUpdateTime[row] < 50) return;
     lastUpdateTime[row] = now;
-
-    // HISTEREZA - ignoriši promene manje od 0.2
+    
     static float lastVal[NUM_ROWS] = {0};
     static bool firstDrawVal[NUM_ROWS] = {true};
     
@@ -446,49 +546,33 @@ void drawTelemetryRowDynamic(uint8_t row, TelemetryItem& item) {
     }
     firstDrawVal[row] = false;
     lastVal[row] = item.val;
-
+    
     int yBase = START_Y + (row * ROW_SPACING);
-
+    
     char buf[12];
-    if (item.decimals == 0) {
-        snprintf(buf, sizeof(buf), "%d", (int)round(item.val));
-    } else {
-        snprintf(buf, sizeof(buf), "%.1f", item.val);
-    }
-
-    // BOJE
+    if (item.decimals == 0) snprintf(buf, sizeof(buf), "%d", (int)round(item.val));
+    else snprintf(buf, sizeof(buf), "%.1f", item.val);
+    
     uint16_t textColor = ACCENT_CYAN;
     uint16_t barColor  = ACCENT_LIME;
     
-    if (item.val >= item.critV) {
-        textColor = ACCENT_RED;
-        barColor  = ACCENT_RED;
-    } else if (item.val >= item.warnV) {
-        textColor = ACCENT_AMBER;
-        barColor  = ACCENT_AMBER;
-    } else if (item.val < item.minV) {
-        barColor  = ACCENT_BLUE;
-    }
-
-    // VREDNOST
+    if (item.val >= item.critV) { textColor = ACCENT_RED; barColor = ACCENT_RED; }
+    else if (item.val >= item.warnV) { textColor = ACCENT_AMBER; barColor = ACCENT_AMBER; }
+    else if (item.val < item.minV) { barColor = ACCENT_BLUE; }
+    
     int valX = SCREEN_W - PADDING_X - 22 - 90;
     int valY = yBase - 6;
-    int valW = 90;
-    int valH = 32;
-    
-    smartClear(valX, valY, valW, valH);
+    smartClear(valX, valY, 90, 32);
     tft.setTextDatum(TR_DATUM);
     tft.setTextColor(textColor);
     tft.drawString(buf, SCREEN_W - PADDING_X - 22, yBase, 4);
-
-    // TRAKA
+    
     int barY = yBase + 30;
     
     float minV = item.minV;
     float maxV = (item.maxV <= minV) ? minV + 1.0f : item.maxV;
     float clamped = constrain(item.val, minV, maxV);
     float pct = (clamped - minV) / (maxV - minV);
-    
     int fillW = round(pct * BAR_W);
     
     int prevFillW = lastFillW[row];
@@ -498,11 +582,7 @@ void drawTelemetryRowDynamic(uint8_t row, TelemetryItem& item) {
         smartClear(PADDING_X, barY, BAR_W, BAR_H);
         tft.drawRoundRect(PADDING_X, barY, BAR_W, BAR_H, 4, ACCENT_DARK);
         tft.drawRoundRect(PADDING_X + 1, barY + 1, BAR_W - 2, BAR_H - 2, 4, ACCENT_BLUE);
-        
-        if (fillW > 0) {
-            tft.fillRoundRect(PADDING_X, barY, fillW, BAR_H, 4, barColor);
-        }
-        
+        if (fillW > 0) tft.fillRoundRect(PADDING_X, barY, fillW, BAR_H, 4, barColor);
         lastFillW[row] = fillW;
         lastBarColor[row] = barColor;
         barFirstDraw[row] = false;
@@ -518,19 +598,13 @@ void drawTelemetryRowDynamic(uint8_t row, TelemetryItem& item) {
         smartClear(PADDING_X + fillW, barY, prevFillW - fillW, BAR_H);
         tft.drawRoundRect(PADDING_X, barY, BAR_W, BAR_H, 4, ACCENT_DARK);
         tft.drawRoundRect(PADDING_X + 1, barY + 1, BAR_W - 2, BAR_H - 2, 4, ACCENT_BLUE);
-        
-        if (fillW > 0) {
-            tft.fillRoundRect(PADDING_X, barY, fillW, BAR_H, 4, barColor);
-        }
+        if (fillW > 0) tft.fillRoundRect(PADDING_X, barY, fillW, BAR_H, 4, barColor);
     }
     else {
         smartClear(PADDING_X, barY, BAR_W, BAR_H);
         tft.drawRoundRect(PADDING_X, barY, BAR_W, BAR_H, 4, ACCENT_DARK);
         tft.drawRoundRect(PADDING_X + 1, barY + 1, BAR_W - 2, BAR_H - 2, 4, ACCENT_BLUE);
-        
-        if (fillW > 0) {
-            tft.fillRoundRect(PADDING_X, barY, fillW, BAR_H, 4, barColor);
-        }
+        if (fillW > 0) tft.fillRoundRect(PADDING_X, barY, fillW, BAR_H, 4, barColor);
     }
     
     lastFillW[row] = fillW;
@@ -538,18 +612,16 @@ void drawTelemetryRowDynamic(uint8_t row, TelemetryItem& item) {
 }
 
 // =========================================================================
-// STRANICE
+// STRANICE 1, 2 (TEMPERATURES, ENGINE - kao u originalu)
 // =========================================================================
 void drawTelemetryPageGeneric(const char* title, TelemetryItem items[], uint8_t count) {
     carbon_active = true;
     resetBarState();
-    
     redrawCarbonRegion(0, 0, SCREEN_W, SCREEN_H);
     
     tft.setTextColor(ACCENT_BLUE);
     tft.setTextDatum(TC_DATUM);
     tft.drawString(title, SCREEN_W / 2, 8, 2);
-
     tft.drawFastHLine(PADDING_X, 26, BAR_W, ACCENT_DARK);
 
     uint8_t rowsToDraw = (count > NUM_ROWS) ? NUM_ROWS : count;
@@ -558,44 +630,283 @@ void drawTelemetryPageGeneric(const char* title, TelemetryItem items[], uint8_t 
     }
 }
 
-void drawTelemetryPage() {
-    drawTelemetryPageGeneric("T E M P E R A T U R E S", tempItems, 5);
-}
+void drawTelemetryPage() { drawTelemetryPageGeneric("T E M P E R A T U R E S", tempItems, 5); }
+void showEngineStatusPage() { drawTelemetryPageGeneric("E N G I N E  &  F U E L", engineItems, 4); }
 
-void showEngineStatusPage() {
-    drawTelemetryPageGeneric("E N G I N E  &  F U E L", engineItems, 4);
-}
-
-// =========================================================================
-// UPDATE funkcije - ISPRAVLJENE
-// =========================================================================
-// tempItems indeksi: 0=FUEL, 1=AMBIENT, 2=COOLANT(RAD), 3=INTAKE, 4=COOLANT(ENG)
 void updateFuelTemp(float temp, bool isPulsing = false)          { tempItems[0].val = temp; drawTelemetryRowDynamic(0, tempItems[0]); }
 void updateAmbientTemp(float temp, bool isPulsing = false)       { tempItems[1].val = temp; drawTelemetryRowDynamic(1, tempItems[1]); }
 void updateCoolantTemp(float temp, bool isPulsing = false)       { tempItems[2].val = temp; drawTelemetryRowDynamic(2, tempItems[2]); }
 void updateIntakeAir(float temp, bool isPulsing = false)         { tempItems[3].val = temp; drawTelemetryRowDynamic(3, tempItems[3]); }
 void updateCoolantTempEngine(float temp, bool isPulsing = false) { tempItems[4].val = temp; drawTelemetryRowDynamic(4, tempItems[4]); }
 
-// engineItems indeksi: 0=OIL TEMP, 1=OIL LEVEL, 2=FUEL CONS, 3=ENG TORQUE
 void updateOilTemp(float temp)      { engineItems[0].val = temp; drawTelemetryRowDynamic(0, engineItems[0]); }
 void updateOilLevel(float level)    { engineItems[1].val = level; drawTelemetryRowDynamic(1, engineItems[1]); }
 void updateFuelCons(float cons)     { engineItems[2].val = cons; drawTelemetryRowDynamic(2, engineItems[2]); }
 void updateEngineTorque(float torque) { engineItems[3].val = torque; drawTelemetryRowDynamic(3, engineItems[3]); }
 
 // =========================================================================
-// DASHBOARD
+// STRANICA 3: COOLING
+// =========================================================================
+void drawCoolingPage() {
+    carbon_active = true;
+    redrawCarbonRegion(0, 0, SCREEN_W, SCREEN_H);
+    
+    tft.setTextColor(ACCENT_BLUE);
+    tft.setTextDatum(TC_DATUM);
+    tft.drawString("C O O L I N G", SCREEN_W / 2, 8, 2);
+    
+    int r = 55;
+    int startX = 30;
+    int yTop = 55;
+    
+    ringMeter(refrigerantPressure, 0, 30, startX, yTop, r, "bar", 3, 1);
+    ringMeter(coolantTempGlobal, 0, 120, startX + r*2 + 30, yTop, r, "C", 3, 0);
+    
+    tft.setTextColor(ACCENT_SKY);
+    tft.setTextDatum(TC_DATUM);
+    tft.drawString("REFRIG", startX + r, yTop + r*2 + 2, 1);
+    tft.drawString("COOLANT", startX + r*2 + 30 + r, yTop + r*2 + 2, 1);
+    
+    int barY = yTop + r*2 + 45;
+    tft.setTextColor(ACCENT_BLUE);
+    tft.setTextDatum(TL_DATUM);
+    tft.drawString("FAN DUTY", PADDING_X, barY);
+    
+    int fanFill = map((int)fanDuty, 0, 100, 0, BAR_W - 2);
+    tft.drawRect(PADDING_X, barY + 22, BAR_W, BAR_H, ACCENT_DARK);
+    if (fanFill > 0) {
+        uint16_t fanColor = (fanDuty > 80) ? ACCENT_RED : ((fanDuty > 40) ? ACCENT_AMBER : ACCENT_LIME);
+        tft.fillRect(PADDING_X + 1, barY + 23, fanFill, BAR_H - 2, fanColor);
+    }
+    
+    char buf[10];
+    snprintf(buf, sizeof(buf), "%d%%", (int)fanDuty);
+    tft.setTextColor(ACCENT_CYAN);
+    tft.setTextDatum(TR_DATUM);
+    tft.drawString(buf, SCREEN_W - PADDING_X, barY);
+    
+    int yBot = barY + 60;
+    ringMeter(tempItems[4].val, 0, 120, (SCREEN_W - r*2)/2, yBot, r, "C", 3, 0);
+    
+    tft.setTextColor(ACCENT_SKY);
+    tft.setTextDatum(TC_DATUM);
+    tft.drawString("COOLANT (ENG)", SCREEN_W/2, yBot + r*2 + 2, 1);
+}
+
+// =========================================================================
+// STRANICA 4: INJECTION
+// =========================================================================
+void drawInjectionPage() {
+    carbon_active = true;
+    redrawCarbonRegion(0, 0, SCREEN_W, SCREEN_H);
+    
+    tft.setTextColor(ACCENT_BLUE);
+    tft.setTextDatum(TC_DATUM);
+    tft.drawString("I N J E C T I O N", SCREEN_W / 2, 8, 2);
+    
+    const char* labels[4] = {"INJ 1", "INJ 2", "INJ 3", "INJ 4"};
+    int rowY[4] = {65, 165, 265, 365};
+    float maxInj = 5.0f;
+    
+    for (int i = 0; i < 4; i++) {
+        int yBase = rowY[i];
+        
+        tft.setTextColor(ACCENT_BLUE);
+        tft.setTextDatum(TL_DATUM);
+        tft.drawString(labels[i], PADDING_X, yBase, 2);
+        
+        char buf[12];
+        snprintf(buf, sizeof(buf), "%.2f ms", injectionDuration[i]);
+        tft.setTextColor(ACCENT_CYAN);
+        tft.setTextDatum(TR_DATUM);
+        tft.drawString(buf, SCREEN_W - PADDING_X, yBase, 2);
+        
+        int barY = yBase + 30;
+        int fillW = map((int)(injectionDuration[i] * 100), 0, (int)(maxInj * 100), 0, BAR_W - 2);
+        if (fillW > BAR_W - 2) fillW = BAR_W - 2;
+        
+        tft.drawRect(PADDING_X, barY, BAR_W, BAR_H, ACCENT_DARK);
+        if (fillW > 0) {
+            uint16_t color = (injectionDuration[i] > 4.0f) ? ACCENT_RED : 
+                             ((injectionDuration[i] > 3.0f) ? ACCENT_AMBER : ACCENT_LIME);
+            tft.fillRect(PADDING_X + 1, barY + 1, fillW, BAR_H - 2, color);
+        }
+    }
+}
+
+// =========================================================================
+// STRANICA 5: MAF & VOLTAGE (2 velika ring metera)
+// =========================================================================
+void drawMafVoltagePage() {
+    carbon_active = true;
+    redrawCarbonRegion(0, 0, SCREEN_W, SCREEN_H);
+    
+    tft.setTextColor(ACCENT_BLUE);
+    tft.setTextDatum(TC_DATUM);
+    tft.drawString("M A F   &   V O L T A G E", SCREEN_W / 2, 8, 2);
+    
+    int r = 70;
+    int centerX = SCREEN_W / 2;
+    
+    ringMeter(mafValue, 0, 50, centerX - r, 35, r, "g/s", 3, 1);
+    ringMeter(voltageValue, 0, 16, centerX - r, 235, r, "V", 3, 1);
+    
+    tft.setTextColor(ACCENT_SKY);
+    tft.setTextDatum(TC_DATUM);
+    tft.drawString("MAF", centerX, 35 + r*2 + 2, 2);
+    tft.drawString("VOLTAGE", centerX, 235 + r*2 + 2, 2);
+}
+
+// =========================================================================
+// STRANICA 6: 0-100 TIMER
+// =========================================================================
+void update0to100(float speed_kmh) {
+    uint32_t now = millis();
+    
+    switch (runState) {
+        case RUN_WAIT_STATIONARY:
+            if (speed_kmh < 1.0f) {
+                if (runStillSince == 0) runStillSince = now;
+                if (now - runStillSince > 2000) runState = RUN_ARMED;
+            } else {
+                runStillSince = 0;
+            }
+            break;
+            
+        case RUN_ARMED:
+            if (speed_kmh > 2.0f) {
+                runStartTime = now;
+                time60 = 0.0f;
+                time80 = 0.0f;
+                time100 = 0.0f;
+                runState = RUN_MEASURING;
+                drawTimerPage();
+            }
+            break;
+            
+        case RUN_MEASURING:
+            {
+                float t = (now - runStartTime) / 1000.0f;
+                if (time60 == 0.0f && speed_kmh >= 60.0f) time60 = t;
+                if (time80 == 0.0f && speed_kmh >= 80.0f) time80 = t;
+                if (speed_kmh >= 100.0f) {
+                    time100 = t;
+                    lastTime100 = t;
+                    if (bestTime100 == 0.0f || t < bestTime100) bestTime100 = t;
+                    historyTimes[historyIndex] = t;
+                    historyIndex = (historyIndex + 1) % 5;
+                    runState = RUN_RESULT;
+                    runResultShownAt = now;
+                    drawTimerPage();
+                }
+                if (t > 30.0f) {
+                    runState = RUN_WAIT_STATIONARY;
+                    runStillSince = 0;
+                    drawTimerPage();
+                }
+            }
+            break;
+            
+        case RUN_RESULT:
+            if (now - runResultShownAt > 8000) {
+                runState = RUN_WAIT_STATIONARY;
+                runStillSince = 0;
+                drawTimerPage();
+            }
+            break;
+    }
+}
+
+void drawTimerPage() {
+    carbon_active = true;
+    redrawCarbonRegion(0, 0, SCREEN_W, SCREEN_H);
+    
+    tft.setTextColor(ACCENT_BLUE);
+    tft.setTextDatum(TC_DATUM);
+    tft.drawString("0 - 1 0 0  T I M E R", SCREEN_W / 2, 8, 2);
+    
+    const char* statusStr = "WAIT";
+    uint16_t statusColor = ACCENT_SKY;
+    switch (runState) {
+        case RUN_WAIT_STATIONARY: statusStr = "WAIT STATIONARY"; statusColor = ACCENT_SKY; break;
+        case RUN_ARMED: statusStr = "ARMED"; statusColor = ACCENT_LIME; break;
+        case RUN_MEASURING: statusStr = "MEASURING"; statusColor = ACCENT_AMBER; break;
+        case RUN_RESULT: statusStr = "RESULT"; statusColor = ACCENT_CYAN; break;
+    }
+    
+    tft.setTextColor(statusColor);
+    tft.setTextDatum(TC_DATUM);
+    tft.drawString(statusStr, SCREEN_W / 2, 50, 4);
+    
+    char buf[20];
+    snprintf(buf, sizeof(buf), "%.0f km/h", vehicleSpeed);
+    tft.setTextColor(ACCENT_CYAN);
+    tft.drawString(buf, SCREEN_W / 2, 95, 4);
+    
+    tft.drawFastHLine(PADDING_X, 140, BAR_W, ACCENT_DARK);
+    
+    tft.setTextDatum(TL_DATUM);
+    tft.setTextColor(ACCENT_BLUE);
+    tft.drawString("0-60:", PADDING_X, 160, 2);
+    tft.drawString("0-80:", PADDING_X, 195, 2);
+    tft.drawString("0-100:", PADDING_X, 230, 2);
+    
+    tft.setTextDatum(TR_DATUM);
+    tft.setTextColor(ACCENT_CYAN);
+    
+    char tb[20];
+    if (time60 > 0) snprintf(tb, sizeof(tb), "%.2f s", time60); else snprintf(tb, sizeof(tb), "--");
+    tft.drawString(tb, SCREEN_W - PADDING_X, 160, 2);
+    if (time80 > 0) snprintf(tb, sizeof(tb), "%.2f s", time80); else snprintf(tb, sizeof(tb), "--");
+    tft.drawString(tb, SCREEN_W - PADDING_X, 195, 2);
+    if (time100 > 0) snprintf(tb, sizeof(tb), "%.2f s", time100); else snprintf(tb, sizeof(tb), "--");
+    tft.drawString(tb, SCREEN_W - PADDING_X, 230, 2);
+    
+    tft.drawFastHLine(PADDING_X, 275, BAR_W, ACCENT_DARK);
+    
+    tft.setTextDatum(TL_DATUM);
+    tft.setTextColor(ACCENT_BLUE);
+    tft.drawString("BEST:", PADDING_X, 295, 2);
+    tft.drawString("LAST:", PADDING_X, 325, 2);
+    
+    tft.setTextDatum(TR_DATUM);
+    tft.setTextColor(ACCENT_LIME);
+    if (bestTime100 > 0) snprintf(tb, sizeof(tb), "%.2f s", bestTime100); else snprintf(tb, sizeof(tb), "--");
+    tft.drawString(tb, SCREEN_W - PADDING_X, 295, 2);
+    tft.setTextColor(ACCENT_CYAN);
+    if (lastTime100 > 0) snprintf(tb, sizeof(tb), "%.2f s", lastTime100); else snprintf(tb, sizeof(tb), "--");
+    tft.drawString(tb, SCREEN_W - PADDING_X, 325, 2);
+    
+    tft.drawFastHLine(PADDING_X, 360, BAR_W, ACCENT_DARK);
+    
+    tft.setTextDatum(TL_DATUM);
+    tft.setTextColor(ACCENT_SKY);
+    tft.drawString("HISTORY:", PADDING_X, 375, 2);
+    
+    char hist[80] = "";
+    for (int i = 0; i < 5; i++) {
+        if (historyTimes[i] > 0) {
+            char h[16];
+            snprintf(h, sizeof(h), "%.2f ", historyTimes[i]);
+            strcat(hist, h);
+        }
+    }
+    tft.setTextColor(ACCENT_CYAN);
+    tft.setTextDatum(TL_DATUM);
+    tft.drawString(hist, PADDING_X, 405, 2);
+}
+
+// =========================================================================
+// DASHBOARD (STRANICA 0)
 // =========================================================================
 uint16_t getSpeedBgColor() {
     return (currentSpeedBgMode == 2) ? TFT_LIGHTRED : COLOR_BG; 
 }
 
-void redrawSpeedBlock() { 
-    updateSpeed(speed_val); 
-}
+void redrawSpeedBlock() { updateSpeed(speed_val); }
 
 void drawDashboardLayout() {
     carbon_active = true;
-    
     redrawCarbonRegion(0, 0, SCREEN_W, SCREEN_H);
     
     tft.setTextDatum(TL_DATUM); 
@@ -629,6 +940,7 @@ void drawDashboardLayout() {
 void updateSpeed(int spd) {
     if (spd < 0) spd = 0;
     if (spd > 299) spd = 299;
+    speed_val = spd;
 
     char buf[8]; 
     itoa(spd, buf, 10);
@@ -758,7 +1070,7 @@ void updatePedal(int pedal) {
 }
 
 // =========================================================================
-// SWEEP - ISPRAVLJENO (indeksi)
+// SWEEP (samo za stranice 0,1,2)
 // =========================================================================
 void runGaugeSweep(uint8_t page) {
     const int steps = 12;
@@ -784,7 +1096,6 @@ void runGaugeSweep(uint8_t page) {
         }
     } 
     else if (page == 1) {
-        // ISPRAVLJENO: INTAKE AIR = tempItems[3], COOLANT ENG = tempItems[4]
         for (int i = 0; i <= steps; i++) {
             float ratio = (float)i / steps;
             updateFuelTemp(tempItems[0].minV + ratio * (tempItems[0].maxV - tempItems[0].minV));
@@ -825,28 +1136,23 @@ void runGaugeSweep(uint8_t page) {
 }
 
 // =========================================================================
-// DISPLAY SWITCHER - ISPRAVLJENO
+// DISPLAY SWITCHER
 // =========================================================================
 void Display(uint8_t firstframe, uint8_t offset, float rez, uint8_t id=0) {
-    // DEBUG - otkomentariši da vidiš šta stiže iz CAN-a
-    // static uint32_t lastPrint = 0;
-    // if (millis() - lastPrint > 500) {
-    //     Serial.printf("page=%d id=%d offset=%d first=%d val=%.1f\n", 
-    //                   Trenutnastrana2, id, offset, firstframe, rez);
-    //     lastPrint = millis();
-    // }
     
+        coolantTempGlobal=45;
+    refrigerantPressure=33;
+    fanDuty=12;
     switch (Trenutnastrana2) {
       case 0:
         if (firstframe == 1) updateRpmBar(rez);
-        else if (firstframe == 7) updateSpeed(rez);
+        else if (firstframe == 7) { updateSpeed(rez); vehicleSpeed = rez; }
         else if (firstframe == 33) updatePedal(rez);
         else if (firstframe == 18 && offset == 1) updateBoostAct(rez);
         else if (firstframe == 18 && offset == 2) updateBoostReq(rez);
       break;
 
       case 1:
-        // TEMPERATURES - mapiranje prema id+offset
         if (offset == 0 && id == 0) updateFuelTemp(rez);
         else if (offset == 1 && id == 1) updateCoolantTemp(rez);
         else if (offset == 2 && id == 1) updateAmbientTemp(rez);
@@ -855,16 +1161,30 @@ void Display(uint8_t firstframe, uint8_t offset, float rez, uint8_t id=0) {
       break;
 
       case 2:
-        // ENGINE & FUEL
         if (offset == 0 && id == 1) updateOilTemp(rez);
         else if (offset == 1 && id == 0) updateOilLevel(rez);
-        else if (offset == 2 && id==0 ) updateFuelCons(rez);
+        else if (offset == 2 && id == 0) updateFuelCons(rez);
         else if (offset == 1 && id == 1) updateEngineTorque(rez);
       break;
 
-      case 3:
-      case 4:
-      case 5:
+      case 3:   // COOLING
+        if (offset == 0 && id == 1) { refrigerantPressure = rez; drawCoolingPage(); }
+        else if (offset == 1) { coolantTempGlobal = rez; drawCoolingPage(); }
+        else if (offset == 2) { fanDuty = rez; drawCoolingPage(); }
+        else if (offset == 0 && id == 0) { tempItems[4].val = rez; drawCoolingPage(); }
+      break;
+
+      case 4:   // INJECTION
+        if (offset < 4) { injectionDuration[offset] = rez; drawInjectionPage(); }
+      break;
+
+      case 5:   // MAF & VOLTAGE
+        if (offset == 0) { mafValue = rez; drawMafVoltagePage(); }
+        else if (offset == 2) { voltageValue = rez; drawMafVoltagePage(); }
+      break;
+
+      case 6:   // 0-100 TIMER
+        if (firstframe == 7) { vehicleSpeed = rez; update0to100(rez); }
       break;
     }
 }
@@ -895,14 +1215,22 @@ void DisCyclic(void *pvParameters) {
                 runGaugeSweep(2);
                 break;
               case 3:
-                break;  
+                drawCoolingPage();
+                break;
+              case 4:
+                drawInjectionPage();
+                break;
+              case 5:
+                drawMafVoltagePage();
+                break;
+              case 6:
+                drawTimerPage();
+                break;
             }              
             changed = false;
           }
 
           if (EngineDiag_GetChData(data, &Trenutnastrana2) == RETOK) {
-            TrenutniId=IdGetter();
-            IdSetter();
             for (offset = 0; offset < 4u; offset++) {
                         vTaskSuspendAll();
                         for (b = 0; b < 3u; b++) {
@@ -911,7 +1239,7 @@ void DisCyclic(void *pvParameters) {
                         xTaskResumeAll();
                         Rezultat = Dis_DecodeFrame(block);
                         
-                        if (Trenutnastrana2 == 1 || Trenutnastrana2 == 2) {
+                        if (Trenutnastrana2 >= 1 && Trenutnastrana2 <= 6) {
                             if (Rezultat != 0)
                                 Display(block[0], offset, Rezultat, TrenutniId);
                         }
