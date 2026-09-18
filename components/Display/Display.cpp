@@ -1541,7 +1541,7 @@ void DisCyclic(void *pvParameters) {
             }              
             changed = false;
           }
-
+//IZMENE
           if (EngineDiag_GetChData(data, &Trenutnastrana2) == RETOK) {
             for (offset = 0; offset < 4u; offset++) {
                         vTaskSuspendAll();
