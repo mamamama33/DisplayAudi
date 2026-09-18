@@ -1,7 +1,7 @@
 {
     "version":            "1",
     "project_name":       "TFTDIS",
-    "project_version":    "5f949d7a-dirty",
+    "project_version":    "143f6de7-dirty",
     "project_path":       "/home/student/Desktop/ProjekatDisplej/DisplayAudi",
     "idf_path":           "/home/student/esp/esp-idf-v4.4",
     "build_dir":          "/home/student/Desktop/ProjekatDisplej/DisplayAudi/build",
