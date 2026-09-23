@@ -8,8 +8,8 @@
 
 static QueueHandle_t CanToKwpQueue;
 static QueueHandle_t StalkButtonQueue;
-
-uint8_t StalkGetter;
+static QueueHandle_t OpenedDoorQueue ;
+uint8_t StalkGetter = 10;
 
 
 #define CAN_KWP_QUEUE_LEN  10
@@ -42,6 +42,9 @@ uint8_t GetStalkButton() {
     return StalkGetter;
 }
 
+bool CanGetStalk = false;
+
+
 /* CAN receive task */
 void Can_Receive(void *pvParameters)
 {
@@ -65,16 +68,48 @@ void Can_Receive(void *pvParameters)
                 //ESP_LOGE("Physical","");
 
             }
+            else if(msg.identifier == OPENEDDOOR){
+
+                xQueueSend(OpenedDoorQueue, &msg, 0);
+            }
         }
         // NEMA vTaskDelay ovde!
     }
 }
+/*
+ID: 470 DLC: 5 [0][1][2][3][4]
+byte 0: 128 = battery symbol shown
+byte 1: doors: 1 = FL, 2 = FR,4= RL, 8 = RR, 16 = hood, 32 = trunk
+byte 2: backlight dimming
+
+*/
+
+void OpenedDoor(void *pvParameters){
+
+    twai_message_t msg;
+    uint8_t door;
+    static uint8_t lastdoor = 0;
+    vTaskDelay(pdMS_TO_TICKS(100));
+
+    while (1)
+    {
+        if (xQueueReceive(OpenedDoorQueue, &msg, portMAX_DELAY))
+        {
+            door = msg.data[1];
+            //ESP_LOGW("stalk","Pritisnuto dugme");
+
+        }
+    }
+
+
+
+}
 
 /* Stalk button task */
+/*OVAJ METOD RADi JEDINO AKO SE STALNO SALJU PORUKE POD OVIM ID-jem i tako se restartuje na 0 kada se nista ne klikne*/
 void StalkButton(void *pvParameters)
 {
     twai_message_t msg;
-    uint8_t buttons;
     static uint8_t lastButtons = 0;
     vTaskDelay(pdMS_TO_TICKS(100));
 
@@ -82,28 +117,25 @@ void StalkButton(void *pvParameters)
     {
         if (xQueueReceive(StalkButtonQueue, &msg, portMAX_DELAY))
         {
-            buttons = msg.data[1];
+            StalkGetter = msg.data[1];
             //ESP_LOGW("stalk","Pritisnuto dugme");
-
-            if (lastButtons != buttons)
+            if (lastButtons != StalkGetter)
             {
-                if ((lastButtons & 0x20) && !(buttons & 0x20)) {
+                if ((lastButtons & 0x20) && !(StalkGetter & 0x20)) {
                     ESP_LOGI("STALK", "GORE");
                     StalkGetter=20;
                 }
-                else if ((lastButtons & 0x10) && !(buttons & 0x10)) {
+                else if ((lastButtons & 0x10) && !(StalkGetter & 0x10)) {
                     ESP_LOGI("STALK", "DOLE");
                     StalkGetter=10;
                 }
-                else if ((lastButtons & 0x40) && !(buttons & 0x40)) {
+                else if ((lastButtons & 0x40) && !(StalkGetter & 0x40)) {
                     ESP_LOGI("STALK", "OK/RESET");
-                    StalkGetter=30;
+                    StalkGetter=40;
                 }
-
-                lastButtons = buttons;
+                lastButtons = StalkGetter;
             }
         }
-
     }
 }
 

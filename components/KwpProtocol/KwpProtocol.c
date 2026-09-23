@@ -22,17 +22,42 @@
 #define NEGATIVERESP_SID 0x7Fu //
 #define READECUID_SID 0x1Au //VRV ALI SAMO VRV je biranje rezima -NORMAL
 #define RESPONSPENDING_SID 0x78 // requestCorrectlyReceived – ResponsePending (ECU radi u pozadini i traži dodatno vreme). 
+#define READSTATUSOFDIAGNOSTIC_SID 0x17
+//Znaci prvo ide za parametre 
 
+/*
+
+--startsession
+--startroutine
+--readdata_SID - to je ono readdatabylocalidentifier... 
+
+
+*/
+
+
+/*za dijagnostiku prvo ide 
+
+--startsesion sigurno
+--start routine mozda
+--ReadStatusOfDiagnosticTroubleCodes sigurno
+
+
+*/
 #define ecuid 0x01u
 #define correct 1u
 #define notcorrect 0u
 KwpStage KwpStages=KWP_START; //handshake-session....
 KwpStatus KwpStatuses=KWP_IDLE;   //IDLE ,,error...
 volatile bool SetDataDid=false;
-
+volatile bool ChangeMode = false; 
 static SemaphoreHandle_t TpSendComplete = NULL;
 
 atomic_bool Kwp_Readed =  ATOMIC_VAR_INIT(false);
+
+atomic_bool Kwp_ReadedForDtc =  ATOMIC_VAR_INIT(false);
+
+
+volatile uint8_t numofDTCBytes=0;
 
 uint8_t currentSid;
 
@@ -42,13 +67,14 @@ static uint8_t        dataId = 1u;
 static uint8_t        ecuId = 1;
 static uint8_t        retry = 0;
 static uint8_t        active = 0;
+static uint8_t        DTCbuffer[32];
 
 //FUNKCIJE KOJE POZIVAM U CASE CU STAVITI KAO VOID 
 static void Kwp_StartSession(uint8_t );
 static void Kwp_ReadEcuId(uint8_t);
 static void Kwp_StartRoutine(uint8_t rid, uint16_t rEntOpt);
 static void Kwp_ReadData(uint8_t);
-
+static void Kwp_ReadDTC();
 
 
 /*ONE FUNCKIJE KOJE IMAJU POVRATNI TIP UINT8 ---KWP request data i kwp get data from ecu 
@@ -81,7 +107,6 @@ void KwpCyclic(void *pvParameters){
     vTaskDelay(pdMS_TO_TICKS(100));
 
     while(1){
-
         if(KwpStatuses==KWP_IDLE){
             timeout=0;
             switch(KwpStages){
@@ -115,6 +140,7 @@ void KwpCyclic(void *pvParameters){
                     /*Read ECU identification - a 0x9B je ECU Data Fingerprint */
                     Kwp_ReadEcuId(0x9Bu);
                 break;
+                //Izbacio bih ovo 
                 case KWP_READECUID:
                     Kwp_StartRoutine(0xB8u, 0x0000u);
                 break;
@@ -125,14 +151,17 @@ void KwpCyclic(void *pvParameters){
                 break;
                 /*Setujem dataID-neki kurac u DIDu*/    
                 case KWP_READDID:
-                                 
-                    Kwp_ReadData(dataId);
+                    if(ChangeMode==false){
+                        Kwp_ReadData(dataId);
+                    }
+                    else{
+                        ESP_LOGW("DIJAGNOSTIKA!","kwp");
+                        Kwp_ReadDTC();
+                    }             
                 break;
-                    
                 case KWP_CLOSE:
                 //vTaskDelete(taskHandle);
                 VwTp_Disconnect();
-                /*ZAVRSEN JE JEDAN KRUG PODATAKA*/
                 KwpStages=KWP_START;
                 break;
                 case KWP_READY:
@@ -142,7 +171,6 @@ void KwpCyclic(void *pvParameters){
                 break;
 
             }
-
             vTaskDelay(pdMS_TO_TICKS(10));
 
         }
@@ -252,17 +280,6 @@ uint8_t Kwp_GetDataFromEcu(uint8_t * const dataPtr){
 
     uint8_t retVal=0;
     uint8_t tmp;
-    /*if(KwpStages == KWP_READY){
-
-        vTaskSuspendAll(); // Critical section, interrupts enabled
-        for(tmp=0;tmp<sizeof(didBuffer);tmp++)
-        {
-            dataPtr[tmp] = didBuffer[tmp]; // copy data
-        }
-        retVal = 1;
-        xTaskResumeAll(); // End of critical section, interrupts enabled
-    
-    }*/
     if(atomic_load(&Kwp_Readed) == true){
 
         vTaskSuspendAll(); // Critical section, interrupts enabled
@@ -273,13 +290,32 @@ uint8_t Kwp_GetDataFromEcu(uint8_t * const dataPtr){
         retVal = 1;
         xTaskResumeAll(); // End of critical section, interrupts enabled
         atomic_store(&Kwp_Readed, false);
-
     }
-    
     
     return retVal;
 
 }
+
+uint8_t GetDTCData(uint8_t * const dataPtr){
+
+    uint8_t retVal=0;
+    uint8_t tmp;
+    if(atomic_load(&Kwp_ReadedForDtc) == true){
+
+        vTaskSuspendAll(); // Critical section, interrupts enabled
+        for(tmp=0;tmp<numofDTCBytes;tmp++)
+        {
+            dataPtr[tmp] = didBuffer[tmp]; // copy data
+        }
+        retVal = 1;
+        xTaskResumeAll(); // End of critical section, interrupts enabled
+        atomic_store(&Kwp_ReadedForDtc, false);
+    }
+    
+    return retVal;
+} 
+
+
 
 
 
@@ -321,6 +357,28 @@ void Kwp_Receive(uint8_t * dataPtr,uint16_t len)
                     // Negative response
                     KwpStatuses = KWP_ERROR;
                 }
+            }
+            //Posebna kontrola kada stigne DTC possitive response kako bih odvojeno punio bafer bez menjanja postojeceg dobrog koda
+            else if(READSTATUSOFDIAGNOSTIC_SID + 0x40 == dataPtr[2]){
+
+                xSemaphoreGive(TpSendComplete);
+
+                // Positive response
+                if ((KWP_READDID == KwpStages))
+                {
+                    numofDTCBytes=dataPtr[3]*3;
+
+                    for (i=0;i<numofDTCBytes;i++)
+                    {
+                        DTCbuffer[i] = dataPtr[4+i];
+                    }
+                    atomic_store(&Kwp_ReadedForDtc, true);
+
+                    KwpStages = KWP_READY;
+                    
+                }
+                KwpStatuses = KWP_IDLE; 
+
             }
             else   
             {
@@ -382,7 +440,7 @@ static void Kwp_StartSession(uint8_t sessionId)
     if (xSemaphoreTake(TpSendComplete, pdMS_TO_TICKS(1000)) == pdTRUE) {
     }
 }
-
+//Vraca mi podatke o ECU-u to imaju oni bolji displeji kao o ECU-u...
 static void Kwp_ReadEcuId(uint8_t idOption)
 {
     //ESP_LOGE("ULAZ U READECUID","POZVALO JE FUNKCCIJU!!");
@@ -406,6 +464,24 @@ static void Kwp_ReadEcuId(uint8_t idOption)
     }
 }
 
+static void Kwp_ReadDTC(){
+    uint8_t msg[6];
+    msg[0] = 0x00; // Format byte
+    msg[1] = 0x04; // Length
+    msg[2] = READSTATUSOFDIAGNOSTIC_SID; // SID
+    msg[3] = 0x00; // Postoje i 01 da sve greske ispise koje on moze da registruje a nije registrovao , 02 isto kao 00 drugi format  i 03 isto kao 01 drugi format
+    msg[4] = 0xFF; // low byte (sve dtc grupe can-a -comfort i ostalo)
+    msg[5] = 0x00; // high byte(sve dtc grupe)
+    if (KWP_OK == Kwp_SendTp(msg))
+    {
+        KwpStatuses = KWP_PROCESSING;
+        KwpStages = KWP_READDID;
+    }
+    if (xSemaphoreTake(TpSendComplete, pdMS_TO_TICKS(1000)) == pdTRUE) {
+    }
+
+
+}
 static void Kwp_StartRoutine(uint8_t rid, uint16_t rEntOpt)
 {
     uint8_t msg[6];

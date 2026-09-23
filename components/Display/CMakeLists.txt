@@ -7,4 +7,5 @@ idf_component_register(
         arduino 
         TFT_eSPI 
         AnimatedGIF
+        KwpProtocol
 )

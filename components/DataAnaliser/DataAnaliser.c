@@ -1,5 +1,6 @@
 #include"DataAnaliser.h"
 #include"KwpProtocol.h"
+#include "PhysicalCan.h"
 #include "esp_log.h"
 #include <stdatomic.h>
 
@@ -10,8 +11,11 @@ static DataState state=DATA_IDLE;
 static TaskHandle_t taskHandle;
 static Diag_CallbackType *callback;
 uint8_t didbuffer[4u*3u];
+uint8_t DTCbuffer[32];
+
 uint8_t buttons=0;
 atomic_bool DataReaded = ATOMIC_VAR_INIT(false);
+atomic_bool DTCReaded = ATOMIC_VAR_INIT(false);
 
 typedef struct
 {
@@ -28,7 +32,7 @@ typedef struct
 } Block;
 
 
-uint8_t strana=0;
+int8_t strana=0;
 uint8_t TacanId=0;
 static uint32_t zadnjeVremePrijema = 0;
 static uint8_t counter;
@@ -161,8 +165,27 @@ Block Strane[][2] =
                 // PreGlow plug je 1 CASE 55 voltage je 2 CASE 6 TACAN 
             }
         }
-    }
+    },
 
+    //SEDMA STRANA SAMO ZA BRZINU
+    {
+        {
+            .id = 6,
+            .blocks = {
+                0,5,5,5
+                // 0 je brzina km/h CASE 7 ,a 2 je accel pedal pos CASE 33
+            }
+        },
+
+        {
+            .id = 11,
+            .blocks = {
+                5,5,5,5
+                // 0 je rpm CASE 1, 1 je boost pressure actual CASE 18,
+                // 2 je specified CASE 18, a duty cycle je 3 CASE 23           SVE FORMULE OK
+            }
+        }
+    }
 };
 
 /*PRVO SE SETUJE PA SE ONDA PREBACI U STANJE DA MOZE 
@@ -197,6 +220,27 @@ void IdSetter(){
 uint8_t IdGetter(){
     return TacanId;
 }
+
+
+uint8_t GetDTC_Data(uint8_t *dataPtr){
+    uint8_t retVal = DIAG_ERR;
+    if(atomic_load(&DTCReaded) == true){
+        vTaskSuspendAll();
+
+        for(int i=0;i<numofDTCBytes;i++){
+            dataPtr[i]=DTCbuffer[i];
+        }
+        retVal=  DIAG_OK;
+        atomic_store(&DTCReaded,false);
+
+        xTaskResumeAll(); 
+
+    }
+    return retVal;
+
+}
+
+
 
 
 uint8_t EngineDiag_GetChData(uint8_t * dataPtr,uint8_t* TrenutnaStrana)
@@ -257,24 +301,30 @@ void DataCyclic(void *pvParameters){
     vTaskDelay(pdMS_TO_TICKS(100));
 
     while(1){
+            
+        buttons=GetStalkButton();        
+        if(buttons==0x20){
+            strana++;
+        }
+        else if(buttons==0x10){
+            strana--;
+        }
+        if(strana>=7){
+            strana=0;
+        }
+        else if(strana <= -1){
+            strana =6;
+        }
         switch(state){
+            
             case DATA_IDLE:
             if(SetDataDid==true)
                 state=DATA_REQUEST;
-            
-            
-            //buttons=GetStalkButton();        
-            if(buttons!=0x00){
-                strana++;
-                if(strana>=6)
-                strana=0;
-
-            }
 
             break;
             case DATA_REQUEST:
                 //Prosledjujem mu koji DID  HOCU ili ti sta hocu da mi prikaze
-                
+                //Mogu iskoristiti ovu kwprequest za dtc jer mi nije bitan ovaj paramater on se koristi za citanje podataka
                 if(KwpRequest(Strane[strana][TacanId].id)==correct){
                 state=DATA_READING;
                 }
@@ -288,6 +338,10 @@ void DataCyclic(void *pvParameters){
 
                         if(Kwp_GetDataFromEcu(didbuffer)==correct){
                             atomic_store(&DataReaded, true);
+                            state=DATA_IDLE;
+                        }
+                        else if(GetDTCData(DTCbuffer)==correct){
+                            atomic_store(&DTCReaded, true);
                             state=DATA_IDLE;
                         }
                     
@@ -308,3 +362,4 @@ uint8_t DataInit(){
     xTaskCreatePinnedToCore(DataCyclic, "Data", 2048u, NULL, 3, &taskHandle,1);
     return 1;
 }
+

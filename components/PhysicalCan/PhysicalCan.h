@@ -4,7 +4,7 @@
 #include <stdint.h>
 
 #define STALKBUTTONRXID 0X35F
-
+#define OPENEDDOOR 0x470
 #define ENGINERXID2 0x300
 #define ENGINERXID 0x201
 

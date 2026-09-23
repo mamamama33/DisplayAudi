@@ -43,6 +43,9 @@ void Kwp_TxConfirmation(uint8_t);
 void Kwp_Receive(uint8_t *,uint16_t );
 uint8_t KwpRequest(uint8_t); //SETER DID-a
 uint8_t Kwp_GetDataFromEcu(uint8_t*);//GETER
+uint8_t GetDTCData(uint8_t * const dataPtr);
+
 volatile extern bool SetDataDid;
-extern volatile bool ReadyToGetData;
+volatile extern bool ChangeMode;
+volatile extern uint8_t numofDTCBytes;
 #endif // KWP_PROTOCOL_H
