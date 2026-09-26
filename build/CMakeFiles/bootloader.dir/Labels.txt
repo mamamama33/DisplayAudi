@@ -1,13 +1,13 @@
 # Target labels
  bootloader
 # Source files and their labels
-/home/uros/DisplayAudi/build/CMakeFiles/bootloader
-/home/uros/DisplayAudi/build/CMakeFiles/bootloader.rule
-/home/uros/DisplayAudi/build/CMakeFiles/bootloader-complete.rule
-/home/uros/DisplayAudi/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
-/home/uros/DisplayAudi/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
-/home/uros/DisplayAudi/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
-/home/uros/DisplayAudi/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
-/home/uros/DisplayAudi/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
-/home/uros/DisplayAudi/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
-/home/uros/DisplayAudi/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/CMakeFiles/bootloader
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/CMakeFiles/bootloader.rule
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/CMakeFiles/bootloader-complete.rule
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

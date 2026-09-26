@@ -22,7 +22,7 @@
 #define NEGATIVERESP_SID 0x7Fu //
 #define READECUID_SID 0x1Au //VRV ALI SAMO VRV je biranje rezima -NORMAL
 #define RESPONSPENDING_SID 0x78 // requestCorrectlyReceived – ResponsePending (ECU radi u pozadini i traži dodatno vreme). 
-#define READSTATUSOFDIAGNOSTIC_SID 0x17
+#define READSTATUSOFDIAGNOSTIC_SID 0x18
 //Znaci prvo ide za parametre 
 
 /*
@@ -155,7 +155,6 @@ void KwpCyclic(void *pvParameters){
                         Kwp_ReadData(dataId);
                     }
                     else{
-                        ESP_LOGW("DIJAGNOSTIKA!","kwp");
                         Kwp_ReadDTC();
                     }             
                 break;
@@ -305,7 +304,7 @@ uint8_t GetDTCData(uint8_t * const dataPtr){
         vTaskSuspendAll(); // Critical section, interrupts enabled
         for(tmp=0;tmp<numofDTCBytes;tmp++)
         {
-            dataPtr[tmp] = didBuffer[tmp]; // copy data
+            dataPtr[tmp] = DTCbuffer[tmp]; // copy data
         }
         retVal = 1;
         xTaskResumeAll(); // End of critical section, interrupts enabled

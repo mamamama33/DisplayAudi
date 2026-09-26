@@ -47,7 +47,7 @@ typedef enum
     ENGINEDIAG_CH_MAX,
 }EngineDiag_ChannelIdType;
 
-uint8_t EngineDiag_GetChData(uint8_t *,uint8_t *);
+uint8_t EngineDiag_GetChData(uint8_t *,uint8_t *,uint8_t*);
 uint8_t GetDTC_Data(uint8_t *dataPtr);
 
 void DataCyclic(void *);

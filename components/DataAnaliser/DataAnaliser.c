@@ -33,7 +33,7 @@ typedef struct
 
 
 int8_t strana=0;
-uint8_t TacanId=0;
+volatile uint8_t TacanId=0;
 static uint32_t zadnjeVremePrijema = 0;
 static uint8_t counter;
 
@@ -83,7 +83,7 @@ Block Strane[][2] =
         }
     },
 
-
+    //
     // ================= TREĆA STRANA =================
     {
         {
@@ -208,14 +208,7 @@ uint8_t DidSetter(uint8_t Setdid)
     return retVal;
 }
 
-void IdSetter(){
 
-    TacanId++;
-    if(TacanId>=2)
-        TacanId=0;
-    atomic_store(&DataReaded, false);
-
-}
 
 uint8_t IdGetter(){
     return TacanId;
@@ -243,7 +236,7 @@ uint8_t GetDTC_Data(uint8_t *dataPtr){
 
 
 
-uint8_t EngineDiag_GetChData(uint8_t * dataPtr,uint8_t* TrenutnaStrana)
+uint8_t EngineDiag_GetChData(uint8_t * dataPtr,uint8_t* TrenutnaStrana,uint8_t* TrenutniID)
 {
     uint8_t retVal = DIAG_ERR;
     uint32_t sysTime = 0;
@@ -276,7 +269,7 @@ uint8_t EngineDiag_GetChData(uint8_t * dataPtr,uint8_t* TrenutnaStrana)
             }
         //Moguce zato sto se stranica ne menja brzo
         *TrenutnaStrana=strana;
-
+        *TrenutniID = TacanId;
         retVal=  DIAG_OK;
         xTaskResumeAll(); 
 
@@ -301,7 +294,7 @@ void DataCyclic(void *pvParameters){
     vTaskDelay(pdMS_TO_TICKS(100));
 
     while(1){
-            
+        //IdSetter();
         buttons=GetStalkButton();        
         if(buttons==0x20){
             strana++;
@@ -315,8 +308,8 @@ void DataCyclic(void *pvParameters){
         else if(strana <= -1){
             strana =6;
         }
+        
         switch(state){
-            
             case DATA_IDLE:
             if(SetDataDid==true)
                 state=DATA_REQUEST;
@@ -325,6 +318,10 @@ void DataCyclic(void *pvParameters){
             case DATA_REQUEST:
                 //Prosledjujem mu koji DID  HOCU ili ti sta hocu da mi prikaze
                 //Mogu iskoristiti ovu kwprequest za dtc jer mi nije bitan ovaj paramater on se koristi za citanje podataka
+              TacanId++;
+                if(TacanId>=2)
+                    TacanId=0;
+                atomic_store(&DataReaded, false);
                 if(KwpRequest(Strane[strana][TacanId].id)==correct){
                 state=DATA_READING;
                 }
@@ -344,6 +341,7 @@ void DataCyclic(void *pvParameters){
                             atomic_store(&DTCReaded, true);
                             state=DATA_IDLE;
                         }
+  
                     
             break;
 

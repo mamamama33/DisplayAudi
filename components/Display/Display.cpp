@@ -10,6 +10,7 @@
 #include "driver/touch_pad.h"
 #include "carbonbg.h"
 #include "icons.h"
+#include "vag_codes.h"
 extern "C" {
 #include "DataAnaliser.h"
 #include "PhysicalCan.h"
@@ -127,7 +128,7 @@ uint8_t data[12];
 uint8_t block[3];
 uint8_t Ispravnost; 
 uint8_t Trenutnastrana2 = 0;
-uint8_t TrenutniId = 0;
+uint8_t TrenutniID=3;
 uint16_t touch_val = 0;
 uint16_t button_val = 0;
 
@@ -347,6 +348,36 @@ void ReDrawMenu(){
 
 }
 
+const char* nadjiOpisGreske(uint16_t trazeniKod) {
+    int low = 0;
+    int high = VAG_DATABASE_SIZE - 1;
+
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+
+        // Čitanje hexCode vrednosti direktno iz PROGMEM-a (Flash memorije)
+        uint16_t trenutniKod = pgm_read_word(&(VAG_DIAG_DATABASE[mid].hexCode));
+
+        if (trenutniKod == trazeniKod) {
+            return VAG_DIAG_DATABASE[mid].description; // Pronađeno!
+        }
+
+        if (trenutniKod < trazeniKod) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+
+    return "Greška nije pronađena u bazi.";
+}
+
+// Pomoćna funkcija ako ti sa CAN bus-a stiže HEX kao string (npr. "4C67" ili "4c67")
+const char* nadjiOpisIzStringa(const char* hexString) {
+    // Pretvara string "4C67" u uint16_t broj (0x4C67)
+    uint16_t kod = (uint16_t) strtol(hexString, NULL, 16);
+    return nadjiOpisGreske(kod);
+}
 
 
 uint16_t MenuUpDown;
@@ -417,31 +448,60 @@ void MainMenu(){
                 //Trazim zahtev za dijagnostiku 
                 ChangeMode=true;
                 //pustim da izvrti da pokupi dobru vrednost numofdtcbytes
-                vTaskDelay(pdMS_TO_TICKS(3000));
+                vTaskDelay(pdMS_TO_TICKS(2000));
                 uint8_t highbyteDTC ;
                 uint8_t lowbyteDTC ;
                 uint8_t statusbyteDTC;
                 uint8_t DTCData [numofDTCBytes];
-                while(1){
-                    GetDTC_Data(DTCData);
-                    /*
+                char linijaIspisa[128];
+            
+                GetDTC_Data(DTCData);
 
-                    */
-                    uint8_t numberofDTC=numofDTCBytes/3;
-                    uint8_t DTC[numberofDTC][3];
-                    for(int i=0;i<numberofDTC;i++){
-                        highbyteDTC=DTC[numberofDTC][0];
-                        lowbyteDTC=DTC[numberofDTC][1];
-                        statusbyteDTC=DTC[numberofDTC][2];
-                        printf("%02X%02X", highbyteDTC,lowbyteDTC);
-                    }
+                   if(numofDTCBytes >1){
+
+                        uint8_t numberofDTC=numofDTCBytes/3;
+                        uint8_t DTC[numberofDTC][3];
+                        char dtcBuffer[10];
+                        int offset;
+                        DTCData[0]=0x4C;
+                        DTCData[1]=0X67;
+                        DTCData[2]=0X00;
+                        numberofDTC=1;
+                        for(offset=0;offset<numberofDTC;offset++){
+                            for(int k=0;k<3;k++){
+                                DTC[offset][k]=DTCData[(offset*3)+k];
+                            }
+                            highbyteDTC=DTC[offset][0];
+                            lowbyteDTC=DTC[offset][1];
+                            statusbyteDTC=DTC[offset][2];                       
+                            snprintf(dtcBuffer, sizeof(dtcBuffer),"%02X%02X", highbyteDTC, lowbyteDTC);
+                            //tft.drawString("Broje gresaka je:" +(char)numberofDTC,45, 120, 4);
+                            tft.setTextDatum(MC_DATUM);
+
+                            tft.setTextColor(TFT_WHITE, TFT_BLACK); 
+
+                            const char* opis = nadjiOpisIzStringa(dtcBuffer);
+
+                            // Sastavljanje kompletnog teksta za prikaz
+                            snprintf(linijaIspisa, sizeof(linijaIspisa), "Greska broj :%d pod oznakom %s je opisa :%s", offset + 1, dtcBuffer, opis);
+
+                            // Ispis sastavljenog stringa na ekran
+                            tft.drawString(linijaIspisa, 30, 80 + (50 * offset), 4);
+                            tft.setTextDatum(TL_DATUM);
+                        }
+                   }
+                   else{
+                    tft.drawString("Nema gresaka u memorije engine modula",20,80 , 4);
+
+                   }
+                   while(1){
                     touch_pad_read(TOUCH_PAD_NUM9, &MenuOk);
                     if(MenuOk<200){
                         break;
                     }
-                    vTaskDelay(pdMS_TO_TICKS(10));
-                }
-               break;
+                    vTaskDelay(pdMS_TO_TICKS(1000));
+                   }
+
             }
             else if (selectedItem == 1) {
                 tft.fillScreen(MENU_BG);
@@ -1324,7 +1384,7 @@ void drawMafDynamic() {
     int centerX = SCREEN_W / 2;
     
     //smartClear(centerX - r, 35, r*2, r*2);
-    ringMeter(mafValue, 0, 50, centerX - r, 35, r, "g/s", 3, 2);
+    ringMeter(mafValue, 0, 1200, centerX - r, 35, r, "mg/stroke", 3, 2);
     
     //smartClear(centerX - r, 235, r*2, r*2);
     ringMeter(voltageValue, 0, 16, centerX - r, 235, r, "V", 3, 2);
@@ -1682,6 +1742,7 @@ void updatePedal(int pedal) {
     //tft.drawRect(METER_X + 5, PEDAL_BAR_Y, PEDAL_BAR_W, PEDAL_BAR_H, TFT_DARKGREY);
 
 
+
 // =========================================================================
 // SWEEP
 // =========================================================================
@@ -1873,38 +1934,40 @@ void Display(uint8_t firstframe, uint8_t offset, float rez, uint8_t id=0) {
         else if (firstframe == 18 && offset == 2) updateBoostReq(rez);
       break;
       case 1:
+        //printf("id je %d",id);
         if (offset == 0 && id == 0) updateFuelTemp(rez);
         else if (offset == 1 && id == 1) updateCoolantTemp(rez);
         else if (offset == 2 && id == 1) updateAmbientTemp(rez);
         else if (offset == 3 && id == 0) updateCoolantTempEngine(rez);
         else if (offset == 2 && id == 0) updateIntakeAir(rez);
       break;
-
+        //Moram sam izracunati oil level case bio 102 njega nema 
+        //Mogu dodati torque request
       case 2:
-        if (offset == 0 && id == 1) updateOilTemp(rez);
+        if (offset == 0 && id == 0) updateOilTemp(rez);
         else if (offset == 1 && id == 0) updateOilLevel(rez);
-        else if (offset == 2 && id == 0) updateFuelCons(rez);
+        else if (offset == 2) updateFuelCons(rez);
         else if (offset == 1 && id == 1) updateEngineTorque(rez);
       break;
 
-      case 3:   // COOLING - samo dinamički deo
-            UpdateCoolingCoolantIn();
-            UpdateCoolingCoolantOut();
-            UpdateFanDuty();
-            UpdateCoolingRefrig();
-
-        if (offset == 0 && id == 1) { refrigerantPressure = rez; UpdateCoolingRefrig(); }
-        else if (offset == 1) { coolantTempGlobal = rez; UpdateCoolingCoolantOut(); }
+      case 3:   // COOLING - samo dinamički de
+        if (offset == 0 && id == 0) { refrigerantPressure = rez; UpdateCoolingRefrig(); }
+        else if (offset == 0 && id==1) { coolantTempGlobal = rez; UpdateCoolingCoolantOut(); }
         else if (offset == 2) { fanDuty = rez; UpdateFanDuty(); }
-        else if (offset == 0 && id == 0) { coolantTempGlobalIN = rez; UpdateCoolingCoolantIn(); }
+        else if (offset == 1 && id == 1) { coolantTempGlobalIN = rez; UpdateCoolingCoolantIn(); }
       break;
-
+        //Dodao bih torsionu vrednost jer mogu u tim blokovima mi je 
       case 4:   // INJECTION - sprite
-        drawInjectionPage();
-        if (offset < 4) {
-            injectionDuration[offset] = rez;
-            if (brojac == 4) drawInjectionPage();
-        }
+        if (offset==0)
+            injectionDuration[0] = rez;
+        else if (offset==1)
+            injectionDuration[1] = rez;
+        else if (offset==2)
+            injectionDuration[2] = rez;
+        else if (offset==3)
+            injectionDuration[3] = rez;
+        UpdateInjectionMeter();
+        
       break;
 
       case 5:   // MAF & VOLTAGE - samo dinamički deo
@@ -1954,23 +2017,7 @@ void fadeOut() {
     // 2. Sad je ekran potpuno crn - očisti TFT i nacrtaj Audi logo
     tft.fillScreen(COLOR_BG);
     
-    /*
-    // Audi 4 prstena u centru
-    int cx = SCREEN_W / 2;
-    int cy = SCREEN_H / 2 - 30;
-    int r = 22;
-    int offset = r * 1.3;
-    
-    tft.drawCircle(cx - offset * 3 / 2, cy, r, ACCENT_SKY);
-    tft.drawCircle(cx - offset / 2, cy, r, ACCENT_SKY);
-    tft.drawCircle(cx + offset / 2, cy, r, ACCENT_SKY);
-    tft.drawCircle(cx + offset * 3 / 2, cy, r, ACCENT_SKY);
-    
-    // "AUDI SPORT" tekst
-    tft.setTextColor(ACCENT_SKY);
-    tft.setTextDatum(MC_DATUM);
-    tft.drawString("A U D I   S P O R T", cx, cy + 70, 2);
-    */
+
    // Audi logo kao slika
     int logoX = (SCREEN_W - AUDI_LOGO_WIDTH) / 2;
     int logoY = (SCREEN_H - AUDI_LOGO_HEIGHT) / 2 - 30;
@@ -2066,7 +2113,7 @@ void DisCyclic(void *pvParameters) {
             changed = false;
           }
 //IZMENE
-          if (EngineDiag_GetChData(data, &Trenutnastrana2) == RETOK) {
+          if (EngineDiag_GetChData(data, &Trenutnastrana2,&TrenutniID) == RETOK) {
             for (offset = 0; offset < 4u; offset++) {
                         vTaskSuspendAll();
                         for (b = 0; b < 3u; b++) {
@@ -2077,7 +2124,7 @@ void DisCyclic(void *pvParameters) {
                         
                         if (Trenutnastrana2 >= 1 && Trenutnastrana2 <= 6) {
                             if (Rezultat != 0)
-                                Display(block[0], offset, Rezultat, TrenutniId);
+                                Display(block[0], offset, Rezultat, TrenutniID);
                         }
                         else {
                             Display(block[0], offset, Rezultat);
