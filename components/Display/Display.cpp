@@ -1,4 +1,5 @@
 #include "Display.h"
+#include "esp_system.h"
 #include "esp_log.h"
 #include <SPI.h>
 #include <TFT_eSPI.h>
@@ -331,6 +332,8 @@ void drawMenuLayout() {
 // Vraća: izabranu opciju (0 = Diagnostics, 1 = About, 2 = Exit)
 // =========================================================================
 
+uint16_t MenuUpDown;
+uint16_t MenuOk;
 
 void ReDrawMenu(){
     int selectedItem = 0;    // 0 = Diagnostics, 1 = About, 2 = Exit
@@ -338,7 +341,7 @@ void ReDrawMenu(){
     
     const char* itemNames[3] = {
         "DIAGNOSTICS",
-        "ABOUT CAR",
+        "RESTART",
         "EXIT"
     };
     // Nacrtaj sve opcije (inicijalno — prva selektovana)
@@ -378,10 +381,122 @@ const char* nadjiOpisIzStringa(const char* hexString) {
     uint16_t kod = (uint16_t) strtol(hexString, NULL, 16);
     return nadjiOpisGreske(kod);
 }
+void ispisiKratakOpis(const char* tekst, int x, int y) {
+    char red[42];
+    int duzina = strlen(tekst);
+    int pos = 0;
+    int redNum = 0;
+
+    while (pos < duzina) {
+        memset(red, 0, sizeof(red)); // OČISTI BAFER da ne ostanu stara slova!
+        
+        strncpy(red, tekst + pos, 42);
+        tft.drawString(red, x, y + (redNum * 18), 2);
+        
+        pos += 30;
+        redNum++;
+    }
+}
+void DoRestart(){
+
+                tft.fillScreen(MENU_BG);
+                // Naslov
+                tft.setTextColor(MENU_TITLE);
+                tft.setTextDatum(TC_DATUM);
+                tft.drawString("Da li hoces restartovanje...", SCREEN_W / 2, 170, 4);
+                vTaskDelay(pdMS_TO_TICKS(3000));
+                while(1){
+                    touch_pad_read(TOUCH_PAD_NUM9, &MenuOk);
+                    if(MenuOk<200){
+                        esp_restart();
+                        break;
+                    }
+                    vTaskDelay(pdMS_TO_TICKS(1000));
+                }
+
+}
+
+void DoDiagnostics(){
+
+     tft.fillScreen(MENU_BG);
+                // Naslov
+                tft.setTextColor(MENU_TITLE);
+                tft.setTextDatum(TC_DATUM);
+                tft.drawString("OTVORIO DIJAGNOSTIKU", SCREEN_W / 2, 30, 4);
+                //Trazim zahtev za dijagnostiku 
+                ChangeMode=true;
+                //pustim da izvrti da pokupi dobru vrednost numofdtcbytes
+                vTaskDelay(pdMS_TO_TICKS(2000));
+                uint8_t highbyteDTC ;
+                uint8_t lowbyteDTC ;
+                uint8_t statusbyteDTC;
+                uint8_t DTCData [numofDTCBytes];
+                char linijaIspisa1[65];
+                char linijaIspisa2[65];
+                char linijaIspisa3[65];
+
+                GetDTC_Data(DTCData);
+                   numofDTCBytes=3;
+                   if(numofDTCBytes >1){
+
+                        uint8_t numberofDTC=numofDTCBytes/3;
+                        uint8_t DTC[numberofDTC][3];
+                        char dtcBuffer[10];
+                        int offset;
+              
+                        numberofDTC=5;
+                        for(offset=0;offset<numberofDTC;offset++){
+                            for(int k=0;k<3;k++){
+                                DTC[offset][k]=DTCData[(offset*3)+k];
+                            }
+                            highbyteDTC=DTC[offset][0];
+                            lowbyteDTC=DTC[offset][1];
+                            statusbyteDTC=DTC[offset][2]; 
+                            highbyteDTC=0x4C;
+                            lowbyteDTC=0X67;
+                            statusbyteDTC=0X00;                     
+                            snprintf(dtcBuffer, sizeof(dtcBuffer),"%02X%02X", highbyteDTC, lowbyteDTC);
+                            //tft.drawString("Broje gresaka je:" +(char)numberofDTC,45, 120, 4);
+                            tft.setTextDatum(TL_DATUM);
+
+                            tft.setTextColor(TFT_WHITE, TFT_BLACK); 
+
+                            const char* opis = nadjiOpisIzStringa(dtcBuffer);
+
+                                                // Svaka nova greška pomera ceo blok nadole za 100 piksela
+                            uint16_t baznoY = 100 + (offset * 100); 
+
+                            // 1. Linija: "Greska broj :1 pod oznakom P0300:"
+                            tft.setTextColor(TFT_YELLOW, TFT_BLACK);
+                            snprintf(linijaIspisa1, sizeof(linijaIspisa1), "Greska broj: %d", offset + 1);
+                            tft.drawString(linijaIspisa1, 10, baznoY, 4);
+
+                            // 2. Linija: "Opis greske:"
+                            snprintf(linijaIspisa2, sizeof(linijaIspisa2), "Opis greske:");
+                            tft.drawString(linijaIspisa2, 10, baznoY + 25, 2); // Smanjen font i razmak
+                            // 3. Linija: Ispis opisa u 2 ili 3 reda (zelena boja)
+                            tft.setTextColor(TFT_GREEN, TFT_BLACK);
+                            ispisiKratakOpis(opis, 10, baznoY + 40);
+                                                            
+                        }
+                   }
+                    else {
+
+                        tft.setTextDatum(TL_DATUM);
+                        tft.setTextColor(TFT_WHITE, TFT_BLACK); 
+                        tft.drawString("Nema gresaka u memoriji", 20, 80, 4);
+                        tft.drawString("engine modula", 20, 110, 4); // Y je pomeren za +30px nadole
+                    }
+                   while(1){
+                    touch_pad_read(TOUCH_PAD_NUM9, &MenuOk);
+                    if(MenuOk<200){
+                        break;
+                    }
+                    vTaskDelay(pdMS_TO_TICKS(1000));
+                   }
+}
 
 
-uint16_t MenuUpDown;
-uint16_t MenuOk;
 void MainMenu(){
     // Stanje menija
     int selectedItem = 0;    // 0 = Diagnostics, 1 = About, 2 = Exit
@@ -389,7 +504,7 @@ void MainMenu(){
     
     const char* itemNames[3] = {
         "DIAGNOSTICS",
-        "ABOUT CAR",
+        "RESTART",
         "EXIT"
     };
     
@@ -440,80 +555,12 @@ void MainMenu(){
             vTaskDelay(pdMS_TO_TICKS(200));
             
             if (selectedItem == 0) {
-                tft.fillScreen(MENU_BG);
-                // Naslov
-                tft.setTextColor(MENU_TITLE);
-                tft.setTextDatum(TC_DATUM);
-                tft.drawString("OTVORIO DIJAGNOSTIKU", SCREEN_W / 2, 30, 4);
-                //Trazim zahtev za dijagnostiku 
-                ChangeMode=true;
-                //pustim da izvrti da pokupi dobru vrednost numofdtcbytes
-                vTaskDelay(pdMS_TO_TICKS(2000));
-                uint8_t highbyteDTC ;
-                uint8_t lowbyteDTC ;
-                uint8_t statusbyteDTC;
-                uint8_t DTCData [numofDTCBytes];
-                char linijaIspisa[128];
-            
-                GetDTC_Data(DTCData);
-
-                   if(numofDTCBytes >1){
-
-                        uint8_t numberofDTC=numofDTCBytes/3;
-                        uint8_t DTC[numberofDTC][3];
-                        char dtcBuffer[10];
-                        int offset;
-                        DTCData[0]=0x4C;
-                        DTCData[1]=0X67;
-                        DTCData[2]=0X00;
-                        numberofDTC=1;
-                        for(offset=0;offset<numberofDTC;offset++){
-                            for(int k=0;k<3;k++){
-                                DTC[offset][k]=DTCData[(offset*3)+k];
-                            }
-                            highbyteDTC=DTC[offset][0];
-                            lowbyteDTC=DTC[offset][1];
-                            statusbyteDTC=DTC[offset][2];                       
-                            snprintf(dtcBuffer, sizeof(dtcBuffer),"%02X%02X", highbyteDTC, lowbyteDTC);
-                            //tft.drawString("Broje gresaka je:" +(char)numberofDTC,45, 120, 4);
-                            tft.setTextDatum(MC_DATUM);
-
-                            tft.setTextColor(TFT_WHITE, TFT_BLACK); 
-
-                            const char* opis = nadjiOpisIzStringa(dtcBuffer);
-
-                            // Sastavljanje kompletnog teksta za prikaz
-                            snprintf(linijaIspisa, sizeof(linijaIspisa), "Greska broj :%d pod oznakom %s je opisa :%s", offset + 1, dtcBuffer, opis);
-
-                            // Ispis sastavljenog stringa na ekran
-                            tft.drawString(linijaIspisa, 30, 80 + (50 * offset), 4);
-                            tft.setTextDatum(TL_DATUM);
-                        }
-                   }
-                   else{
-                    tft.drawString("Nema gresaka u memorije engine modula",20,80 , 4);
-
-                   }
-                   while(1){
-                    touch_pad_read(TOUCH_PAD_NUM9, &MenuOk);
-                    if(MenuOk<200){
-                        break;
-                    }
-                    vTaskDelay(pdMS_TO_TICKS(1000));
-                   }
-
+                DoDiagnostics();
+                break;
             }
             else if (selectedItem == 1) {
-                tft.fillScreen(MENU_BG);
-                // Naslov
-                tft.setTextColor(MENU_TITLE);
-                tft.setTextDatum(TC_DATUM);
-                tft.drawString("O AUTU", SCREEN_W / 2, 170, 4);
-                vTaskDelay(pdMS_TO_TICKS(2000));
-                touch_pad_read(TOUCH_PAD_NUM9, &MenuOk);
-                if(MenuOk<200){
-                    break;
-                }
+                DoRestart();
+                break;
             }
             else if (selectedItem == 2) {
                 // EXIT — izađi iz menija

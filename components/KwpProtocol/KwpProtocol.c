@@ -105,7 +105,7 @@ void KwpCyclic(void *pvParameters){
     
     static uint8_t timeout = 0;
     vTaskDelay(pdMS_TO_TICKS(100));
-
+    int counterforDtc=0;
     while(1){
         if(KwpStatuses==KWP_IDLE){
             timeout=0;
@@ -155,7 +155,13 @@ void KwpCyclic(void *pvParameters){
                         Kwp_ReadData(dataId);
                     }
                     else{
+                        counterforDtc++;
                         Kwp_ReadDTC();
+                        if(counterforDtc>5){
+                            counterforDtc=0;
+                            ChangeMode=false;
+                        }
+                        printf("Diag \n");
                     }             
                 break;
                 case KWP_CLOSE:
