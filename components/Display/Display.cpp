@@ -1,3 +1,4 @@
+#include "esp_task_wdt.h" // Obavezno dodaj ovaj header ako već nisi
 #include "Display.h"
 #include "esp_system.h"
 #include "esp_log.h"
@@ -30,7 +31,7 @@ extern "C" {
 #define ACCENT_DARK    0x10A3
 #define TRANSPARENT_COLOR  0x0000
 
-#define COLOR_BG          0x0821
+#define COLOR_BG          0x0000
 #define COLOR_TEXT_LIGHT  0xFFFF
 #define COLOR_TEXT_DIM    0x7BEF
 #define COLOR_BAR_BG      0x18E3
@@ -48,19 +49,19 @@ extern "C" {
 // HARDVERSKE DEFINICIJE
 // =========================================================================
 #define BL_PIN            GPIO_NUM_15
-#define LDR_PIN           GPIO_NUM_14
+#define LDR_PIN           GPIO_NUM_39
 #define LDR_ADC_CHANNEL   ADC1_CHANNEL_4 
 
 #define WARNINGLIGHT      GPIO_NUM_36
-#define WARNINGLIGHT2     GPIO_NUM_39
+//#define WARNINGLIGHT2     GPIO_NUM_39
 #define WARNINGLIGHT3     GPIO_NUM_34
 #define WARNINGLIGHT4     GPIO_NUM_35
 #define PWM_FREQ          2000
 #define MIN_BRIGHT        50
 #define MAX_BRIGHT        255
 
-#define LDR_ADC_MIN       1700
-#define LDR_ADC_MAX       4600
+#define LDR_ADC_MIN       700
+#define LDR_ADC_MAX       3100
 
 #define SCREEN_W          320
 #define SCREEN_H          480
@@ -100,7 +101,7 @@ AnimatedGIF gif;
 #define INJ_METER_R      60
 #define INJ_METER_SIZE   (INJ_METER_R * 2 + 10)
 
-const int GIF_W = 400, GIF_H = 300;
+const int GIF_W = 400 , GIF_H = 300;
 int16_t gif_xpos = 0, gif_ypos = 0;
 
 const int MAX_RPM = 4500, SPORT_RPM_LIMIT = 2800, REDLINE_RPM_LIMIT = 3500;
@@ -687,11 +688,13 @@ int OpenDoorlogoy = 140;
 
 void updateAutoBacklight() {
     int ldrRaw = analogRead(LDR_PIN); 
+    printf(" LDR Raw: %d\n", ldrRaw);       
     ldrRaw = constrain(ldrRaw, LDR_ADC_MIN, LDR_ADC_MAX);
 
     int targetBrightness = map(ldrRaw, LDR_ADC_MIN, LDR_ADC_MAX, MIN_BRIGHT, MAX_BRIGHT);
-    filteredBrightness += (targetBrightness - filteredBrightness) * 0.05f;
+    filteredBrightness += (targetBrightness - filteredBrightness) * 0.10f;
 
+    printf(" Filtered Brightness: %.2f\n",filteredBrightness);
     ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_0, (uint32_t)filteredBrightness);
     ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_0);
 
@@ -712,29 +715,32 @@ void updateAutoBacklight() {
         SetStrana(brojac);
     }
     int warningLight=analogRead(WARNINGLIGHT); // nivo ulja zuta za ulje 
-    int warningLight2=analogRead(WARNINGLIGHT2); //temperatura/pritisak ulja
+    //int warningLight2=analogRead(WARNINGLIGHT2); //temperatura/pritisak ulja
     int warningLight3=analogRead(WARNINGLIGHT3); //temperatura rashladne tecnosti  
     int warningLight4=analogRead(WARNINGLIGHT4); //rezerva
     //obicno je vrednost  2300
-    
+    /*
     if(warningLight>3000){
         tft.fillScreen(COLOR_BG);
         tft.setSwapBytes(true);   // ← PRE
-        //tft.pushImage(warninglogox, warninglogoy, LOWOIL2_WIDTH, LOWOIL2_HEIGHT, (uint16_t*)lowoil2, false);
-        tft.pushImage(OpenDoorlogox, OpenDoorlogoy, OTVORENASUVOZACEVA2_WIDTH, OTVORENASUVOZACEVA2_HEIGHT, (uint16_t*)OtvorenaSuvozaceva2, false);
+        tft.pushImage(warninglogox, warninglogoy, LOWOIL2_WIDTH, LOWOIL2_HEIGHT, (uint16_t*)lowoil2, false);
+       // tft.pushImage(OpenDoorlogox, OpenDoorlogoy, HAUBAIZLAZ_WIDTH, HAUBAIZLAZ_HEIGHT, (uint16_t*)HaubaIzlaz, false);
         tft.setSwapBytes(false);  // ← POSLE        
-        vTaskDelay(pdMS_TO_TICKS(4000));
+        vTaskDelay(pdMS_TO_TICKS(6000));
         changed=true;
     }
-    /*
+    
     if(warningLight2>3000){
         tft.fillScreen(COLOR_BG);
         tft.setSwapBytes(true);   // ← PRE
         tft.pushImage(warninglogox, warninglogoy, LOWOIL2_WIDTH, LOWOIL2_HEIGHT, (uint16_t*)pressureoil2, false);
+        //tft.pushImage(OpenDoorlogox, OpenDoorlogoy, GEPEKIZLAZ_WIDTH, GEPEKIZLAZ_HEIGHT, (uint16_t*)GepekIzlaz, false);
+        
         tft.setSwapBytes(false);  // ← POSLE        
         vTaskDelay(pdMS_TO_TICKS(4000));
         changed=true;
     }
+    
     if(warningLight3>3000){
         tft.fillScreen(COLOR_BG);
         tft.setSwapBytes(true);   // ← PRE
@@ -792,17 +798,18 @@ void playStartupGIF() {
     gif_ypos = (SCREEN_H - GIF_H) / 2; 
     ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_0, 255);
     ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_0);
+    esp_task_wdt_delete(NULL);
     while(true){
        if (gif.open((uint8_t *)audi_gif, sizeof(audi_gif), GIFDraw)) {
             tft.startWrite();
-            while (gif.playFrame(false,NULL)) {
-              yield();
+            while (gif.playFrame(false, NULL)) {             // yield();
             }
             gif.close();
             tft.endWrite();
             break;
         }
     }
+    esp_task_wdt_add(NULL);
 }
 
 // =========================================================================
@@ -2204,8 +2211,8 @@ void DisplayInit() {
         sprInj[i].setColorDepth(16);
     }
     
-   // gif.begin(GIF_PALETTE_RGB565_BE);
-    //playStartupGIF();
+    gif.begin(GIF_PALETTE_RGB565_BE);
+    playStartupGIF();
 
     drawDashboardLayout();
     runGaugeSweep(0);

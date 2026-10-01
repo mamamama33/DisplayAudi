@@ -1,4 +1,4 @@
-# Install script for directory: /home/student/esp/esp-idf-v4.4
+# Install script for directory: /home/uros/esp_v4.4/esp-idf-v4.4
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -32,32 +32,38 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "TRUE")
 endif()
 
-# Set default install directory permissions.
+# Set path to fallback-tool for dependency-resolution.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/home/student/.espressif/tools/xtensa-esp32-elf/esp-2021r2-patch5-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-objdump")
+  set(CMAKE_OBJDUMP "/home/uros/.espressif/tools/xtensa-esp32-elf/esp-2021r2-patch5-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-objdump")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/esp-idf/newlib/cmake_install.cmake")
-  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/esp-idf/hal/cmake_install.cmake")
-  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/esp-idf/soc/cmake_install.cmake")
-  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/esp-idf/micro-ecc/cmake_install.cmake")
-  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/esp-idf/spi_flash/cmake_install.cmake")
-  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/esp-idf/bootloader_support/cmake_install.cmake")
-  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/esp-idf/efuse/cmake_install.cmake")
-  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/esp-idf/esp_system/cmake_install.cmake")
-  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/esp-idf/esp_hw_support/cmake_install.cmake")
-  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/esp-idf/xtensa/cmake_install.cmake")
-  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/esp-idf/esp32/cmake_install.cmake")
-  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/esp-idf/esp_common/cmake_install.cmake")
-  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/esp-idf/esp_rom/cmake_install.cmake")
-  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/esp-idf/log/cmake_install.cmake")
-  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/esp-idf/esptool_py/cmake_install.cmake")
-  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/esp-idf/partition_table/cmake_install.cmake")
-  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/esp-idf/bootloader/cmake_install.cmake")
-  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/esp-idf/freertos/cmake_install.cmake")
-  include("/home/student/Desktop/ProjekatDisplej/DisplayAudi/build/bootloader/esp-idf/main/cmake_install.cmake")
+  include("/home/uros/DisplayAudi/build/bootloader/esp-idf/newlib/cmake_install.cmake")
+  include("/home/uros/DisplayAudi/build/bootloader/esp-idf/hal/cmake_install.cmake")
+  include("/home/uros/DisplayAudi/build/bootloader/esp-idf/soc/cmake_install.cmake")
+  include("/home/uros/DisplayAudi/build/bootloader/esp-idf/micro-ecc/cmake_install.cmake")
+  include("/home/uros/DisplayAudi/build/bootloader/esp-idf/spi_flash/cmake_install.cmake")
+  include("/home/uros/DisplayAudi/build/bootloader/esp-idf/bootloader_support/cmake_install.cmake")
+  include("/home/uros/DisplayAudi/build/bootloader/esp-idf/efuse/cmake_install.cmake")
+  include("/home/uros/DisplayAudi/build/bootloader/esp-idf/esp_system/cmake_install.cmake")
+  include("/home/uros/DisplayAudi/build/bootloader/esp-idf/esp_hw_support/cmake_install.cmake")
+  include("/home/uros/DisplayAudi/build/bootloader/esp-idf/xtensa/cmake_install.cmake")
+  include("/home/uros/DisplayAudi/build/bootloader/esp-idf/esp32/cmake_install.cmake")
+  include("/home/uros/DisplayAudi/build/bootloader/esp-idf/esp_common/cmake_install.cmake")
+  include("/home/uros/DisplayAudi/build/bootloader/esp-idf/esp_rom/cmake_install.cmake")
+  include("/home/uros/DisplayAudi/build/bootloader/esp-idf/log/cmake_install.cmake")
+  include("/home/uros/DisplayAudi/build/bootloader/esp-idf/esptool_py/cmake_install.cmake")
+  include("/home/uros/DisplayAudi/build/bootloader/esp-idf/partition_table/cmake_install.cmake")
+  include("/home/uros/DisplayAudi/build/bootloader/esp-idf/bootloader/cmake_install.cmake")
+  include("/home/uros/DisplayAudi/build/bootloader/esp-idf/freertos/cmake_install.cmake")
+  include("/home/uros/DisplayAudi/build/bootloader/esp-idf/main/cmake_install.cmake")
 
 endif()
 
+string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
+       "${CMAKE_INSTALL_MANIFEST_FILES}")
+if(CMAKE_INSTALL_LOCAL_ONLY)
+  file(WRITE "/home/uros/DisplayAudi/build/bootloader/esp-idf/install_local_manifest.txt"
+     "${CMAKE_INSTALL_MANIFEST_CONTENT}")
+endif()
